@@ -224,10 +224,10 @@ block body
 					|
 					|static this()
 					|{
-					|	auto router = new UrlRouter;
-					|	router.get("/users/:user", &userInfo);
-					|	router.post("/adduser", &addUser);
-					|	router.get("*", serveStaticFiles("./public/"));
+					|	auto router = (new UrlRouter)
+					|		.get("/users/:user", &userInfo)
+					|		.post("/adduser", &addUser)
+					|		.get("*", serveStaticFiles("./public/"));
 					|
 					|	listenHttp(new HttpServerSettings, router);
 					|}
