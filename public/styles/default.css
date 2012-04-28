@@ -105,3 +105,9 @@ nav#global-nav li {
 
 a:link, a:visited { color: #fff; }
 a:hover { color: #ef8a00; }
+
+dl.feat dt {
+	font-style: italic;
+	color: white;
+	margin: 6pt 0 0 0;
+}

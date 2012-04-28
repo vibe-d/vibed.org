@@ -160,7 +160,7 @@ block body
 			h3 Server configuration
 
 			p The HTTP server supports a number of configuration options to customize its behavior. By default, the server will listen on all local network adapters on port 80 and will perform complete request parsing. The following list gives an overview of the most common settings:
-				dl
+				dl.feat
 					dt port
 					dd The port on which the HTTP server shall listen
 					

@@ -147,7 +147,7 @@ block body
 				a.extern(href="http://dlang.org/comparison.html", target="_blank") D feature page
 				| for an overview.
 			
-			dl
+			dl.feat
 				dt Templates, mixins and compile-time functions
 				dd
 					p The meta-programming system in D is extremely powerful. Templates (comparable to C++ templates) support variadic parameters, as well as string and alias parameters - a feature which enables very comfortable compile-time interfaces.
