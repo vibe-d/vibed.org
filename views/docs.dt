@@ -90,7 +90,7 @@ block body
 				|
 				|void index(HttpServerRequest req, HttpServerResponse res)
 				|{
-				|	//res.render!("index.dt", req);
+				|	//res.render!("index.dt"); // requires dmd >= 2.060
 				|	res.renderCompat!("index.dt",
 				|		HttpServerRequest, "req")
 				|		(Variant(req));
