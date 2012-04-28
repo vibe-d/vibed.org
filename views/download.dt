@@ -1,0 +1,47 @@
+extends layout
+
+block title
+	- string title = "Download";
+
+block navigation
+	ul
+		li
+			a(href="##release-version") Current release
+		li
+			a(href="##development-snapshot") Development snapshot
+
+block body
+
+	section
+		a#release-version
+		h2 Current release version
+			
+		p This is the current official release version. Note that although this release is
+			| considered to be reasonable stable, it is still considered beta quality. If you
+			| stumble over any issue, please visit the
+			a(href="http://github.com/rejectedsoftware/vibe.d/issues") issue tracker
+			| and see if it is a known problem or add an entry for it. We will try to fix all
+			| issues as soon as possible.
+		
+		p
+			a.download(href="download?file=vibe-0.8.0.zip", style="text-decoration: line-through;") Download Current Release (0.8.0)
+
+	section	
+		a#development-snapshot
+		h2 Latest development version
+
+		p You can download the latest development version directly from git. Note that this
+			| version, while containing the latest and greatest features, can also be especially
+			| unstable and might not even run. This version is only recommended for development
+			| and if you need a certain feature that is not contained in the current release
+			| version.
+		
+		p Note that you have to have the current
+			a(href="http://dlang.org/download.html") D compiler
+			| installed to run the development snapshot.
+		
+		p
+			a.download(href="https://github.com/rejectedsoftware/vibe.d/zipball/master") Download Development Snapshot
+		
+		p Alternatively, you can also
+			pre $ git clone git://github.com/rejectedsoftware/vibe.d.git

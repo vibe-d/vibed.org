@@ -1,0 +1,75 @@
+
+#vibelogContent {
+}
+
+#vibelogContent h1 {
+	display: none;
+}
+
+#vibelogContent h2 a {
+	border: none;
+}
+
+#vibelogContent .blogPost {
+	margin-bottom: 40pt;
+}
+
+#vibelogContent .blogPostHeaderText {
+	font-weight: 600;
+	color: #ddd;
+	text-align: justify;
+	hyphens: auto;
+}
+
+#vibelogContent img.headerImage {
+	float: left;
+	margin-right: 10pt;
+	max-height: 64pt;
+	max-width: 64pt;
+}
+
+#vibelogContent .blogPostDate {
+	color: #aaa;
+}
+#vibelogContent .blogPostDate:after {
+	content: " - ";
+}
+
+
+#vibelogContent .blogPostContent {
+	clear: left;
+	text-align: justify;
+	hyphens: auto;
+}
+
+#vibelogContent .commentContent img {
+	float: left;
+}
+
+#vibelogPostList footer {
+	background-color: #222;
+	border: 1px solid #444;
+	padding: 4pt 8pt;
+}
+
+#vibelogContent .comment {
+	margin-bottom: 8pt;
+}
+
+#vibelogContent .comment .commentHeader {
+	background-color: #eee;
+	border: 1px solid #bbb;
+	padding: 2pt 4pt;
+}
+
+#vibelogContent .comment .commentContent {
+	padding: 4pt 8pt;
+}
+
+
+#vibelogContent .vibelogAdminSection {
+	background-color: #eee;
+	border: 1px solid #aaa;
+	margin: 10pt;
+	padding: 4pt;
+}

@@ -1,0 +1,7 @@
+{
+	"name": "vibed.org",
+	"version": "1.0.0",
+	"dependencies": {
+		"vibelog":">=0.0.1"
+	}
+}

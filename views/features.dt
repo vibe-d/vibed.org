@@ -1,0 +1,219 @@
+extends layout
+
+block title
+	- string title = "Features";
+
+block navigation
+	ul
+		li
+			a(href="##simplicity") Simplicity
+			ul
+				li
+					a(href="##fibers") Fibers
+				li
+					a(href="##compact-api") Compact API
+				li
+					a(href="##native-code") Zero-downtime changes
+		li
+			a(href="##productivity") Productivity
+			ul
+				li
+					a(href="##web-framework") Full integrated web framework
+				li
+					a(href="##native-db") Native database drivers
+				li
+					a(href="##raw-sockets") Raw TCP and file handling
+		li
+			a(href="##performance") Performance
+			ul
+				li
+					a(href="##aio") Asynchronous I/O
+				li
+					a(href="##native-code") Native machine code
+				li
+					a(href="##diet-templates") Diet templates
+				li
+					a(href="##load-balancing") Load balancing
+
+block body
+
+
+	section
+		a#simplicity
+		h2 Simplicity
+
+
+		section
+			a#fibers
+			h3 Fiber based pseudo-blocking programming model
+
+			p The key idea behind vibe was to take the fast
+				a(href="##aio") asynchronous I/O
+				| model and make it comfortable to program. Other frameworks such as
+				a.extern(href="http://nodejs.org/", target="_blank") node.js
+				| expose the asynchronous interface using callback functions. While this is a workable approach, it has several drawbacks.
+
+			p First and foremost, it often becomes tedious and confusing to write sequences of code (e.g. performing multiple database queries). Each step will introduce a new callback with a new scope, error callbacks often have to be handled separately. Especially the latter is a reason why it is tempting to just perform lax error handling.
+
+			p Another consequence of asynchronous callbacks is that there is no meaningful call stack. Not only can this make debugging more difficult, but features such as exceptions cannot be used efficiently in such an environment.
+
+			p The approach of vibe is to use asynchronous I/O under the hood but at the same time make it seem as if everything is running in its own thread and as if all operations were blocking and synchronous.
+
+			p What makes this possible is D's support for so called fibers (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special yield() function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called yield().
+
+			p This cooperative pseudo-threading is used to completely hide the asynchronous event based operation of the core system. It also blends seemlessly with the built-in support for multi-threading; to the user of the framework there is no visible difference between a fiber and a thread.
+
+		section		
+			a#compact-api
+			h3 Compact API
+
+			p There is a strong focus on a short and simple API. Common tasks are kept as short and high level as possible, while still allowing fine grained control if needed. By using some of D's advanced features, typical vibe.d based programs reach a level of conciseness that usually only scripting languages such as Ruby can offer.
+		
+		section
+			a#zero-downtime
+			h3 Zero-downtime changes
+			
+			p (Work-in-progress) An
+				a(href="##load-balancing")
+				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seemless and low-risk changes on live-systems.
+
+		section
+			a#exception-based
+			h3 Exception based error handling
+			
+			p Usually, exception handling usually is restricted to local error handlers in event-based environments - it is impossible to wrap a sequence of events into a try-catch block. vibe.d on the other hand has full support for exception handling.
+			
+			p The
+				a(href="##fibers") fiber
+				| feature behaves almost exactly like a thread regarding the stack; a single consistent call stack exists across all events that are handled in sequence. This way it becomes possible to naturally use exception handling, and especially in a web service environment exceptions are the ideal form of error handling.
+				
+			p Exceptions have the extremely useful feature that you can barely ignore them. As such, it is much more difficult to introduce subtle bugs and security holes by unintentionally ignoring error conditions. Any uncaught exceptions will automatically generate an error page and log all useful information in case of HTTP services.
+
+	section		
+		a#productivity
+		h2 Productivity
+
+		section	
+			a#web-framework
+			h3 Full integrated web framework
+			
+			p The vibe.d library contains a complete set of tools needed for website and web service development. In addition to a HTTP server with support for all common HTTP 1.1 features static file serving, an efficient template system, WebSockets, sessions and other features are already integrated.
+			
+			p Surrounding features include a markdown filter, MongoDB and Redis drivers, cryptography, natural JSON and BSON support and a simple SMTP client.
+
+		section
+			a#native-db
+			h3 Native database drivers
+			
+			p Currently, the core library contains built-in support for MongoDB and Redis databases. These provide a default for fast and flexible data storage. Additional drivers are easy to port to vibe.d because of the blocking API - basically the only thing that has to be done is to replace the socket calls (send(), recv(), connect() etc.) with the corresponding vibe functions.
+
+		section
+			a#raw-sockets
+			h3 Raw TCP and File handling
+
+			p Raw TCP and file access is of course supported by the framework to support custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
+
+	section
+		a#performance
+		h2 Performance
+
+		section		
+			a#aio
+			h3 Asynchronous I/O operations
+			
+			p Instead of using classic blocking I/O together with multi-threading for doing parallel network and file operations, all operations are using asynchronous operating system APIs.
+				a.extern(href="http://libevent.org/", target="_blank") libevent
+				| is used to access these APIs operating system independent.
+
+			p These APIs have several advantages. The main point being that the memory overhead is much lower. This is because only one thread is needed to handle an arbitrary number of concurrent operations. The thread typically rests waiting for events and is woken up by the operating system as soon as new data arrived, a new connection is established, or an error occurs. After then issuing a new operation (e.g. new data to write to a socket), the thread will go back to sleep and let the operating system execute the operation.
+
+			p Another important aspect for speed is that because there is only one thread necessary, it is often possible to save a lot of thread context switches. However, if the application has to do a lot of computations apart from the actual I/O operations, vibe.d also supports
+				a(href="##multi-threading") multi-threading
+				| to fully use the system's multi-core CPU.
+
+			p Because the asynchronous event based model is often more involved regarding the application implementation,
+				a(href="##fibers") fibers
+				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading while retaining the performance characteristics of asynchronous I/O.
+		
+		section
+			a#native-code
+			h3 Native machine code
+			
+			p Vibe.d is written in the
+				a.extern(href="http://dlang.org", target="_blank") D Programming Language
+				|. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to beeing fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
+
+			p Some notable features are listed here, but there are a lot of additional things that would be beyond the scope of this text. See the
+				a.extern(href="http://dlang.org/comparison.html", target="_blank") D feature page
+				| for an overview.
+			
+			dl
+				dt Templates, mixins and compile-time functions
+				dd
+					p The meta-programming system in D is extremely powerful. Templates (comparable to C++ templates) support variadic parameters, as well as string and alias parameters - a feature which enables very comfortable compile-time interfaces.
+
+					p The ultimate power is given by the possiblity to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
+
+					p These features together with the possibility to read files at compile time have enabled the powerful
+						a(href="##diet-templates") Diet template parser
+						|.
+
+				dt Garbage collection
+				dd
+					p The D runtime offers built-in garbage collection which enables some interesting
+						| possibilities, apart from the obvious advantage of no need for manual
+						| memory management and the associated risk of memory leaks and dangerous
+						| dangling references.
+					p Most notably, it allows to work with immutable strings and objects which can be
+						| safely referenced and passed between threads.
+				
+				dt Closures and lambdas
+				dd
+					p A feature also known from some scripting amd functional languages, but also C## and a few others are clusures and lambdas. They allow to specify callback functions in a very compact and readably way.
+				
+				dt Properties
+				dd
+					p Properties are functions that look like they were a field of a class or struct. They are used throughout the API to get a logical and intuitive interface without all clamps and additional typing needed for normal function calls.
+
+				dt Module system
+				dd
+					p D's module system is similar to the one used in Java. Among other encodes the dependencies between different modules (D files) in a semantically clear way. Using this information, it becomes possible to build whole applications just by specifying the root file (app.d) on the command line. The dependencies are then found recursively.
+
+					p This feature mitigates the need for a dedicated build system like make, which is often needed for statically compiled languages. It reduces the development overhead for small projects considerably.
+
+				dt Arrays and slices
+				dd
+					p Arrays in support native slicing with a very natural syntax. Together with the
+						| garbage collector they enable extremely fast string parser implementations
+						| which are safe (bounds checking) and easy to read at the same time.
+				
+				dt Concise syntax
+				dd
+					p The syntax in general is very clean and to the point - especially compared to 
+						| it's "sibling" C++. But it doesn't need to fear modern scripting languages
+						| such as Ruby and Python in this regard either. Apart from the occasional
+						| need to specify an explicit type, you will discover that there is not much
+						| to miss.
+		section
+			a#diet-templates
+			h3 Compile-time "Diet" templates
+
+			p vibe.d has built-in support for HTML templates based on the
+				a.extern(href="http://jade-lang.com/", target="_blank") jade
+				| template syntax known from node.js which in turn is based on
+				a.extern(href="http://haml-lang.com/", target="_blank") Haml
+				|. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript for jade).
+
+			p In vibe, however, templates can contain embedded D code. The templates are read and parsed while the application is compiled and optimized D code is generated for them. This means that the runtime overhead for templates is zero in vibe - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has started.
+
+			p At the same time you can program in the same language as for the rest of the application, which makes for a very consistent development experience.
+
+		section		
+			a#load-balancing
+			h3 Integrated load balancing
+
+			p The installation package contains a load balancer application that can almost seemlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
+
+			p When the sources for the application have been changed, the load balancer can automatically compile and run the modified application and seemlessly switch to it. The old application is shut down as soon as there are no more clients connected.
+
+			p In the future, running an automated test suite before the new application instance is switched live will be supported. Rapid development processes with safe modifications on the live system become possible this way.

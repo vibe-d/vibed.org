@@ -1,0 +1,90 @@
+
+/******************************************************************************/
+/* Features                                                                   */
+/******************************************************************************/
+
+#features {
+	position: relative;
+	background-color: #efeee9;
+	background-image: url(../images/top-shadow.png);
+	background-repeat: repeat-x;
+	color: black;
+	padding: 9pt;
+}
+
+#features #slogan {
+	position:relative;
+	color: #000;
+	text-align: center;
+	text-shadow: #fff 0 1px 0;
+}
+
+#features h2 {
+	font-size: 18pt;
+	line-height: 18pt;
+	margin-bottom: 10pt;
+	text-shadow: #fff 0 1px 0;
+}
+
+#features h3 {
+	font-family: 'Gentium Basic', sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 18pt;
+}
+
+.feat-block {  
+ 	padding: 9pt;
+}
+
+#example-http-server, #example-echo-server, #navigation {
+	padding: 9pt;
+}
+
+
+#forkme {
+	display: none;
+}
+
+@media screen and (min-width: 600px) {
+	.feat-block, #navigation, #example-http-server, #example-echo-server {
+		float: left;
+		-webkit-box-sizing: border-box;
+  		-moz-box-sizing: border-box;
+  		box-sizing: border-box;
+	}
+
+	.feat-block {
+		width: 33.333333333%;
+	}
+
+	#navigation {
+		min-width: 190pt;
+		width: 33%;
+	}
+	#example-http-server, #example-echo-server {
+		min-width: 340pt;
+		width: 66%;
+	}
+	#forkme {
+		display: inline;
+	}
+}
+
+
+#features li {
+	color: #404040;
+	margin-bottom: 6pt;
+}
+#features em {
+	font-weight: bold;
+}
+
+#features b, #features a {
+	color: black;
+}
+
+#features a:hover {
+	color: #c60;
+}

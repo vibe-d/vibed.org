@@ -1,0 +1,55 @@
+#maincontent section {
+	margin-top: 18pt;
+	padding: 9pt;
+	background-color: #222;
+	border: 1px solid #444;
+}
+
+#maincontent section section {
+	background: none;
+	border: none;
+}
+
+#maincontent h4 {
+	font-size: 10pt;
+	margin-top: 9pt;
+}
+
+#maincontent h3 {
+	margin-top: 36pt;
+}
+
+.member dl {
+	padding-top: 0;
+	padding-left: 9pt;
+}
+
+.member dt {
+	margin-top: 12pt;
+}
+
+.member dd {
+	padding-left: 9pt;
+}
+
+.overviewSection {
+	padding-top: 9pt;
+	clear: left;
+}
+
+.overviewSection dl {
+	padding-left: 6pt;
+	padding-top: 0;
+}
+
+.overviewSection dt {
+	color: #eee;
+	font-weight: bold;
+	float: left;
+	clear: left;
+	margin-right: 4pt;
+}
+
+.overviewSection dt:after {
+	content: "-";
+}

@@ -1,0 +1,34 @@
+extends layout
+
+block title
+	- string title = "Diet templates";
+
+block navigation
+	ul
+		li
+			a(href="##introduction") Introduction
+		li
+			a(href="##syntax-reference") Syntax reference
+
+block body
+
+	section
+		a#introduction
+		h2 Introduction
+			
+		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster that static pages because they are just written directly from RAM to the HTTP connection.
+		
+		p The syntax equals that of
+			a(href="http://jade-lang.org") Jade
+			| templates with the exception of some of the advanced syntax features. Since there is no official syntax reference written yet, you can use the
+			a(href="https://github.com/visionmedia/jade") Jade documentation
+			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
+			
+	section
+		a#syntax-reference
+		h2 Syntax reference
+		
+		p(style="color: red") TODO
+		p Please use the
+			a(href="https://github.com/visionmedia/jade") Jade documentation
+			| for now.

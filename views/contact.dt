@@ -1,0 +1,12 @@
+extends layout
+
+block title
+	- string title = "Contact";
+
+block body
+	
+	p At the moment, you can contact us using
+		a(href="mailto:info@rejectedsoftware.com") a central mailbox
+		|.
+	
+	p A newsgroup server will be available shortly as a better alternative.

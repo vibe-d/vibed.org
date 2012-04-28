@@ -1,0 +1,41 @@
+extends layout
+
+block title
+	- string title = "Development";
+
+block navigation
+	ul
+		li
+			a(href="##help") Help developing vibe.d
+		li	
+			a(href="##hacking-vibe") Hacking vibe.d
+
+block body
+
+	a#help
+	h2 Help developing vibe.d
+	
+	p You can help with vibe's development in several ways. The easiest way is by filing bug reports or by voting for new features on the
+		a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
+		|.
+	
+	p A hands-on way to contribute is by writing a new extension module for vibe and registering it in the
+		a(href="http://registry.vibed.org/") VPM registry
+		|.
+		
+	p Finally, you can clone the GIT repository and start hacking directly on vibe's code base.
+	
+	a#hacking-vibe
+	h2 Hacking on vibe.d
+	
+	p To start developing for vibe, fork the repository using the "Fork" button on the github repository:
+	p
+		a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
+
+	p Then you can clone the repository to your local computer using
+	pre $ git clone http://github.com/<your username>/vibe.d.git
+	p Your commits can then be packed into a pull request to the main vibe.d repository. See
+		a(href="http://help.github.com/fork-a-repo/") "Fork a repository"
+		| and
+		a(href="http://help.github.com/send-pull-requests/") "Send pull requests"
+		| on github for more details.

@@ -1,0 +1,107 @@
+#container {
+	background-image: url(../images/top-shadow.png);
+	background-repeat: repeat-x;
+}
+
+
+@media screen and (min-width: 600px) {
+	/*#navigation, #example-http-server {
+		float: left;
+		-webkit-box-sizing: border-box;
+  		-moz-box-sizing: border-box;
+  		box-sizing: border-box;
+	}*/
+	#container {
+		padding-left: 207pt;
+		padding-right: 18pt;
+	}
+	#navigation {
+		/*position: relative;
+		float: left;
+		left: -207pt;
+		margin-right: -198pt;*/
+		margin-left: -207pt;
+		position: absolute;
+		padding: 9pt;
+		width: 180pt;
+	}
+
+	#maincontent {
+		width: 100%;
+	}
+}
+
+/******************************************************************************/
+/* Navigation                                                                 */
+/******************************************************************************/
+
+nav#global-nav {
+	margin-bottom: 9pt;
+}
+
+nav ul ul {
+	margin-left: 9pt;
+}
+
+nav#global-nav li {
+	height: 24px;
+}
+
+/******************************************************************************/
+/* Main                                                                       */
+/******************************************************************************/
+
+#maincontent {
+	margin-top: 28pt;
+}
+
+#maincontent section {
+	margin-bottom: 27pt;
+}
+
+#maincontent section section {
+	margin-bottom: 0pt;
+}
+
+#maincontent h1 {
+	font-size: 18pt;
+	/*color: black;*/
+	text-align: center;
+} 
+
+#maincontent h2 {
+	/*height: 24pt;*/
+	font-size: 18pt;
+	line-height: 18pt;
+	color: white;
+	margin-bottom: 9pt;
+}
+
+#maincontent h3 {
+	font-size: 14pt;
+	line-height: 18pt;
+	/*color: black;*/
+	margin-top: 18pt;
+	margin-bottom: 6pt;
+}
+
+#maincontent h4 {
+	font-size: 12pt;
+	line-height: 18pt;
+	/*color: black;*/
+	/*margin-top: 18pt;*/
+	margin-bottom: 6pt;
+}
+
+#maincontent p {
+	/*color: #333;*/
+	color: #ddd;
+	max-width: 600pt;
+}
+
+#maincontent pre {
+	max-width: 600pt;
+}
+
+a:link, a:visited { color: #fff; }
+a:hover { color: #ef8a00; }

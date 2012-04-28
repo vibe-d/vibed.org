@@ -1,0 +1,25 @@
+extends layout
+
+block title
+	- string title = "Error "~to!string(error.code);
+
+block navigation
+	-if( auto pref = "referrer" in req.headers )
+		ul
+			li
+				a(href="#{*pref}") Go back
+
+block body
+
+	-if( error.code == 404 )
+		h1 The file does not exist
+
+		p Sorry, the file '#{req.path}' that you are looking for does not exist. Please try again later, we will look into this as soon as possible.
+	-else
+		h1 HTTP error
+	
+		p Sorry, we got a #{error.code} error (#{error.message}) while processing this request. We will look into this as soon as possible.
+		
+		-if( error.debugMessage.length )
+			p Internal error information:
+				pre= error.debugMessage
