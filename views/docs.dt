@@ -90,7 +90,7 @@ block body
 				|
 				|void index(HttpServerRequest req, HttpServerResponse res)
 				|{
-				|	//res.render!("index.dt", req);
+				|	//res.render!("index.dt"); // requires dmd >= 2.060
 				|	res.renderCompat!("index.dt",
 				|		HttpServerRequest, "req")
 				|		(Variant(req));
@@ -177,7 +177,12 @@ block body
 								|               HttpServerResponse res,
 								|               int code, string msg)
 								|{
-								|	render!("error.dt", req, code, msg)(res);
+								|	//res.render!("error.dt", req, code, msg); // requires dmd >= 2.060
+								|	res.renderCompat!("error.dt",
+								|		HttpServerRequest, "req",
+								|		int, "code",
+								|		string, "msg")
+								|		(Variant(req), Variant(code), Variant(msg));
 								|}
 								|
 								|static this()
