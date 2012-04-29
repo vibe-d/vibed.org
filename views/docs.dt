@@ -41,6 +41,13 @@ block navigation
 				li
 					a(href="##tcp-client") Client
 		li
+			a(href="##advanced") Advanced topics
+			ul
+				li
+					a(href="##custom-main") Custom main function
+				li
+					a(href="##privilege-lowering") Privilege lowering
+		li
 			a(href="api/vibe.d") API Reference
 		li
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
@@ -534,3 +541,49 @@ block body
 				|	auto conn = connectTcp("time-b.timefreq.bldrdoc.gov", 13);
 				|	logInfo("The time is: %s", cast(string)conn.readAll());
 				|}
+
+	section
+		a#advanced
+		h2 Advanced topics
+		
+		section
+			a#custom-main
+			h3 Custom main function
+			
+			p When writing a client application, maybe something like
+				a(href="http://www.gnu.org/software/wget/") wget
+				|, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own main() function. To be able to do this, you just have to import "vibe.vibe" instead of "vibe.d". This will tell the compiler to not use the main() function that vibe.d provides.
+				
+			pre.code.prettyprint.lang-d import vibe.vibe;
+				|
+				|int main(string[] args)
+				|{
+				|	processCommandLineArgs(args);
+				|	return start();
+				|}
+			.caption Example: Simple custom main function that runs an event loop.
+			
+			pre.code.prettyprint.lang-d import vibe.vibe;
+				|
+				|int main()
+				|{
+				|	auto f = openFile("test.html", FileMode.CreateTrunc);
+				|	f.write(download("http://google.com/");
+				|	return 0;
+				|}
+			.caption Example: Client application that downloads a document
+		
+		section
+			a#privilege-lowering
+			h3 Privilege lowering
+
+			p For server applications it may be desirable to start the application as root so that it can listen on privileged ports or open system log files for writing. After these setup tasks, such applications impose a security risk because a hole in the application that allows to somehow execute commands on the server will give the attacker full access to the system. For this reason vibe supports privilege lowering, where the user id and group id of the process are changed to an unprivileged user after the setup process, right before the event loop is started.
+			
+			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "uid" and "gid" have to be set to the the id of the unpriviledged user/group.
+			
+			pre.code
+				|{
+				|	"uid": 1000,
+				|	"gid": 1000
+				|}
+			.caption Example /etc/vibe/vibe.conf file
