@@ -105,6 +105,6 @@ block plainbody
 				|
 				|static this()
 				|{
-				|	listenTcp(7, (conn){ conn.write(conn) });
+				|	listenTcp(7, (conn){ conn.write(conn); });
 				|}
 		.clear
