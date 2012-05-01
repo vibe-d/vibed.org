@@ -103,6 +103,33 @@ nav#global-nav li {
 	max-width: 600pt;
 }
 
+#maincontent ol {
+	padding-left: 14pt;
+	list-style: decimal;
+}
+
+#maincontent table {
+	width: 100%;
+	margin: 9pt 0pt;
+}
+
+#maincontent td, #maincontent th {
+	border: 1px dotted #aaa;
+	padding: 2pt;
+}
+#maincontent th {
+	background-color: #666;
+	color: #eee;
+}
+
+#maincontent table.blind td, #maincontent table.blind th {
+	border: none;
+	padding: 0;
+	margin: 0;
+	background: none;
+	color: inherit;
+}
+
 a:link, a:visited { color: #fff; }
 a:hover { color: #ef8a00; }
 

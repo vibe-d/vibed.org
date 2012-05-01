@@ -6,6 +6,13 @@
 	display: none;
 }
 
+#vibelogContent .blogSinglePost h1 {
+	display: block;
+	text-align: left;
+	margin-bottom: 12pt;
+	color: white;
+}
+
 #vibelogContent h2 a {
 	border: none;
 }
@@ -54,16 +61,18 @@
 
 #vibelogContent .comment {
 	margin-bottom: 8pt;
+	color: black;
 }
 
 #vibelogContent .comment .commentHeader {
-	background-color: #eee;
+	background-color: #ddd;
 	border: 1px solid #bbb;
 	padding: 2pt 4pt;
 }
 
 #vibelogContent .comment .commentContent {
 	padding: 4pt 8pt;
+	background-color: #eee;
 }
 
 

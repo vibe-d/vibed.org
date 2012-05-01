@@ -144,7 +144,9 @@ block body
 			pre {
 				|	"name": "appname",
 				|	"version": "1.0.0",
-				|	"author": "Hans Wurst",
+				|	"authors": [
+				|		"Hans Wurst"
+				|	],
 				|	"dependencies": {
 				|		...
 				|	}
@@ -568,7 +570,7 @@ block body
 				|int main()
 				|{
 				|	auto f = openFile("test.html", FileMode.CreateTrunc);
-				|	f.write(download("http://google.com/");
+				|	f.write(download("http://google.com/"));
 				|	return 0;
 				|}
 			.caption Example: Client application that downloads a document
@@ -586,4 +588,4 @@ block body
 				|	"uid": 1000,
 				|	"gid": 1000
 				|}
-			.caption Example /etc/vibe/vibe.conf file
+			.caption Example vibe.conf file
