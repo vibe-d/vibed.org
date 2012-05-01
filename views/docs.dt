@@ -72,7 +72,8 @@ block body
 		h2 First steps
 
 		p When vibe.d has been installed, you can run any of the examples by calling
-			pre ./run_example [example name]
+			code
+				pre $ ./run_example [example name]
 			| from the vibe/bin directory. Calling without arguments will print the list of available examples.
 
 		p When starting a new web application project, a structure similar to the following is recommended:
@@ -153,7 +154,7 @@ block body
 				|}
 			.caption Example package.json
 			
-		p Once you have the project in place, simple run vibe from the project's root directory and it will get all dependencies, compile the application and run it:
+		p Once you have the project in place, simply run vibe from the project's root directory and it will get all dependencies, compile the application, and run it:
 			code
 				pre $ cd path/to/project
 					|$ vibe
