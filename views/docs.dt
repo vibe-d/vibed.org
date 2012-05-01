@@ -467,7 +467,7 @@ block body
 					|
 					|static this()
 					|{
-					|	db = new MongoDB("127.0.0.1");
+					|	db = connectMongoDB("127.0.0.1");
 					|}
 				.caption Example: Finding entries in a MongoDB
 
