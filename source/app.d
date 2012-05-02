@@ -60,14 +60,6 @@ void updateDocs()
 	}
 }
 
-void addCacheHeader(HttpServerRequest req, HttpServerResponse res)
-{
-	long maxAge = 60*60; // 1 hr
-	auto expireTime = Clock.currTime().toUTC() + dur!"seconds"(maxAge);
-	res.headers["Expires"] = toRFC822DateTimeString(expireTime);
-	res.headers["Cache-Control"] = "max-age="~to!string(maxAge);
-}
-
 static this()
 {
 	updateDocs();
@@ -80,7 +72,6 @@ static this()
 	
 	auto router = new UrlRouter;
 	
-	router.get("*", &addCacheHeader);
 	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
