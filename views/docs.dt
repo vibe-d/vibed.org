@@ -139,17 +139,21 @@ block body
 			a(href="##http-templates")templates
 			| section.
 			
-		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the public extension registry.
+		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the
+			a(href="http://registry.vibed.org/") public extension registry
+			|.
 		
 		code
 			pre {
 				|	"name": "appname",
+				|	"description": "My fabulous new app",
+				|	"copyright": "Copyright (c) 1984 Me.",
+				|	"homepage": "http://appname.org",
 				|	"version": "1.0.0",
 				|	"authors": [
 				|		"Hans Wurst"
 				|	],
 				|	"dependencies": {
-				|		...
 				|	}
 				|}
 			.caption Example package.json
