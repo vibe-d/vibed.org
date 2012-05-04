@@ -64,6 +64,9 @@ block body
 		p For Mac, Linux and other *NIXes the best way is to symlink the vibe script:
 			code
 				pre $ sudo ln -s /path/to/vibe/bin/vibe /usr/bin/vibe
+				
+		p On Mac and Linux you may still need some dependencies. See the
+			a(href="https://github.com/rejectedsoftware/vibe.d") github page for more information.
 		
 		p After the installation, you can run any vibe.d application by typing 'vibe' from the application's root directory.
 
