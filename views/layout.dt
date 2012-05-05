@@ -35,8 +35,8 @@ html(lang="en-US")
 			#header
 				#logo-line
 					a(href="http://vibed.org/")
-						img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
-						img#title(src="#{req.rootDir}images/title.png", alt='jade.d beta')
+						img#logo(src="#{req.rootDir}images/logo.png", alt='')
+						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta')
 					a#download(href="https://github.com/rejectedsoftware/vibe.d/zipball/master")
 						.downloadArrow
 						strong Download
