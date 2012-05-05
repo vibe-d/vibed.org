@@ -8946,6 +8946,475 @@
 	},
 	"name": "vibe.db.mongo.db"
 },
+"vibe.http.rest": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\http\\rest.d",
+	"ddoc": "\n\tAutomatic REST interface and client code generation facilities.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"enums": [
+			[
+				{
+					"ddoc": "\n\tDetermines the naming convention of an identifier.\n",
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"ddoc": " Special value for free-style conventions\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.Unaltered",
+							"name": "Unaltered"
+						},
+						{
+							"ddoc": " camelCaseNaming\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.CamelCase",
+							"name": "CamelCase"
+						},
+						{
+							"ddoc": " PascalCaseNaming\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.PascalCase",
+							"name": "PascalCase"
+						},
+						{
+							"ddoc": " lowercasenaming\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.LowerCase",
+							"name": "LowerCase"
+						},
+						{
+							"ddoc": " UPPERCASENAMING\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.UpperCase",
+							"name": "UpperCase"
+						},
+						{
+							"ddoc": " lower_case_naming\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.LowerUnderscored",
+							"name": "LowerUnderscored"
+						},
+						{
+							"ddoc": " UPPER_CASE_NAMING\n",
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "MethodStyle.UpperUnderscored",
+							"name": "UpperUnderscored"
+						}
+					],
+					"nestedName": "MethodStyle",
+					"name": "MethodStyle",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			]
+		],
+		"classes": [
+			[
+				{
+					"ddoc": "\n\tImplements the given interface by forwarding all public methods to a REST server.\n\n\tThe server must talk the same protocol as registerRestInterface() generates. Be sure to set\n\tthe matching method style for this. The RestInterfaceClient class will derive from the\n\tinterface that is passed as a template argument. It can be used as a drop-in replacement\n\tof the real implementation of the API this way.\n\n\tExamples:\n\n\t\tAn example client that accesses the API defined in the registerRestInterface() example:\n\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto api = new RestInterfaceClient!IMyApi(Url.parse(\"http://127.0.0.1/api/\"), MethodStyle.LowerUnderlined);\n\n\t\t\tlogInfo(\"Status: \", api.getStatus());\n\t\t\tapi.greeting = \"Hello, World!\";\n\t\t\tlogInfo(\"Greeting message: %s\", api.greeting);\n\t\t\tapi.addUser(\"Peter\");\n\t\t\tapi.addUser(\"Igor\");\n\t\t\tlogInfo(\"Users: %s\", api.users);\n\t\t}\n\t\t---\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"classes": [
+							[
+								{
+									"kind": "class",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.this",
+													"type": {
+														"text": "(Url base_url, MethodStyle style = MethodStyle.Unaltered)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "Url",
+																	"qualifiedName": "vibe.inet.url.Url",
+																	"name": "Url",
+																	"moduleName": "vibe.inet.url",
+																	"attributes": []
+																},
+																"name": "base_url"
+															},
+															{
+																"defaultValue": "MethodStyle.Unaltered",
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "MethodStyle",
+																	"qualifiedName": "vibe.http.rest.MethodStyle",
+																	"name": "MethodStyle",
+																	"moduleName": "vibe.http.rest",
+																	"attributes": []
+																},
+																"name": "style"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.request",
+													"type": {
+														"text": "const Json(string verb, string name, Json params)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Json",
+															"qualifiedName": "vibe.data.json.Json",
+															"name": "Json",
+															"moduleName": "vibe.data.json"
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "string",
+																	"qualifiedName": "string",
+																	"name": "string",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "verb"
+															},
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "string",
+																	"qualifiedName": "string",
+																	"name": "string",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "name"
+															},
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "Json",
+																	"qualifiedName": "vibe.data.json.Json",
+																	"name": "Json",
+																	"moduleName": "vibe.data.json",
+																	"attributes": []
+																},
+																"name": "params"
+															}
+														],
+														"attributes": [
+															"const"
+														]
+													},
+													"name": "request"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.m_baseUrl",
+													"type": {
+														"kind": "type",
+														"text": "Url",
+														"typeClass": "primitive",
+														"nestedName": "Url",
+														"qualifiedName": "vibe.inet.url.Url",
+														"name": "Url",
+														"moduleName": "vibe.inet.url",
+														"attributes": []
+													},
+													"name": "m_baseUrl"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.m_methodStyle",
+													"type": {
+														"kind": "type",
+														"text": "MethodStyle",
+														"typeClass": "primitive",
+														"nestedName": "MethodStyle",
+														"qualifiedName": "vibe.http.rest.MethodStyle",
+														"name": "MethodStyle",
+														"moduleName": "vibe.http.rest",
+														"attributes": []
+													},
+													"name": "m_methodStyle"
+												}
+											]
+										]
+									},
+									"base": {
+										"kind": "type",
+										"text": "Object",
+										"typeClass": "primitive",
+										"nestedName": "Object",
+										"qualifiedName": "Object",
+										"name": "Object",
+										"moduleName": "",
+										"attributes": []
+									},
+									"nestedName": "RestInterfaceClient(I).RestInterfaceClient",
+									"name": "RestInterfaceClient"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "RestInterfaceClient(I)",
+					"name": "RestInterfaceClient(I)"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": "\n\tAdjusts the naming convention for a given function name to the specified style.\n\n\tThe function name must be in lowerCamelCase (D-style) for the adjustment to work correctly.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "adjustMethodStyle",
+					"type": {
+						"text": "string(string name, MethodStyle style)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "name"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "MethodStyle",
+									"qualifiedName": "vibe.http.rest.MethodStyle",
+									"name": "MethodStyle",
+									"moduleName": "vibe.http.rest",
+									"attributes": []
+								},
+								"name": "style"
+							}
+						],
+						"attributes": []
+					},
+					"name": "adjustMethodStyle"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded parameters. Complex\n\tparameters are encoded as JSON strings.\n\n\tNote that this function is currently not fully implemented.\n",
+					"kind": "function",
+					"templateName": "registerFormInterface(I)",
+					"nestedName": "registerFormInterface",
+					"type": {
+						"text": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "UrlRouter",
+									"qualifiedName": "vibe.http.router.UrlRouter",
+									"name": "UrlRouter",
+									"moduleName": "vibe.http.router",
+									"attributes": []
+								},
+								"name": "router"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "I",
+									"qualifiedName": "I",
+									"name": "I",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "instance"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "url_prefix"
+							},
+							{
+								"defaultValue": "MethodStyle.Unaltered",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "MethodStyle",
+									"qualifiedName": "vibe.http.rest.MethodStyle",
+									"name": "MethodStyle",
+									"moduleName": "vibe.http.rest",
+									"attributes": []
+								},
+								"name": "style"
+							}
+						],
+						"attributes": []
+					},
+					"name": "registerFormInterface"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users, }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApi, \"/api/\", MethodStyle.LowerUnderscored);\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n",
+					"kind": "function",
+					"templateName": "registerRestInterface(T)",
+					"nestedName": "registerRestInterface",
+					"type": {
+						"text": "void(UrlRouter router, T instance, string url_prefix = \"/\", MethodStyle style = MethodStyle.Unaltered)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "UrlRouter",
+									"qualifiedName": "vibe.http.router.UrlRouter",
+									"name": "UrlRouter",
+									"moduleName": "vibe.http.router",
+									"attributes": []
+								},
+								"name": "router"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "T",
+									"qualifiedName": "T",
+									"name": "T",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "instance"
+							},
+							{
+								"defaultValue": "/\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "url_prefix"
+							},
+							{
+								"defaultValue": "MethodStyle.Unaltered",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "MethodStyle",
+									"qualifiedName": "vibe.http.rest.MethodStyle",
+									"name": "MethodStyle",
+									"moduleName": "vibe.http.rest",
+									"attributes": []
+								},
+								"name": "style"
+							}
+						],
+						"attributes": []
+					},
+					"name": "registerRestInterface"
+				}
+			]
+		]
+	},
+	"name": "vibe.http.rest"
+},
 "vibe.stream.stream": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\stream.d",
@@ -13247,6 +13716,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "Json.Undefined",
+									"type": {
+										"text": "@property Json()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Json",
+											"qualifiedName": "vibe.data.json.Json",
+											"name": "Json",
+											"moduleName": "vibe.data.json"
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "Undefined"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "Json.__xopEquals",
 									"type": {
 										"text": "bool(const(void*) p, const(void*) q)",
@@ -15421,26 +15914,6 @@
 									"name": "typeId"
 								}
 							]
-						],
-						"variables": [
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "Json.Undefined",
-									"type": {
-										"kind": "type",
-										"text": "Json",
-										"typeClass": "primitive",
-										"nestedName": "Json",
-										"qualifiedName": "vibe.data.json.Json",
-										"name": "Json",
-										"moduleName": "vibe.data.json",
-										"attributes": []
-									},
-									"name": "Undefined"
-								}
-							]
 						]
 					},
 					"nestedName": "Json",
@@ -17142,6 +17615,81 @@
 					"kind": "struct",
 					"protection": "public",
 					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Url.this",
+									"type": {
+										"text": "ref Url(string schema, string host, ushort port, Path path)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Url",
+											"qualifiedName": "vibe.inet.url.Url",
+											"name": "Url",
+											"moduleName": "vibe.inet.url"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "schema"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "host"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ushort",
+													"qualifiedName": "ushort",
+													"name": "ushort",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "port"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.url.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.url",
+													"attributes": []
+												},
+												"name": "path"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							]
+						],
 						"functions": [
 							[
 								{
@@ -26532,7 +27080,7 @@
 									"protection": "public",
 									"nestedName": "MongoConnection.query",
 									"type": {
-										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1483;\r\n , __ctmp1483).this(null))",
+										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1485;\r\n , __ctmp1485).this(null))",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -26604,7 +27152,7 @@
 												"name": "query"
 											},
 											{
-												"defaultValue": "(Bson__ctmp1483;,__ctmp1483",
+												"defaultValue": "(Bson__ctmp1485;,__ctmp1485",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -32151,7 +32699,7 @@
 							[
 								{
 									"kind": "function",
-									"protection": "protected",
+									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
 										"text": "void(string method, string path, IHttpServerRequestHandler cb)",
@@ -32210,7 +32758,7 @@
 							[
 								{
 									"kind": "function",
-									"protection": "protected",
+									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
 										"text": "void(string method, string path, void function(HttpServerRequest req, HttpServerResponse res) cb)",
@@ -32298,7 +32846,7 @@
 							[
 								{
 									"kind": "function",
-									"protection": "protected",
+									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
 										"text": "void(string method, string path, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
@@ -33023,6 +33571,204 @@
 										"attributes": []
 									},
 									"name": "handleRequest"
+								}
+							],
+							[
+								{
+									"ddoc": " Adds a new route for PATCH requests matching the specified pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.patch",
+									"type": {
+										"text": "UrlRouter(string url_match, IHttpServerRequestHandler cb)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "UrlRouter",
+											"qualifiedName": "vibe.http.router.UrlRouter",
+											"name": "UrlRouter",
+											"moduleName": "vibe.http.router"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "url_match"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "IHttpServerRequestHandler",
+													"qualifiedName": "vibe.http.server.IHttpServerRequestHandler",
+													"name": "IHttpServerRequestHandler",
+													"moduleName": "vibe.http.server",
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "patch"
+								},
+								{
+									"ddoc": " Adds a new route for PATCH requests matching the specified pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.patch",
+									"type": {
+										"text": "UrlRouter(string url_match, void function(HttpServerRequest req, HttpServerResponse res) cb)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "UrlRouter",
+											"qualifiedName": "vibe.http.router.UrlRouter",
+											"name": "UrlRouter",
+											"moduleName": "vibe.http.router"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "url_match"
+											},
+											{
+												"type": {
+													"typeclass": "function",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerRequest",
+																"qualifiedName": "vibe.http.server.HttpServerRequest",
+																"name": "HttpServerRequest",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "req"
+														},
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerResponse",
+																"qualifiedName": "vibe.http.server.HttpServerResponse",
+																"name": "HttpServerResponse",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "res"
+														}
+													],
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "patch"
+								},
+								{
+									"ddoc": " Adds a new route for PATCH requests matching the specified pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.patch",
+									"type": {
+										"text": "UrlRouter(string url_match, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "UrlRouter",
+											"qualifiedName": "vibe.http.router.UrlRouter",
+											"name": "UrlRouter",
+											"moduleName": "vibe.http.router"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "url_match"
+											},
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerRequest",
+																"qualifiedName": "vibe.http.server.HttpServerRequest",
+																"name": "HttpServerRequest",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "req"
+														},
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerResponse",
+																"qualifiedName": "vibe.http.server.HttpServerResponse",
+																"name": "HttpServerResponse",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "res"
+														}
+													],
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "patch"
 								}
 							],
 							[

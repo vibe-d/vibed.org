@@ -80,7 +80,7 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
   var D_KEYWORDS = [COMMON_KEYWORDS,"alias,align,asm,bool," +
       "cast," +
       "export,foreach,foreach_reverse," +
-      "import,module,null,assert," +
+      "import,interface,module,null,assert," +
       "template,typeid," +
 	  "byte,ubyte,ushort,uint,ulong"];
   var JAVA_KEYWORDS = [COMMON_KEYWORDS,
