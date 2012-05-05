@@ -11226,6 +11226,41 @@
 			],
 			[
 				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isAlpha",
+					"type": {
+						"text": "bool(char ch)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "char",
+									"qualifiedName": "char",
+									"name": "char",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ch"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isAlpha"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tJoins an array of strings using 'linesep' as the line separator (\\n by default).\n",
 					"kind": "function",
 					"protection": "public",
@@ -12761,7 +12796,7 @@
 		"structs": [
 			[
 				{
-					"ddoc": "\n\n\n\tRepresents a single JSON value.\n\n\tJSON values can have one of the types defined in the JSON.Type enum. They\n\tbehave mostly like values in ECMA script in the way that you can\n\ttransparently perform operations on them. However, strict typechecking is\n\tdone, so that operations between differently typed JSON values will throw\n\tand exception. Additionally, an explicit cast is required to convert a\n\tJSON value the the corresponding static D type.\n",
+					"ddoc": "\n\n\n\tRepresents a single JSON value.\n\n\tJSON values can have one of the types defined in the JSON.Type enum. They\n\tbehave mostly like values in ECMA script in the way that you can\n\ttransparently perform operations on them. However, strict typechecking is\n\tdone, so that operations between differently typed JSON values will throw\n\tan exception. Additionally, an explicit cast or using get!() or to!() is\n\trequired to convert a JSON value to the corresponding static D type.\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -16774,6 +16809,30 @@
 										]
 									},
 									"name": "startsWith"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.toNativeString",
+									"type": {
+										"text": "const string()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "toNativeString"
 								}
 							],
 							[
@@ -25006,6 +25065,42 @@
 									},
 									"name": "tcpNoDelay"
 								}
+							],
+							[
+								{
+									"ddoc": " Sets a timeout  until data has to be availabe for read. Returns false on timeout.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "TcpConnection.waitForData",
+									"type": {
+										"text": "bool(int secs)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "int",
+													"qualifiedName": "int",
+													"name": "int",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "secs"
+											}
+										],
+										"attributes": []
+									},
+									"name": "waitForData"
+								}
 							]
 						]
 					},
@@ -25420,6 +25515,111 @@
 			[
 				{
 					"kind": "function",
+					"protection": "public",
+					"nestedName": "getHtmlTagName",
+					"type": {
+						"text": "string(string ln)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ln"
+							}
+						],
+						"attributes": []
+					},
+					"name": "getHtmlTagName"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isHtmlBlockCloseLine",
+					"type": {
+						"text": "bool(string ln)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ln"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isHtmlBlockCloseLine"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isHtmlBlockLine",
+					"type": {
+						"text": "bool(string ln)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ln"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isHtmlBlockLine"
+				}
+			],
+			[
+				{
+					"kind": "function",
 					"templateName": "outputHeaderLine(R)",
 					"nestedName": "outputHeaderLine",
 					"type": {
@@ -25614,6 +25814,41 @@
 						"attributes": []
 					},
 					"name": "parseAutoLink"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseHtmlBlockLine",
+					"type": {
+						"text": "HtmlBlockInfo(string ln)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "HtmlBlockInfo",
+							"qualifiedName": "HtmlBlockInfo",
+							"name": "HtmlBlockInfo",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ln"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseHtmlBlockLine"
 				}
 			],
 			[
