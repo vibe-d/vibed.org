@@ -13,7 +13,7 @@ Json[] s_projectTree;
 void download(HttpServerRequest req, HttpServerResponse res)
 {
 	if( "file" in req.query )
-		res.redirect("/files/"~req.query["file"]);
+		res.redirect("https://github.com/rejectedsoftware/vibe.d/"~req.query["file"]);
 	else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
 }
 
