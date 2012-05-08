@@ -24,7 +24,7 @@ block body
 			| issues as soon as possible.
 		
 		p
-			a.download(href="download?file=zipball/v0.7.0.zip") Download Current Release (0.7.0)
+			a.download(href="download?file=zipball/v0.7.0") Download Current Release (0.7.0)
 
 	section	
 		a#development-snapshot
