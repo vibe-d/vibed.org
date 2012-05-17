@@ -61,11 +61,11 @@
 
 	#navigation {
 		min-width: 190pt;
-		width: 33%;
+		width: 33.333333333%;
 	}
 	#example-http-server, #example-echo-server {
 		min-width: 340pt;
-		width: 66%;
+		width: 66.666666666%;
 	}
 	#forkme {
 		display: inline;
