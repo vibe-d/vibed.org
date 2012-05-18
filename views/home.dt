@@ -65,22 +65,25 @@ block plainbody
 			nav#global-nav
 				ul
 					li.nav-about
-						a(href="about", alt="About") About
+						a(href="about") About
 							p All about the project's motivation, goals and the creators
 					li.nav-download
-						a(href="download", alt="Download") Download
+						a(href="download") Download
 							p Get the latest release and accompaning material
 					li.nav-blog
-						a(href="blog/", alt="Blog") Blog
+						a(href="blog/") Blog
 							p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-features
-						a(href="features", alt="Features") Features
+						a(href="features") Features
 							p View a list of all features explaining what's so cool about them
+					li.nav-community
+						a(href="community") Community
+							p Places to get help, report bugs, and discuss vibe.d in general
 					li.nav-docs
-						a(href="docs", alt="Documentation") Documentation
+						a(href="docs") Documentation
 							p Development documentation including the full API reference
 					li.nav-developer
-						a(href="developer", alt="Developer") Development
+						a(href="developer") Development
 							p Get involved with vibe's development
 		#example-http-server
 			h2 Example of a simple HTTP server

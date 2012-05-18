@@ -49,7 +49,7 @@ html(lang="en-US")
 						h2= "Jump to…"
 						nav#global-nav
 							ul
-								- auto pages = ["Home", "", "Download", "download", "Blog", "blog", "Features", "features", "Documentation", "docs", "Development", "developer", "About", "about"];
+								- auto pages = ["Home", "", "Download", "download", "Blog", "blog", "Features", "features", "Documentation", "docs", "Community", "community", "Development", "developer", "About", "about"];
 								- for( auto i = 0; i < pages.length; i += 2 )
 									li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
 										a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]

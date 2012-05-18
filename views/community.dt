@@ -1,0 +1,35 @@
+extends layout
+
+block title
+	- string title = "Community";
+
+block navigation
+	ul
+		li
+			a(href="##release-version") Current release
+		li
+			a(href="##development-snapshot") Development snapshot
+
+block body
+
+	section
+		a#newsgroup
+		h2 Newsgroup server
+			
+		p The server news.rejectedsoftware.com contains the newsgroup rejectedsoftware.vibed for general discussion about vibe.d. This is the main place to discuss everything vibe related.
+		
+		h2 Web forum
+		
+		p There is also the
+			a(href="http://news.rejectedsoftware.com/") web forum
+			| which is a front end to the newsgroup server based on
+			a.extern(href="https://github.com/cybershadow/dfeed", target="_blank") DFeed
+			|.
+			
+		h2 Github issue tracker
+		
+		p The github project page contains an
+			a(href="https://github.com/rejectedsoftware/vibe.d/issues") issue tracker
+			|. You should use this to report any bugs that you may stumble upon.
+		
+		

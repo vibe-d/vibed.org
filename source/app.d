@@ -75,6 +75,7 @@ static this()
 	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
+	router.get("/community",   staticTemplate!"community.dt");
 	router.get("/impressum",   staticTemplate!"impressum.dt");
 	router.get("/download",  &download);
 	router.get("/features",  staticTemplate!"features.dt");
