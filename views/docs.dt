@@ -591,7 +591,9 @@ block body
 				
 			p You can then register your project on
 				a(href="http://registry.vibed.org/") registry.vibed.org
-				| and as soon as you then add a new git tag with the name matching the current version prefixed with 'v' (v0.0.1 for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
+				| and as soon as you then add a new
+				a(href="http://learn.github.com/p/tagging.html") git tag
+				| with the name matching the current version prefixed with 'v' (v0.0.1 for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
 				
 			pre.code {
 				|	...
