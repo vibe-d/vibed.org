@@ -564,7 +564,7 @@ block body
 			h3 Publishing on the VPM registry
 			
 			p The
-				a(href="http://registry.vibed.org/") VPM registry
+				a.extern(href="http://registry.vibed.org/", target="_blank") VPM registry
 				| contains packages that extend vibe's core functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the package.json file is present.
 			
 			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the
@@ -590,9 +590,9 @@ block body
 			.caption Example: A package.json file suitable for registration as a VPM package.
 				
 			p You can then register your project on
-				a(href="http://registry.vibed.org/") registry.vibed.org
+				a.extern(href="http://registry.vibed.org/", target="_blank") registry.vibed.org
 				| and as soon as you then add a new
-				a(href="http://learn.github.com/p/tagging.html") git tag
+				a.extern(href="http://learn.github.com/p/tagging.html", target="_blank") git tag
 				| with the name matching the current version prefixed with 'v' (v0.0.1 for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
 				
 			pre.code {
