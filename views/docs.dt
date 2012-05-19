@@ -1,4 +1,4 @@
-extends layout
+﻿extends layout
 
 block title
 	- string title = "Documentation";
@@ -43,6 +43,8 @@ block navigation
 		li
 			a(href="##advanced") Advanced topics
 			ul
+				li
+					a(href="##vpm-publishing") Publishing on the VPM registry
 				li
 					a(href="##custom-main") Custom main function
 				li
@@ -556,6 +558,48 @@ block body
 	section
 		a#advanced
 		h2 Advanced topics
+		
+		section
+			a#vpm-publishing
+			h3 Publishing on the VPM registry
+			
+			p The
+				a(href="http://registry.vibed.org/") VPM registry
+				| contains packages that extend vibe's core functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the package.json file is present.
+			
+			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the
+				a(href="##first-steps") first steps
+				|). The project currently also has to be hosted on github and as such the package.json must contain a "repository" entry similar to the following example:
+				
+			pre.code {
+				|	"name": "vibelog",
+				|	"description": "A light-weight embeddable blog implementation",
+				|	"homepage": "https://github.com/rejectedsoftware/vibelog",
+				|	"authors": [
+				|		"Sönke Ludwig"
+				|	],
+				|	"version": "0.0.1",
+				|	"dependencies": {
+				|	},
+				|	"repository": {
+				|		"kind": "github",
+				|		"owner": "rejectedsoftware",
+				|		"project": "vibelog"
+				|	}
+				|}
+			.caption Example: A package.json file suitable for registration as a VPM package.
+				
+			p You can then register your project on
+				a(href="http://registry.vibed.org/") registry.vibed.org
+				| and as soon as you then add a new git tag with the name matching the current version prefixed with 'v' (v0.0.1 for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
+				
+			pre.code {
+				|	...
+				|	"dependencies": {
+				|		"vibelog": ">=0.0.1"
+				|	}
+				|}
+			.caption Example: Corresponding dependency to use the VPM package.
 		
 		section
 			a#custom-main
