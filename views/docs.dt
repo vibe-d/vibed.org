@@ -249,6 +249,13 @@ block body
 					|	router.post("/adduser", &addUser);
 					|	router.get("*", serveStaticFiles("./public/"));
 					|
+					|	// To reduce code redundancy, you can also
+					|	// use method chaining:
+					|	router
+					|		.get("/users/:user", &userInfo)
+					|		.post("/adduser", &addUser);
+					|		.get("*", serveStaticFiles("./public/"));
+					|
 					|	listenHttp(new HttpServerSettings, router);
 					|}
 				.caption Example: GET/POST routing and static file serving
