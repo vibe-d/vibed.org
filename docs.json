@@ -1569,6 +1569,40 @@
 										]
 									},
 									"name": "opDispatch"
+								},
+								{
+									"kind": "function",
+									"ddoc": "\n\t\tAllows to access existing fields of a JSON object using dot syntax.\n\t\n",
+									"templateName": "opDispatch(string prop,T)",
+									"nestedName": "Bson.opDispatch",
+									"type": {
+										"text": "void(T val)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "T",
+													"qualifiedName": "T",
+													"name": "T",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "val"
+											}
+										],
+										"attributes": []
+									},
+									"name": "opDispatch"
 								}
 							],
 							[
@@ -1696,10 +1730,10 @@
 							[
 								{
 									"kind": "function",
-									"protection": "public",
+									"templateName": "opIndexAssign(T)",
 									"nestedName": "Bson.opIndexAssign",
 									"type": {
-										"text": "void(Bson value, string idx)",
+										"text": "void(T value, string idx)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1714,10 +1748,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "Bson",
-													"qualifiedName": "vibe.data.bson.Bson",
-													"name": "Bson",
-													"moduleName": "vibe.data.bson",
+													"nestedName": "T",
+													"qualifiedName": "T",
+													"name": "T",
+													"moduleName": "",
 													"attributes": []
 												},
 												"name": "value"
@@ -2005,6 +2039,80 @@
 					"protection": "public",
 					"members": {
 						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "BsonDate.this",
+									"type": {
+										"text": "ref BsonDate(Date date)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "BsonDate",
+											"qualifiedName": "vibe.data.bson.BsonDate",
+											"name": "BsonDate",
+											"moduleName": "vibe.data.bson"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Date",
+													"qualifiedName": "Date",
+													"name": "Date",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "date"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							],
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "BsonDate.this",
+									"type": {
+										"text": "ref BsonDate(DateTime date)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "BsonDate",
+											"qualifiedName": "vibe.data.bson.BsonDate",
+											"name": "BsonDate",
+											"moduleName": "vibe.data.bson"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "DateTime",
+													"qualifiedName": "DateTime",
+													"name": "DateTime",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "date"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							],
 							[
 								{
 									"kind": "constructor",
@@ -2484,6 +2592,48 @@
 										"attributes": []
 									},
 									"name": "generate"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "BsonObjectID.opCmp",
+									"type": {
+										"text": "const int(ref const(BsonObjectID) other)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "BsonObjectID",
+													"qualifiedName": "vibe.data.bson.BsonObjectID",
+													"name": "BsonObjectID",
+													"moduleName": "vibe.data.bson",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "other"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opCmp"
 								}
 							],
 							[
@@ -3237,7 +3387,7 @@
 					"templateName": "parseDietFileCompat(string template_file,TYPES_AND_NAMES...)",
 					"nestedName": "parseDietFileCompat",
 					"type": {
-						"text": "void(OutputStream stream__, Variant[] args__)",
+						"text": "void(OutputStream stream__, Variant[] args__...)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -3274,7 +3424,7 @@
 									},
 									"attributes": []
 								},
-								"name": "args__"
+								"name": "args__..."
 							}
 						],
 						"attributes": []
@@ -5365,6 +5515,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ThreadedFileStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ThreadedFileStream.empty",
 									"type": {
 										"text": "const @property bool()",
@@ -5458,6 +5632,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ThreadedFileStream.isOwner",
+									"type": {
+										"text": "bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "isOwner"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ThreadedFileStream.leastSize",
 									"type": {
 										"text": "const @property ulong()",
@@ -5477,6 +5673,35 @@
 										]
 									},
 									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "ThreadedFileStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -5936,16 +6161,16 @@
 								{
 									"kind": "constructor",
 									"protection": "public",
-									"nestedName": "SSLContext.this",
+									"nestedName": "SslContext.this",
 									"type": {
-										"text": "SSLContext(string cert_file, string key_file, SSLVersion ver = cast(SSLVersion)0)",
+										"text": "SslContext(string cert_file, string key_file, SSLVersion ver = cast(SSLVersion)0)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
 											"typeClass": "primitive",
-											"nestedName": "SSLContext",
-											"qualifiedName": "vibe.crypto.ssl.SSLContext",
-											"name": "SSLContext",
+											"nestedName": "SslContext",
+											"qualifiedName": "vibe.crypto.ssl.SslContext",
+											"name": "SslContext",
 											"moduleName": "vibe.crypto.ssl"
 										},
 										"parameters": [
@@ -5996,16 +6221,16 @@
 								{
 									"kind": "constructor",
 									"protection": "public",
-									"nestedName": "SSLContext.this",
+									"nestedName": "SslContext.this",
 									"type": {
-										"text": "SSLContext(SSLVersion ver = cast(SSLVersion)0)",
+										"text": "SslContext(SSLVersion ver = cast(SSLVersion)0)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
 											"typeClass": "primitive",
-											"nestedName": "SSLContext",
-											"qualifiedName": "vibe.crypto.ssl.SSLContext",
-											"name": "SSLContext",
+											"nestedName": "SslContext",
+											"qualifiedName": "vibe.crypto.ssl.SslContext",
+											"name": "SslContext",
 											"moduleName": "vibe.crypto.ssl"
 										},
 										"parameters": [
@@ -6034,7 +6259,7 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "SSLContext.createClientCtx",
+									"nestedName": "SslContext.createClientCtx",
 									"type": {
 										"text": "ssl_st*()",
 										"typeclass": "function",
@@ -6068,8 +6293,8 @@
 						"moduleName": "",
 						"attributes": []
 					},
-					"nestedName": "SSLContext",
-					"name": "SSLContext"
+					"nestedName": "SslContext",
+					"name": "SslContext"
 				}
 			]
 		]
@@ -7012,7 +7237,7 @@
 								{
 									"kind": "variable",
 									"protection": "public",
-									"nestedName": "HttpServerRequest.querystring",
+									"nestedName": "HttpServerRequest.queryString",
 									"type": {
 										"kind": "type",
 										"text": "string",
@@ -7023,7 +7248,7 @@
 										"moduleName": "",
 										"attributes": []
 									},
-									"name": "querystring"
+									"name": "queryString"
 								}
 							],
 							[
@@ -7349,15 +7574,15 @@
 									"protection": "public",
 									"nestedName": "HttpServerResponse.switchProtocol",
 									"type": {
-										"text": "TcpConnection(string protocol)",
+										"text": "Stream(string protocol)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
 											"typeClass": "primitive",
-											"nestedName": "TcpConnection",
-											"qualifiedName": "vibe.core.driver.TcpConnection",
-											"name": "TcpConnection",
-											"moduleName": "vibe.core.driver"
+											"nestedName": "Stream",
+											"qualifiedName": "vibe.stream.stream.Stream",
+											"name": "Stream",
+											"moduleName": "vibe.stream.stream"
 										},
 										"parameters": [
 											{
@@ -7576,53 +7801,6 @@
 										"attributes": []
 									},
 									"name": "writeJsonBody"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "writeLine(T...)",
-									"nestedName": "HttpServerResponse.writeLine",
-									"type": {
-										"text": "void(string fmt, T args)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "fmt"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "T",
-													"qualifiedName": "T",
-													"name": "T",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "args"
-											}
-										],
-										"attributes": []
-									},
-									"name": "writeLine"
 								}
 							],
 							[
@@ -7855,6 +8033,25 @@
 							],
 							[
 								{
+									"ddoc": " Maximum time between two request on a keep-alive connection\n",
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "HttpServerSettings.keepAliveTimeout",
+									"type": {
+										"kind": "type",
+										"text": "Duration",
+										"typeClass": "primitive",
+										"nestedName": "Duration",
+										"qualifiedName": "Duration",
+										"name": "Duration",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "keepAliveTimeout"
+								}
+							],
+							[
+								{
 									"kind": "variable",
 									"protection": "public",
 									"nestedName": "HttpServerSettings.maxRequestHeaderCount",
@@ -7911,17 +8108,17 @@
 							],
 							[
 								{
-									"ddoc": " Time [s] of a request after which the connection is closed with an error; not supported yet\n",
+									"ddoc": " Time of a request after which the connection is closed with an error; not supported yet\n",
 									"kind": "variable",
 									"protection": "public",
 									"nestedName": "HttpServerSettings.maxRequestTime",
 									"type": {
 										"kind": "type",
-										"text": "uint",
+										"text": "Duration",
 										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
+										"nestedName": "Duration",
+										"qualifiedName": "Duration",
+										"name": "Duration",
 										"moduleName": "",
 										"attributes": []
 									},
@@ -9026,7 +9223,7 @@
 		"classes": [
 			[
 				{
-					"ddoc": "\n\tImplements the given interface by forwarding all public methods to a REST server.\n\n\tThe server must talk the same protocol as registerRestInterface() generates. Be sure to set\n\tthe matching method style for this. The RestInterfaceClient class will derive from the\n\tinterface that is passed as a template argument. It can be used as a drop-in replacement\n\tof the real implementation of the API this way.\n\n\tExamples:\n\n\t\tAn example client that accesses the API defined in the registerRestInterface() example:\n\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto api = new RestInterfaceClient!IMyApi(Url.parse(\"http://127.0.0.1/api/\"), MethodStyle.LowerUnderlined);\n\n\t\t\tlogInfo(\"Status: \", api.getStatus());\n\t\t\tapi.greeting = \"Hello, World!\";\n\t\t\tlogInfo(\"Greeting message: %s\", api.greeting);\n\t\t\tapi.addUser(\"Peter\");\n\t\t\tapi.addUser(\"Igor\");\n\t\t\tlogInfo(\"Users: %s\", api.users);\n\t\t}\n\t\t---\n",
+					"ddoc": "\n\tImplements the given interface by forwarding all public methods to a REST server.\n\n\tThe server must talk the same protocol as registerRestInterface() generates. Be sure to set\n\tthe matching method style for this. The RestInterfaceClient class will derive from the\n\tinterface that is passed as a template argument. It can be used as a drop-in replacement\n\tof the real implementation of the API this way.\n\n\tExamples:\n\n\t\tAn example client that accesses the API defined in the registerRestInterface() example:\n\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto api = new RestInterfaceClient!IMyApi(\"http://127.0.0.1/api/\");\n\n\t\t\tlogInfo(\"Status: %s\", api.getStatus());\n\t\t\tapi.greeting = \"Hello, World!\";\n\t\t\tlogInfo(\"Greeting message: %s\", api.greeting);\n\t\t\tapi.addNewUser(\"Peter\");\n\t\t\tapi.addNewUser(\"Igor\");\n\t\t\tlogInfo(\"Users: %s\", api.users);\n\t\t}\n\t\t---\n",
 					"kind": "class",
 					"protection": "public",
 					"members": {
@@ -9042,7 +9239,54 @@
 													"kind": "constructor",
 													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.this",
 													"type": {
-														"text": "(Url base_url, MethodStyle style = MethodStyle.Unaltered)",
+														"text": "(string base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "string",
+																	"qualifiedName": "string",
+																	"name": "string",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "base_url"
+															},
+															{
+																"defaultValue": "MethodStyle.LowerUnderscored",
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "MethodStyle",
+																	"qualifiedName": "vibe.http.rest.MethodStyle",
+																	"name": "MethodStyle",
+																	"moduleName": "vibe.http.rest",
+																	"attributes": []
+																},
+																"name": "style"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											],
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.this",
+													"type": {
+														"text": "(Url base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
 														"typeclass": "function",
 														"returnType": {
 															"kind": "type",
@@ -9066,7 +9310,7 @@
 																"name": "base_url"
 															},
 															{
-																"defaultValue": "MethodStyle.Unaltered",
+																"defaultValue": "MethodStyle.LowerUnderscored",
 																"type": {
 																	"kind": "type",
 																	"typeClass": "primitive",
@@ -9339,12 +9583,12 @@
 			],
 			[
 				{
-					"ddoc": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users, }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApi, \"/api/\", MethodStyle.LowerUnderscored);\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n",
+					"ddoc": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n",
 					"kind": "function",
 					"templateName": "registerRestInterface(T)",
 					"nestedName": "registerRestInterface",
 					"type": {
-						"text": "void(UrlRouter router, T instance, string url_prefix = \"/\", MethodStyle style = MethodStyle.Unaltered)",
+						"text": "void(UrlRouter router, T instance, string url_prefix = \"/\", MethodStyle style = MethodStyle.LowerUnderscored)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -9393,7 +9637,7 @@
 								"name": "url_prefix"
 							},
 							{
-								"defaultValue": "MethodStyle.Unaltered",
+								"defaultValue": "MethodStyle.LowerUnderscored",
 								"type": {
 									"kind": "type",
 									"typeClass": "primitive",
@@ -9494,6 +9738,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "CountingInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "CountingInputStream.empty",
 									"type": {
 										"text": "@property bool()",
@@ -9536,6 +9804,35 @@
 										]
 									},
 									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -10003,6 +10300,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "LimitedInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "LimitedInputStream.empty",
 									"type": {
 										"text": "@property bool()",
@@ -10067,6 +10388,35 @@
 										"attributes": []
 									},
 									"name": "onSizeLimitReached"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -10449,6 +10799,31 @@
 						"functions": [
 							[
 								{
+									"ddoc": "\n\t\tQueries if there is data available for immediate, non-blocking read.\n\t\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "InputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
 									"ddoc": " Returns true iff the end of the stream has been reached\n\t\n",
 									"kind": "function",
 									"protection": "public",
@@ -10499,6 +10874,36 @@
 							],
 							[
 								{
+									"ddoc": " Returns a temporary reference to the data that is currently buffered, typically has the size\n\t\tleastSize() or 0 if dataAvailableForRead() returns false.\n\n\t\tNote that any method invocation on the same stream invalidates the contents of the returned\n\t\tbuffer.\n\t\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "InputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
+								}
+							],
+							[
+								{
 									"ddoc": "\tFills the preallocated array 'bytes' with data from the stream.\n\n\t\tThrows: An exception if the operation reads past the end of the stream\n\t\n",
 									"kind": "function",
 									"protection": "public",
@@ -10539,6 +10944,7 @@
 							],
 							[
 								{
+									"ddoc": " Reads the remaining contents of the stream into a memory buffer and returns it.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "InputStream.readAll",
@@ -11594,7 +12000,7 @@
 "vibe.utils.string": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\string.d",
-	"ddoc": "\n\tUtiltiy functions for string processing\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tUtility functions for string processing\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -11691,6 +12097,53 @@
 						"attributes": []
 					},
 					"name": "anyOf"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "icmp2",
+					"type": {
+						"text": "int(string a, string b)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "int",
+							"qualifiedName": "int",
+							"name": "int",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "a"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "b"
+							}
+						],
+						"attributes": []
+					},
+					"name": "icmp2"
 				}
 			],
 			[
@@ -11822,6 +12275,41 @@
 						"attributes": []
 					},
 					"name": "sanitizeUTF8"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "stripBom",
+					"type": {
+						"text": "string(string str)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							}
+						],
+						"attributes": []
+					},
+					"name": "stripBom"
 				}
 			]
 		]
@@ -12441,6 +12929,122 @@
 	},
 	"name": "vibe.vibe"
 },
+"vibe.utils.array": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\utils\\array.d",
+	"ddoc": "\n\tUtiltiy functions for array processing\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"functions": [
+			[
+				{
+					"kind": "function",
+					"templateName": "removeFromArray(T)",
+					"nestedName": "removeFromArray",
+					"type": {
+						"text": "void(ref T[] array, T item)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "T",
+										"qualifiedName": "T",
+										"name": "T",
+										"moduleName": ""
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "array"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "T",
+									"qualifiedName": "T",
+									"name": "T",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "item"
+							}
+						],
+						"attributes": []
+					},
+					"name": "removeFromArray"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "removeFromArrayIdx(T)",
+					"nestedName": "removeFromArrayIdx",
+					"type": {
+						"text": "void(ref T[] array, size_t idx)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "T",
+										"qualifiedName": "T",
+										"name": "T",
+										"moduleName": ""
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "array"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "size_t",
+									"qualifiedName": "size_t",
+									"name": "size_t",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "idx"
+							}
+						],
+						"attributes": []
+					},
+					"name": "removeFromArrayIdx"
+				}
+			]
+		]
+	},
+	"name": "vibe.utils.array"
+},
 "vibe.stream.zlib": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\zlib.d",
@@ -12739,6 +13343,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ZlibInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ZlibInputStream.empty",
 									"type": {
 										"text": "@property bool()",
@@ -12781,6 +13409,35 @@
 										]
 									},
 									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "ZlibInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -18403,7 +19060,7 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Url.querystring",
+									"nestedName": "Url.queryString",
 									"type": {
 										"text": "const @property string()",
 										"typeclass": "function",
@@ -18421,7 +19078,44 @@
 											"@property"
 										]
 									},
-									"name": "querystring"
+									"name": "queryString"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Url.queryString",
+									"type": {
+										"text": "@property void(string v)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "v"
+											}
+										],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "queryString"
 								}
 							],
 							[
@@ -19198,6 +19892,518 @@
 	},
 	"name": "vibe.mail.smtp"
 },
+"vibe.stream.ssl": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\stream\\ssl.d",
+	"ddoc": "\n\tSSL/TLS stream implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"enums": [
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SslStreamState.Connecting",
+							"name": "Connecting"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SslStreamState.Accepting",
+							"name": "Accepting"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SslStreamState.Connected",
+							"name": "Connected"
+						}
+					],
+					"nestedName": "SslStreamState",
+					"name": "SslStreamState",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			]
+		],
+		"classes": [
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "SslStream.this",
+									"type": {
+										"text": "SslStream(Stream underlying, SslContext ctx, SslStreamState state)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "SslStream",
+											"qualifiedName": "vibe.stream.ssl.SslStream",
+											"name": "SslStream",
+											"moduleName": "vibe.stream.ssl"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "underlying"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "SslContext",
+													"qualifiedName": "vibe.crypto.ssl.SslContext",
+													"name": "SslContext",
+													"moduleName": "vibe.crypto.ssl",
+													"attributes": []
+												},
+												"name": "ctx"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "SslStreamState",
+													"qualifiedName": "vibe.stream.ssl.SslStreamState",
+													"name": "SslStreamState",
+													"moduleName": "vibe.stream.ssl",
+													"attributes": []
+												},
+												"name": "state"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.empty",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "empty"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.finalize",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "finalize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.flush",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "flush"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.leastSize",
+									"type": {
+										"text": "@property ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.read",
+									"type": {
+										"text": "void(ubyte[] dst)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "dst"
+											}
+										],
+										"attributes": []
+									},
+									"name": "read"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.readAll",
+									"type": {
+										"text": "ubyte[](uint max_bytes = cast(uint)0)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"defaultValue": "cast(uint",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "max_bytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "readAll"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.readLine",
+									"type": {
+										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"defaultValue": "cast(uint",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "max_bytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "readLine"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.write",
+									"type": {
+										"text": "void(const(ubyte[]) bytes_, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "bytes_"
+											},
+											{
+												"defaultValue": "true",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "do_flush"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslStream.write",
+									"type": {
+										"text": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "InputStream",
+													"qualifiedName": "vibe.stream.stream.InputStream",
+													"name": "InputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											},
+											{
+												"defaultValue": "cast(ulong",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ulong",
+													"qualifiedName": "ulong",
+													"name": "ulong",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "nbytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "SslStream",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "Stream",
+							"typeClass": "primitive",
+							"nestedName": "Stream",
+							"qualifiedName": "vibe.stream.stream.Stream",
+							"name": "Stream",
+							"moduleName": "vibe.stream.stream",
+							"attributes": []
+						}
+					],
+					"name": "SslStream"
+				}
+			]
+		]
+	},
+	"name": "vibe.stream.ssl"
+},
 "vibe.http.status": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\status.d",
@@ -19763,7 +20969,7 @@
 									"protection": "public",
 									"nestedName": "IncommingWebSocketMessage.this",
 									"type": {
-										"text": "IncommingWebSocketMessage(TcpConnection conn)",
+										"text": "IncommingWebSocketMessage(Stream conn)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -19778,10 +20984,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "TcpConnection",
-													"qualifiedName": "vibe.core.driver.TcpConnection",
-													"name": "TcpConnection",
-													"moduleName": "vibe.core.driver",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
 													"attributes": []
 												},
 												"name": "conn"
@@ -19794,6 +21000,30 @@
 							]
 						],
 						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "IncommingWebSocketMessage.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
 							[
 								{
 									"kind": "function",
@@ -19842,6 +21072,35 @@
 										]
 									},
 									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "IncommingWebSocketMessage.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -20003,7 +21262,7 @@
 									"protection": "public",
 									"nestedName": "OutgoingWebSocketMessage.this",
 									"type": {
-										"text": "OutgoingWebSocketMessage(TcpConnection conn)",
+										"text": "OutgoingWebSocketMessage(Stream conn)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -20018,10 +21277,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "TcpConnection",
-													"qualifiedName": "vibe.core.driver.TcpConnection",
-													"name": "TcpConnection",
-													"moduleName": "vibe.core.driver",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
 													"attributes": []
 												},
 												"name": "conn"
@@ -20221,7 +21480,7 @@
 									"protection": "public",
 									"nestedName": "WebSocket.this",
 									"type": {
-										"text": "WebSocket(TcpConnection conn)",
+										"text": "WebSocket(Stream conn)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -20236,10 +21495,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "TcpConnection",
-													"qualifiedName": "vibe.core.driver.TcpConnection",
-													"name": "TcpConnection",
-													"moduleName": "vibe.core.driver",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
 													"attributes": []
 												},
 												"name": "conn"
@@ -20258,7 +21517,7 @@
 									"protection": "public",
 									"nestedName": "WebSocket.connected",
 									"type": {
-										"text": "const @property bool()",
+										"text": "@property bool()",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -20270,7 +21529,6 @@
 										},
 										"parameters": [],
 										"attributes": [
-											"const",
 											"@property"
 										]
 									},
@@ -22266,6 +23524,30 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ChunkedInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ChunkedInputStream.empty",
 									"type": {
 										"text": "const @property bool()",
@@ -22310,6 +23592,35 @@
 										]
 									},
 									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "ChunkedInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
 								}
 							],
 							[
@@ -23138,7 +24449,7 @@
 									"protection": "protected",
 									"nestedName": "HttpRequest.this",
 									"type": {
-										"text": "HttpRequest(TcpConnection conn)",
+										"text": "HttpRequest(Stream conn)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -23153,10 +24464,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "TcpConnection",
-													"qualifiedName": "vibe.core.driver.TcpConnection",
-													"name": "TcpConnection",
-													"moduleName": "vibe.core.driver",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
 													"attributes": []
 												},
 												"name": "conn"
@@ -23323,12 +24634,12 @@
 									"nestedName": "HttpRequest.m_conn",
 									"type": {
 										"kind": "type",
-										"text": "vibe.core.driver.TcpConnection",
+										"text": "vibe.stream.stream.Stream",
 										"typeClass": "primitive",
-										"nestedName": "TcpConnection",
-										"qualifiedName": "vibe.core.driver.TcpConnection",
-										"name": "TcpConnection",
-										"moduleName": "vibe.core.driver",
+										"nestedName": "Stream",
+										"qualifiedName": "vibe.stream.stream.Stream",
+										"name": "Stream",
+										"moduleName": "vibe.stream.stream",
 										"attributes": []
 									},
 									"name": "m_conn"
@@ -23968,6 +25279,45 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "Libevent2Driver.createTimer",
+									"type": {
+										"text": "Libevent2Timer(void delegate() callback)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Libevent2Timer",
+											"qualifiedName": "vibe.core.drivers.libevent2.Libevent2Timer",
+											"name": "Libevent2Timer",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"parameters": [
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
+													"attributes": []
+												},
+												"name": "callback"
+											}
+										],
+										"attributes": []
+									},
+									"name": "createTimer"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "Libevent2Driver.dnsEngine",
 									"type": {
 										"text": "@property evdns_base*()",
@@ -24411,6 +25761,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "Libevent2Signal.acquire",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "acquire"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "Libevent2Signal.emit",
 									"type": {
 										"text": "void()",
@@ -24458,7 +25830,7 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Libevent2Signal.isSelfRegistered",
+									"nestedName": "Libevent2Signal.isOwner",
 									"type": {
 										"text": "bool()",
 										"typeclass": "function",
@@ -24473,14 +25845,14 @@
 										"parameters": [],
 										"attributes": []
 									},
-									"name": "isSelfRegistered"
+									"name": "isOwner"
 								}
 							],
 							[
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Libevent2Signal.registerSelf",
+									"nestedName": "Libevent2Signal.release",
 									"type": {
 										"text": "void()",
 										"typeclass": "function",
@@ -24495,29 +25867,7 @@
 										"parameters": [],
 										"attributes": []
 									},
-									"name": "registerSelf"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Libevent2Signal.unregisterSelf",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "unregisterSelf"
+									"name": "release"
 								}
 							],
 							[
@@ -24568,6 +25918,275 @@
 						}
 					],
 					"name": "Libevent2Signal"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.this",
+									"type": {
+										"text": "Libevent2Timer(Libevent2Driver driver, void delegate() callback)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Libevent2Timer",
+											"qualifiedName": "vibe.core.drivers.libevent2.Libevent2Timer",
+											"name": "Libevent2Timer",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Libevent2Driver",
+													"qualifiedName": "vibe.core.drivers.libevent2.Libevent2Driver",
+													"name": "Libevent2Driver",
+													"moduleName": "vibe.core.drivers.libevent2",
+													"attributes": []
+												},
+												"name": "driver"
+											},
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
+													"attributes": []
+												},
+												"name": "callback"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.acquire",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "acquire"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.isOwner",
+									"type": {
+										"text": "bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "isOwner"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.pending",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "pending"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.rearm",
+									"type": {
+										"text": "void(Duration timeout, bool periodic = false)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Duration",
+													"qualifiedName": "Duration",
+													"name": "Duration",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "timeout"
+											},
+											{
+												"defaultValue": "false",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "periodic"
+											}
+										],
+										"attributes": []
+									},
+									"name": "rearm"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.release",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "release"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.stop",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "stop"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2Timer.wait",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "wait"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "Libevent2Timer",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "Timer",
+							"typeClass": "primitive",
+							"nestedName": "Timer",
+							"qualifiedName": "vibe.core.driver.Timer",
+							"name": "Timer",
+							"moduleName": "vibe.core.driver",
+							"attributes": []
+						}
+					],
+					"name": "Libevent2Timer"
 				}
 			]
 		]
@@ -24780,6 +26399,46 @@
 										"attributes": []
 									},
 									"name": "createSignal"
+								}
+							],
+							[
+								{
+									"ddoc": "\n\t\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "EventDriver.createTimer",
+									"type": {
+										"text": "Timer(void delegate() callback)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Timer",
+											"qualifiedName": "vibe.core.driver.Timer",
+											"name": "Timer",
+											"moduleName": "vibe.core.driver"
+										},
+										"parameters": [
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
+													"attributes": []
+												},
+												"name": "callback"
+											}
+										],
+										"attributes": []
+									},
+									"name": "createTimer"
 								}
 							],
 							[
@@ -25050,6 +26709,29 @@
 							],
 							[
 								{
+									"ddoc": " Returns true if the calling fiber owns this object\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "EventedObject.isOwner",
+									"type": {
+										"text": "bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "isOwner"
+								}
+							],
+							[
+								{
 									"ddoc": " Releases the ownership of the object.\n",
 									"kind": "function",
 									"protection": "public",
@@ -25251,7 +26933,7 @@
 			],
 			[
 				{
-					"ddoc": "\n",
+					"ddoc": " A cross-fiber signal\n\n\tNote: the ownership can be shared between multiple fibers.\n",
 					"kind": "interface",
 					"protection": "public",
 					"members": {
@@ -25307,72 +26989,6 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Signal.isSelfRegistered",
-									"type": {
-										"text": "bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "isSelfRegistered"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Signal.registerSelf",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "registerSelf"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Signal.unregisterSelf",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "unregisterSelf"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
 									"nestedName": "Signal.wait",
 									"type": {
 										"text": "void()",
@@ -25394,6 +27010,18 @@
 						]
 					},
 					"nestedName": "Signal",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "EventedObject",
+							"typeClass": "primitive",
+							"nestedName": "EventedObject",
+							"qualifiedName": "vibe.core.driver.EventedObject",
+							"name": "EventedObject",
+							"moduleName": "vibe.core.driver",
+							"attributes": []
+						}
+					],
 					"name": "Signal"
 				}
 			],
@@ -25404,42 +27032,6 @@
 					"protection": "public",
 					"members": {
 						"functions": [
-							[
-								{
-									"ddoc": " Accepts an SSL connection from a client.\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "TcpConnection.acceptSSL",
-									"type": {
-										"text": "void(SSLContext ctx)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "SSLContext",
-													"qualifiedName": "vibe.crypto.ssl.SSLContext",
-													"name": "SSLContext",
-													"moduleName": "vibe.crypto.ssl",
-													"attributes": []
-												},
-												"name": "ctx"
-											}
-										],
-										"attributes": []
-									},
-									"name": "acceptSSL"
-								}
-							],
 							[
 								{
 									"ddoc": " Actively closes the connection.\n",
@@ -25487,67 +27079,6 @@
 										]
 									},
 									"name": "connected"
-								}
-							],
-							[
-								{
-									"ddoc": " Queries if there is data available for immediate, non-blocking read.\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "TcpConnection.dataAvailableForRead",
-									"type": {
-										"text": "@property bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "dataAvailableForRead"
-								}
-							],
-							[
-								{
-									"ddoc": " Initiates an SSL connection (client).\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "TcpConnection.initiateSSL",
-									"type": {
-										"text": "void(SSLContext ctx)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "SSLContext",
-													"qualifiedName": "vibe.crypto.ssl.SSLContext",
-													"name": "SSLContext",
-													"moduleName": "vibe.crypto.ssl",
-													"attributes": []
-												},
-												"name": "ctx"
-											}
-										],
-										"attributes": []
-									},
-									"name": "initiateSSL"
 								}
 							],
 							[
@@ -25616,12 +27147,12 @@
 							],
 							[
 								{
-									"ddoc": " Sets a timeout  until data has to be availabe for read. Returns false on timeout.\n",
+									"ddoc": " Sets a timeout until data has to be availabe for read. Returns false on timeout.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "TcpConnection.waitForData",
 									"type": {
-										"text": "bool(int secs)",
+										"text": "bool(Duration timeout)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -25636,13 +27167,13 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "int",
-													"qualifiedName": "int",
-													"name": "int",
+													"nestedName": "Duration",
+													"qualifiedName": "Duration",
+													"name": "Duration",
 													"moduleName": "",
 													"attributes": []
 												},
-												"name": "secs"
+												"name": "timeout"
 											}
 										],
 										"attributes": []
@@ -25676,6 +27207,147 @@
 						}
 					],
 					"name": "TcpConnection"
+				}
+			],
+			[
+				{
+					"ddoc": "\n",
+					"kind": "interface",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Timer.pending",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "pending"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Timer.rearm",
+									"type": {
+										"text": "void(Duration dur, bool periodic = false)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Duration",
+													"qualifiedName": "Duration",
+													"name": "Duration",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "dur"
+											},
+											{
+												"defaultValue": "false",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "periodic"
+											}
+										],
+										"attributes": []
+									},
+									"name": "rearm"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Timer.stop",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "stop"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Timer.wait",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "wait"
+								}
+							]
+						]
+					},
+					"nestedName": "Timer",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "EventedObject",
+							"typeClass": "primitive",
+							"nestedName": "EventedObject",
+							"qualifiedName": "vibe.core.driver.EventedObject",
+							"name": "EventedObject",
+							"moduleName": "vibe.core.driver",
+							"attributes": []
+						}
+					],
+					"name": "Timer"
 				}
 			]
 		]
@@ -27080,7 +28752,7 @@
 									"protection": "public",
 									"nestedName": "MongoConnection.query",
 									"type": {
-										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1485;\r\n , __ctmp1485).this(null))",
+										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1489;\r\n , __ctmp1489).this(null))",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -27152,7 +28824,7 @@
 												"name": "query"
 											},
 											{
-												"defaultValue": "(Bson__ctmp1485;,__ctmp1485",
+												"defaultValue": "(Bson__ctmp1489;,__ctmp1489",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -27893,12 +29565,77 @@
 			],
 			[
 				{
+					"ddoc": "\n\tReturns a new armed timer.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "setTimer",
+					"type": {
+						"text": "Timer(Duration timeout, void delegate() callback, bool periodic = false)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "Timer",
+							"qualifiedName": "vibe.core.driver.Timer",
+							"name": "Timer",
+							"moduleName": "vibe.core.driver"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Duration",
+									"qualifiedName": "Duration",
+									"name": "Duration",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "timeout"
+							},
+							{
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "void",
+										"qualifiedName": "void",
+										"name": "void",
+										"moduleName": ""
+									},
+									"parameters": [],
+									"attributes": []
+								},
+								"name": "callback"
+							},
+							{
+								"defaultValue": "false",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "bool",
+									"qualifiedName": "bool",
+									"name": "bool",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "periodic"
+							}
+						],
+						"attributes": []
+					},
+					"name": "setTimer"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tSuspends the execution of the calling task for the specified amount of time.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "sleep",
 					"type": {
-						"text": "void(double seconds)",
+						"text": "void(Duration timeout)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -27913,13 +29650,13 @@
 								"type": {
 									"kind": "type",
 									"typeClass": "primitive",
-									"nestedName": "double",
-									"qualifiedName": "double",
-									"name": "double",
+									"nestedName": "Duration",
+									"qualifiedName": "Duration",
+									"name": "Duration",
 									"moduleName": "",
 									"attributes": []
 								},
-								"name": "seconds"
+								"name": "timeout"
 							}
 						],
 						"attributes": []
@@ -34449,7 +36186,7 @@
 					"templateName": "logTrace(T...)",
 					"nestedName": "logTrace",
 					"type": {
-						"text": "void(string fmt, T args)",
+						"text": "nothrow void(string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34485,7 +36222,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "logTrace"
 				},
@@ -34495,7 +36234,7 @@
 					"templateName": "logDebug(T...)",
 					"nestedName": "logDebug",
 					"type": {
-						"text": "void(string fmt, T args)",
+						"text": "nothrow void(string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34531,7 +36270,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "logDebug"
 				},
@@ -34541,7 +36282,7 @@
 					"templateName": "logInfo(T...)",
 					"nestedName": "logInfo",
 					"type": {
-						"text": "void(string fmt, T args)",
+						"text": "nothrow void(string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34577,7 +36318,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "logInfo"
 				},
@@ -34587,7 +36330,7 @@
 					"templateName": "logWarn(T...)",
 					"nestedName": "logWarn",
 					"type": {
-						"text": "void(string fmt, T args)",
+						"text": "nothrow void(string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34623,7 +36366,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "logWarn"
 				},
@@ -34633,7 +36378,7 @@
 					"templateName": "logError(T...)",
 					"nestedName": "logError",
 					"type": {
-						"text": "void(string fmt, T args)",
+						"text": "nothrow void(string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34669,7 +36414,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "logError"
 				},
@@ -34679,7 +36426,7 @@
 					"templateName": "log(T...)",
 					"nestedName": "log",
 					"type": {
-						"text": "void(LogLevel level, string fmt, T args)",
+						"text": "nothrow void(LogLevel level, string fmt, T args)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34727,7 +36474,9 @@
 								"name": "args"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "log"
 				}
@@ -34739,7 +36488,7 @@
 					"protection": "public",
 					"nestedName": "setLogLevel",
 					"type": {
-						"text": "void(LogLevel level)",
+						"text": "nothrow void(LogLevel level)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -34763,7 +36512,9 @@
 								"name": "level"
 							}
 						],
-						"attributes": []
+						"attributes": [
+							"nothrow"
+						]
 					},
 					"name": "setLogLevel"
 				}
