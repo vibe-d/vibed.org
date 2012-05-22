@@ -26,10 +26,8 @@ block body
 		a#web-forums
 		h2 Web forums
 		
-		p(style="color:red") NOTE: The web forum will go live in the next cuple of days and is not yet online, please use the newsgroup for now, if possible.
-		
 		p The
-			a(href="http://news.rejectedsoftware.com/") web forum
+			a.extern(href="http://news.rejectedsoftware.com/", target="_blank") web forum
 			| is a front end to the newsgroup for those who don't want to use a newsreader or who cannot access it because of a firewall. The forum is based on the great 
 			a.extern(href="https://github.com/cybershadow/dfeed", target="_blank") DFeed
 			| package that powers the
