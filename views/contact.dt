@@ -4,9 +4,13 @@ block title
 	- string title = "Contact";
 
 block body
+
+	p The primary way to get in touch is the
+		a(href="") news group
+		| or the
+		a(href="") web forum
+		|, which is a front end to the newsgroup.
 	
-	p At the moment, you can contact us using
-		a(href="mailto:info@rejectedsoftware.com") a central mailbox
-		|.
-	
-	p A newsgroup server will be available shortly as a better alternative.
+	p If you need non-public contact, you can either use the
+		a(href="mailto:info@rejectedsoftware.com") central mailbox
+		| or contact us on our personal email accounts.
