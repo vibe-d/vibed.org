@@ -7,8 +7,36 @@ block navigation
 	ul
 		li
 			a(href="##introduction") Introduction
+			
 		li
-			a(href="##syntax-reference") Syntax reference
+			a(href="##basic-structure") Basic structure
+			
+		li
+			a(href="##basic-structure") Content elements
+			
+			ul
+				li
+					a(href="##html-elements") HTML elements 
+				li
+					a(href="##plain-text") Plain text
+				li
+					a(href="##comments") Comments
+		li
+			a(href="##embedded-code") Embedded source code
+
+			ul
+				li
+					a(href="##statements") Statements
+				li
+					a(href="##procedural-content") Procedural content
+				li
+					a(href="##string-interpolations") String interpolations
+
+		li
+			a(href="##extensions") Blocks and extensions
+			
+		li
+			a(href="##filters") Filters
 
 block body
 
@@ -16,7 +44,12 @@ block body
 		a#introduction
 		h2 Introduction
 			
-		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster that static pages because they are just written directly from RAM to the HTTP connection.
+		p(style="color: red") Work-in-progress
+		p(style="color: red") Please use the
+			a(href="https://github.com/visionmedia/jade") Jade documentation
+			| for any section that is not filled with content, Diet templates are kept as compatible as possible to Jade templates.
+
+		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster than static pages on disk, because they are just written directly from RAM to the HTTP connection.
 		
 		p The syntax equals that of
 			a(href="http://jade-lang.org") Jade
@@ -25,10 +58,59 @@ block body
 			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
 			
 	section
-		a#syntax-reference
-		h2 Syntax reference
+		a#basic-structure
+		h2 Basic structure
 		
-		p(style="color: red") TODO
-		p Please use the
-			a(href="https://github.com/visionmedia/jade") Jade documentation
-			| for now.
+		:markdown
+			The general structure uses indentation to manage nesting of HTML tags, similar to what Python does. The indentation style of a document is enforced to be consistent and can either be tabs or any number of spaces. The indentation style is inferred from the first line that is indented. Note that indentation levels may never be skipped, so that the first indented line must always be indented by exactly one tab stop.
+			
+			Right now, it is necessary to begin the document with an HTML 5 header. This restriction will be removed in the future.
+			
+		code
+			pre !!! 5
+				|html
+				|	head
+				|		title Hello, World
+				|	body
+				|		h1 Hello World
+			.caption Example: A minimal HTML page
+			
+	section
+		a#content-elements
+		h2 Content elements
+		
+		section
+			a#html-elements
+			h3 HTML elements
+					
+		section
+			a#plain-text
+			h3 Plain text
+			
+		section
+			a#comments
+			h3 Comments
+
+	section
+		a#embedded-code
+		h2 Embedded D source code
+		
+		section
+			a#statements
+			h3 Statements
+			
+		section
+			a#procedural-content
+			h3 Procedural content
+			
+		section
+			a#string-interpolations
+			h3 String interpolations
+		
+	section
+		a#extensions
+		h2 Blocks and Extensions
+		
+	section
+		a#filters
+		h2 Filters
