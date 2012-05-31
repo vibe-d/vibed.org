@@ -1,4 +1,610 @@
 {
+"vibe.core.connectionpool": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\core\\connectionpool.d",
+	"ddoc": "\n\tGeneric connection pool for reusing persistent connections across fibers.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"structs": [
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "LockedConnection(Connection : EventedObject).LockedConnection.this",
+													"type": {
+														"text": "(ConnectionPool!(Connection) pool, Connection conn)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "ConnectionPool",
+																	"templateArgs": "(Connection)",
+																	"qualifiedName": "ConnectionPool",
+																	"name": "ConnectionPool",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "pool"
+															},
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "Connection",
+																	"qualifiedName": "Connection",
+																	"name": "Connection",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "conn"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "LockedConnection(Connection : EventedObject).LockedConnection.m_conn",
+													"type": {
+														"kind": "type",
+														"text": "Connection",
+														"typeClass": "primitive",
+														"nestedName": "Connection",
+														"qualifiedName": "Connection",
+														"name": "Connection",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_conn"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "LockedConnection(Connection : EventedObject).LockedConnection.m_fiber",
+													"type": {
+														"kind": "type",
+														"text": "Fiber",
+														"typeClass": "primitive",
+														"nestedName": "Fiber",
+														"qualifiedName": "Fiber",
+														"name": "Fiber",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_fiber"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "LockedConnection(Connection : EventedObject).LockedConnection.m_pool",
+													"type": {
+														"kind": "type",
+														"text": "ConnectionPool!(Connection)",
+														"typeClass": "primitive",
+														"nestedName": "ConnectionPool",
+														"templateArgs": "(Connection)",
+														"qualifiedName": "ConnectionPool",
+														"name": "ConnectionPool",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_pool"
+												}
+											]
+										]
+									},
+									"nestedName": "LockedConnection(Connection : EventedObject).LockedConnection",
+									"name": "LockedConnection"
+								}
+							]
+						]
+					},
+					"nestedName": "LockedConnection(Connection : EventedObject)",
+					"name": "LockedConnection(Connection : EventedObject)"
+				}
+			]
+		],
+		"classes": [
+			[
+				{
+					"ddoc": "\n\tGeneric connection pool class.\n\n\tThe connection pool is creating connections using the supplied factory function as needed\n\twhenever lockConnection() is called. Connections are associated to the calling fiber, as long\n\tas any copy of the returned LockedConnection object still exists. Connections that are not\n\tassociated\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"classes": [
+							[
+								{
+									"kind": "class",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.this",
+													"type": {
+														"text": "(Connection delegate() connection_factory)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"typeclass": "delegate",
+																	"returnType": {
+																		"kind": "type",
+																		"typeClass": "primitive",
+																		"nestedName": "Connection",
+																		"qualifiedName": "Connection",
+																		"name": "Connection",
+																		"moduleName": ""
+																	},
+																	"parameters": [],
+																	"attributes": []
+																},
+																"name": "connection_factory"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.lockConnection",
+													"type": {
+														"text": "LockedConnection!(Connection)()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "LockedConnection",
+															"templateArgs": "(Connection)",
+															"qualifiedName": "LockedConnection",
+															"name": "LockedConnection",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "lockConnection"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.m_connectionFactory",
+													"type": {
+														"text": "Connection delegate()",
+														"typeclass": "delegate",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Connection",
+															"qualifiedName": "Connection",
+															"name": "Connection",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "m_connectionFactory"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.m_connections",
+													"type": {
+														"kind": "type",
+														"text": "Connection[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Connection",
+															"qualifiedName": "Connection",
+															"name": "Connection",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_connections"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.m_lockCount",
+													"type": {
+														"kind": "type",
+														"keyType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Connection",
+															"qualifiedName": "Connection",
+															"name": "Connection",
+															"moduleName": ""
+														},
+														"text": "int[Connection]",
+														"typeClass": "associative array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "int",
+															"qualifiedName": "int",
+															"name": "int",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_lockCount"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool.m_locks",
+													"type": {
+														"kind": "type",
+														"keyType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Fiber",
+															"qualifiedName": "Fiber",
+															"name": "Fiber",
+															"moduleName": ""
+														},
+														"text": "Connection[Fiber]",
+														"typeClass": "associative array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Connection",
+															"qualifiedName": "Connection",
+															"name": "Connection",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_locks"
+												}
+											]
+										]
+									},
+									"base": {
+										"kind": "type",
+										"text": "Object",
+										"typeClass": "primitive",
+										"nestedName": "Object",
+										"qualifiedName": "Object",
+										"name": "Object",
+										"moduleName": "",
+										"attributes": []
+									},
+									"nestedName": "ConnectionPool(Connection : EventedObject).ConnectionPool",
+									"name": "ConnectionPool"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "ConnectionPool(Connection : EventedObject)",
+					"name": "ConnectionPool(Connection : EventedObject)"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tWraps an InputStream and automatically unlocks a locked connection as soon as all data has been\n\tread.\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"classes": [
+							[
+								{
+									"kind": "class",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.this",
+													"type": {
+														"text": "(LockedConnection!(Connection) conn, InputStream str)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "LockedConnection",
+																	"templateArgs": "(Connection)",
+																	"qualifiedName": "LockedConnection",
+																	"name": "LockedConnection",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "conn"
+															},
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "InputStream",
+																	"qualifiedName": "vibe.stream.stream.InputStream",
+																	"name": "InputStream",
+																	"moduleName": "vibe.stream.stream",
+																	"attributes": []
+																},
+																"name": "str"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.dataAvailableForRead",
+													"type": {
+														"text": "bool()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "bool",
+															"qualifiedName": "bool",
+															"name": "bool",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "dataAvailableForRead"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.empty",
+													"type": {
+														"text": "bool()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "bool",
+															"qualifiedName": "bool",
+															"name": "bool",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "empty"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.leastSize",
+													"type": {
+														"text": "ulong()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ulong",
+															"qualifiedName": "ulong",
+															"name": "ulong",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "leastSize"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.peek",
+													"type": {
+														"text": "const(ubyte)[]()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "array",
+															"elementType": {
+																"kind": "type",
+																"modifiers": [
+																	"const"
+																],
+																"typeClass": "primitive",
+																"nestedName": "ubyte",
+																"qualifiedName": "ubyte",
+																"name": "ubyte",
+																"moduleName": ""
+															}
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "peek"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.read",
+													"type": {
+														"text": "void(ubyte[] dst)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "array",
+																	"elementType": {
+																		"kind": "type",
+																		"typeClass": "primitive",
+																		"nestedName": "ubyte",
+																		"qualifiedName": "ubyte",
+																		"name": "ubyte",
+																		"moduleName": ""
+																	},
+																	"attributes": []
+																},
+																"name": "dst"
+															}
+														],
+														"attributes": []
+													},
+													"name": "read"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.m_lock",
+													"type": {
+														"kind": "type",
+														"text": "LockedConnection!(Connection)",
+														"typeClass": "primitive",
+														"nestedName": "LockedConnection",
+														"templateArgs": "(Connection)",
+														"qualifiedName": "LockedConnection",
+														"name": "LockedConnection",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_lock"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream.m_stream",
+													"type": {
+														"kind": "type",
+														"text": "InputStream",
+														"typeClass": "primitive",
+														"nestedName": "InputStream",
+														"qualifiedName": "vibe.stream.stream.InputStream",
+														"name": "InputStream",
+														"moduleName": "vibe.stream.stream",
+														"attributes": []
+													},
+													"name": "m_stream"
+												}
+											]
+										]
+									},
+									"base": {
+										"kind": "type",
+										"text": "Object",
+										"typeClass": "primitive",
+										"nestedName": "Object",
+										"qualifiedName": "Object",
+										"name": "Object",
+										"moduleName": "",
+										"attributes": []
+									},
+									"nestedName": "LockedInputStream(Connection : EventedObject).LockedInputStream",
+									"name": "LockedInputStream"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "LockedInputStream(Connection : EventedObject)",
+					"name": "LockedInputStream(Connection : EventedObject)"
+				}
+			]
+		]
+	},
+	"name": "vibe.core.connectionpool"
+},
 "vibe.data.bson": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\data\\bson.d",
@@ -3346,6 +3952,148 @@
 			],
 			[
 				{
+					"ddoc": "\n\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "filterCSS",
+					"type": {
+						"text": "string(string text, int indent)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "text"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "int",
+									"qualifiedName": "int",
+									"name": "int",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "indent"
+							}
+						],
+						"attributes": []
+					},
+					"name": "filterCSS"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "filterJavaScript",
+					"type": {
+						"text": "string(string text, int indent)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "text"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "int",
+									"qualifiedName": "int",
+									"name": "int",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "indent"
+							}
+						],
+						"attributes": []
+					},
+					"name": "filterJavaScript"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "filterMarkdown",
+					"type": {
+						"text": "string(string text, int indent)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "text"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "int",
+									"qualifiedName": "int",
+									"name": "int",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "indent"
+							}
+						],
+						"attributes": []
+					},
+					"name": "filterMarkdown"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tParses the given diet template at compile time and writes the resulting\n\tHTML code into 'stream'.\n\n\tNote that this function currently suffers from multiple DMD bugs in conjunction with local\n\tvariables passed as alias template parameters.\n",
 					"kind": "function",
 					"templateName": "parseDietFile(string template_file,ALIASES...)",
@@ -3430,6 +4178,82 @@
 						"attributes": []
 					},
 					"name": "parseDietFileCompat"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tRegisters a new text filter for use in Diet templates.\n\n\tThe filter will be available using :filtername inside of the template. The following filters are\n\tpredefined: css, javascript, markdown\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "registerDietTextFilter",
+					"type": {
+						"text": "void(string name, string function(string, int indent) filter)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "name"
+							},
+							{
+								"type": {
+									"typeclass": "function",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "string",
+												"qualifiedName": "string",
+												"name": "string",
+												"moduleName": "",
+												"attributes": []
+											}
+										},
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "int",
+												"qualifiedName": "int",
+												"name": "int",
+												"moduleName": "",
+												"attributes": []
+											},
+											"name": "indent"
+										}
+									],
+									"attributes": []
+								},
+								"name": "filter"
+							}
+						],
+						"attributes": []
+					},
+					"name": "registerDietTextFilter"
 				}
 			]
 		]
@@ -5345,7 +6169,172 @@
 		"functions": [
 			[
 				{
-					"ddoc": " Opens a file stream with the specified mode.\n",
+					"ddoc": "\n\tCreates and opens a temporary file for writing.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "createTempFile",
+					"type": {
+						"text": "FileStream()",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "FileStream",
+							"qualifiedName": "vibe.core.driver.FileStream",
+							"name": "FileStream",
+							"moduleName": "vibe.core.driver"
+						},
+						"parameters": [],
+						"attributes": []
+					},
+					"name": "createTempFile"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tMoves or renames a file.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "moveFile",
+					"type": {
+						"text": "void(Path from, Path to)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "from"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "to"
+							}
+						],
+						"attributes": []
+					},
+					"name": "moveFile"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "moveFile",
+					"type": {
+						"text": "void(string from, string to)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "from"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "to"
+							}
+						],
+						"attributes": []
+					},
+					"name": "moveFile"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tOpens a file stream with the specified mode.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "openFile",
+					"type": {
+						"text": "FileStream(Path path, FileMode mode = cast(FileMode)0)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "FileStream",
+							"qualifiedName": "vibe.core.driver.FileStream",
+							"name": "FileStream",
+							"moduleName": "vibe.core.driver"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							},
+							{
+								"defaultValue": "cast(FileMode",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "FileMode",
+									"qualifiedName": "vibe.core.driver.FileMode",
+									"name": "FileMode",
+									"moduleName": "vibe.core.driver",
+									"attributes": []
+								},
+								"name": "mode"
+							}
+						],
+						"attributes": []
+					},
+					"name": "openFile"
+				},
+				{
+					"ddoc": "\n\tOpens a file stream with the specified mode.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "openFile",
@@ -5679,6 +6668,31 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ThreadedFileStream.path",
+									"type": {
+										"text": "const @property Path()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.url.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.url"
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "path"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ThreadedFileStream.peek",
 									"type": {
 										"text": "const(ubyte)[]()",
@@ -5741,86 +6755,6 @@
 										"attributes": []
 									},
 									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ThreadedFileStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ThreadedFileStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
 								}
 							],
 							[
@@ -6888,6 +7822,25 @@
 							],
 							[
 								{
+									"ddoc": " The error exception, if any\n",
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "HttpServerErrorInfo.exception",
+									"type": {
+										"kind": "type",
+										"text": "object.Throwable",
+										"typeClass": "primitive",
+										"nestedName": "object.Throwable",
+										"qualifiedName": "object.Throwable",
+										"name": "Throwable",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "exception"
+								}
+							],
+							[
+								{
 									"ddoc": " The error message\n",
 									"kind": "variable",
 									"protection": "public",
@@ -7069,6 +8022,36 @@
 										"attributes": []
 									},
 									"name": "data"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "HttpServerRequest.files",
+									"type": {
+										"kind": "type",
+										"keyType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"text": "FilePart[string]",
+										"typeClass": "associative array",
+										"elementType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "FilePart",
+											"qualifiedName": "vibe.http.form.FilePart",
+											"name": "FilePart",
+											"moduleName": "vibe.http.form"
+										},
+										"attributes": []
+									},
+									"name": "files"
 								}
 							],
 							[
@@ -9873,86 +10856,6 @@
 									},
 									"name": "read"
 								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
-								}
 							]
 						]
 					},
@@ -10462,86 +11365,6 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "LimitedInputStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
 									"nestedName": "LimitedInputStream.sourceStream",
 									"type": {
 										"text": "inout @property inout(InputStream)()",
@@ -10941,167 +11764,6 @@
 									},
 									"name": "read"
 								}
-							],
-							[
-								{
-									"ddoc": " Reads the remaining contents of the stream into a memory buffer and returns it.\n\t\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "InputStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "protected",
-									"nestedName": "InputStream.readAllDefault",
-									"type": {
-										"text": "ubyte[](uint max_bytes)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAllDefault"
-								}
-							],
-							[
-								{
-									"ddoc": "\tReads and returns a single line from the stream.\n\n\t\tThrows: An exception if either the stream end was hit without hitting a newline first, or\n\t\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n\t\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "InputStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "protected",
-									"nestedName": "InputStream.readLineDefault",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, const(immutable(char)[]) linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLineDefault"
-								}
 							]
 						]
 					},
@@ -11408,6 +12070,264 @@
 						}
 					],
 					"name": "Stream"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": "\n\tReads the complete contents of a stream, optionally limited by max_bytes.\n\n\tThrows:\n\t\tAn exception is thrown if max_bytes != 0 and the stream contains more than max_bytes data.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "readAll",
+					"type": {
+						"text": "ubyte[](InputStream stream, uint max_bytes = cast(uint)0)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "ubyte",
+								"qualifiedName": "ubyte",
+								"name": "ubyte",
+								"moduleName": ""
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "stream"
+							},
+							{
+								"defaultValue": "cast(uint",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "max_bytes"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readAll"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tReads and returns a single line from the stream.\n\n\tThrows:\n\t\tAn exception if either the stream end was hit without hitting a newline first, or\n\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "readLine",
+					"type": {
+						"text": "ubyte[](InputStream stream, uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "ubyte",
+								"qualifiedName": "ubyte",
+								"name": "ubyte",
+								"moduleName": ""
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "stream"
+							},
+							{
+								"defaultValue": "cast(uint",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "max_bytes"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readLine"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tReads all data of a stream until the specified end marker is detected.\n\n\tThrows:\n\t\tAn exception if either the stream end was hit without hitting a marker first, or\n\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "readUntil",
+					"type": {
+						"text": "ubyte[](InputStream stream, const(ubyte[]) end_marker, uint max_bytes = cast(uint)0)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "ubyte",
+								"qualifiedName": "ubyte",
+								"name": "ubyte",
+								"moduleName": ""
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "stream"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"modifiers": [
+										"const"
+									],
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "ubyte",
+										"qualifiedName": "ubyte",
+										"name": "ubyte",
+										"moduleName": ""
+									},
+									"attributes": []
+								},
+								"name": "end_marker"
+							},
+							{
+								"defaultValue": "cast(uint",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "max_bytes"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readUntil"
+				},
+				{
+					"ddoc": "\n\tReads all data of a stream until the specified end marker is detected.\n\n\tThrows:\n\t\tAn exception if either the stream end was hit without hitting a marker first, or\n\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "readUntil",
+					"type": {
+						"text": "void(InputStream stream, OutputStream dst, const(ubyte[]) end_marker, ulong max_bytes = cast(ulong)0)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "stream"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "OutputStream",
+									"qualifiedName": "vibe.stream.stream.OutputStream",
+									"name": "OutputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"modifiers": [
+										"const"
+									],
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "ubyte",
+										"qualifiedName": "ubyte",
+										"name": "ubyte",
+										"moduleName": ""
+									},
+									"attributes": []
+								},
+								"name": "end_marker"
+							},
+							{
+								"defaultValue": "cast(ulong",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ulong",
+									"qualifiedName": "ulong",
+									"name": "ulong",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "max_bytes"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readUntil"
 				}
 			]
 		]
@@ -12929,6 +13849,89 @@
 	},
 	"name": "vibe.vibe"
 },
+"vibe.inet.rfc5322": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\inet\\rfc5322.d",
+	"ddoc": "\n\tMime header parsing according to RFC5322\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"aliases": [
+			[
+				{
+					"kind": "alias",
+					"protection": "public",
+					"nestedName": "InetHeaderMap",
+					"name": "InetHeaderMap"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": "\n\tParses an internet header according to RFC5322 (with RFC822 compatibility).\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseRfc5322Header",
+					"type": {
+						"text": "void(InputStream input, ref StrMapCI dst, uint max_line_length = cast(uint)1000)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "input"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "StrMapCI",
+									"qualifiedName": "vibe.http.common.StrMapCI",
+									"name": "StrMapCI",
+									"moduleName": "vibe.http.common",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"defaultValue": "cast(uint",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "max_line_length"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseRfc5322Header"
+				}
+			]
+		]
+	},
+	"name": "vibe.inet.rfc5322"
+},
 "vibe.utils.array": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\array.d",
@@ -13477,86 +14480,6 @@
 										"attributes": []
 									},
 									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ZlibInputStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ZlibInputStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
 								}
 							]
 						]
@@ -16843,6 +17766,349 @@
 	},
 	"name": "vibe.data.json"
 },
+"vibe.http.form": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\http\\form.d",
+	"ddoc": "\n\tContains HTTP form parsing and construction routines.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"members": {
+		"structs": [
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FilePart.__xopEquals",
+									"type": {
+										"text": "bool(const(void*) p, const(void*) q)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "p"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "q"
+											}
+										],
+										"attributes": []
+									},
+									"name": "__xopEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FilePart.opEquals",
+									"type": {
+										"text": "const bool(const(FilePart) p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "FilePart",
+													"qualifiedName": "vibe.http.form.FilePart",
+													"name": "FilePart",
+													"moduleName": "vibe.http.form",
+													"attributes": []
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							]
+						],
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FilePart.filename",
+									"type": {
+										"kind": "type",
+										"text": "PathEntry",
+										"typeClass": "primitive",
+										"nestedName": "PathEntry",
+										"qualifiedName": "vibe.inet.url.PathEntry",
+										"name": "PathEntry",
+										"moduleName": "vibe.inet.url",
+										"attributes": []
+									},
+									"name": "filename"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FilePart.headers",
+									"type": {
+										"kind": "type",
+										"text": "StrMapCI",
+										"typeClass": "primitive",
+										"nestedName": "StrMapCI",
+										"qualifiedName": "vibe.http.common.StrMapCI",
+										"name": "StrMapCI",
+										"moduleName": "vibe.http.common",
+										"attributes": []
+									},
+									"name": "headers"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FilePart.tempPath",
+									"type": {
+										"kind": "type",
+										"text": "Path",
+										"typeClass": "primitive",
+										"nestedName": "Path",
+										"qualifiedName": "vibe.inet.url.Path",
+										"name": "Path",
+										"moduleName": "vibe.inet.url",
+										"attributes": []
+									},
+									"name": "tempPath"
+								}
+							]
+						]
+					},
+					"nestedName": "FilePart",
+					"name": "FilePart"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": "\n\tParses the form given by 'content_type' and 'body_reader'.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseFormData",
+					"type": {
+						"text": "bool(ref string[string] fields, ref FilePart[string] files, string content_type, InputStream body_reader)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"keyType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"typeClass": "associative array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "fields"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"keyType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"typeClass": "associative array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "FilePart",
+										"qualifiedName": "vibe.http.form.FilePart",
+										"name": "FilePart",
+										"moduleName": "vibe.http.form"
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "files"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "content_type"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "InputStream",
+									"qualifiedName": "vibe.stream.stream.InputStream",
+									"name": "InputStream",
+									"moduleName": "vibe.stream.stream",
+									"attributes": []
+								},
+								"name": "body_reader"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseFormData"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tParses a url encoded form (query string format) and puts the key/value pairs into params.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseUrlEncodedForm",
+					"type": {
+						"text": "void(string str, ref string[string] params)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"keyType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"typeClass": "associative array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "params"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseUrlEncodedForm"
+				}
+			]
+		]
+	},
+	"name": "vibe.http.form"
+},
 "vibe.inet.urltransfer": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\inet\\urltransfer.d",
@@ -17056,6 +18322,249 @@
 		]
 	},
 	"name": "vibe.db.mongo.mongo"
+},
+"vibe.stream.memory": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\stream\\memory.d",
+	"ddoc": "\n\tIn-memory streams\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"classes": [
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.this",
+									"type": {
+										"text": "MemoryOutputStream()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "MemoryOutputStream",
+											"qualifiedName": "vibe.stream.memory.MemoryOutputStream",
+											"name": "MemoryOutputStream",
+											"moduleName": "vibe.stream.memory"
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.data",
+									"type": {
+										"text": "@property ubyte[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "data"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.finalize",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "finalize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.flush",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "flush"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.write",
+									"type": {
+										"text": "void(const(ubyte[]) bytes, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "bytes"
+											},
+											{
+												"defaultValue": "true",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "do_flush"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.write",
+									"type": {
+										"text": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "InputStream",
+													"qualifiedName": "vibe.stream.stream.InputStream",
+													"name": "InputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											},
+											{
+												"defaultValue": "cast(ulong",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ulong",
+													"qualifiedName": "ulong",
+													"name": "ulong",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "nbytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "MemoryOutputStream",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "OutputStream",
+							"typeClass": "primitive",
+							"nestedName": "OutputStream",
+							"qualifiedName": "vibe.stream.stream.OutputStream",
+							"name": "OutputStream",
+							"moduleName": "vibe.stream.stream",
+							"attributes": []
+						}
+					],
+					"name": "MemoryOutputStream"
+				}
+			]
+		]
+	},
+	"name": "vibe.stream.memory"
 },
 "vibe.inet.url": {
 	"kind": "module",
@@ -17419,6 +18928,28 @@
 										]
 									},
 									"name": "nodes"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.normalize",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "normalize"
 								}
 							],
 							[
@@ -18198,6 +19729,43 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "PathEntry.opCmp",
+									"type": {
+										"text": "const int(string rhs)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opCmp"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "PathEntry.opEquals",
 									"type": {
 										"text": "const bool(ref const(PathEntry) rhs)",
@@ -18225,6 +19793,43 @@
 													"attributes": [
 														"ref"
 													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.opEquals",
+									"type": {
+										"text": "const bool(string rhs)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
 												},
 												"name": "rhs"
 											}
@@ -18520,9 +20125,10 @@
 										]
 									},
 									"name": "localURI"
-								},
+								}
+							],
+							[
 								{
-									"ddoc": " The path part plus query string and anchor\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.localURI",
@@ -19420,6 +21026,50 @@
 						{
 							"kind": "enum member",
 							"protection": "public",
+							"nestedName": "SmtpAuthType.None",
+							"name": "None"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SmtpAuthType.Plain",
+							"name": "Plain"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SmtpAuthType.Login",
+							"name": "Login"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SmtpAuthType.CramMd5",
+							"name": "CramMd5"
+						}
+					],
+					"nestedName": "SmtpAuthType",
+					"name": "SmtpAuthType",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			],
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
 							"nestedName": "SmtpConnectionType.Plain",
 							"name": "Plain"
 						},
@@ -19496,6 +21146,12 @@
 							"protection": "public",
 							"nestedName": "SmtpStatus.Forwarding",
 							"name": "Forwarding"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SmtpStatus.ServerAuthReady",
+							"name": "ServerAuthReady"
 						},
 						{
 							"kind": "enum member",
@@ -19755,6 +21411,24 @@
 								{
 									"kind": "variable",
 									"protection": "public",
+									"nestedName": "SmtpClientSettings.authType",
+									"type": {
+										"kind": "type",
+										"text": "SmtpAuthType",
+										"typeClass": "primitive",
+										"nestedName": "SmtpAuthType",
+										"qualifiedName": "vibe.mail.smtp.SmtpAuthType",
+										"name": "SmtpAuthType",
+										"moduleName": "vibe.mail.smtp",
+										"attributes": []
+									},
+									"name": "authType"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
 									"nestedName": "SmtpClientSettings.connectionType",
 									"type": {
 										"kind": "type",
@@ -19809,6 +21483,24 @@
 								{
 									"kind": "variable",
 									"protection": "public",
+									"nestedName": "SmtpClientSettings.password",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "password"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
 									"nestedName": "SmtpClientSettings.port",
 									"type": {
 										"kind": "type",
@@ -19821,6 +21513,42 @@
 										"attributes": []
 									},
 									"name": "port"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "SmtpClientSettings.useTLS",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "useTLS"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "SmtpClientSettings.username",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "username"
 								}
 							]
 						]
@@ -20187,86 +21915,6 @@
 										"attributes": []
 									},
 									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "SslStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "SslStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
 								}
 							],
 							[
@@ -21140,86 +22788,6 @@
 										"attributes": []
 									},
 									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "IncommingWebSocketMessage.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "IncommingWebSocketMessage.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
 								}
 							]
 						]
@@ -22460,6 +24028,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "HttpClient.acquire",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "acquire"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "HttpClient.connect",
 									"type": {
 										"text": "void(string server, ushort port = cast(ushort)80, bool ssl = false)",
@@ -22524,6 +24114,50 @@
 										"attributes": []
 									},
 									"name": "disconnect"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "HttpClient.isOwner",
+									"type": {
+										"text": "bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "isOwner"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "HttpClient.release",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "release"
 								}
 							],
 							[
@@ -22611,6 +24245,18 @@
 						"attributes": []
 					},
 					"nestedName": "HttpClient",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "EventedObject",
+							"typeClass": "primitive",
+							"nestedName": "EventedObject",
+							"qualifiedName": "vibe.core.driver.EventedObject",
+							"name": "EventedObject",
+							"moduleName": "vibe.core.driver",
+							"attributes": []
+						}
+					],
 					"name": "HttpClient"
 				}
 			],
@@ -22944,6 +24590,56 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tReturns a HttpClient proxy that is connected to the specified host.\n\n\tInternally, a connection pool is used to reuse already existing connections.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "connectHttp",
+					"type": {
+						"text": "LockedConnection!(HttpClient)(string host, ushort port = cast(ushort)0, bool ssl = false)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "LockedConnection",
+							"templateArgs": "(HttpClient)",
+							"qualifiedName": "LockedConnection",
+							"name": "LockedConnection",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "host"
+							},
+							{
+								"defaultValue": "cast(ushort",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ushort",
+									"qualifiedName": "ushort",
+									"name": "ushort",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "port"
+							}
+						],
+						"attributes": []
+					},
+					"name": "connectHttp"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\n\n\tPerforms a HTTP request on the specified URL.\n\n\tThe 'requester' parameter allows to customize the request and to specify the request body for\n\tnon-GET requests.\n",
 					"kind": "function",
 					"protection": "public",
@@ -23146,6 +24842,31 @@
 										]
 									},
 									"name": "dup"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "StrMapCI.length",
+									"type": {
+										"text": "const @property uint()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "uint",
+											"qualifiedName": "uint",
+											"name": "uint",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "length"
 								}
 							],
 							[
@@ -23660,98 +25381,6 @@
 										"attributes": []
 									},
 									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ChunkedInputStream.readAll",
-									"type": {
-										"text": "ubyte[](uint max_bytes = cast(uint)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(uint",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readAll"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "ChunkedInputStream.readLine",
-									"type": {
-										"text": "ubyte[](uint max_bytes, string line_sep = \"\\x0d\\x0a\")",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "max_bytes"
-											},
-											{
-												"defaultValue": "\\x0d\\x0a\"",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "line_sep"
-											}
-										],
-										"attributes": []
-									},
-									"name": "readLine"
 								}
 							]
 						]
@@ -25162,6 +26791,108 @@
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2.d",
 	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
+		"structs": [
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "LevCondition.cond",
+									"type": {
+										"kind": "type",
+										"text": "core.sync.condition.Condition",
+										"typeClass": "primitive",
+										"nestedName": "core.sync.condition.Condition",
+										"qualifiedName": "core.sync.condition.Condition",
+										"name": "Condition",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "cond"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "LevCondition.mutex",
+									"type": {
+										"kind": "type",
+										"text": "LevMutex*",
+										"typeClass": "pointer",
+										"elementType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "LevMutex",
+											"qualifiedName": "vibe.core.drivers.libevent2.LevMutex",
+											"name": "LevMutex",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"attributes": []
+									},
+									"name": "mutex"
+								}
+							]
+						]
+					},
+					"nestedName": "LevCondition",
+					"name": "LevCondition"
+				}
+			],
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "LevMutex.mutex",
+									"type": {
+										"kind": "type",
+										"text": "core.sync.mutex.Mutex",
+										"typeClass": "primitive",
+										"nestedName": "core.sync.mutex.Mutex",
+										"qualifiedName": "core.sync.mutex.Mutex",
+										"name": "Mutex",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "mutex"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "LevMutex.rwmutex",
+									"type": {
+										"kind": "type",
+										"text": "core.sync.rwmutex.ReadWriteMutex",
+										"typeClass": "primitive",
+										"nestedName": "core.sync.rwmutex.ReadWriteMutex",
+										"qualifiedName": "core.sync.rwmutex.ReadWriteMutex",
+										"name": "ReadWriteMutex",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "rwmutex"
+								}
+							]
+						]
+					},
+					"nestedName": "LevMutex",
+					"name": "LevMutex"
+				}
+			]
+		],
 		"classes": [
 			[
 				{
@@ -25655,9 +27386,9 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Libevent2Driver.sleep",
+									"nestedName": "Libevent2Driver.runWorkerTask",
 									"type": {
-										"text": "void(double seconds)",
+										"text": "void(void delegate() f)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -25670,20 +27401,24 @@
 										"parameters": [
 											{
 												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "double",
-													"qualifiedName": "double",
-													"name": "double",
-													"moduleName": "",
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
 													"attributes": []
 												},
-												"name": "seconds"
+												"name": "f"
 											}
 										],
 										"attributes": []
 									},
-									"name": "sleep"
+									"name": "runWorkerTask"
 								}
 							]
 						]
@@ -26123,7 +27858,7 @@
 									"protection": "public",
 									"nestedName": "Libevent2Timer.stop",
 									"type": {
-										"text": "void()",
+										"text": "nothrow void()",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -26134,7 +27869,9 @@
 											"moduleName": ""
 										},
 										"parameters": [],
-										"attributes": []
+										"attributes": [
+											"nothrow"
+										]
 									},
 									"name": "stop"
 								}
@@ -26187,6 +27924,135 @@
 						}
 					],
 					"name": "Libevent2Timer"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Libevent2WorkerThread.this",
+									"type": {
+										"text": "Libevent2WorkerThread()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Libevent2WorkerThread",
+											"qualifiedName": "vibe.core.drivers.libevent2.Libevent2WorkerThread",
+											"name": "Libevent2WorkerThread",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2WorkerThread.addTask",
+									"type": {
+										"text": "void(void delegate() f)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
+													"attributes": []
+												},
+												"name": "f"
+											}
+										],
+										"attributes": []
+									},
+									"name": "addTask"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2WorkerThread.exit",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "exit"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Libevent2WorkerThread.wakeUp",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "wakeUp"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "Libevent2WorkerThread",
+					"name": "Libevent2WorkerThread"
 				}
 			]
 		]
@@ -26637,12 +28503,12 @@
 							],
 							[
 								{
-									"ddoc": " Sleeps for the specified amount of time.\n\t\n",
+									"ddoc": " Passes the given task to a worker thread and executes it\n\t\n",
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "EventDriver.sleep",
+									"nestedName": "EventDriver.runWorkerTask",
 									"type": {
-										"text": "void(double seconds)",
+										"text": "void(void delegate() f)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -26655,20 +28521,24 @@
 										"parameters": [
 											{
 												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "double",
-													"qualifiedName": "double",
-													"name": "double",
-													"moduleName": "",
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
 													"attributes": []
 												},
-												"name": "seconds"
+												"name": "f"
 											}
 										],
 										"attributes": []
 									},
-									"name": "sleep"
+									"name": "runWorkerTask"
 								}
 							]
 						]
@@ -26787,6 +28657,32 @@
 										"attributes": []
 									},
 									"name": "close"
+								}
+							],
+							[
+								{
+									"ddoc": " The path of the file.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FileStream.path",
+									"type": {
+										"text": "const @property Path()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.url.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.url"
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "path"
 								}
 							],
 							[
@@ -27420,48 +29316,154 @@
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.Blank",
-							"name": "Blank"
+							"nestedName": "BlockType.Plain",
+							"name": "Plain"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.Text",
-							"name": "Text"
+							"nestedName": "BlockType.Paragraph",
+							"name": "Paragraph"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.Code",
-							"name": "Code"
+							"nestedName": "BlockType.Header",
+							"name": "Header"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.OList",
+							"nestedName": "BlockType.OList",
 							"name": "OList"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.UList",
+							"nestedName": "BlockType.UList",
 							"name": "UList"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.Quote0",
-							"name": "Quote0"
+							"nestedName": "BlockType.ListItem",
+							"name": "ListItem"
 						},
 						{
 							"kind": "enum member",
 							"protection": "public",
-							"nestedName": "MarkdownState.Quote1",
-							"name": "Quote1"
+							"nestedName": "BlockType.Code",
+							"name": "Code"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "BlockType.Quote",
+							"name": "Quote"
 						}
 					],
-					"nestedName": "MarkdownState",
-					"name": "MarkdownState",
+					"nestedName": "BlockType",
+					"name": "BlockType",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			],
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "IndentType.White",
+							"name": "White"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "IndentType.Quote",
+							"name": "Quote"
+						}
+					],
+					"nestedName": "IndentType",
+					"name": "IndentType",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			],
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.Undefined",
+							"name": "Undefined"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.Blank",
+							"name": "Blank"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.Plain",
+							"name": "Plain"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.Hline",
+							"name": "Hline"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.AtxHeader",
+							"name": "AtxHeader"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.SetextHeader",
+							"name": "SetextHeader"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.UList",
+							"name": "UList"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.OList",
+							"name": "OList"
+						}
+					],
+					"nestedName": "LineType",
+					"name": "LineType",
 					"baseType": {
 						"kind": "type",
 						"text": "int",
@@ -27516,55 +29518,6 @@
 			[
 				{
 					"kind": "function",
-					"templateName": "enterState(R)",
-					"nestedName": "enterState",
-					"type": {
-						"text": "MarkdownState(ref R dst, MarkdownState state)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "MarkdownState",
-							"qualifiedName": "vibe.textfilter.markdown.MarkdownState",
-							"name": "MarkdownState",
-							"moduleName": "vibe.textfilter.markdown"
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "R",
-									"qualifiedName": "R",
-									"name": "R",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "MarkdownState",
-									"qualifiedName": "vibe.textfilter.markdown.MarkdownState",
-									"name": "MarkdownState",
-									"moduleName": "vibe.textfilter.markdown",
-									"attributes": []
-								},
-								"name": "state"
-							}
-						],
-						"attributes": []
-					},
-					"name": "enterState"
-				}
-			],
-			[
-				{
-					"kind": "function",
 					"templateName": "exitBlockQuote(R)",
 					"nestedName": "exitBlockQuote",
 					"type": {
@@ -27597,55 +29550,6 @@
 						"attributes": []
 					},
 					"name": "exitBlockQuote"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "exitState(R)",
-					"nestedName": "exitState",
-					"type": {
-						"text": "void(ref R dst, MarkdownState state)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "R",
-									"qualifiedName": "R",
-									"name": "R",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "MarkdownState",
-									"qualifiedName": "vibe.textfilter.markdown.MarkdownState",
-									"name": "MarkdownState",
-									"moduleName": "vibe.textfilter.markdown",
-									"attributes": []
-								},
-								"name": "state"
-							}
-						],
-						"attributes": []
-					},
-					"name": "exitState"
 				}
 			],
 			[
@@ -27901,93 +29805,6 @@
 			[
 				{
 					"kind": "function",
-					"templateName": "outputLine(R)",
-					"nestedName": "outputLine",
-					"type": {
-						"text": "void(ref R dst, string ln, MarkdownState state, in LinkRef[string] linkrefs)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "R",
-									"qualifiedName": "R",
-									"name": "R",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "ln"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "MarkdownState",
-									"qualifiedName": "vibe.textfilter.markdown.MarkdownState",
-									"name": "MarkdownState",
-									"moduleName": "vibe.textfilter.markdown",
-									"attributes": []
-								},
-								"name": "state"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"keyType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "string",
-										"qualifiedName": "string",
-										"name": "string",
-										"moduleName": ""
-									},
-									"typeClass": "associative array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "LinkRef",
-										"qualifiedName": "vibe.textfilter.markdown.LinkRef",
-										"name": "LinkRef",
-										"moduleName": "vibe.textfilter.markdown"
-									},
-									"attributes": [
-										"in"
-									]
-								},
-								"name": "linkrefs"
-							}
-						],
-						"attributes": []
-					},
-					"name": "outputLine"
-				}
-			],
-			[
-				{
-					"kind": "function",
 					"protection": "public",
 					"nestedName": "parseAutoLink",
 					"type": {
@@ -28074,10 +29891,89 @@
 			[
 				{
 					"kind": "function",
+					"templateName": "writeBlock(R)",
+					"nestedName": "writeBlock",
+					"type": {
+						"text": "void(ref R dst, ref const const(Block) block, LinkRef[string] links)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"modifiers": [
+										"const"
+									],
+									"typeClass": "primitive",
+									"nestedName": "Block",
+									"qualifiedName": "vibe.textfilter.markdown.Block",
+									"name": "Block",
+									"moduleName": "vibe.textfilter.markdown",
+									"attributes": [
+										"ref",
+										"const"
+									]
+								},
+								"name": "block"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"keyType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": ""
+									},
+									"typeClass": "associative array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "LinkRef",
+										"qualifiedName": "vibe.textfilter.markdown.LinkRef",
+										"name": "LinkRef",
+										"moduleName": "vibe.textfilter.markdown"
+									},
+									"attributes": []
+								},
+								"name": "links"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeBlock"
+				}
+			],
+			[
+				{
+					"kind": "function",
 					"templateName": "writeMarkdownEscaped(R)",
 					"nestedName": "writeMarkdownEscaped",
 					"type": {
-						"text": "void(ref R dst, string ln, in LinkRef[string] linkrefs)",
+						"text": "void(ref R dst, string ln, in const(LinkRef[string]) linkrefs)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -28117,6 +30013,9 @@
 							{
 								"type": {
 									"kind": "type",
+									"modifiers": [
+										"const"
+									],
 									"keyType": {
 										"kind": "type",
 										"typeClass": "primitive",
@@ -28711,6 +30610,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "MongoConnection.isOwner",
+									"type": {
+										"text": "bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "isOwner"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "MongoConnection.killCursors",
 									"type": {
 										"text": "void(long[] cursors)",
@@ -28752,7 +30673,7 @@
 									"protection": "public",
 									"nestedName": "MongoConnection.query",
 									"type": {
-										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1489;\r\n , __ctmp1489).this(null))",
+										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1491;\r\n , __ctmp1491).this(null))",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -28824,7 +30745,7 @@
 												"name": "query"
 											},
 											{
-												"defaultValue": "(Bson__ctmp1489;,__ctmp1489",
+												"defaultValue": "(Bson__ctmp1491;,__ctmp1491",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -28948,6 +30869,18 @@
 						"attributes": []
 					},
 					"nestedName": "MongoConnection",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "EventedObject",
+							"typeClass": "primitive",
+							"nestedName": "EventedObject",
+							"qualifiedName": "vibe.core.driver.EventedObject",
+							"name": "EventedObject",
+							"moduleName": "vibe.core.driver",
+							"attributes": []
+						}
+					],
 					"name": "MongoConnection"
 				}
 			],
@@ -29146,6 +31079,55 @@
 			[
 				{
 					"kind": "function",
+					"templateName": "filterHtmlAttribEscape(R)",
+					"nestedName": "filterHtmlAttribEscape",
+					"type": {
+						"text": "void(ref R dst, string str)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							}
+						],
+						"attributes": []
+					},
+					"name": "filterHtmlAttribEscape"
+				}
+			],
+			[
+				{
+					"kind": "function",
 					"templateName": "filterHtmlEscape(R)",
 					"nestedName": "filterHtmlEscape",
 					"type": {
@@ -29190,6 +31172,103 @@
 						"attributes": []
 					},
 					"name": "filterHtmlEscape"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "filterHtmlEscape(R)",
+					"nestedName": "filterHtmlEscape",
+					"type": {
+						"text": "void(ref R dst, dchar ch, bool escape_quotes = false)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "dchar",
+									"qualifiedName": "dchar",
+									"name": "dchar",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ch"
+							},
+							{
+								"defaultValue": "false",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "bool",
+									"qualifiedName": "bool",
+									"name": "bool",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "escape_quotes"
+							}
+						],
+						"attributes": []
+					},
+					"name": "filterHtmlEscape"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "htmlAttribEscape",
+					"type": {
+						"text": "string(string str)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							}
+						],
+						"attributes": []
+					},
+					"name": "htmlAttribEscape"
 				}
 			],
 			[
@@ -29482,6 +31561,46 @@
 					"protection": "public",
 					"nestedName": "runTask",
 					"type": {
+						"text": "Fiber(void delegate() task)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "Fiber",
+							"qualifiedName": "Fiber",
+							"name": "Fiber",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "void",
+										"qualifiedName": "void",
+										"name": "void",
+										"moduleName": ""
+									},
+									"parameters": [],
+									"attributes": []
+								},
+								"name": "task"
+							}
+						],
+						"attributes": []
+					},
+					"name": "runTask"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tRuns a new asynchronous task in a worker thread.\n\n\tNOTE: the interface of this function will change in the future to ensure that no unprotected\n\tdata is passed between threads!\n\n\tNOTE: You should not use this function yet and it currently behaves just like runTask.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "runWorkerTask",
+					"type": {
 						"text": "void(void delegate() task)",
 						"typeclass": "function",
 						"returnType": {
@@ -29512,7 +31631,7 @@
 						],
 						"attributes": []
 					},
-					"name": "runTask"
+					"name": "runWorkerTask"
 				}
 			],
 			[
@@ -36479,6 +38598,55 @@
 						]
 					},
 					"name": "log"
+				}
+			],
+			[
+				{
+					"ddoc": " Sets a log file for disk logging\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "setLogFile",
+					"type": {
+						"text": "void(string filename, LogLevel min_level = cast(LogLevel)4)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "filename"
+							},
+							{
+								"defaultValue": "cast(LogLevel",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "LogLevel",
+									"qualifiedName": "vibe.core.log.LogLevel",
+									"name": "LogLevel",
+									"moduleName": "vibe.core.log",
+									"attributes": []
+								},
+								"name": "min_level"
+							}
+						],
+						"attributes": []
+					},
+					"name": "setLogFile"
 				}
 			],
 			[
