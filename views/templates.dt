@@ -37,6 +37,9 @@ block navigation
 			
 		li
 			a(href="##filters") Filters
+		
+		li
+			a(href="##grammar") Grammar
 
 block body
 
@@ -130,20 +133,6 @@ block body
 					|	</body>
 					|</html>
 				.caption Example: HTML output for the example
-					
-			code
-				pre
-					|html_attr    : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9',':','-')*)
-					|html_ident   : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9','-')*)
-					|html_tag     : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9',':','-','_')*)
-					|html_arrt_list : '(' OPT_WS html_attr ')'
-					|               | '(' OPT_WS html_attr OPT_WS '=' OPT_WS string
-					|                 ( ',' OPT_WS html_attr OPT_WS '=' OPT_WS string )*
-					|                 OPT_WS ')'
-					|html_node    : (empty | html_tag) ['##' html_ident] ('.' html_ident)*
-					|               [html_attr_list] node_content
-					|node_content : (empty | '=' | '!=') text
-				.caption Basic grammar for HTML nodes
 				
 		section
 			a#plain-text
@@ -221,10 +210,38 @@ block body
 					|	head
 					|		title D statement test
 					|	body
-					|		- import std.algorithm;
-					|		- foreach( i; 0 .. 10 )
-					|			
+					|		- import std.algorithm : min;
+					|		p Four items ahead:
+					|		- foreach( i; 0 .. 4 )
+					|			p Item
+					|				b= i
+					|		p Prints 8:
+					|		p= min(10, 2*6, 8)
 				.caption Example: using text nodes to output multiple lines of text
+
+				pre.prettyprint.lang-html <!DOCTYPE html>
+					|<html>
+					|	<head>
+					|		<title>D statement test</title>
+					|	<body>
+					|		<p>Ten items ahead:</p>
+					|		<p>Item
+					|			<b>0</b>
+					|		</p>
+					|		<p>Item
+					|			<b>1</b>
+					|		</p>
+					|		<p>Item
+					|			<b>2</b>
+					|		</p>
+					|		<p>Item
+					|			<b>3</b>
+					|		</p>
+					|		<p>Prints 8:</p>
+					|		<p>8</p>
+					|	</body>
+					|</html>
+				.caption Example: HTML output for the example
 
 		section
 			a#string-interpolations
@@ -243,3 +260,33 @@ block body
 		h2 Filters
 		
 		p(style="color:red") TODO
+
+	section
+		a#grammar
+		h2 Grammar
+		
+		p The following listing shows the language grammar for a single line of a Diet template. Note that the grammar has been derived manually from the source code and may not be 100% accurate.
+		
+		code
+			pre
+				|content_line : indent (html_node | text_node | comment_node | special_node)
+				|html_node    : (empty | html_tag) ['##' html_ident] ('.' html_ident)*
+				|               [html_attr_list] node_content
+				|html_attr    : letter (letter|digit|':'|'-')*
+				|html_ident   : letter (letter|digit|'-')*
+				|html_tag     : letter (letter|digit|':'|'-'|'_')*
+				|html_arrt_list : '(' OPT_WS html_attr ')'
+				|               | '(' OPT_WS html_attr OPT_WS '=' OPT_WS string
+				|                 ( ',' OPT_WS html_attr OPT_WS '=' OPT_WS string )*
+				|                 OPT_WS ')'
+				|text_node    : '|' node_content
+				|comment_node : '//if' text
+				|special_node : code_node | block_node
+				|code_node    : '-' text
+				|block node   : 'block' ' ' text
+				|node_content : (empty | '=' | '!=') text
+				|string       : '"' ((^ '"') | '\' ? )* '"'
+				|letter       : ('a'-'z' | 'A'-'Z')
+				|digit        : '0'-'9'
+				|OPT_WS       : (' ')*
+			.caption Diet template language grammar
