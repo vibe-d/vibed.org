@@ -3,6 +3,7 @@ import vibe.d;
 import vibelog.vibelog;
 
 import std.algorithm;
+import std.array;
 import std.datetime;
 
 
@@ -60,8 +61,14 @@ void updateDocs()
 	}
 }
 
+string prettifyFilter(string html)
+{
+	return html.replace("<code><pre>", "<code><pre class=\"prettyprint\">");
+}
+
 static this()
 {
+	setLogLevel(LogLevel.Debug);
 	updateDocs();
 
 	auto settings = new HttpServerSettings;
@@ -87,6 +94,7 @@ static this()
 	auto blogsettings = new VibeLogSettings;
 	blogsettings.configName = "vibe.d";
 	blogsettings.basePath = "/blog/";
+	blogsettings.textFilters ~= &prettifyFilter;
 	registerVibeLog(blogsettings, router);
 
 	router.get("*", serveStaticFiles("./public/"));
