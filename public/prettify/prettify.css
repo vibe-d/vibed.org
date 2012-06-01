@@ -10,11 +10,11 @@
   .typ { color: #9ad452 }  /* a type name */
   .lit { color: #ffe7b6 }  /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #ffffff }
-  .tag { color: #008 }  /* a markup tag name */
-  .atn { color: #606 }  /* a markup attribute name */
-  .atv { color: #080 }  /* a markup attribute value */
-  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .pun, .opn, .clo { color: #ddd }
+  .tag { color: #ffaa00 }  /* a markup tag name */
+  .atn { color: #9ad452 }  /* a markup attribute name */
+  .atv { color: #ffe7b6 }  /* a markup attribute value */
+  .dec, .var { color: #aaa }  /* a declaration; a variable name */
   .fun { color: red }  /* a function name */
 }
 

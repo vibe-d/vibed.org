@@ -82,11 +82,117 @@ block body
 		section
 			a#html-elements
 			h3 HTML elements
+			
+			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as <br> or <link> are recognized and output accordingly. The tag name can also be completely omitted, in which case a <div> is assumed.
+			
+			p After each tag, an id, multiple class names, and a list of attributes can follow. Ids are prefixed with '##' and class names with '.'. The attribute list is a comma separated list or key/value pairs delimited by clamps. The string value of an attribute can contain
+				a(href="##string-interpolations") string interpolations
+				| so anchors have to be escaped using a double hash '##'.
+			
+			p The rest of the line contains the nodes text contents. By default, the text is output HTML encoded and can contain
+				a(href="##string-interpolations") string interpolations
+				|. If the text is prefixed with '=', it is interpreted as a D expression. The outcome of this expression is converted to a string and HTML encoded. Prefixing with '!=' will output the bare string without HTML encoding.
+			
+			code
+				pre !!! 5
+					|html
+					|	head
+					|		title This is the page title
+					|	body
+					|		##main This is a <div> with the id 'main'.
+					|			p##first This paragraph has the id 'first'.
+					|			p.second.red This paragraph has the classes 'second' and 'red' assigned.
+					|			p The following paragraph will have an '8' as its content:
+					|			p= 5+3
+					|			p It's also possible to output raw HTML from a D expression:
+					|			p!= "<u>Underlined text</u>"
+					|			p(style="color:red") HTML attributes can be specified.
+					|			p##second.test(style="color:green") Id, classes and attributes can also be combined.
+				.caption Example: HTML tags using the various optional features
+
+			code
+				pre.prettyprint.lang-html <!DOCTYPE html>
+					|<html>
+					|	<head>
+					|		<title>This is the page title</title>
+					|	<body>
+					|		<div id="main">
+					|			This is a &lt;div&gt; with the id 'main'.
+					|			<p id="first">This paragraph has the id 'first'.</p>
+					|			<p class="second red">This paragraph has the classes 'second' and 'red' assigned.</p>
+					|			<p>The following paragraph will have an '8' as its content:</p>
+					|			<p>8</p>
+					|			<p>It's also possible to output raw HTML from a D expression:</p>
+					|			<p><u>Underlined text</u></p>
+					|			<p style="color:red">HTML attributes can be specified.</p>
+					|			<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
+					|		</div>
+					|	</body>
+					|</html>
+				.caption Example: HTML output for the example
 					
+			code
+				pre
+					|html_attr    : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9',':','-')*)
+					|html_ident   : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9','-')*)
+					|html_tag     : (('a'-'z','A'-'Z')('a'-'z','A'-'Z','0'-'9',':','-','_')*)
+					|html_arrt_list : '(' OPT_WS html_attr ')'
+					|               | '(' OPT_WS html_attr OPT_WS '=' OPT_WS string
+					|                 ( ',' OPT_WS html_attr OPT_WS '=' OPT_WS string )*
+					|                 OPT_WS ')'
+					|html_node    : (empty | html_tag) ['##' html_ident] ('.' html_ident)*
+					|               [html_attr_list] node_content
+					|node_content : (empty | '=' | '!=') text
+				.caption Basic grammar for HTML nodes
+				
 		section
 			a#plain-text
 			h3 Plain text
 			
+			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting prefromatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
+			
+			code
+				pre !!!5
+					|html
+					|	head
+					|		title Plain text test
+					|	body
+					|		pre
+					|			|This is some multi-line
+					|			|     preformatted
+					|			|         text
+					|		p This is an example containing a
+					|			a(href="http://vibed.org/") link
+					|			| mixed with text.
+					|		p
+					|			|= "<D> expressions"
+					|			|!= "And raw <u>HTML</u> output"
+					|			| are possible.
+				.caption Example: using text nodes to output multiple lines of text
+
+			code
+				pre.prettyprint.lang-html <!DOCTYPE html>
+					|<html>
+					|	<head>
+					|		<title>Plain text test</title>
+					|	<body>
+					|		<pre>This is some multi-line
+					|     preformatted
+					|         text</pre>
+					|		<p>
+					|			This is an example containing a
+					|			<a href="http://vibed.org/">link</a>
+					|			mixed with text.
+					|		</p>
+					|		<p>
+					|			&lt;D&gt; expressions
+					|			And raw <u>HTML</u> output
+					|			are possible.
+					|		</p>
+					|	</body>
+					|</html>
+				.caption Example: HTML output for the example
+
 		section
 			a#comments
 			h3 Comments
