@@ -103,6 +103,11 @@ nav#global-nav li {
 	max-width: 600pt;
 }
 
+#maincontent ul {
+	padding-left: 14pt;
+	list-style: circle;
+}
+
 #maincontent ol {
 	padding-left: 14pt;
 	list-style: decimal;
