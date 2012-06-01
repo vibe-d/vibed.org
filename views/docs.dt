@@ -52,6 +52,8 @@ block navigation
 		li
 			a(href="api/vibe.d") API Reference
 		li
+			a(href="templates") Diet Reference
+		li
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
 block body

@@ -26,9 +26,9 @@ block navigation
 
 			ul
 				li
-					a(href="##statements") Statements
-				li
 					a(href="##procedural-content") Procedural content
+				li
+					a(href="##statements") Statements
 				li
 					a(href="##string-interpolations") String interpolations
 
@@ -152,7 +152,7 @@ block body
 			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting prefromatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
 			
 			code
-				pre !!!5
+				pre !!! 5
 					|html
 					|	head
 					|		title Plain text test
@@ -197,26 +197,49 @@ block body
 			a#comments
 			h3 Comments
 
+			p(style="color:red") TODO
+
 	section
 		a#embedded-code
 		h2 Embedded D source code
 		
 		section
-			a#statements
-			h3 Statements
-			
-		section
 			a#procedural-content
 			h3 Procedural content
 			
+			p(style="color:red") TODO
+			
+		section
+			a#statements
+			h3 Statements
+			
+			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statments such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
+			
+			code
+				pre !!! 5
+					|html
+					|	head
+					|		title D statement test
+					|	body
+					|		- import std.algorithm;
+					|		- foreach( i; 0 .. 10 )
+					|			
+				.caption Example: using text nodes to output multiple lines of text
+
 		section
 			a#string-interpolations
 			h3 String interpolations
 		
+			p(style="color:red") TODO
+
 	section
 		a#extensions
 		h2 Blocks and Extensions
 		
+		p(style="color:red") TODO
+		
 	section
 		a#filters
 		h2 Filters
+		
+		p(style="color:red") TODO
