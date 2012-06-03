@@ -65,7 +65,7 @@ html(lang="en-US")
 
 				.clear
 		#footer
-			p Copyright © 2012 Sönke Ludwig, Jan Krüger, Matthias Dondorff
+			p Copyright © 2012 rejectedsoftware e.K.
 			p
 				a(href="#{req.rootDir}about##license") License
 				| –

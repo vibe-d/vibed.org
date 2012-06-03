@@ -7,8 +7,8 @@ block body
 	
 	h2 Angaben gemäß §5 TMG:
 	p
-		a(href="http://rejectedsoftware.com") rejectedsoftware.com
-	p Sönke Ludwig (Einzelunternehmen)
+		a(href="http://rejectedsoftware.com") rejectedsoftware e.K.
+	p Sönke Ludwig
 	p Rosenstr. 10
 	p 23552 Lübeck
 
