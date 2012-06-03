@@ -40,10 +40,10 @@ html(lang="en-US")
 					a(href="http://vibed.org/")
 						img#logo(src="#{req.rootDir}images/logo.png", alt='')
 						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta')
-					a#download(href="#{req.rootDir}download?file=zipball/v0.7.3")
+					a#download(href="#{req.rootDir}download?file=zipball/v0.7.4")
 						.downloadArrow
 						strong Download
-						#download-version 0.7.3 beta
+						#download-version 0.7.4 beta
 
 			block plainbody
 			- if( title.length )
