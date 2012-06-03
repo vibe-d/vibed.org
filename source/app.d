@@ -68,7 +68,6 @@ string prettifyFilter(string html)
 
 static this()
 {
-	setLogLevel(LogLevel.Debug);
 	updateDocs();
 
 	auto settings = new HttpServerSettings;
