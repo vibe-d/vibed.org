@@ -21562,6 +21562,41 @@
 	},
 	"name": "vibe.stream.ssl"
 },
+"vibe.templ.utils": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\templ\\utils.d",
+	"ddoc": "\n\tUtility functions for dealing with templates.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"functions": [
+			[
+				{
+					"ddoc": "\n\tAllows to pass additional variables to a function that renders a templated page.\n\n\tThis function is useful if you need to support additional layers of functionality that should\n\tbe available to your views, such as authentication. This function allows to define variables\n\tthat should be usable from templates using so called \"injectors\". Each injector is a template\n\tfunction that can add its own parameters.\n\n\tNOTE: this function requires at least DMD 2.060, as it suffers from DMD BUG 2962.\n\n\tExamples:\n\n\t\tThe following example will render the template \"home.dt\" and make the variables 'userinfo',\n\t\t'something_else' and 'message' available. Before the 'page' function is called,\n\t\t'authInjector' and 'somethingInjector' can process the request and decide what to do.\n\n\t\t---\n\t\tvoid authInjector(alias Next, Vars...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Vars...)(HttpServerRequest req,\n\t\tHttpServerResponse res)\n\t\t{\n\t\t\tstring something_else;\n\t\t\tNext!(Vars, something_else)(req, res);\n\t\t}\n\n\t\tvoid page(VARS...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring message = \"Welcome to the example page!\"\n\t\t\tres.render!(\"home.dt\", VARS, message);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto router = new UrlRouter;\n\t\t\trouter.get(\"/\", inject!(page, authInjector, somethingInjector));\n\t\t}\n\t\t---\n",
+					"kind": "function",
+					"templateName": "inject(alias Page,Injectors...)",
+					"nestedName": "inject",
+					"type": {
+						"text": "@property ()",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "",
+							"qualifiedName": "",
+							"name": "constructor",
+							"moduleName": ""
+						},
+						"parameters": [],
+						"attributes": [
+							"@property"
+						]
+					},
+					"name": "inject"
+				}
+			]
+		]
+	},
+	"name": "vibe.templ.utils"
+},
 "vibe.utils.memory": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\memory.d",
