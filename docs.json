@@ -2,7 +2,7 @@
 "vibe.core.connectionpool": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\connectionpool.d",
-	"ddoc": "\n\tGeneric connection pool for reusing persistent connections across fibers.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tGeneric connection pool for reusing persistent connections across fibers.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
@@ -608,7 +608,7 @@
 "vibe.data.bson": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\data\\bson.d",
-	"ddoc": "\n\tBSON serialization and value handling.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tBSON serialization and value handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"aliases": [
 			[
@@ -3772,7 +3772,7 @@
 "vibe.templ.diet": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\templ\\diet.d",
-	"ddoc": "\n\tImplements a compile-time Diet template parser.\n\n\tDiet templates are an more or less compatible incarnation of Jade templates but with\n\tembedded D source instead of JavaScript. The Jade language specification is found at\n\t$(LINK https://github.com/visionmedia/jade) and provides a good overview of all the supported\n\tfeatures, as well as some that are not yet implemented for Diet templates.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tImplements a compile-time Diet template parser.\n\n\tDiet templates are an more or less compatible incarnation of Jade templates but with\n\tembedded D source instead of JavaScript. The Diet syntax reference is found at\n\t$(LINK http://vibed.org/templates).\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"templates": [
 			[
@@ -4319,7 +4319,7 @@
 "vibe.http.session": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\session.d",
-	"ddoc": "\n\tCookie based session support.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger, Sönke Ludwig\n",
+	"ddoc": "\n\tCookie based session support.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger, Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -5334,471 +5334,15 @@
 "vibe.core.process": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\process.d",
-	"ddoc": "\n\tProcess spawning and controlling\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tProcess spawning and controlling\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
 				{
 					"kind": "struct",
 					"protection": "public",
-					"members": {
-						"variables": [
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "PROCESS_INFORMATION.dwProcessId",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwProcessId"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "PROCESS_INFORMATION.dwThreadId",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwThreadId"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "PROCESS_INFORMATION.hProcess",
-									"type": {
-										"kind": "type",
-										"text": "void*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "hProcess"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "PROCESS_INFORMATION.hThread",
-									"type": {
-										"kind": "type",
-										"text": "void*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "hThread"
-								}
-							]
-						]
-					},
-					"nestedName": "PROCESS_INFORMATION",
-					"name": "PROCESS_INFORMATION"
-				}
-			],
-			[
-				{
-					"kind": "struct",
-					"protection": "public",
 					"nestedName": "SECURITY_ATTRIBUTES",
 					"name": "SECURITY_ATTRIBUTES"
-				}
-			],
-			[
-				{
-					"kind": "struct",
-					"protection": "public",
-					"members": {
-						"variables": [
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.cb",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "cb"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.cbReserved2",
-									"type": {
-										"kind": "type",
-										"text": "ushort",
-										"typeClass": "primitive",
-										"nestedName": "ushort",
-										"qualifiedName": "ushort",
-										"name": "ushort",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "cbReserved2"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwFillAttribute",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwFillAttribute"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwFlags",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwFlags"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwX",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwX"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwXCountChars",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwXCountChars"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwXSize",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwXSize"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwY",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwY"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwYCountChars",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwYCountChars"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.dwYSize",
-									"type": {
-										"kind": "type",
-										"text": "uint",
-										"typeClass": "primitive",
-										"nestedName": "uint",
-										"qualifiedName": "uint",
-										"name": "uint",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "dwYSize"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.hStdError",
-									"type": {
-										"kind": "type",
-										"text": "void*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "hStdError"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.hStdInput",
-									"type": {
-										"kind": "type",
-										"text": "void*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "hStdInput"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.hStdOutput",
-									"type": {
-										"kind": "type",
-										"text": "void*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "hStdOutput"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.lpDesktop",
-									"type": {
-										"kind": "type",
-										"text": "wchar*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "wchar",
-											"qualifiedName": "wchar",
-											"name": "wchar",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "lpDesktop"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.lpReserved",
-									"type": {
-										"kind": "type",
-										"text": "wchar*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "wchar",
-											"qualifiedName": "wchar",
-											"name": "wchar",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "lpReserved"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.lpReserved2",
-									"type": {
-										"kind": "type",
-										"text": "ubyte*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "ubyte",
-											"qualifiedName": "ubyte",
-											"name": "ubyte",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "lpReserved2"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.lpTitle",
-									"type": {
-										"kind": "type",
-										"text": "wchar*",
-										"typeClass": "pointer",
-										"elementType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "wchar",
-											"qualifiedName": "wchar",
-											"name": "wchar",
-											"moduleName": ""
-										},
-										"attributes": []
-									},
-									"name": "lpTitle"
-								}
-							],
-							[
-								{
-									"kind": "variable",
-									"protection": "public",
-									"nestedName": "STARTUPINFOW.wShowWindow",
-									"type": {
-										"kind": "type",
-										"text": "ushort",
-										"typeClass": "primitive",
-										"nestedName": "ushort",
-										"qualifiedName": "ushort",
-										"name": "ushort",
-										"moduleName": "",
-										"attributes": []
-									},
-									"name": "wShowWindow"
-								}
-							]
-						]
-					},
-					"nestedName": "STARTUPINFOW",
-					"name": "STARTUPINFOW"
 				}
 			]
 		],
@@ -5915,189 +5459,6 @@
 				{
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "CreateProcessW",
-					"type": {
-						"text": "extern (Windows) int(const(wchar)* lpApplicationName, wchar* lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, int bInheritHandles, uint dwCreationFlags, void* lpEnvironment, const(wchar)* lpCurrentDirectory, STARTUPINFOW* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "int",
-							"qualifiedName": "int",
-							"name": "int",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"modifiers": [
-											"const"
-										],
-										"typeClass": "primitive",
-										"nestedName": "wchar",
-										"qualifiedName": "wchar",
-										"name": "wchar",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "lpApplicationName"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "wchar",
-										"qualifiedName": "wchar",
-										"name": "wchar",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "lpCommandLine"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "SECURITY_ATTRIBUTES",
-										"qualifiedName": "vibe.core.process.SECURITY_ATTRIBUTES",
-										"name": "SECURITY_ATTRIBUTES",
-										"moduleName": "vibe.core.process"
-									},
-									"attributes": []
-								},
-								"name": "lpProcessAttributes"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "SECURITY_ATTRIBUTES",
-										"qualifiedName": "vibe.core.process.SECURITY_ATTRIBUTES",
-										"name": "SECURITY_ATTRIBUTES",
-										"moduleName": "vibe.core.process"
-									},
-									"attributes": []
-								},
-								"name": "lpThreadAttributes"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "bInheritHandles"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "uint",
-									"qualifiedName": "uint",
-									"name": "uint",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "dwCreationFlags"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "void",
-										"qualifiedName": "void",
-										"name": "void",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "lpEnvironment"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"modifiers": [
-											"const"
-										],
-										"typeClass": "primitive",
-										"nestedName": "wchar",
-										"qualifiedName": "wchar",
-										"name": "wchar",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "lpCurrentDirectory"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "STARTUPINFOW",
-										"qualifiedName": "vibe.core.process.STARTUPINFOW",
-										"name": "STARTUPINFOW",
-										"moduleName": "vibe.core.process"
-									},
-									"attributes": []
-								},
-								"name": "lpStartupInfo"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "PROCESS_INFORMATION",
-										"qualifiedName": "vibe.core.process.PROCESS_INFORMATION",
-										"name": "PROCESS_INFORMATION",
-										"moduleName": "vibe.core.process"
-									},
-									"attributes": []
-								},
-								"name": "lpProcessInformation"
-							}
-						],
-						"attributes": [
-							"extern(Windows)"
-						]
-					},
-					"name": "CreateProcessW"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
 					"nestedName": "spawnProcess",
 					"type": {
 						"text": "Process(string executable, string[] args, string working_dir)",
@@ -6164,7 +5525,7 @@
 "vibe.core.file": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\file.d",
-	"ddoc": "\n\tFile handling.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tFile handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -6188,6 +5549,77 @@
 						"attributes": []
 					},
 					"name": "createTempFile"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tChecks if a file exists\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "existsFile",
+					"type": {
+						"text": "bool(Path path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "existsFile"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "existsFile",
+					"type": {
+						"text": "bool(string path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "existsFile"
 				}
 			],
 			[
@@ -6380,6 +5812,77 @@
 					},
 					"name": "openFile"
 				}
+			],
+			[
+				{
+					"ddoc": "\n\tRemoves a file\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "removeFile",
+					"type": {
+						"text": "void(Path path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "removeFile"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "removeFile",
+					"type": {
+						"text": "void(string path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "removeFile"
+				}
 			]
 		]
 	},
@@ -6388,7 +5891,7 @@
 "vibe.core.drivers.threadedfile": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\drivers\\threadedfile.d",
-	"ddoc": "\n\tThread based asynchronous file I/O fallback implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"ddoc": "\n\tThread based asynchronous file I/O fallback implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
 		"classes": [
 			[
@@ -7027,7 +6530,7 @@
 "vibe.core.drivers.libevent2_tcp": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2_tcp.d",
-	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
 	},
 	"name": "vibe.core.drivers.libevent2_tcp"
@@ -7035,7 +6538,7 @@
 "vibe.crypto.ssl": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\crypto\\ssl.d",
-	"ddoc": "\n\tContains the SSLContext class used for SSL based network connections.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tContains the SSLContext class used for SSL based network connections.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -7238,7 +6741,7 @@
 "vibe.core.tcp": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\tcp.d",
-	"ddoc": "\n\tTCP connection and server handling.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"ddoc": "\n\tTCP connection and server handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
 		"functions": [
 			[
@@ -7574,7 +7077,7 @@
 "vibe.http.server": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\server.d",
-	"ddoc": "\n\tA HTTP 1.1/1.0 server implementation.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tA HTTP 1.1/1.0 server implementation.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"aliases": [
 			[
@@ -9795,7 +9298,7 @@
 "vibe.core.args": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\args.d",
-	"ddoc": "\n\tParsing of command line arguments.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tParsing of command line arguments.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -9847,7 +9350,7 @@
 "vibe.db.mongo.db": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\db\\mongo\\db.d",
-	"ddoc": "\n\tMongoDB class doing connection management.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMongoDB class doing connection management.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -10129,7 +9632,7 @@
 "vibe.http.rest": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\rest.d",
-	"ddoc": "\n\tAutomatic REST interface and client code generation facilities.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tAutomatic REST interface and client code generation facilities.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -10309,6 +9812,15 @@
 														"attributes": []
 													},
 													"name": "this"
+												}
+											]
+										],
+										"aliases": [
+											[
+												{
+													"kind": "alias",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.BaseInterface",
+													"name": "BaseInterface"
 												}
 											]
 										],
@@ -10645,778 +10157,9 @@
 "vibe.stream.stream": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\stream.d",
-	"ddoc": "\n\tGeneric stream interface used by several stream-like classes.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tGeneric stream interface used by several stream-like classes.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
-			[
-				{
-					"ddoc": "\n\tWraps an existing input stream, counting the bytes that are written.\n",
-					"kind": "class",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "CountingInputStream.this",
-									"type": {
-										"text": "CountingInputStream(InputStream stream)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "CountingInputStream",
-											"qualifiedName": "vibe.stream.stream.CountingInputStream",
-											"name": "CountingInputStream",
-											"moduleName": "vibe.stream.stream"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "InputStream",
-													"qualifiedName": "vibe.stream.stream.InputStream",
-													"name": "InputStream",
-													"moduleName": "vibe.stream.stream",
-													"attributes": []
-												},
-												"name": "stream"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.bytesRead",
-									"type": {
-										"text": "const @property ulong()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "ulong",
-											"qualifiedName": "ulong",
-											"name": "ulong",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "bytesRead"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.dataAvailableForRead",
-									"type": {
-										"text": "@property bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "dataAvailableForRead"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.empty",
-									"type": {
-										"text": "@property bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "empty"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.leastSize",
-									"type": {
-										"text": "@property ulong()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "ulong",
-											"qualifiedName": "ulong",
-											"name": "ulong",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "leastSize"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.peek",
-									"type": {
-										"text": "const(ubyte)[]()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"modifiers": [
-													"const"
-												],
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "peek"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingInputStream.read",
-									"type": {
-										"text": "void(ubyte[] dst)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "array",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "ubyte",
-														"qualifiedName": "ubyte",
-														"name": "ubyte",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "dst"
-											}
-										],
-										"attributes": []
-									},
-									"name": "read"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Object",
-						"typeClass": "primitive",
-						"nestedName": "Object",
-						"qualifiedName": "Object",
-						"name": "Object",
-						"moduleName": "",
-						"attributes": []
-					},
-					"nestedName": "CountingInputStream",
-					"interfaces": [
-						{
-							"kind": "type",
-							"text": "InputStream",
-							"typeClass": "primitive",
-							"nestedName": "InputStream",
-							"qualifiedName": "vibe.stream.stream.InputStream",
-							"name": "InputStream",
-							"moduleName": "vibe.stream.stream",
-							"attributes": []
-						}
-					],
-					"name": "CountingInputStream"
-				}
-			],
-			[
-				{
-					"ddoc": "\n\tWraps an existing output stream, counting the bytes that are written.\n",
-					"kind": "class",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.this",
-									"type": {
-										"text": "CountingOutputStream(OutputStream stream)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "CountingOutputStream",
-											"qualifiedName": "vibe.stream.stream.CountingOutputStream",
-											"name": "CountingOutputStream",
-											"moduleName": "vibe.stream.stream"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "OutputStream",
-													"qualifiedName": "vibe.stream.stream.OutputStream",
-													"name": "OutputStream",
-													"moduleName": "vibe.stream.stream",
-													"attributes": []
-												},
-												"name": "stream"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.bytesWritten",
-									"type": {
-										"text": "const @property ulong()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "ulong",
-											"qualifiedName": "ulong",
-											"name": "ulong",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "bytesWritten"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.finalize",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "finalize"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.flush",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "flush"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.write",
-									"type": {
-										"text": "void(const(ubyte[]) bytes, bool do_flush = true)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "array",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "ubyte",
-														"qualifiedName": "ubyte",
-														"name": "ubyte",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "bytes"
-											},
-											{
-												"defaultValue": "true",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "do_flush"
-											}
-										],
-										"attributes": []
-									},
-									"name": "write"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "CountingOutputStream.write",
-									"type": {
-										"text": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "InputStream",
-													"qualifiedName": "vibe.stream.stream.InputStream",
-													"name": "InputStream",
-													"moduleName": "vibe.stream.stream",
-													"attributes": []
-												},
-												"name": "stream"
-											},
-											{
-												"defaultValue": "cast(ulong",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "ulong",
-													"qualifiedName": "ulong",
-													"name": "ulong",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "nbytes"
-											}
-										],
-										"attributes": []
-									},
-									"name": "write"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Object",
-						"typeClass": "primitive",
-						"nestedName": "Object",
-						"qualifiedName": "Object",
-						"name": "Object",
-						"moduleName": "",
-						"attributes": []
-					},
-					"nestedName": "CountingOutputStream",
-					"interfaces": [
-						{
-							"kind": "type",
-							"text": "OutputStream",
-							"typeClass": "primitive",
-							"nestedName": "OutputStream",
-							"qualifiedName": "vibe.stream.stream.OutputStream",
-							"name": "OutputStream",
-							"moduleName": "vibe.stream.stream",
-							"attributes": []
-						}
-					],
-					"name": "CountingOutputStream"
-				}
-			],
-			[
-				{
-					"ddoc": "\n\tWraps an existing stream, limiting the amount of data that can be read.\n",
-					"kind": "class",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"ddoc": " Constructs a limited stream from an existing input stream.\n\n\t\tParams:\n\t\t\tstream: the input stream to be wrapped\n\t\t\tbyte_limit: the maximum number of bytes readable from the constructed stream\n\t\t\tsilent_limit: if set, the stream will behave exactly like the original stream, but\n\t\t\t\twill throw an exception as soon as the limit is reached.\n\t\n",
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.this",
-									"type": {
-										"text": "LimitedInputStream(InputStream stream, ulong byte_limit, bool silent_limit = false)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "LimitedInputStream",
-											"qualifiedName": "vibe.stream.stream.LimitedInputStream",
-											"name": "LimitedInputStream",
-											"moduleName": "vibe.stream.stream"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "InputStream",
-													"qualifiedName": "vibe.stream.stream.InputStream",
-													"name": "InputStream",
-													"moduleName": "vibe.stream.stream",
-													"attributes": []
-												},
-												"name": "stream"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "ulong",
-													"qualifiedName": "ulong",
-													"name": "ulong",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "byte_limit"
-											},
-											{
-												"defaultValue": "false",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "silent_limit"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.dataAvailableForRead",
-									"type": {
-										"text": "@property bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "dataAvailableForRead"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.empty",
-									"type": {
-										"text": "@property bool()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "empty"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.leastSize",
-									"type": {
-										"text": "@property ulong()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "ulong",
-											"qualifiedName": "ulong",
-											"name": "ulong",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "leastSize"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "protected",
-									"nestedName": "LimitedInputStream.onSizeLimitReached",
-									"type": {
-										"text": "void()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "onSizeLimitReached"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.peek",
-									"type": {
-										"text": "const(ubyte)[]()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"modifiers": [
-													"const"
-												],
-												"typeClass": "primitive",
-												"nestedName": "ubyte",
-												"qualifiedName": "ubyte",
-												"name": "ubyte",
-												"moduleName": ""
-											}
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "peek"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.read",
-									"type": {
-										"text": "void(ubyte[] dst)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "array",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "ubyte",
-														"qualifiedName": "ubyte",
-														"name": "ubyte",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "dst"
-											}
-										],
-										"attributes": []
-									},
-									"name": "read"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "LimitedInputStream.sourceStream",
-									"type": {
-										"text": "inout @property inout(InputStream)()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"modifiers": [
-												"inout"
-											],
-											"typeClass": "primitive",
-											"nestedName": "InputStream",
-											"qualifiedName": "vibe.stream.stream.InputStream",
-											"name": "InputStream",
-											"moduleName": "vibe.stream.stream"
-										},
-										"parameters": [],
-										"attributes": [
-											"inout",
-											"@property"
-										]
-									},
-									"name": "sourceStream"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Object",
-						"typeClass": "primitive",
-						"nestedName": "Object",
-						"qualifiedName": "Object",
-						"name": "Object",
-						"moduleName": "",
-						"attributes": []
-					},
-					"nestedName": "LimitedInputStream",
-					"interfaces": [
-						{
-							"kind": "type",
-							"text": "InputStream",
-							"typeClass": "primitive",
-							"nestedName": "InputStream",
-							"qualifiedName": "vibe.stream.stream.InputStream",
-							"name": "InputStream",
-							"moduleName": "vibe.stream.stream",
-							"attributes": []
-						}
-					],
-					"name": "LimitedInputStream"
-				}
-			],
 			[
 				{
 					"ddoc": "\n\tStream implementation acting as a sink with no function.\n\n\tAny data written to the stream will be ignored and discarded. This stream type is useful if\n\tthe output of a particular stream is not needed but the stream needs to be drained.\n",
@@ -11529,7 +10272,7 @@
 									"protection": "public",
 									"nestedName": "NullOutputStream.write",
 									"type": {
-										"text": "void(InputStream stream, ulong nbytes, bool do_flush = true)",
+										"text": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -11553,6 +10296,7 @@
 												"name": "stream"
 											},
 											{
+												"defaultValue": "cast(ulong",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -11563,19 +10307,6 @@
 													"attributes": []
 												},
 												"name": "nbytes"
-											},
-											{
-												"defaultValue": "true",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "do_flush"
 											}
 										],
 										"attributes": []
@@ -11615,7 +10346,7 @@
 		"interfaces": [
 			[
 				{
-					"ddoc": "\n\tInterface for all classes implementing readable streams.\n",
+					"ddoc": "\n\n\n\tInterface for all classes implementing readable streams.\n",
 					"kind": "interface",
 					"protection": "public",
 					"members": {
@@ -12129,7 +10860,7 @@
 			],
 			[
 				{
-					"ddoc": "\n\tReads and returns a single line from the stream.\n\n\tThrows:\n\t\tAn exception if either the stream end was hit without hitting a newline first, or\n\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n",
+					"ddoc": "\n\n\n\tReads and returns a single line from the stream.\n\n\tThrows:\n\t\tAn exception if either the stream end was hit without hitting a newline first, or\n\t\tif more than max_bytes have been read from the stream in case of max_bytes != 0.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "readLine",
@@ -12337,7 +11068,7 @@
 "vibe.core.signal": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\signal.d",
-	"ddoc": "\n\tEvented signal-slot mechanism\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tEvented signal-slot mechanism\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -12416,7 +11147,7 @@
 "vibe.http.log": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\log.d",
-	"ddoc": "\n\tA HTTP 1.1/1.0 server implementation.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tA HTTP 1.1/1.0 server implementation.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"classes": [
 			[
@@ -12920,7 +11651,7 @@
 "vibe.utils.string": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\string.d",
-	"ddoc": "\n\tUtility functions for string processing\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tUtility functions for string processing\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -13239,7 +11970,7 @@
 "vibe.db.mongo.cursor": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\db\\mongo\\cursor.d",
-	"ddoc": "\n\tMongoDB cursor abstraction\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMongoDB cursor abstraction\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
@@ -13488,7 +12219,7 @@
 "vibe.http.auth.basic_auth": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\auth\\basic_auth.d",
-	"ddoc": "\n\tImplements HTTP Basic Auth.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tImplements HTTP Basic Auth.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -13762,7 +12493,7 @@
 "vibe.inet.mimetypes": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\inet\\mimetypes.d",
-	"ddoc": "\n\tMaps file name extensions to standard mime types.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMaps file name extensions to standard mime types.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -13841,10 +12572,789 @@
 	},
 	"name": "vibe.inet.mimetypes"
 },
+"vibe.stream.counting": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\stream\\counting.d",
+	"ddoc": "\n\tWrapper streams which count the number of bytes or limit the stream based on the number of\n\ttransferred bytes.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"classes": [
+			[
+				{
+					"ddoc": "\n\tWraps an existing input stream, counting the bytes that are written.\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "CountingInputStream.this",
+									"type": {
+										"text": "CountingInputStream(InputStream stream)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "CountingInputStream",
+											"qualifiedName": "vibe.stream.counting.CountingInputStream",
+											"name": "CountingInputStream",
+											"moduleName": "vibe.stream.counting"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "InputStream",
+													"qualifiedName": "vibe.stream.stream.InputStream",
+													"name": "InputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.bytesRead",
+									"type": {
+										"text": "const @property ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "bytesRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.empty",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "empty"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.leastSize",
+									"type": {
+										"text": "@property ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingInputStream.read",
+									"type": {
+										"text": "void(ubyte[] dst)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "dst"
+											}
+										],
+										"attributes": []
+									},
+									"name": "read"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "CountingInputStream",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "InputStream",
+							"typeClass": "primitive",
+							"nestedName": "InputStream",
+							"qualifiedName": "vibe.stream.stream.InputStream",
+							"name": "InputStream",
+							"moduleName": "vibe.stream.stream",
+							"attributes": []
+						}
+					],
+					"name": "CountingInputStream"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tWraps an existing output stream, counting the bytes that are written.\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.this",
+									"type": {
+										"text": "CountingOutputStream(OutputStream stream)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "CountingOutputStream",
+											"qualifiedName": "vibe.stream.counting.CountingOutputStream",
+											"name": "CountingOutputStream",
+											"moduleName": "vibe.stream.counting"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "OutputStream",
+													"qualifiedName": "vibe.stream.stream.OutputStream",
+													"name": "OutputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.bytesWritten",
+									"type": {
+										"text": "const @property ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "bytesWritten"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.finalize",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "finalize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.flush",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "flush"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.write",
+									"type": {
+										"text": "void(const(ubyte[]) bytes, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "bytes"
+											},
+											{
+												"defaultValue": "true",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "do_flush"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "CountingOutputStream.write",
+									"type": {
+										"text": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "InputStream",
+													"qualifiedName": "vibe.stream.stream.InputStream",
+													"name": "InputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											},
+											{
+												"defaultValue": "cast(ulong",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ulong",
+													"qualifiedName": "ulong",
+													"name": "ulong",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "nbytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "write"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "CountingOutputStream",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "OutputStream",
+							"typeClass": "primitive",
+							"nestedName": "OutputStream",
+							"qualifiedName": "vibe.stream.stream.OutputStream",
+							"name": "OutputStream",
+							"moduleName": "vibe.stream.stream",
+							"attributes": []
+						}
+					],
+					"name": "CountingOutputStream"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tWraps an existing stream, limiting the amount of data that can be read.\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"ddoc": " Constructs a limited stream from an existing input stream.\n\n\t\tParams:\n\t\t\tstream: the input stream to be wrapped\n\t\t\tbyte_limit: the maximum number of bytes readable from the constructed stream\n\t\t\tsilent_limit: if set, the stream will behave exactly like the original stream, but\n\t\t\t\twill throw an exception as soon as the limit is reached.\n\t\n",
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.this",
+									"type": {
+										"text": "LimitedInputStream(InputStream stream, ulong byte_limit, bool silent_limit = false)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "LimitedInputStream",
+											"qualifiedName": "vibe.stream.counting.LimitedInputStream",
+											"name": "LimitedInputStream",
+											"moduleName": "vibe.stream.counting"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "InputStream",
+													"qualifiedName": "vibe.stream.stream.InputStream",
+													"name": "InputStream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "stream"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ulong",
+													"qualifiedName": "ulong",
+													"name": "ulong",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "byte_limit"
+											},
+											{
+												"defaultValue": "false",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "silent_limit"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.dataAvailableForRead",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "dataAvailableForRead"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.empty",
+									"type": {
+										"text": "@property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "empty"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.leastSize",
+									"type": {
+										"text": "@property ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "leastSize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "protected",
+									"nestedName": "LimitedInputStream.onSizeLimitReached",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "onSizeLimitReached"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.peek",
+									"type": {
+										"text": "const(ubyte)[]()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"const"
+												],
+												"typeClass": "primitive",
+												"nestedName": "ubyte",
+												"qualifiedName": "ubyte",
+												"name": "ubyte",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "peek"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.read",
+									"type": {
+										"text": "void(ubyte[] dst)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "ubyte",
+														"qualifiedName": "ubyte",
+														"name": "ubyte",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "dst"
+											}
+										],
+										"attributes": []
+									},
+									"name": "read"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LimitedInputStream.sourceStream",
+									"type": {
+										"text": "inout @property inout(InputStream)()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"modifiers": [
+												"inout"
+											],
+											"typeClass": "primitive",
+											"nestedName": "InputStream",
+											"qualifiedName": "vibe.stream.stream.InputStream",
+											"name": "InputStream",
+											"moduleName": "vibe.stream.stream"
+										},
+										"parameters": [],
+										"attributes": [
+											"inout",
+											"@property"
+										]
+									},
+									"name": "sourceStream"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "LimitedInputStream",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "InputStream",
+							"typeClass": "primitive",
+							"nestedName": "InputStream",
+							"qualifiedName": "vibe.stream.stream.InputStream",
+							"name": "InputStream",
+							"moduleName": "vibe.stream.stream",
+							"attributes": []
+						}
+					],
+					"name": "LimitedInputStream"
+				}
+			]
+		]
+	},
+	"name": "vibe.stream.counting"
+},
 "vibe.vibe": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\vibe.d",
-	"ddoc": "\n\tCentral include for every vibe.d based application.\n\n\tThis file provides the majority of the vibe API through a single import. Note that typical\n\tvibe.d applications will import 'vibe.d' instead to also get an implicit application entry\n\tpoint.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tCentral include for every vibe.d based application.\n\n\tThis file provides the majority of the vibe API through a single import. Note that typical\n\tvibe.d applications will import 'vibe.d' instead to also get an implicit application entry\n\tpoint.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 	},
 	"name": "vibe.vibe"
@@ -13852,7 +13362,7 @@
 "vibe.inet.rfc5322": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\inet\\rfc5322.d",
-	"ddoc": "\n\tMime header parsing according to RFC5322\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMime header parsing according to RFC5322\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"aliases": [
 			[
@@ -13935,7 +13445,7 @@
 "vibe.utils.array": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\array.d",
-	"ddoc": "\n\tUtiltiy functions for array processing\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tUtiltiy functions for array processing\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -14051,7 +13561,7 @@
 "vibe.stream.zlib": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\zlib.d",
-	"ddoc": "\n\tZlib input/output streams\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tZlib input/output streams\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -14748,7 +14258,7 @@
 "vibe.crypto.passwordhash": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\crypto\\passwordhash.d",
-	"ddoc": "\n\tPassword hashing routines\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tPassword hashing routines\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -14840,7 +14350,7 @@
 "vibe.data.json": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\data\\json.d",
-	"ddoc": "\n\tJSON serialization and value handling.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tJSON serialization and value handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
@@ -17769,7 +17279,7 @@
 "vibe.http.form": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\form.d",
-	"ddoc": "\n\tContains HTTP form parsing and construction routines.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tContains HTTP form parsing and construction routines.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"structs": [
 			[
@@ -18112,7 +17622,7 @@
 "vibe.inet.urltransfer": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\inet\\urltransfer.d",
-	"ddoc": "\n\tDownloading and uploading of data from/to URLs.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tDownloading and uploading of data from/to URLs.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -18217,7 +17727,7 @@
 "vibe.appmain": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\appmain.d",
-	"ddoc": "\n\tProvides vibe based applications with a central program entry point.\n\n\tThis module is included automatically through the import 'vibe.d'. It will provide a default\n\tapplication entry point which parses command line arguments, reads the global vibe configuration\n\tfile, and starts the event loop.\n\n\tThe application itself then just has to initialize itself from within a 'static this' module\n\tconstructor and perform the appropriate calls to listen for connections or other operations.\n\n\tIf you want to provide your own main() function, you have to import 'vibe.vibe' instead of\n\t'vibe.d'. Be sure to call start() at the end of your main function in this case. Also beware\n\tthat any global configuration is not applied in this case and features such as priviledge\n\tlowering are not in place.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tProvides vibe based applications with a central program entry point.\n\n\tThis module is included automatically through the import 'vibe.d'. It will provide a default\n\tapplication entry point which parses command line arguments, reads the global vibe configuration\n\tfile, and starts the event loop.\n\n\tThe application itself then just has to initialize itself from within a 'static this' module\n\tconstructor and perform the appropriate calls to listen for connections or other operations.\n\n\tIf you want to provide your own main() function, you have to import 'vibe.vibe' instead of\n\t'vibe.d'. Be sure to call start() at the end of your main function in this case. Also beware\n\tthat any global configuration is not applied in this case and features such as priviledge\n\tlowering are not in place.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -18267,7 +17777,7 @@
 "vibe.db.mongo.mongo": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\db\\mongo\\mongo.d",
-	"ddoc": "\n\tMongoDB and MongoCollection classes and connections.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMongoDB and MongoCollection classes and connections.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -18326,7 +17836,7 @@
 "vibe.stream.memory": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\memory.d",
-	"ddoc": "\n\tIn-memory streams\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tIn-memory streams\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -18569,7 +18079,7 @@
 "vibe.inet.url": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\inet\\url.d",
-	"ddoc": "\n\tURL parsing routines.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tURL parsing routines.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
@@ -21015,7 +20525,7 @@
 "vibe.mail.smtp": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\mail\\smtp.d",
-	"ddoc": "\n\tSMTP client implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tSMTP client implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -21623,7 +21133,7 @@
 "vibe.stream.ssl": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\stream\\ssl.d",
-	"ddoc": "\n\tSSL/TLS stream implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tSSL/TLS stream implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -22052,10 +21562,98 @@
 	},
 	"name": "vibe.stream.ssl"
 },
+"vibe.utils.memory": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\utils\\memory.d",
+	"ddoc": "\n\tUtiltiy functions for memory management\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"functions": [
+			[
+				{
+					"kind": "function",
+					"templateName": "heap_delete(T) if (is(T == struct))",
+					"nestedName": "heap_delete",
+					"type": {
+						"text": "void(T* ptr)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "pointer",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "T",
+										"qualifiedName": "T",
+										"name": "T",
+										"moduleName": ""
+									},
+									"attributes": []
+								},
+								"name": "ptr"
+							}
+						],
+						"attributes": []
+					},
+					"name": "heap_delete"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "heap_new(T,ARGS...) if (is(T == struct))",
+					"nestedName": "heap_new",
+					"type": {
+						"text": "T*(ARGS args)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "pointer",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "T",
+								"qualifiedName": "T",
+								"name": "T",
+								"moduleName": ""
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ARGS",
+									"qualifiedName": "ARGS",
+									"name": "ARGS",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "args"
+							}
+						],
+						"attributes": []
+					},
+					"name": "heap_new"
+				}
+			]
+		]
+	},
+	"name": "vibe.utils.memory"
+},
 "vibe.http.status": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\status.d",
-	"ddoc": "\n\tList of all standard HTTP status codes.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
+	"ddoc": "\n\tList of all standard HTTP status codes.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
 	"members": {
 		"enums": [
 			[
@@ -22400,7 +21998,7 @@
 "vibe.http.websockets": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\websockets.d",
-	"ddoc": "\n\tWebSocket support and fallbacks for older browsers.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
+	"ddoc": "\n\tWebSocket support and fallbacks for older browsers.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
 	"members": {
 		"enums": [
 			[
@@ -23399,7 +22997,7 @@
 "vibe.http.proxy": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\proxy.d",
-	"ddoc": "\n\tHTTP (reverse) proxy implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tHTTP (reverse) proxy implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -23546,7 +23144,7 @@
 "vibe.db.mongo.collection": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\db\\mongo\\collection.d",
-	"ddoc": "\n\tMongoCollection class\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMongoCollection class\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"structs": [
 			[
@@ -23990,7 +23588,7 @@
 "vibe.http.client": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\client.d",
-	"ddoc": "\n\tA simple HTTP/1.1 client implementation.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tA simple HTTP/1.1 client implementation.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"classes": [
 			[
@@ -24775,7 +24373,7 @@
 "vibe.http.common": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\common.d",
-	"ddoc": "\n\tCommon classes for HTTP clients and servers.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tCommon classes for HTTP clients and servers.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"enums": [
 			[
@@ -26789,7 +26387,7 @@
 "vibe.core.drivers.libevent2": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2.d",
-	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
 		"structs": [
 			[
@@ -28062,7 +27660,7 @@
 "vibe.core.driver": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\driver.d",
-	"ddoc": "\n\tContains interfaces and enums for evented I/O drivers.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"ddoc": "\n\tContains interfaces and enums for evented I/O drivers.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
 		"enums": [
 			[
@@ -29253,7 +28851,7 @@
 "vibe.crypto.md5": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\crypto\\md5.d",
-	"ddoc": "\n\tMD5 hashing functions.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
+	"ddoc": "\n\tMD5 hashing functions.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger\n",
 	"members": {
 		"functions": [
 			[
@@ -29305,7 +28903,7 @@
 "vibe.textfilter.markdown": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\textfilter\\markdown.d",
-	"ddoc": "\n\tMarkdown parser implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tMarkdown parser implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -29318,6 +28916,12 @@
 							"protection": "public",
 							"nestedName": "BlockType.Plain",
 							"name": "Plain"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "BlockType.Text",
+							"name": "Text"
 						},
 						{
 							"kind": "enum member",
@@ -29460,6 +29064,12 @@
 							"protection": "public",
 							"nestedName": "LineType.OList",
 							"name": "OList"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LineType.HtmlBlock",
+							"name": "HtmlBlock"
 						}
 					],
 					"nestedName": "LineType",
@@ -30052,7 +29662,7 @@
 "vibe.db.mongo.connection": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\db\\mongo\\connection.d",
-	"ddoc": "\n\tLow level mongodb protocol.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tLow level mongodb protocol.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -30989,7 +30599,7 @@
 "vibe.textfilter.html": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\textfilter\\html.d",
-	"ddoc": "\n\tHTML character entity escaping.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tHTML character entity escaping.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -31313,7 +30923,7 @@
 "vibe.d": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\d.d",
-	"ddoc": "\n\tvibe.d is the default module for vibe.d based applications.\n\n\tApplications that import 'vibe.d' will have most of the vibe API available and will be provided\n\twith an implicit application entry point (main). The resulting application parses command line\n\tparameters and reads the global vibe.d configuration (/etc/vibe/vibe.conf).\n\n\tInitialization is done in module constructors (static this), which run just before the event\n\tloop is started by the application entry point.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tvibe.d is the default module for vibe.d based applications.\n\n\tApplications that import 'vibe.d' will have most of the vibe API available and will be provided\n\twith an implicit application entry point (main). The resulting application parses command line\n\tparameters and reads the global vibe.d configuration (/etc/vibe/vibe.conf).\n\n\tInitialization is done in module constructors (static this), which run just before the event\n\tloop is started by the application entry point.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 	},
 	"name": "vibe.d"
@@ -31321,7 +30931,7 @@
 "vibe.http.dist": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\dist.d",
-	"ddoc": "\n\tInterface for the VibeDist load balancer\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
+	"ddoc": "\n\tInterface for the VibeDist load balancer\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"functions": [
 			[
@@ -31433,7 +31043,7 @@
 "vibe.core.core": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\core.d",
-	"ddoc": "\n\tThis module contains the core functionality of the vibe framework.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tThis module contains the core functionality of the vibe framework.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -31857,7 +31467,7 @@
 "vibe.http.fileserver": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\fileserver.d",
-	"ddoc": "\n\tA static HTTP file server.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tA static HTTP file server.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -36542,7 +36152,7 @@
 "vibe.http.router": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\router.d",
-	"ddoc": "\n\tPattern based URL router.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tPattern based URL router.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"classes": [
 			[
@@ -38058,7 +37668,7 @@
 "vibe.textfilter.urlencode": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\textfilter\\urlencode.d",
-	"ddoc": "\n\tURL-encode implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger, Sönke Ludwig\n",
+	"ddoc": "\n\tURL-encode implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Jan Krüger, Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
@@ -38236,7 +37846,7 @@
 "vibe.core.log": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\log.d",
-	"ddoc": "\n\tCentral logging facility for vibe.\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tCentral logging facility for vibe.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"enums": [
 			[
@@ -38694,7 +38304,7 @@
 "vibe.textfilter.ddoc": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\textfilter\\ddoc.d",
-	"ddoc": "\n\tDietDoc/DDOC support routines\n\n\tCopyright: © 2012 Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tDietDoc/DDOC support routines\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
 			[
