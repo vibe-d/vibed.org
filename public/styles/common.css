@@ -72,9 +72,17 @@ a.extern {
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
-
 a.extern:hover {
 	background-image: url(../images/extern-link-hover.png);
+}
+
+a.download {
+	background-image: url(../images/download-link.png);
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+a.download:hover {
+	background-image: url(../images/download-link-hover.png);
 }
 
 pre {
