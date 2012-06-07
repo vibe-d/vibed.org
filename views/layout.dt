@@ -40,7 +40,7 @@ html(lang="en-US")
 					a(href="http://vibed.org/")
 						img#logo(src="#{req.rootDir}images/logo.png", alt='')
 						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta')
-					a#download(href="#{req.rootDir}download?file=zipball/v0.7.5")
+					a#download(href="#{req.rootDir}download")
 						.downloadArrow
 						strong Download
 						#download-version 0.7.5 beta

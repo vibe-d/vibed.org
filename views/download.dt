@@ -8,6 +8,8 @@ block navigation
 		li
 			a(href="##release-version") Current release
 		li
+			a(href="##apt-repository") APT repository
+		li
 			a(href="##development-snapshot") Development snapshot
 
 block body
@@ -26,6 +28,19 @@ block body
 		p
 			a.download(href="download?file=zipball/v0.7.5") Download Current Beta Release (0.7.5)
 
+	section
+		a#apt-repository
+		h2 APT repository
+		
+		p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
+		
+		p
+			a.extern(href="https://code.google.com/p/d-apt/wiki/APT_Repository", target="_blank") APT repository wiki page
+		
+		p You can then install vibe.d including all dependencies using:
+		
+		pre apt-get install vibe
+
 	section	
 		a#development-snapshot
 		h2 Latest development version
@@ -37,7 +52,7 @@ block body
 			| version.
 		
 		p Note that you have to have the current
-			a(href="http://dlang.org/download.html") D compiler
+			a.extern(href="http://dlang.org/download.html", target="_blank") D compiler
 			| installed to run the development snapshot.
 		
 		p
