@@ -60,20 +60,37 @@ block body
 	section
 		a#installation
 		h2 Installation
+		
+		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
+			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
+			| for instructions.
 
-		p The installation currently is a simple manual process. You just have to extract the downloaded archive and make the vibe script callable from anywhere.
+		p On all other systems, the installation currently is a simple manual process. You just have to extract the downloaded archive and make the vibe script callable from anywhere.
 		
-		p On Windows, simply add the 'bin' directory to the PATH by going to Advanced System Settings/Advanced/Environment Variables and adding the path to either the user PATH variable or the system wide version.
+		p On Windows, add the 'bin' directory to the PATH by going to Advanced System Settings/Advanced/Environment Variables and entering the path into either the user PATH variable or the system wide version.
 		
-		p For Mac, Linux and other *NIXes the best way is to symlink the vibe script:
+		p For Mac, Linux and other *NIXes, there is a setup script that creates the symlink and adds an unprivileged 'vibe' user to allow for
+			a(href="##privilege-lowering") privilege lowering
+			| on server systems. Depending on the operating system, run setup-linux.sh or setup-mac.sh from the directory where the files have been extracted:
 			code
-				pre $ sudo ln -s /path/to/vibe/bin/vibe /usr/bin/vibe
+				pre $ ./setup-linux.sh
+			code
+				pre $ ./setup-mac.sh
 				
-		p On Mac and Linux you may still need some dependencies. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d") github page
+		p On Mac and Linux you may need to install some additional dependencies. See the
+			a(href="https://github.com/rejectedsoftware/vibe.d#vibed") github page
 			| for more information.
 		
-		p After the installation, you can run any vibe.d application by typing 'vibe' from the application's root directory.
+		p After the installation, you can run any vibe.d application by typing 'vibe' from inside the application's root directory. You can try this by starting one of the exammples:
+			code
+				pre $ cd examples/http_server
+					|$ vibe
+					|Updating application in 'C:\Users\ghosthunter\Develop\vibe.d\examples\http_server'
+					|You are up to date
+					|Failed to parse config file vibe.conf: vibe.conf: The system cannot find the file specified.
+					|Listening on 0.0.0.0 port 8080 succeeded
+					|Listening on :: port 8080 succeeded
+					|Running event loop...
 
 	section
 		a#first-steps
@@ -170,9 +187,12 @@ block body
 			code
 				pre $ cd path/to/project
 					|$ vibe
-					|[021A0F80:00000000 WRN] Failed to parse config file vibe.conf: vibe.conf: The system cannot find the file specified.
-					|[021A0F80:00000000 INF] Listening on 127.0.0.1 port 8080 succeeded
-					|[021A0F80:00000000 INF] Running event loop...
+					|Updating application in 'C:\Users\ghosthunter\Develop\vibe.d\examples\http_server'
+					|You are up to date
+					|Failed to parse config file vibe.conf: vibe.conf: The system cannot find the file specified.
+					|Listening on 0.0.0.0 port 8080 succeeded
+					|Listening on :: port 8080 succeeded
+					|Running event loop...
 	section
 		a#http
 		h2 HTTP
