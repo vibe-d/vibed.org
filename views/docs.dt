@@ -62,7 +62,7 @@ block body
 		h2 Installation
 		
 		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
+			a(href="https://github.com/rejectedsoftware/vibe.d##installation-on-linux-debianubuntu-using-apt") github page
 			| for instructions.
 
 		p On all other systems, the installation currently is a simple manual process. You just have to extract the downloaded archive and make the vibe script callable from anywhere.
@@ -78,7 +78,7 @@ block body
 				pre $ ./setup-mac.sh
 				
 		p On Mac and Linux you may need to install some additional dependencies. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d#vibed") github page
+			a(href="https://github.com/rejectedsoftware/vibe.d##vibed") github page
 			| for more information.
 		
 		p After the installation, you can run any vibe.d application by typing 'vibe' from inside the application's root directory. You can try this by starting one of the exammples:
