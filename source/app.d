@@ -68,6 +68,9 @@ string prettifyFilter(string html)
 
 static this()
 {
+	setLogLevel(LogLevel.None);
+	setLogFile("log.txt", LogLevel.Info);
+
 	updateDocs();
 
 	auto settings = new HttpServerSettings;
