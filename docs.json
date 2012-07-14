@@ -1387,6 +1387,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " Returns a new, empty Bson value of type Object.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Bson.EmptyObject",
@@ -3107,6 +3108,16 @@
 								}
 							]
 						],
+						"aliases": [
+							[
+								{
+									"kind": "alias",
+									"protection": "public",
+									"nestedName": "BsonObjectID.fromHexString",
+									"name": "fromHexString"
+								}
+							]
+						],
 						"functions": [
 							[
 								{
@@ -3147,7 +3158,7 @@
 								{
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "BsonObjectID.fromHexString",
+									"nestedName": "BsonObjectID.fromString",
 									"type": {
 										"text": "BsonObjectID(string str)",
 										"typeclass": "function",
@@ -3175,7 +3186,7 @@
 										],
 										"attributes": []
 									},
-									"name": "fromHexString"
+									"name": "fromString"
 								}
 							],
 							[
@@ -3774,28 +3785,6 @@
 	"file": "..\\source\\vibe\\templ\\diet.d",
 	"ddoc": "\n\tImplements a compile-time Diet template parser.\n\n\tDiet templates are an more or less compatible incarnation of Jade templates but with\n\tembedded D source instead of JavaScript. The Diet syntax reference is found at\n\t$(LINK http://vibed.org/templates).\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
-		"templates": [
-			[
-				{
-					"kind": "template",
-					"protection": "public",
-					"members": {
-					},
-					"nestedName": "localAliases(int i,ALIASES...)",
-					"name": "localAliases(int i,ALIASES...)"
-				}
-			],
-			[
-				{
-					"kind": "template",
-					"protection": "public",
-					"members": {
-					},
-					"nestedName": "localAliasesCompat(int i,TYPES_AND_NAMES...)",
-					"name": "localAliasesCompat(int i,TYPES_AND_NAMES...)"
-				}
-			]
-		],
 		"functions": [
 			[
 				{
@@ -3891,41 +3880,6 @@
 						"attributes": []
 					},
 					"name": "buildSpecialTag"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "cttostring(T)",
-					"nestedName": "cttostring",
-					"type": {
-						"text": "string(T x)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "T",
-									"qualifiedName": "T",
-									"name": "T",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "x"
-							}
-						],
-						"attributes": []
-					},
-					"name": "cttostring"
 				}
 			],
 			[
@@ -5522,12 +5476,315 @@
 	},
 	"name": "vibe.core.process"
 },
+"vibe.core.drivers.libev": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\core\\drivers\\libev.d",
+	"ddoc": "\n\tlibev based driver implementation\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"members": {
+	},
+	"name": "vibe.core.drivers.libev"
+},
 "vibe.core.file": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\file.d",
 	"ddoc": "\n\tFile handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
+		"structs": [
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FileInfo.__xopEquals",
+									"type": {
+										"text": "bool(const(void*) p, const(void*) q)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "p"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "q"
+											}
+										],
+										"attributes": []
+									},
+									"name": "__xopEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FileInfo.opEquals",
+									"type": {
+										"text": "const bool(const(FileInfo) p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "FileInfo",
+													"qualifiedName": "vibe.core.file.FileInfo",
+													"name": "FileInfo",
+													"moduleName": "vibe.core.file",
+													"attributes": []
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							]
+						],
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.isDirectory",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "isDirectory"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.isSymlink",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "isSymlink"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.name",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "name"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.size",
+									"type": {
+										"kind": "type",
+										"text": "ulong",
+										"typeClass": "primitive",
+										"nestedName": "ulong",
+										"qualifiedName": "ulong",
+										"name": "ulong",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "size"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.timeCreated",
+									"type": {
+										"kind": "type",
+										"text": "SysTime",
+										"typeClass": "primitive",
+										"nestedName": "SysTime",
+										"qualifiedName": "SysTime",
+										"name": "SysTime",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "timeCreated"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "FileInfo.timeModified",
+									"type": {
+										"kind": "type",
+										"text": "SysTime",
+										"typeClass": "primitive",
+										"nestedName": "SysTime",
+										"qualifiedName": "SysTime",
+										"name": "SysTime",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "timeModified"
+								}
+							]
+						]
+					},
+					"nestedName": "FileInfo",
+					"name": "FileInfo"
+				}
+			]
+		],
 		"functions": [
+			[
+				{
+					"ddoc": "\n\tCreates a new directory.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "createDirectory",
+					"type": {
+						"text": "void(Path path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "createDirectory"
+				},
+				{
+					"ddoc": "\n\tCreates a new directory.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "createDirectory",
+					"type": {
+						"text": "void(string path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "createDirectory"
+				}
+			],
 			[
 				{
 					"ddoc": "\n\tCreates and opens a temporary file for writing.\n",
@@ -5585,10 +5842,9 @@
 						"attributes": []
 					},
 					"name": "existsFile"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tChecks if a file exists\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "existsFile",
@@ -5620,6 +5876,204 @@
 						"attributes": []
 					},
 					"name": "existsFile"
+				}
+			],
+			[
+				{
+					"ddoc": " Stores information about the specified file/directory into 'info'\n\n\tReturns false if the file does not exist.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "getFileInfo",
+					"type": {
+						"text": "FileInfo(Path path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "FileInfo",
+							"qualifiedName": "vibe.core.file.FileInfo",
+							"name": "FileInfo",
+							"moduleName": "vibe.core.file"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "getFileInfo"
+				},
+				{
+					"ddoc": " Stores information about the specified file/directory into 'info'\n\n\tReturns false if the file does not exist.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "getFileInfo",
+					"type": {
+						"text": "FileInfo(string path)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "FileInfo",
+							"qualifiedName": "vibe.core.file.FileInfo",
+							"name": "FileInfo",
+							"moduleName": "vibe.core.file"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "getFileInfo"
+				}
+			],
+			[
+				{
+					"ddoc": " Enumerates all files in the specified directory. \n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "listDirectory",
+					"type": {
+						"text": "void(Path path, bool delegate(FileInfo info) del)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.url.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "path"
+							},
+							{
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "FileInfo",
+												"qualifiedName": "vibe.core.file.FileInfo",
+												"name": "FileInfo",
+												"moduleName": "vibe.core.file",
+												"attributes": []
+											},
+											"name": "info"
+										}
+									],
+									"attributes": []
+								},
+								"name": "del"
+							}
+						],
+						"attributes": []
+					},
+					"name": "listDirectory"
+				},
+				{
+					"ddoc": " Enumerates all files in the specified directory. \n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "listDirectory",
+					"type": {
+						"text": "void(string path, bool delegate(FileInfo info) del)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							},
+							{
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "FileInfo",
+												"qualifiedName": "vibe.core.file.FileInfo",
+												"name": "FileInfo",
+												"moduleName": "vibe.core.file",
+												"attributes": []
+											},
+											"name": "info"
+										}
+									],
+									"attributes": []
+								},
+								"name": "del"
+							}
+						],
+						"attributes": []
+					},
+					"name": "listDirectory"
 				}
 			],
 			[
@@ -5668,10 +6122,9 @@
 						"attributes": []
 					},
 					"name": "moveFile"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tMoves or renames a file.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "moveFile",
@@ -5847,10 +6300,9 @@
 						"attributes": []
 					},
 					"name": "removeFile"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tRemoves a file\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "removeFile",
@@ -6371,6 +6823,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "ThreadedFileStream.tell",
+									"type": {
+										"text": "ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "tell"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "ThreadedFileStream.writable",
 									"type": {
 										"text": "const @property bool()",
@@ -6527,6 +7001,14 @@
 	},
 	"name": "vibe.core.drivers.threadedfile"
 },
+"vibe.core.drivers.win32": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\core\\drivers\\win32.d",
+	"ddoc": "\n\tWin32 driver implementation using I/O completion ports\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"members": {
+	},
+	"name": "vibe.core.drivers.win32"
+},
 "vibe.core.drivers.libevent2_tcp": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2_tcp.d",
@@ -6534,209 +7016,6 @@
 	"members": {
 	},
 	"name": "vibe.core.drivers.libevent2_tcp"
-},
-"vibe.crypto.ssl": {
-	"kind": "module",
-	"file": "..\\source\\vibe\\crypto\\ssl.d",
-	"ddoc": "\n\tContains the SSLContext class used for SSL based network connections.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
-	"members": {
-		"enums": [
-			[
-				{
-					"kind": "enum",
-					"protection": "public",
-					"members": [
-						{
-							"kind": "enum member",
-							"protection": "public",
-							"nestedName": "SSLVersion.SSLv23",
-							"name": "SSLv23"
-						},
-						{
-							"kind": "enum member",
-							"protection": "public",
-							"nestedName": "SSLVersion.SSLv3",
-							"name": "SSLv3"
-						},
-						{
-							"kind": "enum member",
-							"protection": "public",
-							"nestedName": "SSLVersion.TLSv1",
-							"name": "TLSv1"
-						},
-						{
-							"kind": "enum member",
-							"protection": "public",
-							"nestedName": "SSLVersion.DTLSv1",
-							"name": "DTLSv1"
-						}
-					],
-					"nestedName": "SSLVersion",
-					"name": "SSLVersion",
-					"baseType": {
-						"kind": "type",
-						"text": "int",
-						"typeClass": "primitive",
-						"nestedName": "int",
-						"qualifiedName": "int",
-						"name": "int",
-						"moduleName": "",
-						"attributes": []
-					}
-				}
-			]
-		],
-		"classes": [
-			[
-				{
-					"ddoc": "\n\n\n\n",
-					"kind": "class",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "SslContext.this",
-									"type": {
-										"text": "SslContext(string cert_file, string key_file, SSLVersion ver = cast(SSLVersion)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "SslContext",
-											"qualifiedName": "vibe.crypto.ssl.SslContext",
-											"name": "SslContext",
-											"moduleName": "vibe.crypto.ssl"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "cert_file"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "key_file"
-											},
-											{
-												"defaultValue": "cast(SSLVersion",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "SSLVersion",
-													"qualifiedName": "vibe.crypto.ssl.SSLVersion",
-													"name": "SSLVersion",
-													"moduleName": "vibe.crypto.ssl",
-													"attributes": []
-												},
-												"name": "ver"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							],
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "SslContext.this",
-									"type": {
-										"text": "SslContext(SSLVersion ver = cast(SSLVersion)0)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "SslContext",
-											"qualifiedName": "vibe.crypto.ssl.SslContext",
-											"name": "SslContext",
-											"moduleName": "vibe.crypto.ssl"
-										},
-										"parameters": [
-											{
-												"defaultValue": "cast(SSLVersion",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "SSLVersion",
-													"qualifiedName": "vibe.crypto.ssl.SSLVersion",
-													"name": "SSLVersion",
-													"moduleName": "vibe.crypto.ssl",
-													"attributes": []
-												},
-												"name": "ver"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "SslContext.createClientCtx",
-									"type": {
-										"text": "ssl_st*()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "pointer",
-											"elementType": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "ssl_st",
-												"qualifiedName": "ssl_st",
-												"name": "ssl_st",
-												"moduleName": ""
-											}
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "createClientCtx"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Object",
-						"typeClass": "primitive",
-						"nestedName": "Object",
-						"qualifiedName": "Object",
-						"name": "Object",
-						"moduleName": "",
-						"attributes": []
-					},
-					"nestedName": "SslContext",
-					"name": "SslContext"
-				}
-			]
-		]
-	},
-	"name": "vibe.crypto.ssl"
 },
 "vibe.core.tcp": {
 	"kind": "module",
@@ -7074,6 +7353,209 @@
 	},
 	"name": "vibe.core.tcp"
 },
+"vibe.crypto.ssl": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\crypto\\ssl.d",
+	"ddoc": "\n\tContains the SSLContext class used for SSL based network connections.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"enums": [
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SSLVersion.SSLv23",
+							"name": "SSLv23"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SSLVersion.SSLv3",
+							"name": "SSLv3"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SSLVersion.TLSv1",
+							"name": "TLSv1"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SSLVersion.DTLSv1",
+							"name": "DTLSv1"
+						}
+					],
+					"nestedName": "SSLVersion",
+					"name": "SSLVersion",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			]
+		],
+		"classes": [
+			[
+				{
+					"ddoc": "\n\n\n\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "SslContext.this",
+									"type": {
+										"text": "SslContext(string cert_file, string key_file, SSLVersion ver = cast(SSLVersion)0)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "SslContext",
+											"qualifiedName": "vibe.crypto.ssl.SslContext",
+											"name": "SslContext",
+											"moduleName": "vibe.crypto.ssl"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "cert_file"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "key_file"
+											},
+											{
+												"defaultValue": "cast(SSLVersion",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "SSLVersion",
+													"qualifiedName": "vibe.crypto.ssl.SSLVersion",
+													"name": "SSLVersion",
+													"moduleName": "vibe.crypto.ssl",
+													"attributes": []
+												},
+												"name": "ver"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							],
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "SslContext.this",
+									"type": {
+										"text": "SslContext(SSLVersion ver = cast(SSLVersion)0)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "SslContext",
+											"qualifiedName": "vibe.crypto.ssl.SslContext",
+											"name": "SslContext",
+											"moduleName": "vibe.crypto.ssl"
+										},
+										"parameters": [
+											{
+												"defaultValue": "cast(SSLVersion",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "SSLVersion",
+													"qualifiedName": "vibe.crypto.ssl.SSLVersion",
+													"name": "SSLVersion",
+													"moduleName": "vibe.crypto.ssl",
+													"attributes": []
+												},
+												"name": "ver"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "SslContext.createClientCtx",
+									"type": {
+										"text": "ssl_st*()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "pointer",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "ssl_st",
+												"qualifiedName": "ssl_st",
+												"name": "ssl_st",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "createClientCtx"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "SslContext",
+					"name": "SslContext"
+				}
+			]
+		]
+	},
+	"name": "vibe.crypto.ssl"
+},
 "vibe.http.server": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\server.d",
@@ -7182,104 +7664,6 @@
 		"classes": [
 			[
 				{
-					"ddoc": " Throwing this exception from within a request handler will produce a matching error page.\n",
-					"kind": "class",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "HttpServerError.this",
-									"type": {
-										"text": "HttpServerError(int status, string message = null)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "HttpServerError",
-											"qualifiedName": "vibe.http.server.HttpServerError",
-											"name": "HttpServerError",
-											"moduleName": "vibe.http.server"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "int",
-													"qualifiedName": "int",
-													"name": "int",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "status"
-											},
-											{
-												"defaultValue": "null",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "message"
-											}
-										],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "HttpServerError.status",
-									"type": {
-										"text": "const @property int()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "int",
-											"qualifiedName": "int",
-											"name": "int",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "status"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Exception",
-						"typeClass": "primitive",
-						"nestedName": "Exception",
-						"qualifiedName": "Exception",
-						"name": "Exception",
-						"moduleName": "",
-						"attributes": []
-					},
-					"nestedName": "HttpServerError",
-					"name": "HttpServerError"
-				}
-			],
-			[
-				{
 					"ddoc": " Aggregates all information about an HTTP error status.\n",
 					"kind": "class",
 					"protection": "public",
@@ -7383,6 +7767,30 @@
 					"kind": "class",
 					"protection": "public",
 					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "HttpServerRequest.this",
+									"type": {
+										"text": "HttpServerRequest()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "HttpServerRequest",
+											"qualifiedName": "vibe.http.server.HttpServerRequest",
+											"name": "HttpServerRequest",
+											"moduleName": "vibe.http.server"
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
 						"functions": [
 							[
 								{
@@ -7795,6 +8203,67 @@
 					"kind": "class",
 					"protection": "public",
 					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "HttpServerResponse.this",
+									"type": {
+										"text": "HttpServerResponse(Stream conn, HttpServerSettings settings, Allocator req_alloc)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "HttpServerResponse",
+											"qualifiedName": "vibe.http.server.HttpServerResponse",
+											"name": "HttpServerResponse",
+											"moduleName": "vibe.http.server"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Stream",
+													"qualifiedName": "vibe.stream.stream.Stream",
+													"name": "Stream",
+													"moduleName": "vibe.stream.stream",
+													"attributes": []
+												},
+												"name": "conn"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "HttpServerSettings",
+													"qualifiedName": "vibe.http.server.HttpServerSettings",
+													"name": "HttpServerSettings",
+													"moduleName": "vibe.http.server",
+													"attributes": []
+												},
+												"name": "settings"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Allocator",
+													"qualifiedName": "vibe.utils.memory.Allocator",
+													"name": "Allocator",
+													"moduleName": "vibe.utils.memory",
+													"attributes": []
+												},
+												"name": "req_alloc"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
 						"functions": [
 							[
 								{
@@ -8756,6 +9225,143 @@
 					"nestedName": "HttpServerSettings",
 					"name": "HttpServerSettings"
 				}
+			],
+			[
+				{
+					"ddoc": "\n\tThrowing this exception from within a request handler will produce a matching error page.\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "HttpStatusException.this",
+									"type": {
+										"text": "HttpStatusException(int status, string message = null, Throwable next = null, string file = __FILE__, int line = __LINE__)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "HttpStatusException",
+											"qualifiedName": "vibe.http.server.HttpStatusException",
+											"name": "HttpStatusException",
+											"moduleName": "vibe.http.server"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "int",
+													"qualifiedName": "int",
+													"name": "int",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "status"
+											},
+											{
+												"defaultValue": "null",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "message"
+											},
+											{
+												"defaultValue": "null",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Throwable",
+													"qualifiedName": "Throwable",
+													"name": "Throwable",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "next"
+											},
+											{
+												"defaultValue": "__FILE__",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "file"
+											},
+											{
+												"defaultValue": "__LINE__",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "int",
+													"qualifiedName": "int",
+													"name": "int",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "line"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "HttpStatusException.status",
+									"type": {
+										"text": "const @property int()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "status"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Exception",
+						"typeClass": "primitive",
+						"nestedName": "Exception",
+						"qualifiedName": "Exception",
+						"name": "Exception",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "HttpStatusException",
+					"name": "HttpStatusException"
+				}
 			]
 		],
 		"interfaces": [
@@ -8822,6 +9428,65 @@
 			]
 		],
 		"functions": [
+			[
+				{
+					"kind": "function",
+					"templateName": "formatAlloc(ARGS...)",
+					"nestedName": "formatAlloc",
+					"type": {
+						"text": "string(Allocator alloc, string fmt, ARGS args)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Allocator",
+									"qualifiedName": "vibe.utils.memory.Allocator",
+									"name": "Allocator",
+									"moduleName": "vibe.utils.memory",
+									"attributes": []
+								},
+								"name": "alloc"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "fmt"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ARGS",
+									"qualifiedName": "ARGS",
+									"name": "ARGS",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "args"
+							}
+						],
+						"attributes": []
+					},
+					"name": "formatAlloc"
+				}
+			],
 			[
 				{
 					"ddoc": "\n\n\n\tStarts a HTTP server listening on the specified port.\n\n\t'request_task' will be called for each HTTP request that is made. The\n\t'res' parameter of the callback then has to be filled with the response\n\tdata.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n\n\trequest_task can be either HttpServerRequestDelegate/HttpServerRequestFunction\n\tor a class/struct with a member function 'handleRequest' that has the same\n\tsignature as HttpServerRequestDelegate/Function.\n\n\tNote that if the application has been started with the --disthost command line\n\tswitch, listenHttp() will automatically listen on the specified VibeDist host\n\tinstead of locally. This allows for a seemless switch from single-host to\n\tmulti-host scenarios without changing the code. If you need to listen locally,\n\tuse listenHttpPlain() instead.\n",
@@ -10078,7 +10743,7 @@
 			],
 			[
 				{
-					"ddoc": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n",
+					"ddoc": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n",
 					"kind": "function",
 					"templateName": "registerRestInterface(T)",
 					"nestedName": "registerRestInterface",
@@ -10865,7 +11530,7 @@
 					"protection": "public",
 					"nestedName": "readLine",
 					"type": {
-						"text": "ubyte[](InputStream stream, uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\")",
+						"text": "ubyte[](InputStream stream, uint max_bytes = cast(uint)0, string linesep = \"\\x0d\\x0a\", Allocator alloc = defaultAllocator())",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -10918,7 +11583,7 @@
 					"protection": "public",
 					"nestedName": "readUntil",
 					"type": {
-						"text": "ubyte[](InputStream stream, const(ubyte[]) end_marker, uint max_bytes = cast(uint)0)",
+						"text": "ubyte[](InputStream stream, const(ubyte[]) end_marker, uint max_bytes = cast(uint)0, Allocator alloc = defaultAllocator())",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -11753,6 +12418,53 @@
 			[
 				{
 					"kind": "function",
+					"templateName": "formatString(ARGS...)",
+					"nestedName": "formatString",
+					"type": {
+						"text": "string(string format, ARGS args)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "format"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ARGS",
+									"qualifiedName": "ARGS",
+									"name": "ARGS",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "args"
+							}
+						],
+						"attributes": []
+					},
+					"name": "formatString"
+				}
+			],
+			[
+				{
+					"kind": "function",
 					"protection": "public",
 					"nestedName": "icmp2",
 					"type": {
@@ -11932,7 +12644,113 @@
 				{
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "stripBom",
+					"nestedName": "stripA",
+					"type": {
+						"text": "string(string s)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "s"
+							}
+						],
+						"attributes": []
+					},
+					"name": "stripA"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "stripLeftA",
+					"type": {
+						"text": "string(string s)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "s"
+							}
+						],
+						"attributes": []
+					},
+					"name": "stripLeftA"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "stripRightA",
+					"type": {
+						"text": "string(string s)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "s"
+							}
+						],
+						"attributes": []
+					},
+					"name": "stripRightA"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tStrips the byte order mark of an UTF8 encoded string.\n\tThis is useful when the string is coming from a file.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "stripUTF8Bom",
 					"type": {
 						"text": "string(string str)",
 						"typeclass": "function",
@@ -11960,7 +12778,7 @@
 						],
 						"attributes": []
 					},
-					"name": "stripBom"
+					"name": "stripUTF8Bom"
 				}
 			]
 		]
@@ -13382,7 +14200,7 @@
 					"protection": "public",
 					"nestedName": "parseRfc5322Header",
 					"type": {
-						"text": "void(InputStream input, ref StrMapCI dst, uint max_line_length = cast(uint)1000)",
+						"text": "void(InputStream input, ref StrMapCI dst, uint max_line_length = cast(uint)1000, Allocator alloc = defaultAllocator())",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -17063,7 +17881,7 @@
 			],
 			[
 				{
-					"ddoc": "\n\n\n\tParses the given range as a JSON string and returns the corresponding JSON object.\n\n\tThrows an Exception if any parsing error occured.\n",
+					"ddoc": "\n\n\n\tParses the given range as a JSON string and returns the corresponding Json object.\n\n\tThe range is shrunk during parsing, leaving any remaining text that is now part of\n\tthe JSON contents.\n\n\tThrows an Exception if any parsing error occured.\n",
 					"kind": "function",
 					"templateName": "parseJson(R) if (is(R == string))",
 					"nestedName": "parseJson",
@@ -17114,6 +17932,42 @@
 						"attributes": []
 					},
 					"name": "parseJson"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tParses the given JSON string and returns the corresponding Json object.\n\n\tThrows an Exception if any parsing error occurs.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseJsonString",
+					"type": {
+						"text": "Json(string str)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "Json",
+							"qualifiedName": "vibe.data.json.Json",
+							"name": "Json",
+							"moduleName": "vibe.data.json"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseJsonString"
 				}
 			],
 			[
@@ -17211,7 +18065,7 @@
 					"templateName": "toPrettyJson(R)",
 					"nestedName": "toPrettyJson",
 					"type": {
-						"text": "void(ref R dst, ref const(Json) json, int level = 0)",
+						"text": "void(ref R dst, in Json json, int level = 0)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -17239,16 +18093,13 @@
 							{
 								"type": {
 									"kind": "type",
-									"modifiers": [
-										"const"
-									],
 									"typeClass": "primitive",
 									"nestedName": "Json",
 									"qualifiedName": "vibe.data.json.Json",
 									"name": "Json",
 									"moduleName": "vibe.data.json",
 									"attributes": [
-										"ref"
+										"in"
 									]
 								},
 								"name": "json"
@@ -17851,7 +18702,7 @@
 									"protection": "public",
 									"nestedName": "MemoryOutputStream.this",
 									"type": {
-										"text": "MemoryOutputStream()",
+										"text": "MemoryOutputStream(Allocator alloc = defaultAllocator())",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -17861,7 +18712,21 @@
 											"name": "MemoryOutputStream",
 											"moduleName": "vibe.stream.memory"
 										},
-										"parameters": [],
+										"parameters": [
+											{
+												"defaultValue": "defaultAllocator(",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Allocator",
+													"qualifiedName": "vibe.utils.memory.Allocator",
+													"name": "Allocator",
+													"moduleName": "vibe.utils.memory",
+													"attributes": []
+												},
+												"name": "alloc"
+											}
+										],
 										"attributes": []
 									},
 									"name": "this"
@@ -17939,6 +18804,41 @@
 										"attributes": []
 									},
 									"name": "flush"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MemoryOutputStream.reserve",
+									"type": {
+										"text": "void(uint nbytes)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "nbytes"
+											}
+										],
+										"attributes": []
+									},
+									"name": "reserve"
 								}
 							],
 							[
@@ -21567,10 +22467,59 @@
 	"file": "..\\source\\vibe\\templ\\utils.d",
 	"ddoc": "\n\tUtility functions for dealing with templates.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
+		"templates": [
+			[
+				{
+					"ddoc": " When mixed in, makes all ALIASES available in the local scope\n",
+					"kind": "template",
+					"protection": "public",
+					"members": {
+					},
+					"nestedName": "localAliases(int i,ALIASES...)",
+					"name": "localAliases(int i,ALIASES...)"
+				}
+			],
+			[
+				{
+					"ddoc": " When mixed in, makes all ALIASES available in the local scope. Note that there must be a\n Variant[] args__ available that matches TYPES_AND_NAMES\n",
+					"kind": "template",
+					"protection": "public",
+					"members": {
+					},
+					"nestedName": "localAliasesCompat(int i,TYPES_AND_NAMES...)",
+					"name": "localAliasesCompat(int i,TYPES_AND_NAMES...)"
+				}
+			]
+		],
+		"structs": [
+			[
+				{
+					"ddoc": "\n\tMakes the variable aliases passed to one of the injectors of the inject!() template accessible\n\tto the local function.\n\n\tExamples:\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\t// access the userinfo variable:\n\t\t\tif( InjectedParams!Aliases.userinfo.length == 0 ) return;\n\n\t\t\t// it's also possible to declare a pseudo-\n\t\t\t// variable like this to access the parameters:\n\t\t\tInjectedParams!Aliases params;\n\t\t\tif( params.userinfo == \"peter\" )\n\t\t\t\tthrow Exception(\"Not allowed!\")\n\n\t\t\tNext!(Vars)(req, res);\n\t\t}\n\t\t---\n",
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+									},
+									"nestedName": "InjectedParams(Aliases).InjectedParams",
+									"name": "InjectedParams"
+								}
+							]
+						]
+					},
+					"nestedName": "InjectedParams(Aliases)",
+					"name": "InjectedParams(Aliases)"
+				}
+			]
+		],
 		"functions": [
 			[
 				{
-					"ddoc": "\n\tAllows to pass additional variables to a function that renders a templated page.\n\n\tThis function is useful if you need to support additional layers of functionality that should\n\tbe available to your views, such as authentication. This function allows to define variables\n\tthat should be usable from templates using so called \"injectors\". Each injector is a template\n\tfunction that can add its own parameters.\n\n\tNOTE: this function requires at least DMD 2.060, as it suffers from DMD BUG 2962.\n\n\tExamples:\n\n\t\tThe following example will render the template \"home.dt\" and make the variables 'userinfo',\n\t\t'something_else' and 'message' available. Before the 'page' function is called,\n\t\t'authInjector' and 'somethingInjector' can process the request and decide what to do.\n\n\t\t---\n\t\tvoid authInjector(alias Next, Vars...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Vars...)(HttpServerRequest req,\n\t\tHttpServerResponse res)\n\t\t{\n\t\t\tstring something_else;\n\t\t\tNext!(Vars, something_else)(req, res);\n\t\t}\n\n\t\tvoid page(VARS...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring message = \"Welcome to the example page!\"\n\t\t\tres.render!(\"home.dt\", VARS, message);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto router = new UrlRouter;\n\t\t\trouter.get(\"/\", inject!(page, authInjector, somethingInjector));\n\t\t}\n\t\t---\n",
+					"ddoc": "\n\tAllows to pass additional variables to a function that renders a templated page.\n\n\tThis function is useful if you need to support additional layers of functionality that should\n\tbe available to your views, such as authentication. This function allows to define variables\n\tthat should be usable from templates using so called \"injectors\". Each injector is a template\n\tfunction that can add its own parameters.\n\n\tIf you should need explicit access to one of the parameters of an upstream injector, you can use\n\tthe InjectedParams!() template.\n\n\tNOTE: this function requires at least DMD 2.060, as it suffers from DMD BUG 2962.\n\n\tExamples:\n\n\t\tThe following example will render the template \"home.dt\" and make the variables 'userinfo',\n\t\t'something_else' and 'message' available. Before the 'page' function is called,\n\t\t'authInjector' and 'somethingInjector' can process the request and decide what to do.\n\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring something_else;\n\t\t\tNext!(Vars, something_else)(req, res);\n\t\t}\n\n\t\tvoid page(Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring message = \"Welcome to the example page!\"\n\t\t\tres.render!(\"home.dt\", Aliases, message);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto router = new UrlRouter;\n\t\t\trouter.get(\"/\", inject!(page, authInjector, somethingInjector));\n\t\t}\n\t\t---\n",
 					"kind": "function",
 					"templateName": "inject(alias Page,Injectors...)",
 					"nestedName": "inject",
@@ -21600,85 +22549,2059 @@
 "vibe.utils.memory": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\utils\\memory.d",
-	"ddoc": "\n\tUtiltiy functions for memory management\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tUtiltiy functions for memory management\n\n\tNote that this module currently is a big sand box for testing allocation related stuff.\n\tNothing here, including the interfaces, is final but rather a lot of experimentation.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
-		"functions": [
+		"templates": [
 			[
 				{
-					"kind": "function",
-					"templateName": "heap_delete(T) if (is(T == struct))",
-					"nestedName": "heap_delete",
-					"type": {
-						"text": "void(T* ptr)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "pointer",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "T",
-										"qualifiedName": "T",
-										"name": "T",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "ptr"
-							}
-						],
-						"attributes": []
+					"kind": "template",
+					"protection": "public",
+					"members": {
 					},
-					"name": "heap_delete"
+					"nestedName": "AllocSize(T)",
+					"name": "AllocSize(T)"
 				}
 			],
 			[
 				{
+					"kind": "template",
+					"protection": "public",
+					"members": {
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).FreeListSlot.next",
+													"type": {
+														"kind": "type",
+														"text": "FreeListSlot*",
+														"typeClass": "pointer",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "FreeListSlot",
+															"qualifiedName": "FreeListSlot",
+															"name": "FreeListSlot",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "next"
+												}
+											]
+										]
+									},
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).FreeListSlot",
+									"name": "FreeListSlot"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).alloc",
+									"type": {
+										"text": "void*()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "pointer",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).free",
+									"type": {
+										"text": "void(void* mem)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							]
+						],
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).s_firstFree",
+									"type": {
+										"kind": "type",
+										"text": "FreeListSlot*",
+										"typeClass": "pointer",
+										"elementType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "FreeListSlot",
+											"qualifiedName": "FreeListSlot",
+											"name": "FreeListSlot",
+											"moduleName": ""
+										},
+										"attributes": []
+									},
+									"name": "s_firstFree"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).s_nalloc",
+									"type": {
+										"kind": "type",
+										"text": "size_t",
+										"typeClass": "primitive",
+										"nestedName": "size_t",
+										"qualifiedName": "size_t",
+										"name": "size_t",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "s_nalloc"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true).s_nfree",
+									"type": {
+										"kind": "type",
+										"text": "size_t",
+										"typeClass": "primitive",
+										"nestedName": "size_t",
+										"qualifiedName": "size_t",
+										"name": "size_t",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "s_nfree"
+								}
+							]
+						]
+					},
+					"nestedName": "FreeListAlloc(uint SZ,bool USE_GC = true)",
+					"name": "FreeListAlloc(uint SZ,bool USE_GC = true)"
+				}
+			],
+			[
+				{
+					"kind": "template",
+					"protection": "public",
+					"members": {
+						"aliases": [
+							[
+								{
+									"kind": "alias",
+									"nestedName": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true).Alloc",
+									"name": "Alloc"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"templateName": "alloc(ARGS...)",
+									"nestedName": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true).alloc",
+									"type": {
+										"text": "TR(ARGS args)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "TR",
+											"qualifiedName": "TR",
+											"name": "TR",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ARGS",
+													"qualifiedName": "ARGS",
+													"name": "ARGS",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "args"
+											}
+										],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"nestedName": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true).free",
+									"type": {
+										"text": "void(TR obj)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "TR",
+													"qualifiedName": "TR",
+													"name": "TR",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "obj"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							]
+						],
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"nestedName": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true).ElemSize",
+									"name": "ElemSize"
+								}
+							]
+						]
+					},
+					"nestedName": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true)",
+					"name": "FreeListObjectAlloc(T,bool USE_GC = true,bool INIT = true)"
+				}
+			]
+		],
+		"structs": [
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.this",
+													"type": {
+														"text": "(Allocator alloc)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "Allocator",
+																	"qualifiedName": "vibe.utils.memory.Allocator",
+																	"name": "Allocator",
+																	"moduleName": "vibe.utils.memory",
+																	"attributes": []
+																},
+																"name": "alloc"
+															}
+														],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"aliases": [
+											[
+												{
+													"kind": "alias",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.ElemType",
+													"name": "ElemType"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.data",
+													"type": {
+														"text": "ArrayType()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ArrayType",
+															"qualifiedName": "ArrayType",
+															"name": "ArrayType",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "data"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.grow",
+													"type": {
+														"text": "void(size_t min_free)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "size_t",
+																	"qualifiedName": "size_t",
+																	"name": "size_t",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "min_free"
+															}
+														],
+														"attributes": []
+													},
+													"name": "grow"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.put",
+													"type": {
+														"text": "void(E el)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "E",
+																	"qualifiedName": "E",
+																	"name": "E",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "el"
+															}
+														],
+														"attributes": []
+													},
+													"name": "put"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.put",
+													"type": {
+														"text": "void(ArrayType arr)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "ArrayType",
+																	"qualifiedName": "ArrayType",
+																	"name": "ArrayType",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "arr"
+															}
+														],
+														"attributes": []
+													},
+													"name": "put"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.reserve",
+													"type": {
+														"text": "void(size_t amt)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "size_t",
+																	"qualifiedName": "size_t",
+																	"name": "size_t",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "amt"
+															}
+														],
+														"attributes": []
+													},
+													"name": "reserve"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.m_alloc",
+													"type": {
+														"kind": "type",
+														"text": "Allocator",
+														"typeClass": "primitive",
+														"nestedName": "Allocator",
+														"qualifiedName": "vibe.utils.memory.Allocator",
+														"name": "Allocator",
+														"moduleName": "vibe.utils.memory",
+														"attributes": []
+													},
+													"name": "m_alloc"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.m_data",
+													"type": {
+														"kind": "type",
+														"text": "ElemType[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ElemType",
+															"qualifiedName": "ElemType",
+															"name": "ElemType",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_data"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender.m_remaining",
+													"type": {
+														"kind": "type",
+														"text": "ElemType[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ElemType",
+															"qualifiedName": "ElemType",
+															"name": "ElemType",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_remaining"
+												}
+											]
+										]
+									},
+									"nestedName": "AllocAppender(ArrayType : E[],E).AllocAppender",
+									"name": "AllocAppender"
+								}
+							]
+						]
+					},
+					"nestedName": "AllocAppender(ArrayType : E[],E)",
+					"name": "AllocAppender(ArrayType : E[],E)"
+				}
+			],
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"aliases": [
+											[
+												{
+													"kind": "alias",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.Alloc",
+													"name": "Alloc"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.clear",
+													"type": {
+														"text": "void()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "clear"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.get",
+													"type": {
+														"text": "inout inout(TR)()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"modifiers": [
+																"inout"
+															],
+															"typeClass": "primitive",
+															"nestedName": "TR",
+															"qualifiedName": "TR",
+															"name": "TR",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": [
+															"inout"
+														]
+													},
+													"name": "get"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.opAssign",
+													"type": {
+														"text": "void(FreeListRef other)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "FreeListRef",
+																	"qualifiedName": "FreeListRef",
+																	"name": "FreeListRef",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "other"
+															}
+														],
+														"attributes": []
+													},
+													"name": "opAssign"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"templateName": "opCall(ARGS...)",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.opCall",
+													"type": {
+														"text": "FreeListRef(ARGS args)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "FreeListRef",
+															"qualifiedName": "FreeListRef",
+															"name": "FreeListRef",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "ARGS",
+																	"qualifiedName": "ARGS",
+																	"name": "ARGS",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "args"
+															}
+														],
+														"attributes": []
+													},
+													"name": "opCall"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.refCount",
+													"type": {
+														"text": "int()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "int",
+															"qualifiedName": "int",
+															"name": "int",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "refCount"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.ElemSize",
+													"name": "ElemSize"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.m_magic",
+													"type": {
+														"kind": "type",
+														"text": "size_t",
+														"typeClass": "primitive",
+														"nestedName": "size_t",
+														"qualifiedName": "size_t",
+														"name": "size_t",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_magic"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.m_object",
+													"type": {
+														"kind": "type",
+														"text": "TR",
+														"typeClass": "primitive",
+														"nestedName": "TR",
+														"qualifiedName": "TR",
+														"name": "TR",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_object"
+												}
+											]
+										]
+									},
+									"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef",
+									"name": "FreeListRef"
+								}
+							]
+						]
+					},
+					"nestedName": "FreeListRef(T,bool INIT = true)",
+					"name": "FreeListRef(T,bool INIT = true)"
+				}
+			]
+		],
+		"classes": [
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "AutoFreeListAllocator.alloc",
+									"type": {
+										"text": "void[](uint sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "AutoFreeListAllocator.free",
+									"type": {
+										"text": "void(void[] data)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "data"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "AutoFreeListAllocator.realloc",
+									"type": {
+										"text": "void[](void[] data, uint sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "data"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "realloc"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "AutoFreeListAllocator",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "Allocator",
+							"typeClass": "primitive",
+							"nestedName": "Allocator",
+							"qualifiedName": "vibe.utils.memory.Allocator",
+							"name": "Allocator",
+							"moduleName": "vibe.utils.memory",
+							"attributes": []
+						}
+					],
+					"name": "AutoFreeListAllocator"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"classes": [
+							[
+								{
+									"kind": "class",
+									"protection": "public",
+									"members": {
+										"constructors": [
+											[
+												{
+													"kind": "constructor",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.this",
+													"type": {
+														"text": "()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "",
+															"qualifiedName": "",
+															"name": "constructor",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "this"
+												}
+											]
+										],
+										"aliases": [
+											[
+												{
+													"kind": "alias",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.ElemType",
+													"name": "ElemType"
+												}
+											]
+										],
+										"functions": [
+											[
+												{
+													"kind": "function",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.data",
+													"type": {
+														"text": "ArrayType()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ArrayType",
+															"qualifiedName": "ArrayType",
+															"name": "ArrayType",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "data"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.put",
+													"type": {
+														"text": "void(E el)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "E",
+																	"qualifiedName": "E",
+																	"name": "E",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "el"
+															}
+														],
+														"attributes": []
+													},
+													"name": "put"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.put",
+													"type": {
+														"text": "void(ArrayType arr)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "ArrayType",
+																	"qualifiedName": "ArrayType",
+																	"name": "ArrayType",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "arr"
+															}
+														],
+														"attributes": []
+													},
+													"name": "put"
+												}
+											]
+										],
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.m_data",
+													"type": {
+														"kind": "type",
+														"keyType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "NELEM",
+															"qualifiedName": "NELEM",
+															"name": "NELEM",
+															"moduleName": ""
+														},
+														"text": "ElemType[NELEM]",
+														"typeClass": "associative array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ElemType",
+															"qualifiedName": "ElemType",
+															"name": "ElemType",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_data"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender.m_remaining",
+													"type": {
+														"kind": "type",
+														"text": "ElemType[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "ElemType",
+															"qualifiedName": "ElemType",
+															"name": "ElemType",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "m_remaining"
+												}
+											]
+										]
+									},
+									"base": {
+										"kind": "type",
+										"text": "Object",
+										"typeClass": "primitive",
+										"nestedName": "Object",
+										"qualifiedName": "Object",
+										"name": "Object",
+										"moduleName": "",
+										"attributes": []
+									},
+									"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E).FixedAppender",
+									"name": "FixedAppender"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "FixedAppender(ArrayType : E[],uint NELEM,E)",
+					"name": "FixedAppender(ArrayType : E[],uint NELEM,E)"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "GCAllocator.alloc",
+									"type": {
+										"text": "void[](uint sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "GCAllocator.free",
+									"type": {
+										"text": "void(void[] mem)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "GCAllocator.realloc",
+									"type": {
+										"text": "void[](void[] mem, uint new_size)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "new_size"
+											}
+										],
+										"attributes": []
+									},
+									"name": "realloc"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "GCAllocator",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "Allocator",
+							"typeClass": "primitive",
+							"nestedName": "Allocator",
+							"qualifiedName": "vibe.utils.memory.Allocator",
+							"name": "Allocator",
+							"moduleName": "vibe.utils.memory",
+							"attributes": []
+						}
+					],
+					"name": "GCAllocator"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "PoolAllocator.this",
+									"type": {
+										"text": "PoolAllocator(uint pool_size, Allocator base = defaultAllocator())",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "PoolAllocator",
+											"qualifiedName": "vibe.utils.memory.PoolAllocator",
+											"name": "PoolAllocator",
+											"moduleName": "vibe.utils.memory"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "pool_size"
+											},
+											{
+												"defaultValue": "defaultAllocator(",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Allocator",
+													"qualifiedName": "vibe.utils.memory.Allocator",
+													"name": "Allocator",
+													"moduleName": "vibe.utils.memory",
+													"attributes": []
+												},
+												"name": "base"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"structs": [
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Destructor.destructor",
+													"type": {
+														"text": "void function(void*)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "pointer",
+																	"elementType": {
+																		"kind": "type",
+																		"typeClass": "primitive",
+																		"nestedName": "void",
+																		"qualifiedName": "void",
+																		"name": "void",
+																		"moduleName": ""
+																	},
+																	"attributes": []
+																}
+															}
+														],
+														"attributes": []
+													},
+													"name": "destructor"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Destructor.next",
+													"type": {
+														"kind": "type",
+														"text": "Destructor*",
+														"typeClass": "pointer",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Destructor",
+															"qualifiedName": "Destructor",
+															"name": "Destructor",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "next"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Destructor.object",
+													"type": {
+														"kind": "type",
+														"text": "void*",
+														"typeClass": "pointer",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "object"
+												}
+											]
+										]
+									},
+									"nestedName": "PoolAllocator.Destructor",
+									"name": "Destructor"
+								}
+							],
+							[
+								{
+									"kind": "struct",
+									"protection": "public",
+									"members": {
+										"variables": [
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Pool.data",
+													"type": {
+														"kind": "type",
+														"text": "void[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "data"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Pool.next",
+													"type": {
+														"kind": "type",
+														"text": "Pool*",
+														"typeClass": "pointer",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "Pool",
+															"qualifiedName": "Pool",
+															"name": "Pool",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "next"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"protection": "public",
+													"nestedName": "PoolAllocator.Pool.remaining",
+													"type": {
+														"kind": "type",
+														"text": "void[]",
+														"typeClass": "array",
+														"elementType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"attributes": []
+													},
+													"name": "remaining"
+												}
+											]
+										]
+									},
+									"nestedName": "PoolAllocator.Pool",
+									"name": "Pool"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PoolAllocator.alloc",
+									"type": {
+										"text": "void[](uint sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "allocArray(T,bool MANAGED = true)",
+									"nestedName": "PoolAllocator.allocArray",
+									"type": {
+										"text": "T[](Allocator allocator, size_t n)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "T",
+												"qualifiedName": "T",
+												"name": "T",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Allocator",
+													"qualifiedName": "vibe.utils.memory.Allocator",
+													"name": "Allocator",
+													"moduleName": "vibe.utils.memory",
+													"attributes": []
+												},
+												"name": "allocator"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "size_t",
+													"qualifiedName": "size_t",
+													"name": "size_t",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "n"
+											}
+										],
+										"attributes": []
+									},
+									"name": "allocArray"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "allocObject(T,bool MANAGED = true,ARGS...)",
+									"nestedName": "PoolAllocator.allocObject",
+									"type": {
+										"text": "(Allocator allocator, ARGS args)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "",
+											"qualifiedName": "",
+											"name": "constructor",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Allocator",
+													"qualifiedName": "vibe.utils.memory.Allocator",
+													"name": "Allocator",
+													"moduleName": "vibe.utils.memory",
+													"attributes": []
+												},
+												"name": "allocator"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ARGS",
+													"qualifiedName": "ARGS",
+													"name": "ARGS",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "args"
+											}
+										],
+										"attributes": []
+									},
+									"name": "allocObject"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "destroy(T)",
+									"nestedName": "PoolAllocator.destroy",
+									"type": {
+										"text": "(void* ptr)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "",
+											"qualifiedName": "",
+											"name": "constructor",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "ptr"
+											}
+										],
+										"attributes": []
+									},
+									"name": "destroy"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PoolAllocator.free",
+									"type": {
+										"text": "void(void[] mem)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PoolAllocator.freeAll",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "freeAll"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PoolAllocator.realloc",
+									"type": {
+										"text": "void[](void[] arr, uint newsize)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "arr"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "newsize"
+											}
+										],
+										"attributes": []
+									},
+									"name": "realloc"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "PoolAllocator",
+					"interfaces": [
+						{
+							"kind": "type",
+							"text": "Allocator",
+							"typeClass": "primitive",
+							"nestedName": "Allocator",
+							"qualifiedName": "vibe.utils.memory.Allocator",
+							"name": "Allocator",
+							"moduleName": "vibe.utils.memory",
+							"attributes": []
+						}
+					],
+					"name": "PoolAllocator"
+				}
+			]
+		],
+		"interfaces": [
+			[
+				{
+					"kind": "interface",
+					"protection": "public",
+					"members": {
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Allocator.alloc",
+									"type": {
+										"text": "void[](uint sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "alloc"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Allocator.free",
+									"type": {
+										"text": "void(void[] mem)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											}
+										],
+										"attributes": []
+									},
+									"name": "free"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Allocator.realloc",
+									"type": {
+										"text": "void[](void[] mem, uint new_sz)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "void",
+												"qualifiedName": "void",
+												"name": "void",
+												"moduleName": ""
+											}
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "mem"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "new_sz"
+											}
+										],
+										"attributes": []
+									},
+									"name": "realloc"
+								}
+							]
+						]
+					},
+					"nestedName": "Allocator",
+					"name": "Allocator"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
 					"kind": "function",
-					"templateName": "heap_new(T,ARGS...) if (is(T == struct))",
-					"nestedName": "heap_new",
+					"protection": "public",
+					"nestedName": "defaultAllocator",
 					"type": {
-						"text": "T*(ARGS args)",
+						"text": "Allocator()",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
-							"typeClass": "pointer",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "T",
-								"qualifiedName": "T",
-								"name": "T",
-								"moduleName": ""
-							}
+							"typeClass": "primitive",
+							"nestedName": "Allocator",
+							"qualifiedName": "vibe.utils.memory.Allocator",
+							"name": "Allocator",
+							"moduleName": "vibe.utils.memory"
 						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "ARGS",
-									"qualifiedName": "ARGS",
-									"name": "ARGS",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "args"
-							}
-						],
+						"parameters": [],
 						"attributes": []
 					},
-					"name": "heap_new"
+					"name": "defaultAllocator"
 				}
 			]
 		]
@@ -23799,7 +26722,7 @@
 									"protection": "public",
 									"nestedName": "HttpClient.request",
 									"type": {
-										"text": "HttpClientResponse(void delegate(HttpClientRequest req) requester)",
+										"text": "HttpClientResponse(scope void delegate(HttpClientRequest req) requester)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -23835,7 +26758,9 @@
 															"name": "req"
 														}
 													],
-													"attributes": []
+													"attributes": [
+														"scope"
+													]
 												},
 												"name": "requester"
 											}
@@ -24278,7 +27203,7 @@
 					"protection": "public",
 					"nestedName": "requestHttp",
 					"type": {
-						"text": "HttpClientResponse(string url, void delegate(HttpClientRequest req) requester = null)",
+						"text": "HttpClientResponse(string url, scope void delegate(HttpClientRequest req) requester = null)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -24327,7 +27252,9 @@
 											"name": "req"
 										}
 									],
-									"attributes": []
+									"attributes": [
+										"scope"
+									]
 								},
 								"name": "requester"
 							}
@@ -24342,7 +27269,7 @@
 					"protection": "public",
 					"nestedName": "requestHttp",
 					"type": {
-						"text": "HttpClientResponse(Url url, void delegate(HttpClientRequest req) requester = null)",
+						"text": "HttpClientResponse(Url url, scope void delegate(HttpClientRequest req) requester = null)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -24391,7 +27318,9 @@
 											"name": "req"
 										}
 									],
-									"attributes": []
+									"attributes": [
+										"scope"
+									]
 								},
 								"name": "requester"
 							}
@@ -24411,6 +27340,80 @@
 	"ddoc": "\n\tCommon classes for HTTP clients and servers.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig, Jan Krüger\n",
 	"members": {
 		"enums": [
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.GET",
+							"name": "GET"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.HEAD",
+							"name": "HEAD"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.PUT",
+							"name": "PUT"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.POST",
+							"name": "POST"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.PATCH",
+							"name": "PATCH"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.DELETE",
+							"name": "DELETE"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.OPTIONS",
+							"name": "OPTIONS"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.TRACE",
+							"name": "TRACE"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "HttpMethod.CONNECT",
+							"name": "CONNECT"
+						}
+					],
+					"nestedName": "HttpMethod",
+					"name": "HttpMethod",
+					"baseType": {
+						"kind": "type",
+						"text": "int",
+						"typeClass": "primitive",
+						"nestedName": "int",
+						"qualifiedName": "int",
+						"name": "int",
+						"moduleName": "",
+						"attributes": []
+					}
+				}
+			],
 			[
 				{
 					"kind": "enum",
@@ -25914,12 +28917,12 @@
 									"nestedName": "HttpRequest.method",
 									"type": {
 										"kind": "type",
-										"text": "string",
+										"text": "HttpMethod",
 										"typeClass": "primitive",
-										"nestedName": "string",
-										"qualifiedName": "string",
-										"name": "string",
-										"moduleName": "",
+										"nestedName": "HttpMethod",
+										"qualifiedName": "vibe.http.common.HttpMethod",
+										"name": "HttpMethod",
+										"moduleName": "vibe.http.common",
 										"attributes": []
 									},
 									"name": "method"
@@ -26277,6 +29280,76 @@
 				{
 					"kind": "function",
 					"protection": "public",
+					"nestedName": "httpMethodFromString",
+					"type": {
+						"text": "HttpMethod(string str)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "HttpMethod",
+							"qualifiedName": "vibe.http.common.HttpMethod",
+							"name": "HttpMethod",
+							"moduleName": "vibe.http.common"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							}
+						],
+						"attributes": []
+					},
+					"name": "httpMethodFromString"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "httpMethodString",
+					"type": {
+						"text": "string(HttpMethod m)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "HttpMethod",
+									"qualifiedName": "vibe.http.common.HttpMethod",
+									"name": "HttpMethod",
+									"moduleName": "vibe.http.common",
+									"attributes": []
+								},
+								"name": "m"
+							}
+						],
+						"attributes": []
+					},
+					"name": "httpMethodString"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"protection": "public",
 					"nestedName": "parseHttpVersion",
 					"type": {
 						"text": "HttpVersion(ref string str)",
@@ -26414,10 +29487,263 @@
 					},
 					"name": "toRFC822TimeString"
 				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "writeDecimal(R)",
+					"nestedName": "writeDecimal",
+					"type": {
+						"text": "void(ref R dst, uint n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeDecimal"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "writeDecimal2(R)",
+					"nestedName": "writeDecimal2",
+					"type": {
+						"text": "void(ref R dst, uint n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "uint",
+									"qualifiedName": "uint",
+									"name": "uint",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeDecimal2"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "writeRFC822DateString(R)",
+					"nestedName": "writeRFC822DateString",
+					"type": {
+						"text": "void(ref R dst, SysTime time)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "SysTime",
+									"qualifiedName": "SysTime",
+									"name": "SysTime",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "time"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeRFC822DateString"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "writeRFC822DateTimeString(R)",
+					"nestedName": "writeRFC822DateTimeString",
+					"type": {
+						"text": "void(ref R dst, SysTime time)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "SysTime",
+									"qualifiedName": "SysTime",
+									"name": "SysTime",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "time"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeRFC822DateTimeString"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "writeRFC822TimeString(R)",
+					"nestedName": "writeRFC822TimeString",
+					"type": {
+						"text": "void(ref R dst, SysTime time)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "R",
+									"qualifiedName": "R",
+									"name": "R",
+									"moduleName": "",
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "SysTime",
+									"qualifiedName": "SysTime",
+									"name": "SysTime",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "time"
+							}
+						],
+						"attributes": []
+					},
+					"name": "writeRFC822TimeString"
+				}
 			]
 		]
 	},
 	"name": "vibe.http.common"
+},
+"vibe.core.drivers.winrt": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\core\\drivers\\winrt.d",
+	"ddoc": "\n\tWinRT driver implementation\n\n\tCopyright: © 2012 Sönke Ludwig\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
+	"members": {
+	},
+	"name": "vibe.core.drivers.winrt"
 },
 "vibe.core.drivers.libevent2": {
 	"kind": "module",
@@ -26430,6 +29756,97 @@
 					"kind": "struct",
 					"protection": "public",
 					"members": {
+						"aliases": [
+							[
+								{
+									"kind": "alias",
+									"protection": "public",
+									"nestedName": "LevCondition.Alloc",
+									"name": "Alloc"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LevCondition.__cpctor",
+									"type": {
+										"text": "const void(ref const(LevCondition) p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "LevCondition",
+													"qualifiedName": "vibe.core.drivers.libevent2.LevCondition",
+													"name": "LevCondition",
+													"moduleName": "vibe.core.drivers.libevent2",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "__cpctor"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LevCondition.opAssign",
+									"type": {
+										"text": "ref LevCondition(LevCondition p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "LevCondition",
+											"qualifiedName": "vibe.core.drivers.libevent2.LevCondition",
+											"name": "LevCondition",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "LevCondition",
+													"qualifiedName": "vibe.core.drivers.libevent2.LevCondition",
+													"name": "LevCondition",
+													"moduleName": "vibe.core.drivers.libevent2",
+													"attributes": []
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "opAssign"
+								}
+							]
+						],
 						"variables": [
 							[
 								{
@@ -26438,11 +29855,12 @@
 									"nestedName": "LevCondition.cond",
 									"type": {
 										"kind": "type",
-										"text": "core.sync.condition.Condition",
+										"text": "FreeListRef!(Condition)",
 										"typeClass": "primitive",
-										"nestedName": "core.sync.condition.Condition",
-										"qualifiedName": "core.sync.condition.Condition",
-										"name": "Condition",
+										"nestedName": "FreeListRef",
+										"templateArgs": "(Condition)",
+										"qualifiedName": "FreeListRef",
+										"name": "FreeListRef",
 										"moduleName": "",
 										"attributes": []
 									},
@@ -26482,6 +29900,97 @@
 					"kind": "struct",
 					"protection": "public",
 					"members": {
+						"aliases": [
+							[
+								{
+									"kind": "alias",
+									"protection": "public",
+									"nestedName": "LevMutex.Alloc",
+									"name": "Alloc"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LevMutex.__cpctor",
+									"type": {
+										"text": "const void(ref const(LevMutex) p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "LevMutex",
+													"qualifiedName": "vibe.core.drivers.libevent2.LevMutex",
+													"name": "LevMutex",
+													"moduleName": "vibe.core.drivers.libevent2",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "__cpctor"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "LevMutex.opAssign",
+									"type": {
+										"text": "ref LevMutex(LevMutex p)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "LevMutex",
+											"qualifiedName": "vibe.core.drivers.libevent2.LevMutex",
+											"name": "LevMutex",
+											"moduleName": "vibe.core.drivers.libevent2"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "LevMutex",
+													"qualifiedName": "vibe.core.drivers.libevent2.LevMutex",
+													"name": "LevMutex",
+													"moduleName": "vibe.core.drivers.libevent2",
+													"attributes": []
+												},
+												"name": "p"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "opAssign"
+								}
+							]
+						],
 						"variables": [
 							[
 								{
@@ -26490,11 +29999,12 @@
 									"nestedName": "LevMutex.mutex",
 									"type": {
 										"kind": "type",
-										"text": "core.sync.mutex.Mutex",
+										"text": "FreeListRef!(Mutex)",
 										"typeClass": "primitive",
-										"nestedName": "core.sync.mutex.Mutex",
-										"qualifiedName": "core.sync.mutex.Mutex",
-										"name": "Mutex",
+										"nestedName": "FreeListRef",
+										"templateArgs": "(Mutex)",
+										"qualifiedName": "FreeListRef",
+										"name": "FreeListRef",
 										"moduleName": "",
 										"attributes": []
 									},
@@ -26508,11 +30018,12 @@
 									"nestedName": "LevMutex.rwmutex",
 									"type": {
 										"kind": "type",
-										"text": "core.sync.rwmutex.ReadWriteMutex",
+										"text": "FreeListRef!(ReadWriteMutex)",
 										"typeClass": "primitive",
-										"nestedName": "core.sync.rwmutex.ReadWriteMutex",
-										"qualifiedName": "core.sync.rwmutex.ReadWriteMutex",
-										"name": "ReadWriteMutex",
+										"nestedName": "FreeListRef",
+										"templateArgs": "(ReadWriteMutex)",
+										"qualifiedName": "FreeListRef",
+										"name": "FreeListRef",
 										"moduleName": "",
 										"attributes": []
 									},
@@ -27713,6 +31224,12 @@
 						{
 							"kind": "enum member",
 							"protection": "public",
+							"nestedName": "FileMode.ReadWrite",
+							"name": "ReadWrite"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
 							"nestedName": "FileMode.CreateTrunc",
 							"name": "CreateTrunc"
 						},
@@ -27738,6 +31255,93 @@
 				}
 			]
 		],
+		"classes": [
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "protected",
+									"nestedName": "Task.this",
+									"type": {
+										"text": "Task(void delegate() fun)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Task",
+											"qualifiedName": "vibe.core.driver.Task",
+											"name": "Task",
+											"moduleName": "vibe.core.driver"
+										},
+										"parameters": [
+											{
+												"type": {
+													"typeclass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [],
+													"attributes": []
+												},
+												"name": "fun"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Task.getThis",
+									"type": {
+										"text": "Task()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Task",
+											"qualifiedName": "vibe.core.driver.Task",
+											"name": "Task",
+											"moduleName": "vibe.core.driver"
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "getThis"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Fiber",
+						"typeClass": "primitive",
+						"nestedName": "Fiber",
+						"qualifiedName": "Fiber",
+						"name": "Fiber",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "Task",
+					"name": "Task"
+				}
+			]
+		],
 		"interfaces": [
 			[
 				{
@@ -27750,9 +31354,31 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "DriverCore.notifyIdle",
+									"type": {
+										"text": "void()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "notifyIdle"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "DriverCore.resumeTask",
 									"type": {
-										"text": "void(Fiber f, Exception event_exception = null)",
+										"text": "void(Task f, Exception event_exception = null)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -27767,10 +31393,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "Fiber",
-													"qualifiedName": "Fiber",
-													"name": "Fiber",
-													"moduleName": "",
+													"nestedName": "Task",
+													"qualifiedName": "vibe.core.driver.Task",
+													"name": "Task",
+													"moduleName": "vibe.core.driver",
 													"attributes": []
 												},
 												"name": "f"
@@ -27902,7 +31528,7 @@
 							],
 							[
 								{
-									"ddoc": "\n\t\n",
+									"ddoc": " Creates a new timer.\n\n\t\tThe timer can be started by calling rearm() with a timeout.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "EventDriver.createTimer",
@@ -28408,6 +32034,29 @@
 							],
 							[
 								{
+									"ddoc": " Returns the current offset of the file pointer\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "FileStream.tell",
+									"type": {
+										"text": "ulong()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "ulong",
+											"qualifiedName": "ulong",
+											"name": "ulong",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "tell"
+								}
+							],
+							[
+								{
 									"ddoc": " Determines if this stream is writable.\n",
 									"kind": "function",
 									"protection": "public",
@@ -28638,6 +32287,68 @@
 							],
 							[
 								{
+									"ddoc": " Controls the read time out after which the connection is closed automatically\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "TcpConnection.readTimeout",
+									"type": {
+										"text": "@property void(Duration duration)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Duration",
+													"qualifiedName": "Duration",
+													"name": "Duration",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "duration"
+											}
+										],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "readTimeout"
+								},
+								{
+									"ddoc": " Controls the read time out after which the connection is closed automatically\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "TcpConnection.readTimeout",
+									"type": {
+										"text": "const @property Duration()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Duration",
+											"qualifiedName": "Duration",
+											"name": "Duration",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "readTimeout"
+								}
+							],
+							[
+								{
 									"ddoc": " Used to disable Nagle's algorithm\n",
 									"kind": "function",
 									"protection": "public",
@@ -28668,6 +32379,30 @@
 											}
 										],
 										"attributes": [
+											"@property"
+										]
+									},
+									"name": "tcpNoDelay"
+								},
+								{
+									"ddoc": " Used to disable Nagle's algorithm\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "TcpConnection.tcpNoDelay",
+									"type": {
+										"text": "const @property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
 											"@property"
 										]
 									},
@@ -30318,7 +34053,7 @@
 									"protection": "public",
 									"nestedName": "MongoConnection.query",
 									"type": {
-										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1491;\r\n , __ctmp1491).this(null))",
+										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1499;\r\n , __ctmp1499).this(null))",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -30390,7 +34125,7 @@
 												"name": "query"
 											},
 											{
-												"defaultValue": "(Bson__ctmp1491;,__ctmp1491",
+												"defaultValue": "(Bson__ctmp1499;,__ctmp1499",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -31080,6 +34815,53 @@
 	"file": "..\\source\\vibe\\core\\core.d",
 	"ddoc": "\n\tThis module contains the core functionality of the vibe framework.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
+		"classes": [
+			[
+				{
+					"ddoc": "\n\n",
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "CoreTask.this",
+									"type": {
+										"text": "CoreTask()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "CoreTask",
+											"qualifiedName": "vibe.core.core.CoreTask",
+											"name": "CoreTask",
+											"moduleName": "vibe.core.core"
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Task",
+						"typeClass": "primitive",
+						"nestedName": "Task",
+						"qualifiedName": "vibe.core.driver.Task",
+						"name": "Task",
+						"moduleName": "vibe.core.driver",
+						"attributes": []
+					},
+					"nestedName": "CoreTask",
+					"name": "CoreTask"
+				}
+			]
+		],
 		"functions": [
 			[
 				{
@@ -31178,6 +34960,29 @@
 			],
 			[
 				{
+					"ddoc": "\n\tProcess all pending events without blocking.\n\n\tChecks if events are ready to trigger immediately, and run their callbacks if so.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "processEvents",
+					"type": {
+						"text": "int()",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "int",
+							"qualifiedName": "int",
+							"name": "int",
+							"moduleName": ""
+						},
+						"parameters": [],
+						"attributes": []
+					},
+					"name": "processEvents"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tYields execution of this task until an event wakes it up again.\n\n\tBeware that the task will starve if no event wakes it up.\n",
 					"kind": "function",
 					"protection": "public",
@@ -31206,15 +35011,15 @@
 					"protection": "public",
 					"nestedName": "runTask",
 					"type": {
-						"text": "Fiber(void delegate() task)",
+						"text": "Task(void delegate() task)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
 							"typeClass": "primitive",
-							"nestedName": "Fiber",
-							"qualifiedName": "Fiber",
-							"name": "Fiber",
-							"moduleName": ""
+							"nestedName": "Task",
+							"qualifiedName": "vibe.core.driver.Task",
+							"name": "Task",
+							"moduleName": "vibe.core.driver"
 						},
 						"parameters": [
 							{
@@ -31704,6 +35509,36 @@
 		]
 	},
 	"name": "vibe.http.fileserver"
+},
+"vibe.data.utils": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\data\\utils.d",
+	"ddoc": "\n\tUtility functions for data serialization\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"templates": [
+			[
+				{
+					"kind": "template",
+					"protection": "public",
+					"members": {
+					},
+					"nestedName": "isRWPlainField(T,string M)",
+					"name": "isRWPlainField(T,string M)"
+				}
+			]
+		],
+		"variables": [
+			[
+				{
+					"kind": "variable",
+					"templateName": "isRWField(T,string M)",
+					"nestedName": "isRWField",
+					"name": "isRWField"
+				}
+			]
+		]
+	},
+	"name": "vibe.data.utils"
 },
 "vibe.db.redis.redis": {
 	"kind": "module",
@@ -36203,7 +40038,7 @@
 									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
-										"text": "void(string method, string path, IHttpServerRequestHandler cb)",
+										"text": "void(HttpMethod method, string path, IHttpServerRequestHandler cb)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -36218,10 +40053,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
 													"attributes": []
 												},
 												"name": "method"
@@ -36262,7 +40097,7 @@
 									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
-										"text": "void(string method, string path, void function(HttpServerRequest req, HttpServerResponse res) cb)",
+										"text": "void(HttpMethod method, string path, void function(HttpServerRequest req, HttpServerResponse res) cb)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -36277,10 +40112,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
 													"attributes": []
 												},
 												"name": "method"
@@ -36350,7 +40185,7 @@
 									"protection": "public",
 									"nestedName": "UrlRouter.addRoute",
 									"type": {
-										"text": "void(string method, string path, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
+										"text": "void(HttpMethod method, string path, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -36365,10 +40200,10 @@
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
 													"attributes": []
 												},
 												"name": "method"
@@ -37761,7 +41596,7 @@
 					"templateName": "filterUrlEncode(R)",
 					"nestedName": "filterUrlEncode",
 					"type": {
-						"text": "void(ref R dst, string str)",
+						"text": "void(ref R dst, string str, string allowed_chars = null)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -37797,6 +41632,19 @@
 									"attributes": []
 								},
 								"name": "str"
+							},
+							{
+								"defaultValue": "null",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "allowed_chars"
 							}
 						],
 						"attributes": []
@@ -37925,6 +41773,12 @@
 							"protection": "public",
 							"nestedName": "LogLevel.Fatal",
 							"name": "Fatal"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "LogLevel.None",
+							"name": "None"
 						}
 					],
 					"nestedName": "LogLevel",
