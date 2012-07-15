@@ -43,7 +43,7 @@ html(lang="en-US")
 					a#download(href="#{req.rootDir}download")
 						.downloadArrow
 						strong Download
-						#download-version 0.7.5 beta
+						#download-version 0.7.6 beta
 
 			block plainbody
 			- if( title.length )

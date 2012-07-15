@@ -26,7 +26,7 @@ block body
 			| issues as soon as possible.
 		
 		p
-			a.download(href="download?file=zipball/v0.7.5") Download Current Beta Release (0.7.5)
+			a.download(href="download?file=zipball/v0.7.6") Download Current Beta Release (0.7.6)
 
 	section
 		a#apt-repository
