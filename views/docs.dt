@@ -369,7 +369,7 @@ block body
 			
 			p Currently, the only built-in authentication method is HTTP-Basic-Auth. HTTP-Digest-Auth will follow later and higher level mechanisms such as OAuth will be provided using extension libraries.
 			p The recommended practice for plugging authentication into a web application is to use the fall-through feature of the UrlRouter. If the user is properly authenticated, the
-				a(href="api/vibe.http.auth.basic##performBasicAuth")
+				a(href="api/vibe.http.auth.basic_auth##performBasicAuth")
 					code.prettyprint.lang-d performBasicAuth
 				| function will not do anything and the UrlRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a
 				a(href="api/vibe.http.server##HttpServerError")
@@ -529,7 +529,7 @@ block body
 			a(href="api/vibe.core.tcp##TcpConnection")
 				code.prettyprint.lang-d TcpConnection
 			| class, which implements the
-			a(href="api/vibe.scream.stream##Stream")
+			a(href="api/vibe.stream.stream##Stream")
 				code.prettyprint.lang-d Stream
 			| interface. Connections can be established by either listening on a specific port for incoming connections or by actively connecting to a remote server.
 
