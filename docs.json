@@ -1239,130 +1239,152 @@
 						"enums": [
 							[
 								{
+									"ddoc": " Represents the type of a BSON value\n",
 									"kind": "enum",
 									"protection": "public",
 									"members": [
 										{
+											"ddoc": " End marker - should never occur explicitly\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.End",
 											"name": "End"
 										},
 										{
+											"ddoc": " A 64-bit floating point value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Double",
 											"name": "Double"
 										},
 										{
+											"ddoc": " A UTF-8 string\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.String",
 											"name": "String"
 										},
 										{
+											"ddoc": " An object aka. dictionary of string to Bson\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Object",
 											"name": "Object"
 										},
 										{
+											"ddoc": " An array of BSON values\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Array",
 											"name": "Array"
 										},
 										{
+											"ddoc": " Raw binary data (ubyte[])\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.BinData",
 											"name": "BinData"
 										},
 										{
+											"ddoc": " Deprecated\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Undefined",
 											"name": "Undefined"
 										},
 										{
+											"ddoc": " BSON Object ID (96-bit)\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.ObjectID",
 											"name": "ObjectID"
 										},
 										{
+											"ddoc": " Boolean value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Bool",
 											"name": "Bool"
 										},
 										{
+											"ddoc": " Date value (UTC)\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Date",
 											"name": "Date"
 										},
 										{
+											"ddoc": " Null value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Null",
 											"name": "Null"
 										},
 										{
+											"ddoc": " Regular expression\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Regex",
 											"name": "Regex"
 										},
 										{
+											"ddoc": " Deprecated\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.DBRef",
 											"name": "DBRef"
 										},
 										{
+											"ddoc": " JaveScript code\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Code",
 											"name": "Code"
 										},
 										{
+											"ddoc": " Symbol/variable name\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Symbol",
 											"name": "Symbol"
 										},
 										{
+											"ddoc": " JavaScript code with scope\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.CodeWScope",
 											"name": "CodeWScope"
 										},
 										{
+											"ddoc": " 32-bit integer\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Int",
 											"name": "Int"
 										},
 										{
+											"ddoc": " Timestamp value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Timestamp",
 											"name": "Timestamp"
 										},
 										{
+											"ddoc": " 64-bit integer\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.Long",
 											"name": "Long"
 										},
 										{
+											"ddoc": " Internal value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.MinKey",
 											"name": "MinKey"
 										},
 										{
+											"ddoc": " Internal value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Bson.Type.MaxKey",
@@ -1530,6 +1552,7 @@
 							],
 							[
 								{
+									"ddoc": " Returns the length of a BSON value of type String, Array or BinData.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Bson.length",
@@ -2153,7 +2176,7 @@
 							[
 								{
 									"kind": "function",
-									"ddoc": "\n\t\tAllows to access existing fields of a JSON object using dot syntax.\n\t\n",
+									"ddoc": " Allows to access existing fields of a JSON object using dot syntax.\n\n\t\tReturns a null value for non-existent fields.\n\t\n",
 									"templateName": "opDispatch(string prop)",
 									"nestedName": "Bson.opDispatch",
 									"type": {
@@ -2179,7 +2202,7 @@
 								},
 								{
 									"kind": "function",
-									"ddoc": "\n\t\tAllows to access existing fields of a JSON object using dot syntax.\n\t\n",
+									"ddoc": " Allows to access existing fields of a JSON object using dot syntax.\n\n\t\tReturns a null value for non-existent fields.\n\t\n",
 									"templateName": "opDispatch(string prop,T)",
 									"nestedName": "Bson.opDispatch",
 									"type": {
@@ -2256,6 +2279,7 @@
 							],
 							[
 								{
+									"ddoc": " Allows accessing fields of a BSON object using [].\n\n\t\tReturns a null value if the specified field does not exist.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Bson.opIndex",
@@ -2292,50 +2316,9 @@
 										]
 									},
 									"name": "opIndex"
-								}
-							],
-							[
+								},
 								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Bson.opIndex",
-									"type": {
-										"text": "inout inout(Bson)(uint idx)",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"modifiers": [
-												"inout"
-											],
-											"typeClass": "primitive",
-											"nestedName": "Bson",
-											"qualifiedName": "vibe.data.bson.Bson",
-											"name": "Bson",
-											"moduleName": "vibe.data.bson"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "idx"
-											}
-										],
-										"attributes": [
-											"inout"
-										]
-									},
-									"name": "opIndex"
-								}
-							],
-							[
-								{
+									"ddoc": " Allows accessing fields of a BSON object using [].\n\n\t\tReturns a null value if the specified field does not exist.\n\t\n",
 									"kind": "function",
 									"templateName": "opIndexAssign(T)",
 									"nestedName": "Bson.opIndexAssign",
@@ -2379,6 +2362,47 @@
 										"attributes": []
 									},
 									"name": "opIndexAssign"
+								}
+							],
+							[
+								{
+									"ddoc": " Allows index based access of a BSON array value.\n\n\t\tReturns a null value if the index is out of bounds.\n\t\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Bson.opIndex",
+									"type": {
+										"text": "inout inout(Bson)(uint idx)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"modifiers": [
+												"inout"
+											],
+											"typeClass": "primitive",
+											"nestedName": "Bson",
+											"qualifiedName": "vibe.data.bson.Bson",
+											"name": "Bson",
+											"moduleName": "vibe.data.bson"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "idx"
+											}
+										],
+										"attributes": [
+											"inout"
+										]
+									},
+									"name": "opIndex"
 								}
 							],
 							[
@@ -2457,6 +2481,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tRepresents a BSON binary data value (Bson.Type.BinData).\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -2642,6 +2667,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tRepresents a BSON date value (Bson.Type.Date).\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -3059,12 +3085,14 @@
 			],
 			[
 				{
+					"ddoc": "\n\tRepresents a BSON object id (Bson.Type.BinData).\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
 						"constructors": [
 							[
 								{
+									"ddoc": " Constructs a new object ID from the given raw byte array.\n\t\n",
 									"kind": "constructor",
 									"protection": "public",
 									"nestedName": "BsonObjectID.this",
@@ -3111,6 +3139,7 @@
 						"aliases": [
 							[
 								{
+									"ddoc": " ditto\n",
 									"kind": "alias",
 									"protection": "public",
 									"nestedName": "BsonObjectID.fromHexString",
@@ -3121,6 +3150,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " Creates a pseudo object ID that matches the given date.\n\n\t\tThis kind of ID can be useful to query a database for items in a certain\n\t\tdate interval using their ID. This works using the property of standard BSON\n\t\tobject IDs that they store their creation date as part of the ID. Note that\n\t\tthis date part is only 32-bit wide and is limited to the same timespan as a\n\t\t32-bit Unix timestamp.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.createDateID",
@@ -3156,6 +3186,7 @@
 							],
 							[
 								{
+									"ddoc": " Creates an on object ID from a string in standard hexa-decimal form.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.fromString",
@@ -3191,6 +3222,7 @@
 							],
 							[
 								{
+									"ddoc": " Generates a unique object ID.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.generate",
@@ -3213,6 +3245,7 @@
 							],
 							[
 								{
+									"ddoc": " Allows for relational comparison of different IDs.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.opCmp",
@@ -3255,6 +3288,7 @@
 							],
 							[
 								{
+									"ddoc": " Converts the ID to its standard hexa-decimal string representation.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.toString",
@@ -3279,6 +3313,7 @@
 							],
 							[
 								{
+									"ddoc": " Returns true for any non-zero ID.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "BsonObjectID.valid",
@@ -3310,6 +3345,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tRepresents a BSON regular expression value (Bson.Type.Regex).\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -3423,6 +3459,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tRepresents a BSON timestamp value (Bson.Type.Timestamp)\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -3474,6 +3511,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tDeserializes a BSON value into the destination variable.\n\n\tThe same types as for serializeToBson() are supported and handled inversely.\n",
 					"kind": "function",
 					"templateName": "deserializeBson(T)",
 					"nestedName": "deserializeBson",
@@ -3611,6 +3649,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tSerializes the given value to BSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Bson)            $(DD Used as-is)\n\t\t$(DT Json)            $(DD Converted to BSON)\n\t\t$(DT BsonBinData)     $(DD Converted to Bson.Type.BinData)\n\t\t$(DT BsonObjectID)    $(DD Converted to Bson.Type.ObjectID)\n\t\t$(DT BsonDate)        $(DD Converted to Bson.Type.Date)\n\t\t$(DT BsonTimestamp)   $(DD Converted to Bson.Type.Timestamp)\n\t\t$(DT BsonRegex)       $(DD Converted to Bson.Type.Regex)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Long)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT ubyte[])         $(DD Converted to Bson.Type.BinData)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n",
 					"kind": "function",
 					"templateName": "serializeToBson(T)",
 					"nestedName": "serializeToBson",
@@ -12418,6 +12457,53 @@
 			[
 				{
 					"kind": "function",
+					"protection": "public",
+					"nestedName": "countUntilAny",
+					"type": {
+						"text": "int(string str, string chars)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "int",
+							"qualifiedName": "int",
+							"name": "int",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "str"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "chars"
+							}
+						],
+						"attributes": []
+					},
+					"name": "countUntilAny"
+				}
+			],
+			[
+				{
+					"kind": "function",
 					"templateName": "formatString(ARGS...)",
 					"nestedName": "formatString",
 					"type": {
@@ -15508,48 +15594,56 @@
 									"protection": "public",
 									"members": [
 										{
+											"ddoc": " A non-existent value in a JSON object\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Undefined",
 											"name": "Undefined"
 										},
 										{
+											"ddoc": " Null value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Null",
 											"name": "Null"
 										},
 										{
+											"ddoc": " Boolean value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Bool",
 											"name": "Bool"
 										},
 										{
+											"ddoc": " 64-bit integer value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Int",
 											"name": "Int"
 										},
 										{
+											"ddoc": " 64-bit floating point value\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Float",
 											"name": "Float"
 										},
 										{
+											"ddoc": " UTF-8 string\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.String",
 											"name": "String"
 										},
 										{
+											"ddoc": " Array of JSON values\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Array",
 											"name": "Array"
 										},
 										{
+											"ddoc": " JSON object aka. dictionary from string to Json\n",
 											"kind": "enum member",
 											"protection": "public",
 											"nestedName": "Json.Type.Object",
@@ -15574,6 +15668,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " New JSON value of Type.Array\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Json.EmptyArray",
@@ -15598,6 +15693,7 @@
 							],
 							[
 								{
+									"ddoc": " New JSON value of Type.Object\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Json.EmptyObject",
@@ -15622,6 +15718,7 @@
 							],
 							[
 								{
+									"ddoc": " New JSON value of Type.Undefined\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Json.Undefined",
@@ -17832,6 +17929,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tDeserializes a JSON value into the destination variable.\n\n\tThe same types as for serializeToJson() are supported and handled inversely.\n",
 					"kind": "function",
 					"templateName": "deserializeJson(T)",
 					"nestedName": "deserializeJson",
@@ -17972,6 +18070,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Int)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n",
 					"kind": "function",
 					"templateName": "serializeToJson(T)",
 					"nestedName": "serializeToJson",
@@ -30530,6 +30629,28 @@
 								{
 									"kind": "function",
 									"protection": "public",
+									"nestedName": "Libevent2Driver.runEventLoopOnce",
+									"type": {
+										"text": "int()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "runEventLoopOnce"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
 									"nestedName": "Libevent2Driver.runWorkerTask",
 									"type": {
 										"text": "void(void delegate() f)",
@@ -31716,7 +31837,7 @@
 							],
 							[
 								{
-									"ddoc": " Processes all outstanding events, potentially blocking until the first event comes\n\t\tavailable.\n\t\n",
+									"ddoc": " Processes all outstanding events if any, does not block.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "EventDriver.processEvents",
@@ -31758,6 +31879,28 @@
 										"attributes": []
 									},
 									"name": "runEventLoop"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "EventDriver.runEventLoopOnce",
+									"type": {
+										"text": "int()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "runEventLoopOnce"
 								}
 							],
 							[

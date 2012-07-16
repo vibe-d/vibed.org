@@ -204,6 +204,8 @@ block body
 			
 			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statments such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 			
+			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
+			
 			code
 				pre !!! 5
 					|html
@@ -213,11 +215,12 @@ block body
 					|		- import std.algorithm : min;
 					|		p Four items ahead:
 					|		- foreach( i; 0 .. 4 )
+					|			- auto num = i+1;
 					|			p Item
-					|				b= i
+					|				b= num
 					|		p Prints 8:
 					|		p= min(10, 2*6, 8)
-				.caption Example: using text nodes to output multiple lines of text
+				.caption Example: different possibilities to embed D code
 
 				pre.prettyprint.lang-html <!DOCTYPE html>
 					|<html>
@@ -226,9 +229,6 @@ block body
 					|	<body>
 					|		<p>Ten items ahead:</p>
 					|		<p>Item
-					|			<b>0</b>
-					|		</p>
-					|		<p>Item
 					|			<b>1</b>
 					|		</p>
 					|		<p>Item
@@ -236,6 +236,9 @@ block body
 					|		</p>
 					|		<p>Item
 					|			<b>3</b>
+					|		</p>
+					|		<p>Item
+					|			<b>4</b>
 					|		</p>
 					|		<p>Prints 8:</p>
 					|		<p>8</p>
