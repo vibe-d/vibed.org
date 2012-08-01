@@ -777,7 +777,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(Bson[string] value)",
+										"text": "ref Bson(const(Bson[string]) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -791,6 +791,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"keyType": {
 														"kind": "type",
 														"typeClass": "primitive",
@@ -825,7 +828,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(Bson[] value)",
+										"text": "ref Bson(const(Bson[]) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -839,6 +842,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "array",
 													"elementType": {
 														"kind": "type",
@@ -865,7 +871,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(BsonBinData value)",
+										"text": "ref Bson(const(BsonBinData) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -879,6 +885,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonBinData",
 													"qualifiedName": "vibe.data.bson.BsonBinData",
@@ -901,7 +910,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(BsonObjectID value)",
+										"text": "ref Bson(const(BsonObjectID) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -915,6 +924,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonObjectID",
 													"qualifiedName": "vibe.data.bson.BsonObjectID",
@@ -973,7 +985,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(BsonDate value)",
+										"text": "ref Bson(const(BsonDate) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -987,6 +999,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonDate",
 													"qualifiedName": "vibe.data.bson.BsonDate",
@@ -1060,7 +1075,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(BsonRegex value)",
+										"text": "ref Bson(const(BsonRegex) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1074,6 +1089,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonRegex",
 													"qualifiedName": "vibe.data.bson.BsonRegex",
@@ -1132,7 +1150,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(BsonTimestamp value)",
+										"text": "ref Bson(const(BsonTimestamp) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1146,6 +1164,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonTimestamp",
 													"qualifiedName": "vibe.data.bson.BsonTimestamp",
@@ -1204,7 +1225,7 @@
 									"protection": "public",
 									"nestedName": "Bson.this",
 									"type": {
-										"text": "ref Bson(Json value)",
+										"text": "ref Bson(const(Json) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1218,6 +1239,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "Json",
 													"qualifiedName": "vibe.data.json.Json",
@@ -1583,7 +1607,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(Bson other)",
+										"text": "void(const(Bson) other)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1597,6 +1621,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "Bson",
 													"qualifiedName": "vibe.data.bson.Bson",
@@ -1775,7 +1802,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(BsonBinData value)",
+										"text": "void(const(BsonBinData) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1789,6 +1816,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonBinData",
 													"qualifiedName": "vibe.data.bson.BsonBinData",
@@ -1809,7 +1839,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(BsonObjectID value)",
+										"text": "void(const(BsonObjectID) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1823,6 +1853,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonObjectID",
 													"qualifiedName": "vibe.data.bson.BsonObjectID",
@@ -1877,7 +1910,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(BsonDate value)",
+										"text": "void(const(BsonDate) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1891,6 +1924,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonDate",
 													"qualifiedName": "vibe.data.bson.BsonDate",
@@ -1960,7 +1996,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(BsonRegex value)",
+										"text": "void(const(BsonRegex) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -1974,6 +2010,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonRegex",
 													"qualifiedName": "vibe.data.bson.BsonRegex",
@@ -2028,7 +2067,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(BsonTimestamp value)",
+										"text": "void(const(BsonTimestamp) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -2042,6 +2081,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "BsonTimestamp",
 													"qualifiedName": "vibe.data.bson.BsonTimestamp",
@@ -2096,7 +2138,7 @@
 									"protection": "public",
 									"nestedName": "Bson.opAssign",
 									"type": {
-										"text": "void(Json value)",
+										"text": "void(const(Json) value)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -2110,6 +2152,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "Json",
 													"qualifiedName": "vibe.data.json.Json",
@@ -2678,7 +2723,7 @@
 									"protection": "public",
 									"nestedName": "BsonDate.this",
 									"type": {
-										"text": "ref BsonDate(Date date)",
+										"text": "ref BsonDate(const(Date) date)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -2692,6 +2737,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "Date",
 													"qualifiedName": "Date",
@@ -2715,7 +2763,7 @@
 									"protection": "public",
 									"nestedName": "BsonDate.this",
 									"type": {
-										"text": "ref BsonDate(DateTime date)",
+										"text": "ref BsonDate(const(DateTime) date)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -2729,6 +2777,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "DateTime",
 													"qualifiedName": "DateTime",
@@ -2789,7 +2840,7 @@
 									"protection": "public",
 									"nestedName": "BsonDate.this",
 									"type": {
-										"text": "ref BsonDate(SysTime time)",
+										"text": "ref BsonDate(const(SysTime) time)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -2803,6 +2854,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "SysTime",
 													"qualifiedName": "SysTime",
@@ -3155,7 +3209,7 @@
 									"protection": "public",
 									"nestedName": "BsonObjectID.createDateID",
 									"type": {
-										"text": "BsonObjectID(SysTime date)",
+										"text": "BsonObjectID(const(SysTime) date)",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -3169,6 +3223,9 @@
 											{
 												"type": {
 													"kind": "type",
+													"modifiers": [
+														"const"
+													],
 													"typeClass": "primitive",
 													"nestedName": "SysTime",
 													"qualifiedName": "SysTime",
@@ -10066,7 +10123,7 @@
 						"functions": [
 							[
 								{
-									"ddoc": " http://www.mongodb.org/display/DOCS/fsync+Command\n",
+									"ddoc": " See $(LINK http://www.mongodb.org/display/DOCS/fsync+Command)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MongoDB.fsync",
@@ -10115,7 +10172,43 @@
 							],
 							[
 								{
-									"ddoc": " http://www.mongodb.org/display/DOCS/getLastError+Command\n",
+									"ddoc": "\n Return: MongoCollection for the given database and collecting specified.\n\n If a default database has been set in the MongoClientSettings it is NOT used here.\n The full database.collection path must be specified.\n\n Example:\n ---\n auto col = db.getCollection(\"mydb.mycollection\");\n ---\n\n The opIndex function should be used to get a relative collection name where the\n default database is taken into consideration.\n\n Most user code should use opIndex.\n\t \n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "MongoDB.getCollection",
+									"type": {
+										"text": "MongoCollection(string db_and_col)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "MongoCollection",
+											"qualifiedName": "vibe.db.mongo.collection.MongoCollection",
+											"name": "MongoCollection",
+											"moduleName": "vibe.db.mongo.collection"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "db_and_col"
+											}
+										],
+										"attributes": []
+									},
+									"name": "getCollection"
+								}
+							],
+							[
+								{
+									"ddoc": " See $(LINK http://www.mongodb.org/display/DOCS/getLastError+Command) \n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MongoDB.getLastError",
@@ -10151,7 +10244,7 @@
 							],
 							[
 								{
-									"ddoc": " See http://www.mongodb.org/display/DOCS/getLog+Command\n",
+									"ddoc": " See $(LINK http://www.mongodb.org/display/DOCS/getLog+Command)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MongoDB.getLog",
@@ -10199,7 +10292,7 @@
 							],
 							[
 								{
-									"ddoc": "\n\t\tAccesses the collections inside this DB.\n\n\t\tThrows: Exception if a DB communication error occured.\n\t\n",
+									"ddoc": "\n\t\tAccesses the collections inside this DB.\n\n\t \tExamples:\n\t \t---\n\t \tauto db = connectMongoDB(\"mongodb://localhost/mydatabase\");\n\t \tauto col = db[\"mycollection\"];\n\n\t \tauto db = connectMongoDB(\"mongodb://localhost\");\n\t \tauto col = db[\"mydatabase.mycollection\"];\n\t \t---\n\n\t\tThrows: Exception if a DB communication error occured.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MongoDB.opIndex",
@@ -10235,7 +10328,7 @@
 							],
 							[
 								{
-									"ddoc": "\n\t\tRuns a command on the specified database.\n\n\t\tSee_Also: http://www.mongodb.org/display/DOCS/Commands\n\t\n",
+									"ddoc": "\n\t\tRuns a command on the specified database.\n\n\t\tSee_Also: $(LINK http://www.mongodb.org/display/DOCS/Commands)\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MongoDB.runCommand",
@@ -10526,6 +10619,13 @@
 													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.BaseInterface",
 													"name": "BaseInterface"
 												}
+											],
+											[
+												{
+													"kind": "alias",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.RequestFilter",
+													"name": "RequestFilter"
+												}
 											]
 										],
 										"functions": [
@@ -10588,6 +10688,61 @@
 													},
 													"name": "request"
 												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.requestFilter",
+													"type": {
+														"text": "RequestFilter()",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "RequestFilter",
+															"qualifiedName": "RequestFilter",
+															"name": "RequestFilter",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
+													},
+													"name": "requestFilter"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.requestFilter",
+													"type": {
+														"text": "void(RequestFilter v)",
+														"typeclass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "void",
+															"qualifiedName": "void",
+															"name": "void",
+															"moduleName": ""
+														},
+														"parameters": [
+															{
+																"type": {
+																	"kind": "type",
+																	"typeClass": "primitive",
+																	"nestedName": "RequestFilter",
+																	"qualifiedName": "RequestFilter",
+																	"name": "RequestFilter",
+																	"moduleName": "",
+																	"attributes": []
+																},
+																"name": "v"
+															}
+														],
+														"attributes": []
+													},
+													"name": "requestFilter"
+												}
 											]
 										],
 										"variables": [
@@ -10623,6 +10778,23 @@
 														"attributes": []
 													},
 													"name": "m_methodStyle"
+												}
+											],
+											[
+												{
+													"kind": "variable",
+													"nestedName": "RestInterfaceClient(I).RestInterfaceClient.m_requestFilter",
+													"type": {
+														"kind": "type",
+														"text": "RequestFilter",
+														"typeClass": "primitive",
+														"nestedName": "RequestFilter",
+														"qualifiedName": "RequestFilter",
+														"name": "RequestFilter",
+														"moduleName": "",
+														"attributes": []
+													},
+													"name": "m_requestFilter"
 												}
 											]
 										]
@@ -18732,7 +18904,7 @@
 		"functions": [
 			[
 				{
-					"ddoc": "\n\tConnects to a MongoDB instance.\n\n\tExamples:\n\t---\n\tauto db = connectMongoDB(\"127.0.0.1\")\n\tauto users = db[\"users\"];\n\tusers.insert(BSON(\"peter\"));\n\t---\n",
+					"ddoc": "\n\tConnects to a MongoDB instance.\n\n\tExamples:\n\t---\n\tauto db = connectMongoDB(\"127.0.0.1\");\n\tauto users = db[\"users\"];\n\tusers.insert(BSON(\"peter\"));\n\t---\n\n \tA mongodb URL can also be used as specified by http://www.mongodb.org/display/DOCS/Connections\n    ---\n    auto db = connectMongoDB(\"mongodb://localhost/?slaveOk=true\");\n    ---\n\n \tThrows: an exception if a mongodb:// URL is given and the URL cannot be parsed.\n \tAn exception will not be thrown if called with a hostname and port.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "connectMongoDB",
@@ -19329,6 +19501,68 @@
 										]
 									},
 									"name": "empty"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.endsWithSlash",
+									"type": {
+										"text": "const @property bool()",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "endsWithSlash"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.endsWithSlash",
+									"type": {
+										"text": "@property void(bool v)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "v"
+											}
+										],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "endsWithSlash"
 								}
 							],
 							[
@@ -33802,6 +34036,266 @@
 		"classes": [
 			[
 				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.connectTimeoutMS",
+									"type": {
+										"kind": "type",
+										"text": "long",
+										"typeClass": "primitive",
+										"nestedName": "long",
+										"qualifiedName": "long",
+										"name": "long",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "connectTimeoutMS"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.database",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "database"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.defQueryFlags",
+									"type": {
+										"kind": "type",
+										"text": "QueryFlags",
+										"typeClass": "primitive",
+										"nestedName": "QueryFlags",
+										"qualifiedName": "vibe.db.mongo.connection.QueryFlags",
+										"name": "QueryFlags",
+										"moduleName": "vibe.db.mongo.connection",
+										"attributes": []
+									},
+									"name": "defQueryFlags"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.fsync",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "fsync"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.hosts",
+									"type": {
+										"kind": "type",
+										"text": "MongoHost[]",
+										"typeClass": "array",
+										"elementType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "MongoHost",
+											"qualifiedName": "vibe.db.mongo.connection.MongoHost",
+											"name": "MongoHost",
+											"moduleName": "vibe.db.mongo.connection"
+										},
+										"attributes": []
+									},
+									"name": "hosts"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.journal",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "journal"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.password",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "password"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.replicaSet",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "replicaSet"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.safe",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "safe"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.socketTimeoutMS",
+									"type": {
+										"kind": "type",
+										"text": "long",
+										"typeClass": "primitive",
+										"nestedName": "long",
+										"qualifiedName": "long",
+										"name": "long",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "socketTimeoutMS"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.username",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "username"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.w",
+									"type": {
+										"kind": "type",
+										"text": "Bson",
+										"typeClass": "primitive",
+										"nestedName": "Bson",
+										"qualifiedName": "vibe.data.bson.Bson",
+										"name": "Bson",
+										"moduleName": "vibe.data.bson",
+										"attributes": []
+									},
+									"name": "w"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoClientSettings.wTimeoutMS",
+									"type": {
+										"kind": "type",
+										"text": "long",
+										"typeClass": "primitive",
+										"nestedName": "long",
+										"qualifiedName": "long",
+										"name": "long",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "wTimeoutMS"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "MongoClientSettings",
+					"name": "MongoClientSettings"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tProvides low-level mongodb protocol access.\n\n\tNote that a MongoConnection my only be used from one fiber/thread at a time.\n",
 					"kind": "class",
 					"protection": "public",
@@ -33848,6 +34342,41 @@
 													"attributes": []
 												},
 												"name": "port"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							],
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "MongoConnection.this",
+									"type": {
+										"text": "MongoConnection(MongoClientSettings cfg)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "MongoConnection",
+											"qualifiedName": "vibe.db.mongo.connection.MongoConnection",
+											"name": "MongoConnection",
+											"moduleName": "vibe.db.mongo.connection"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "MongoClientSettings",
+													"qualifiedName": "vibe.db.mongo.connection.MongoClientSettings",
+													"name": "MongoClientSettings",
+													"moduleName": "vibe.db.mongo.connection",
+													"attributes": []
+												},
+												"name": "cfg"
 											}
 										],
 										"attributes": []
@@ -34196,7 +34725,7 @@
 									"protection": "public",
 									"nestedName": "MongoConnection.query",
 									"type": {
-										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1499;\r\n , __ctmp1499).this(null))",
+										"text": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1500;\r\n , __ctmp1500).this(null))",
 										"typeclass": "function",
 										"returnType": {
 											"kind": "type",
@@ -34268,7 +34797,7 @@
 												"name": "query"
 											},
 											{
-												"defaultValue": "(Bson__ctmp1499;,__ctmp1499",
+												"defaultValue": "(Bson__ctmp1500;,__ctmp1500",
 												"type": {
 													"kind": "type",
 													"typeClass": "primitive",
@@ -34412,6 +34941,113 @@
 					"kind": "class",
 					"protection": "public",
 					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "MongoHost.this",
+									"type": {
+										"text": "MongoHost(string hostName, ushort mongoPort)",
+										"typeclass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "MongoHost",
+											"qualifiedName": "vibe.db.mongo.connection.MongoHost",
+											"name": "MongoHost",
+											"moduleName": "vibe.db.mongo.connection"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "hostName"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "ushort",
+													"qualifiedName": "ushort",
+													"name": "ushort",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "mongoPort"
+											}
+										],
+										"attributes": []
+									},
+									"name": "this"
+								}
+							]
+						],
+						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoHost.name",
+									"type": {
+										"kind": "type",
+										"text": "string",
+										"typeClass": "primitive",
+										"nestedName": "string",
+										"qualifiedName": "string",
+										"name": "string",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "name"
+								}
+							],
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "MongoHost.port",
+									"type": {
+										"kind": "type",
+										"text": "ushort",
+										"typeClass": "primitive",
+										"nestedName": "ushort",
+										"qualifiedName": "ushort",
+										"name": "ushort",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "port"
+								}
+							]
+						]
+					},
+					"base": {
+						"kind": "type",
+						"text": "Object",
+						"typeClass": "primitive",
+						"nestedName": "Object",
+						"qualifiedName": "Object",
+						"name": "Object",
+						"moduleName": "",
+						"attributes": []
+					},
+					"nestedName": "MongoHost",
+					"name": "MongoHost"
+				}
+			],
+			[
+				{
+					"kind": "class",
+					"protection": "public",
+					"members": {
 						"variables": [
 							[
 								{
@@ -34503,6 +35139,58 @@
 					},
 					"nestedName": "Reply",
 					"name": "Reply"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": "\n Parses the given string as a mongodb URL. Url must be in the form documented at\n $(LINK http://www.mongodb.org/display/DOCS/Connections) which is:\n\n mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]\n\n Returns: true if the URL was successfully parsed. False if the URL can not be parsed.\n\n If the URL is successfully parsed the MongoClientSettings instance will contain the parsed config.\n If the URL is not successfully parsed the information in the MongoClientSettings instance may be\n incomplete and should not be used.\n \n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "parseMongoDBUrl",
+					"type": {
+						"text": "bool(out MongoClientSettings cfg, string url)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "MongoClientSettings",
+									"qualifiedName": "vibe.db.mongo.connection.MongoClientSettings",
+									"name": "MongoClientSettings",
+									"moduleName": "vibe.db.mongo.connection",
+									"attributes": [
+										"out"
+									]
+								},
+								"name": "cfg"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "url"
+							}
+						],
+						"attributes": []
+					},
+					"name": "parseMongoDBUrl"
 				}
 			]
 		]
@@ -34958,54 +35646,30 @@
 	"file": "..\\source\\vibe\\core\\core.d",
 	"ddoc": "\n\tThis module contains the core functionality of the vibe framework.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
-		"classes": [
+		"functions": [
 			[
 				{
-					"ddoc": "\n\n",
-					"kind": "class",
+					"ddoc": "\n\tStops the currently running event loop.\n\n\tCalling this function will cause the event loop to stop event processing and\n\tthe corresponding call to runEventLoop() will return to its caller.\n",
+					"kind": "function",
 					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "CoreTask.this",
-									"type": {
-										"text": "CoreTask()",
-										"typeclass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "CoreTask",
-											"qualifiedName": "vibe.core.core.CoreTask",
-											"name": "CoreTask",
-											"moduleName": "vibe.core.core"
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "this"
-								}
-							]
-						]
-					},
-					"base": {
-						"kind": "type",
-						"text": "Task",
-						"typeClass": "primitive",
-						"nestedName": "Task",
-						"qualifiedName": "vibe.core.driver.Task",
-						"name": "Task",
-						"moduleName": "vibe.core.driver",
+					"nestedName": "exitEventLoop",
+					"type": {
+						"text": "void()",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [],
 						"attributes": []
 					},
-					"nestedName": "CoreTask",
-					"name": "CoreTask"
+					"name": "exitEventLoop"
 				}
-			]
-		],
-		"functions": [
+			],
 			[
 				{
 					"ddoc": "\n\tReturns the active event driver\n",
@@ -35149,6 +35813,29 @@
 			],
 			[
 				{
+					"ddoc": "\n\n\n\tStarts the vibe event loop.\n\n\tNote that this function is usually called automatically by the vibe framework. However, if\n\tyou provide your own main() function, you need to call it manually.\n\n\tThe event loop will continue running during the whole life time of the application.\n\tTasks will be started and handled from within the event loop.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "runEventLoop",
+					"type": {
+						"text": "int()",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "int",
+							"qualifiedName": "int",
+							"name": "int",
+							"moduleName": ""
+						},
+						"parameters": [],
+						"attributes": []
+					},
+					"name": "runEventLoop"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tRuns a new asynchronous task.\n\n\ttask will be called synchronously from within the vibeRunTask call. It will\n\tcontinue to run until vibeYield() or any of the I/O or wait functions is\n\tcalled.\n",
 					"kind": "function",
 					"protection": "public",
@@ -35225,6 +35912,46 @@
 						"attributes": []
 					},
 					"name": "runWorkerTask"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tSets a callback that is called whenever no events are left in the event queue.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "setIdleHandler",
+					"type": {
+						"text": "void(void delegate() del)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "void",
+										"qualifiedName": "void",
+										"name": "void",
+										"moduleName": ""
+									},
+									"parameters": [],
+									"attributes": []
+								},
+								"name": "del"
+							}
+						],
+						"attributes": []
+					},
+					"name": "setIdleHandler"
 				}
 			],
 			[
@@ -35378,7 +36105,6 @@
 			],
 			[
 				{
-					"ddoc": "\n\n\n\tStarts the vibe event loop.\n\n\tNote that this function is usually called automatically by the vibe framework. However, if\n\tyou provide your own main() function, you need to call it manually.\n\n\tThe event loop will continue running during the whole life time of the application.\n\tTasks will be started and handled from within the event loop.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "start",
@@ -35518,6 +36244,24 @@
 							]
 						],
 						"variables": [
+							[
+								{
+									"kind": "variable",
+									"protection": "public",
+									"nestedName": "HttpFileServerSettings.failIfNotFound",
+									"type": {
+										"kind": "type",
+										"text": "bool",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": "",
+										"attributes": []
+									},
+									"name": "failIfNotFound"
+								}
+							],
 							[
 								{
 									"kind": "variable",
@@ -42341,23 +43085,97 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tTakes a DDOC string and outputs formatted HTML.\n\n\tThe hlevel parameter specifies the header level used for section names (&lt;h2&gt by default).\n\tBy specifying a display_section callback it is also possible to output only certain sections.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "aliases",
+					"nestedName": "formatDdocComment",
 					"type": {
-						"text": "Json[](Json n, string prot = \"public\")",
+						"text": "string(string ddoc_, int hlevel = 2, bool delegate(string filename) display_section = null)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "Json",
-								"qualifiedName": "vibe.data.json.Json",
-								"name": "Json",
-								"moduleName": "vibe.data.json"
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "ddoc_"
+							},
+							{
+								"defaultValue": "2",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "int",
+									"qualifiedName": "int",
+									"name": "int",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "hlevel"
+							},
+							{
+								"defaultValue": "null",
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "string",
+												"qualifiedName": "string",
+												"name": "string",
+												"moduleName": "",
+												"attributes": []
+											},
+											"name": "filename"
+										}
+									],
+									"attributes": []
+								},
+								"name": "display_section"
 							}
+						],
+						"attributes": []
+					},
+					"name": "formatDdocComment"
+				},
+				{
+					"ddoc": "\n\tTakes a DDOC string and outputs formatted HTML.\n\n\tThe hlevel parameter specifies the header level used for section names (&lt;h2&gt by default).\n\tBy specifying a display_section callback it is also possible to output only certain sections.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "formatDdocComment",
+					"type": {
+						"text": "string(Json ddoc_, int hlevel = 2, bool delegate(string filename) display_section = null)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
 						},
 						"parameters": [
 							{
@@ -42370,185 +43188,58 @@
 									"moduleName": "vibe.data.json",
 									"attributes": []
 								},
-								"name": "n"
+								"name": "ddoc_"
 							},
 							{
-								"defaultValue": "public\"",
+								"defaultValue": "2",
 								"type": {
 									"kind": "type",
 									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
+									"nestedName": "int",
+									"qualifiedName": "int",
+									"name": "int",
 									"moduleName": "",
 									"attributes": []
 								},
-								"name": "prot"
+								"name": "hlevel"
+							},
+							{
+								"defaultValue": "null",
+								"type": {
+									"typeclass": "delegate",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "bool",
+										"qualifiedName": "bool",
+										"name": "bool",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "string",
+												"qualifiedName": "string",
+												"name": "string",
+												"moduleName": "",
+												"attributes": []
+											},
+											"name": "filename"
+										}
+									],
+									"attributes": []
+								},
+								"name": "display_section"
 							}
 						],
 						"attributes": []
 					},
-					"name": "aliases"
-				}
-			],
-			[
+					"name": "formatDdocComment"
+				},
 				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "classes",
-					"type": {
-						"text": "Json[](Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "Json",
-								"qualifiedName": "vibe.data.json.Json",
-								"name": "Json",
-								"moduleName": "vibe.data.json"
-							}
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "classes"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "constructors",
-					"type": {
-						"text": "Json[](Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "Json",
-								"qualifiedName": "vibe.data.json.Json",
-								"name": "Json",
-								"moduleName": "vibe.data.json"
-							}
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "constructors"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "enums",
-					"type": {
-						"text": "Json[](Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "Json",
-								"qualifiedName": "vibe.data.json.Json",
-								"name": "Json",
-								"moduleName": "vibe.data.json"
-							}
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "enums"
-				}
-			],
-			[
-				{
+					"ddoc": "\n\tTakes a DDOC string and outputs formatted HTML.\n\n\tThe hlevel parameter specifies the header level used for section names (&lt;h2&gt by default).\n\tBy specifying a display_section callback it is also possible to output only certain sections.\n",
 					"kind": "function",
 					"templateName": "filterDdocComment(R)",
 					"nestedName": "filterDdocComment",
@@ -42640,18 +43331,19 @@
 			],
 			[
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "formatDdocComment",
+					"nestedName": "isKind",
 					"type": {
-						"text": "string(Json ddoc_, int hlevel = 2, bool delegate(string filename) display_section = null)",
+						"text": "bool(string kind, Json n)",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
 							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
 							"moduleName": ""
 						},
 						"parameters": [
@@ -42659,84 +43351,14 @@
 								"type": {
 									"kind": "type",
 									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "ddoc_"
-							},
-							{
-								"defaultValue": "2",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
 									"moduleName": "",
 									"attributes": []
 								},
-								"name": "hlevel"
+								"name": "kind"
 							},
-							{
-								"defaultValue": "null",
-								"type": {
-									"typeclass": "delegate",
-									"returnType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "bool",
-										"qualifiedName": "bool",
-										"name": "bool",
-										"moduleName": ""
-									},
-									"parameters": [
-										{
-											"type": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "string",
-												"qualifiedName": "string",
-												"name": "string",
-												"moduleName": "",
-												"attributes": []
-											},
-											"name": "filename"
-										}
-									],
-									"attributes": []
-								},
-								"name": "display_section"
-							}
-						],
-						"attributes": []
-					},
-					"name": "formatDdocComment"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "functions",
-					"type": {
-						"text": "Json[](Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "Json",
-								"qualifiedName": "vibe.data.json.Json",
-								"name": "Json",
-								"moduleName": "vibe.data.json"
-							}
-						},
-						"parameters": [
 							{
 								"type": {
 									"kind": "type",
@@ -42748,28 +43370,14 @@
 									"attributes": []
 								},
 								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
 							}
 						],
 						"attributes": []
 					},
-					"name": "functions"
-				}
-			],
-			[
+					"name": "isKind"
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "getItemsForKind",
@@ -42829,298 +43437,9 @@
 						"attributes": []
 					},
 					"name": "getItemsForKind"
-				}
-			],
-			[
+				},
 				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasAliases",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasAliases"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasClasses",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasClasses"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasConstructors",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasConstructors"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasEnums",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasEnums"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasFunctions",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasFunctions"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "hasInterfaces",
-					"type": {
-						"text": "bool(Json n, string prot = \"public\")",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							},
-							{
-								"defaultValue": "public\"",
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "prot"
-							}
-						],
-						"attributes": []
-					},
-					"name": "hasInterfaces"
-				}
-			],
-			[
-				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "hasItemsForKind",
@@ -43176,13 +43495,97 @@
 						"attributes": []
 					},
 					"name": "hasItemsForKind"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "hasStructs",
+					"nestedName": "isFunction",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isFunction"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "functions",
+					"type": {
+						"text": "Json[](Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "functions"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasFunctions",
 					"type": {
 						"text": "bool(Json n, string prot = \"public\")",
 						"typeclass": "function",
@@ -43223,14 +43626,98 @@
 						],
 						"attributes": []
 					},
-					"name": "hasStructs"
-				}
-			],
-			[
+					"name": "hasFunctions"
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "hasVariables",
+					"nestedName": "isConstructor",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isConstructor"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "constructors",
+					"type": {
+						"text": "Json[](Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "constructors"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasConstructors",
 					"type": {
 						"text": "bool(Json n, string prot = \"public\")",
 						"typeclass": "function",
@@ -43271,11 +43758,44 @@
 						],
 						"attributes": []
 					},
-					"name": "hasVariables"
-				}
-			],
-			[
+					"name": "hasConstructors"
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isInterface",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isInterface"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "interfaces",
@@ -43324,15 +43844,14 @@
 						"attributes": []
 					},
 					"name": "interfaces"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "isAlias",
+					"nestedName": "hasInterfaces",
 					"type": {
-						"text": "bool(Json n)",
+						"text": "bool(Json n, string prot = \"public\")",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
@@ -43354,15 +43873,27 @@
 									"attributes": []
 								},
 								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
 							}
 						],
 						"attributes": []
 					},
-					"name": "isAlias"
-				}
-			],
-			[
+					"name": "hasInterfaces"
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "isClass",
@@ -43394,210 +43925,26 @@
 						"attributes": []
 					},
 					"name": "isClass"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "isConstructor",
+					"nestedName": "classes",
 					"type": {
-						"text": "bool(Json n)",
+						"text": "Json[](Json n, string prot = \"public\")",
 						"typeclass": "function",
 						"returnType": {
 							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
 							}
-						],
-						"attributes": []
-					},
-					"name": "isConstructor"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isEnum",
-					"type": {
-						"text": "bool(Json n)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isEnum"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isFunction",
-					"type": {
-						"text": "bool(Json n)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isFunction"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isInterface",
-					"type": {
-						"text": "bool(Json n)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isInterface"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isKind",
-					"type": {
-						"text": "bool(string kind, Json n)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "kind"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isKind"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isProt",
-					"type": {
-						"text": "bool(Json n, string prot)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
 						},
 						"parameters": [
 							{
@@ -43613,6 +43960,7 @@
 								"name": "n"
 							},
 							{
+								"defaultValue": "public\"",
 								"type": {
 									"kind": "type",
 									"typeClass": "primitive",
@@ -43627,11 +43975,57 @@
 						],
 						"attributes": []
 					},
-					"name": "isProt"
-				}
-			],
-			[
+					"name": "classes"
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasClasses",
+					"type": {
+						"text": "bool(Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "hasClasses"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "isStruct",
@@ -43663,170 +44057,9 @@
 						"attributes": []
 					},
 					"name": "isStruct"
-				}
-			],
-			[
+				},
 				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isVariable",
-					"type": {
-						"text": "bool(Json n)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "Json",
-									"qualifiedName": "vibe.data.json.Json",
-									"name": "Json",
-									"moduleName": "vibe.data.json",
-									"attributes": []
-								},
-								"name": "n"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isVariable"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "multi",
-					"type": {
-						"text": "string(string word)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "word"
-							}
-						],
-						"attributes": []
-					},
-					"name": "multi"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "renderTextLine(R)",
-					"nestedName": "renderTextLine",
-					"type": {
-						"text": "void(ref R dst, string line, string[string] macros, string[] params = null)",
-						"typeclass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "R",
-									"qualifiedName": "R",
-									"name": "R",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "line"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"keyType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "string",
-										"qualifiedName": "string",
-										"name": "string",
-										"moduleName": ""
-									},
-									"typeClass": "associative array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "string",
-										"qualifiedName": "string",
-										"name": "string",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "macros"
-							},
-							{
-								"defaultValue": "null",
-								"type": {
-									"kind": "type",
-									"typeClass": "array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "string",
-										"qualifiedName": "string",
-										"name": "string",
-										"moduleName": ""
-									},
-									"attributes": []
-								},
-								"name": "params"
-							}
-						],
-						"attributes": []
-					},
-					"name": "renderTextLine"
-				}
-			],
-			[
-				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "structs",
@@ -43875,10 +44108,354 @@
 						"attributes": []
 					},
 					"name": "structs"
-				}
-			],
-			[
+				},
 				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasStructs",
+					"type": {
+						"text": "bool(Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "hasStructs"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isEnum",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isEnum"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "enums",
+					"type": {
+						"text": "Json[](Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "enums"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasEnums",
+					"type": {
+						"text": "bool(Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "hasEnums"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isAlias",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isAlias"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "aliases",
+					"type": {
+						"text": "Json[](Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "aliases"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasAliases",
+					"type": {
+						"text": "bool(Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "hasAliases"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "isVariable",
+					"type": {
+						"text": "bool(Json n)",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "isVariable"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "variables",
@@ -43927,6 +44504,53 @@
 						"attributes": []
 					},
 					"name": "variables"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "hasVariables",
+					"type": {
+						"text": "bool(Json n, string prot = \"public\")",
+						"typeclass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							},
+							{
+								"defaultValue": "public\"",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							}
+						],
+						"attributes": []
+					},
+					"name": "hasVariables"
 				}
 			]
 		]
