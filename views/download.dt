@@ -7,8 +7,14 @@ block navigation
 	ul
 		li
 			a(href="##release-version") Current release
-		li
-			a(href="##apt-repository") APT repository
+			
+			ul
+				li
+					a(href="##zip-package") ZIP package
+				li
+					a(href="##apt-repository") APT repository
+				li
+					a(href="##aur-package") AUR package
 		li
 			a(href="##development-snapshot") Development snapshot
 
@@ -23,23 +29,44 @@ block body
 			| stumble over any issue, please visit the
 			a(href="http://github.com/rejectedsoftware/vibe.d/issues") issue tracker
 			| and see if it is a known problem or add an entry for it. We will try to fix all
-			| issues as soon as possible.
+			| issues as fast as possible.
 		
-		p
-			a.download(href="download?file=zipball/v0.7.7") Download Current Beta Release (0.7.7)
+		section
+			a#zip-package
+			h3 ZIP package
+			
+			p The ZIP package is suitable for all supported operating systems. Simply extract and install according to the
+				a(href="docs##installation") install instructions.
+				
+			p If you are running a Debian or Arch based Linux distribution, you can use the packages below to benefit from an automated install process.
 
-	section
-		a#apt-repository
-		h2 APT repository
-		
-		p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
-		
-		p
-			a.extern(href="https://code.google.com/p/d-apt/wiki/APT_Repository", target="_blank") APT repository wiki page
-		
-		p You can then install vibe.d including all dependencies using:
-		
-		pre apt-get install vibe
+			p
+				a.download(href="download?file=zipball/v0.7.7") Download Current Beta Release (0.7.7)
+
+		section
+			a#apt-repository
+			h3 APT repository
+			
+			p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
+			
+			p
+				a.extern(href="https://code.google.com/p/d-apt/wiki/APT_Repository", target="_blank") APT repository wiki page
+			
+			p You can then install vibe.d including all dependencies using:
+			
+			pre $ apt-get install vibe
+
+		section
+			a#apt-repository
+			h3 AUR package
+			
+			p The
+				a(href="http://aur.archlinux.org/") Arch User Repository
+				| contains a PKGBUILD for building a Packman package. To install, 
+				a.download(href="http://aur.archlinux.org/packages.php?ID=61679") get the tarball from the package page
+				| and then
+				a(href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines##Installing_packages") build and install
+				| the package. Please test and vote if you are running Arch Linux.
 
 	section	
 		a#development-snapshot
