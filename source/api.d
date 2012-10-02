@@ -29,6 +29,7 @@ string formatType()(Json type)
 
 void formatType(R)(ref R dst, Json type)
 {
+	auto attribs = type.attributes.opt!(Json[]);
 	switch( type.typeClass.get!string ){
 		default:
 		case "primitive":
@@ -52,38 +53,38 @@ void formatType(R)(ref R dst, Json type)
 				dst.put(p.name.get!string);
 			}
 			dst.put(')');
-			foreach( att; type.attributes )
+			foreach( att; attribs )
 				dst.put(att.get!string());
 			break;
 		case "pointer":
-			foreach( att; type.attributes ){
+			foreach( att; attribs ){
 				dst.put(att.get!string);
 				dst.put('(');
 			}
 			formatType(dst, type.elementType);
 			dst.put('*');
-			foreach( att; type.attributes ) dst.put(')');
+			foreach( att; attribs ) dst.put(')');
 			break;
 		case "array":
-			foreach( att; type.attributes ){
+			foreach( att; attribs ){
 				dst.put(att.get!string);
 				dst.put('(');
 			}
 			formatType(dst, type.elementType);
 			dst.put("[]");
-			foreach( att; type.attributes ) dst.put(')');
+			foreach( att; attribs ) dst.put(')');
 			break;
 		case "static array":
-			foreach( att; type.attributes ){
+			foreach( att; attribs ){
 				dst.put(att.get!string);
 				dst.put('(');
 			}
 			formatType(dst, type.elementType);
 			formattedWrite(dst, "[%s]", type.elementCount);
-			foreach( att; type.attributes ) dst.put(')');
+			foreach( att; attribs ) dst.put(')');
 			break;
 		case "associative array":
-			foreach( att; type.attributes ){
+			foreach( att; attribs ){
 				dst.put(att.get!string);
 				dst.put('(');
 			}
@@ -91,7 +92,7 @@ void formatType(R)(ref R dst, Json type)
 			dst.put('[');
 			formatType(dst, type.keyType);
 			dst.put(']');
-			foreach( att; type.attributes ) dst.put(')');
+			foreach( att; attribs ) dst.put(')');
 			break;
 	}
 }
