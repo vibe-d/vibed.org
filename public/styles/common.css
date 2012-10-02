@@ -114,6 +114,11 @@ pre {
 	margin-left: 3pt;
 }
 
+col.caption {
+	margin: 0;
+	width: 180pt;
+}
+
 /******************************************************************************/
 /* Header                                                                     */
 /******************************************************************************/
@@ -273,9 +278,19 @@ li.nav-developer { background-image: url(../images/ico_developer.png); }
 
 #container {
 	background-color: #333333;
-	padding: 9pt;
+	padding: 18pt;
 	border: 1px solid #222;
 	margin-top: -1px;
+}
+
+/* clearfix */
+#container:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
 }
 
 #container h1, #container h2, #container h3, #container h4 {

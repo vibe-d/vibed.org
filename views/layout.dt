@@ -33,7 +33,6 @@ html(lang="en-US")
 		
 	body(onload="prettyPrint()")
 
-
 		.center-content
 			#header
 				#logo-line
@@ -46,21 +45,22 @@ html(lang="en-US")
 						#download-version 0.7.8 beta
 
 			block plainbody
+
 			- if( title.length )
 				#container
 					#navigation
-						h2= "Jump to…"
 						nav#global-nav
 							ul
 								- auto pages = ["Home", "", "Download", "download", "Blog", "blog", "Features", "features", "Documentation", "docs", "Community", "community", "Development", "developer", "About", "about"];
 								- for( auto i = 0; i < pages.length; i += 2 )
 									li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
 										a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
-						h1 #{title}
 
 						nav#document-nav
 							block navigation
 					#maincontent
+						h1 #{title}
+
 						block body
 
 				.clear
