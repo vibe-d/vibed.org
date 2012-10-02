@@ -32,7 +32,7 @@ block navigation
 		
 block body
 	
-	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
+	section!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
 	
 	section
 		h2 Prototypes

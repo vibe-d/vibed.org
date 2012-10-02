@@ -29,9 +29,7 @@ block navigation
 		
 block body
 	
-	section
-		h2 Summary
-		!= formatDdocComment(mod.ddoc, 2, sec => sec != "License" && sec != "Copyright" && sec != "Authors")
+	section!= formatDdocComment(mod.ddoc, 2, sec => sec != "License" && sec != "Copyright" && sec != "Authors")
 	
 	- if( hasFunctions(mod) )
 		section

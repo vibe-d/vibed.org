@@ -32,7 +32,7 @@ block navigation
 		
 block body
 	
-	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
+	section!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
 
 	p The enum base type is
 		code.prettyprint.lang-d!= formatType(info.item.baseType)

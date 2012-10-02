@@ -32,7 +32,7 @@ block navigation
 		
 block body
 	
-	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
+	section!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
 
 	- auto kinds =          ["interface",        "class",         "struct",        "function", "variable", "enum",  "alias"];
 	- auto kindnames =      ["Inner interfaces", "Inner classes", "Inner structs", "Methods",  "Fields",   "Enums", "Aliases"];
@@ -47,12 +47,12 @@ block body
 					tr
 						th #{kindnames_sing[i]} name
 						th Description
-					- foreach( mem; getItemsForKind("public", kind, info.item) )
+					- foreach( mem; getItemGroupsForKind("public", kind, info.item) )
 						tr
 							td
-								a(href="#{mem.nestedName}")= mem.name
+								a(href="#{mem[0].nestedName}")= mem.name
 							td
-								- if( auto pdd = "ddoc" in mem )
+								- if( auto pdd = "ddoc" in mem[0] )
 									|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
 
 	- if( "base" in info.item || "interfaces" in info.item && info.item.interfaces.length > 0 )
