@@ -50,7 +50,7 @@ block body
 					- foreach( mem; getItemGroupsForKind("public", kind, info.item) )
 						tr
 							td
-								a(href="#{mem[0].nestedName}")= mem.name
+								a(href="#{mem[0].nestedName}")= mem[0].name
 							td
 								- if( auto pdd = "ddoc" in mem[0] )
 									|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
