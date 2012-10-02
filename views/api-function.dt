@@ -1,0 +1,53 @@
+extends layout
+
+block defs
+	- import api;
+	- import std.algorithm;
+	- import vibe.textfilter.ddoc;
+
+	- auto mod = info.modules[info.moduleName];
+
+block title
+	- auto title = info.item.nestedName.get!string ~ " function";
+	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
+	
+block navigation
+	ul
+		- foreach( mname; info.moduleNames )
+			- auto m = info.modules[mname];
+			li
+				- if( m.kind == "package" )
+					ul
+						- foreach( sm; m )
+							li
+								- if( m.kind == "package" )
+									ul
+										- foreach( ssm; sm )
+											li
+												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
+								- else
+									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
+				- else
+					a(href="#{req.rootDir}api/#{m.name}")= m.name
+		
+block body
+	
+	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
+	
+	section
+		h2 Prototypes
+		pre.code.prettyprint.lang-d.prototype
+			- foreach( size_t pi, proto; info.overloads )
+				- if( pi > 0 )
+					|
+				|!{formatType(proto["type"].returnType)} #{getFunctionName(proto)}(
+				- foreach( size_t i, p; proto["type"].parameters )
+					|&nbsp;&nbsp;!{formatType(p["type"])} #{p.name}#{i+1 < proto["type"].parameters.length ? "," : ""}
+				- if( proto["type"].attributes.length )
+					|) #{join(map!(i => i.get!string)(proto["type"].attributes.get!(Json[])), " ")};
+				- else
+					|);
+
+	|!= formatDdocComment(info.item.ddoc, 2, sec => sec != "$Short" && sec != "$Long")
+	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")
+	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "License" || sec == "Copyright")

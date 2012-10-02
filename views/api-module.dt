@@ -1,0 +1,102 @@
+extends layout
+
+block defs
+	- import vibe.textfilter.ddoc;
+	- auto mod = modules[moduleName];
+
+block title
+	- auto title = "module " ~ moduleName;
+	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
+	
+block navigation
+	ul
+		- foreach( mname; moduleNames )
+			- auto m = modules[mname];
+			li
+				- if( m.kind == "package" )
+					ul
+						- foreach( sm; m )
+							li
+								- if( m.kind == "package" )
+									ul
+										- foreach( ssm; sm )
+											li
+												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
+								- else
+									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
+				- else
+					a(href="#{req.rootDir}api/#{m.name}")= m.name
+		
+block body
+	
+	section
+		h2 Summary
+		!= formatDdocComment(mod.ddoc, 2, sec => sec != "License" && sec != "Copyright" && sec != "Authors")
+	
+	- if( hasFunctions(mod) )
+		section
+			h2 Functions
+			dl
+				- foreach( block; mod.members.functions )
+					- string lastname;
+					- foreach( f; block )
+						- if( f.nestedName != lastname )
+							- lastname = f.nestedName.get!string;
+							dt
+								a(href="#{f.name}")= f.name
+							- if( "ddoc" in f )
+								dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	- if( hasInterfaces(mod) )
+		section
+			h2 Interfaces
+			dl
+				- foreach( f; interfaces(mod) )
+					dt
+						a(href="#{f.name}")= f.name
+					- if( "ddoc" in f )
+						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	- if( hasClasses(mod) )
+		section
+			h2 Classes
+			dl
+				- foreach( f; classes(mod) )
+					dt
+						a(href="#{f.name}")= f.name
+					- if( "ddoc" in f )
+						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	- if( hasStructs(mod) )
+		section
+			h2 Structs
+			dl
+				- foreach( f; structs(mod) )
+					dt 
+						a(href="#{f.name}")= f.name
+					- if( "ddoc" in f )
+						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	- if( hasEnums(mod) )
+		section
+			h2 Enums
+			dl
+				- foreach( f; enums(mod) )
+					dt
+						a(href="#{f.name}")= f.name
+					- if( "ddoc" in f )
+						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	- if( hasAliases(mod) )
+		section
+			h2 Type aliases
+			dl
+				- foreach( f; aliases(mod) )
+					dt
+						a(href="#{f.name}")= f.name
+					- if( "ddoc" in f )
+						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+
+	section
+		!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")
+		!= formatDdocComment(mod.ddoc, 2, sec => sec == "License" || sec == "Copyright")

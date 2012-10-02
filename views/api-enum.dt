@@ -1,0 +1,52 @@
+extends layout
+
+block defs
+	- import api;
+	- import std.algorithm;
+	- import vibe.textfilter.ddoc;
+
+	- auto mod = info.modules[info.moduleName];
+
+block title
+	- auto title = info.item.nestedName.get!string ~ " enum";
+	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
+	
+block navigation
+	ul
+		- foreach( mname; info.moduleNames )
+			- auto m = info.modules[mname];
+			li
+				- if( m.kind == "package" )
+					ul
+						- foreach( sm; m )
+							li
+								- if( m.kind == "package" )
+									ul
+										- foreach( ssm; sm )
+											li
+												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
+								- else
+									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
+				- else
+					a(href="#{req.rootDir}api/#{m.name}")= m.name
+		
+block body
+	
+	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
+
+	p The enum base type is
+		code.prettyprint.lang-d!= formatType(info.item.baseType)
+	
+	section
+		h2 Members
+
+		dl
+			- foreach( mem; info.item.members )
+				dt= mem.name
+				dd
+					- if( auto pdd = "ddoc" in mem )
+						|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
+
+	|!= formatDdocComment(info.item.ddoc, 2, sec => sec != "$Short" && sec != "$Long")
+	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")
+	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "License" || sec == "Copyright")
