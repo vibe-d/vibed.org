@@ -64,7 +64,7 @@ block body
 					li
 						code.prettyprint.lang-d!= formatType(info.item.base)
 						| (base class)
-				- foreach( intf; info.item.interfaces )
+				- foreach( intf; info.item.interfaces.opt!(Json[]) )
 					li
 						code.prettyprint.lang-d!= formatType(intf)
 	
