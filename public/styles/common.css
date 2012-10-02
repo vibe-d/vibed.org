@@ -114,6 +114,15 @@ pre {
 	margin-left: 3pt;
 }
 
+li.separator {
+	margin-left: -12pt;
+	margin-right: -12pt;
+	padding-left: 12pt;
+	padding-bottom: 9pt;
+	margin-bottom: 9pt;
+	border-bottom: 1px solid #444;
+}
+
 col.caption {
 	margin: 0;
 	width: 180pt;

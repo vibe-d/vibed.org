@@ -5,6 +5,8 @@ block title
 
 block navigation
 	ul
+		li.separator
+			a(href="api/") API Reference
 		li
 			a(href="##installation") Installation
 		li
@@ -40,7 +42,7 @@ block navigation
 					a(href="##tcp-server") Server
 				li
 					a(href="##tcp-client") Client
-		li
+		li.separator
 			a(href="##advanced") Advanced topics
 			ul
 				li
@@ -49,9 +51,7 @@ block navigation
 					a(href="##custom-main") Custom main function
 				li
 					a(href="##privilege-lowering") Privilege lowering
-		li
-			a(href="api/") API Reference
-		li
+		li.separator
 			a(href="templates") Diet Reference
 		li
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
