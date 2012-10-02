@@ -1,0 +1,43 @@
+extends layout
+
+block defs
+	- import vibe.textfilter.ddoc;
+
+block title
+	- auto title = "API documentation";
+	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
+	
+block navigation
+	ul
+		- foreach( mname; moduleNames )
+			- auto m = modules[mname];
+			li
+				- if( m.kind == "package" )
+					ul
+						- foreach( sm; m )
+							li
+								- if( m.kind == "package" )
+									ul
+										- foreach( ssm; sm )
+											li
+												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
+								- else
+									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
+				- else
+					a(href="#{req.rootDir}api/#{m.name}")= m.name
+		
+block body
+	
+	table
+		col.caption
+		tr
+			th Module
+			th Description
+		- foreach( mname; moduleNames )
+			- auto m = modules[mname];
+			tr
+				td
+					a(href="#{m.name}/")= m.name
+				td
+					- if( auto pdd = "ddoc" in m )
+						|!= formatDdocComment(*pdd, 0, sec => sec == "$Short")

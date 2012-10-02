@@ -34,21 +34,25 @@ block body
 	
 	|!= formatDdocComment(info.item.ddoc, 2, sec => sec == "$Short" || sec == "$Long")
 	
-	section
-		h2 Members
-		- auto kinds = ["function", "variable"];
-		- auto kindnames = ["Methods", "Fields"];
+	- auto kinds = ["function", "variable"];
+	- auto kindnames = ["Methods", "Fields"];
 
-		- foreach( i, kind; kinds )
-			- if( hasItemsForKind("public", kind, info.item) )
+	- foreach( i, kind; kinds )
+		- if( hasItemsForKind("public", kind, info.item) )
+			section
 				h3= kindnames[i]
-				dl
+				table
+					col.caption
+					tr
+						th #{kindnames[i]} name
+						th Description
 					- foreach( mem; getItemsForKind("public", kind, info.item) )
-						dt
-							a(href="#{mem.nestedName}")= mem.name
-						dd
-							- if( auto pdd = "ddoc" in mem )
-								|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
+						tr
+							td
+								a(href="#{mem.nestedName}")= mem.name
+							td
+								- if( auto pdd = "ddoc" in mem )
+									|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
 
 	|!= formatDdocComment(info.item.ddoc, 2, sec => sec != "$Short" && sec != "$Long")
 	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")

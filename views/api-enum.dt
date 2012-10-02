@@ -36,16 +36,22 @@ block body
 
 	p The enum base type is
 		code.prettyprint.lang-d!= formatType(info.item.baseType)
+		|.
 	
 	section
-		h2 Members
+		h2 Enum members
 
-		dl
+		table
+			col.caption
+			tr
+				th Name
+				th Description
 			- foreach( mem; info.item.members )
-				dt= mem.name
-				dd
-					- if( auto pdd = "ddoc" in mem )
-						|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
+				tr
+					td= mem.name
+					td
+						- if( auto pdd = "ddoc" in mem )
+							|!= formatDdocComment(*pdd, 3, sec => sec == "$Short")
 
 	|!= formatDdocComment(info.item.ddoc, 2, sec => sec != "$Short" && sec != "$Long")
 	|!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")

@@ -36,66 +36,99 @@ block body
 	- if( hasFunctions(mod) )
 		section
 			h2 Functions
-			dl
+			table
+				col.caption
+				tr
+					th Function name
+					th Description
 				- foreach( block; mod.members.functions )
-					- string lastname;
-					- foreach( f; block )
-						- if( f.nestedName != lastname )
-							- lastname = f.nestedName.get!string;
-							dt
-								a(href="#{f.name}")= f.name
+					- auto f = block[0];
+					tr
+						td
+							a(href="#{f.name}")= f.name
+						td
 							- if( "ddoc" in f )
-								dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	- if( hasInterfaces(mod) )
 		section
 			h2 Interfaces
-			dl
+			table
+				col.caption
+				tr
+					th Interface name
+					th Description
 				- foreach( f; interfaces(mod) )
-					dt
-						a(href="#{f.name}")= f.name
-					- if( "ddoc" in f )
-						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+					tr
+						td
+							a(href="#{f.name}")= f.name
+						td
+							- if( "ddoc" in f )
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	- if( hasClasses(mod) )
 		section
 			h2 Classes
-			dl
+			table
+				col.caption
+				tr
+					th Interface name
+					th Description
 				- foreach( f; classes(mod) )
-					dt
-						a(href="#{f.name}")= f.name
-					- if( "ddoc" in f )
-						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+					tr
+						td
+							a(href="#{f.name}")= f.name
+						td
+							- if( "ddoc" in f )
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	- if( hasStructs(mod) )
 		section
 			h2 Structs
-			dl
+			table
+				col.caption
+				tr
+					th Interface name
+					th Description
 				- foreach( f; structs(mod) )
-					dt 
-						a(href="#{f.name}")= f.name
-					- if( "ddoc" in f )
-						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+					tr
+						td 
+							a(href="#{f.name}")= f.name
+						td
+							- if( "ddoc" in f )
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	- if( hasEnums(mod) )
 		section
 			h2 Enums
-			dl
+			table
+				col.caption
+				tr
+					th Interface name
+					th Description
 				- foreach( f; enums(mod) )
-					dt
-						a(href="#{f.name}")= f.name
-					- if( "ddoc" in f )
-						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+					tr
+						td
+							a(href="#{f.name}")= f.name
+						td
+							- if( "ddoc" in f )
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	- if( hasAliases(mod) )
 		section
 			h2 Type aliases
-			dl
+			table
+				col.caption
+				tr
+					th Interface name
+					th Description
 				- foreach( f; aliases(mod) )
-					dt
-						a(href="#{f.name}")= f.name
-					- if( "ddoc" in f )
-						dd!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
+					tr
+						td
+							a(href="#{f.name}")= f.name
+						td
+							- if( "ddoc" in f )
+								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
 
 	section
 		!= formatDdocComment(mod.ddoc, 2, sec => sec == "Authors")

@@ -50,7 +50,7 @@ block navigation
 				li
 					a(href="##privilege-lowering") Privilege lowering
 		li
-			a(href="api/vibe.d") API Reference
+			a(href="api/") API Reference
 		li
 			a(href="templates") Diet Reference
 		li

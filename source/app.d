@@ -19,6 +19,16 @@ void download(HttpServerRequest req, HttpServerResponse res)
 	else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
 }
 
+void showApi(HttpServerRequest req, HttpServerResponse res)
+{
+	res.renderCompat!("api.dt",
+		HttpServerRequest, "req",
+		string[], "moduleNames",
+		Json[string], "modules",
+		Json[], "projectTree")
+		(Variant(req), Variant(s_moduleNames), Variant(s_modules), Variant(s_projectTree));
+}
+
 void showApiModule(HttpServerRequest req, HttpServerResponse res)
 {
 	string moduleName = req.params["modulename"];
@@ -141,14 +151,15 @@ static this()
 	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
-	router.get("/community",   staticTemplate!"community.dt");
-	router.get("/impressum",   staticTemplate!"impressum.dt");
+	router.get("/community", staticTemplate!"community.dt");
+	router.get("/impressum", staticTemplate!"impressum.dt");
 	router.get("/download",  &download);
 	router.get("/features",  staticTemplate!"features.dt");
 	router.get("/docs",      staticTemplate!"docs.dt");
 	router.get("/developer", staticTemplate!"developer.dt");
 	router.get("/templates", staticTemplate!"templates.dt");
-	//router.get("/api/");
+	router.get("/api", staticRedirect("/api/"));
+	router.get("/api/", &showApi);
 	router.get("/api/:modulename", delegate(req, res){ res.redirect("/api/"~req.params["modulename"]~"/"); });
 	router.get("/api/:modulename/", &showApiModule);
 	router.get("/api/:modulename/:itemname", &showApiItem);
