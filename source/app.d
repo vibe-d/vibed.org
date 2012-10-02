@@ -1,6 +1,6 @@
 import vibe.d;
 
-//import vibelog.vibelog;
+import vibelog.vibelog;
 import api;
 
 import std.algorithm;
@@ -125,8 +125,8 @@ string prettifyFilter(string html)
 
 static this()
 {
-//	setLogLevel(LogLevel.None);
-//	setLogFile("log.txt", LogLevel.Info);
+	setLogLevel(LogLevel.None);
+	setLogFile("log.txt", LogLevel.Info);
 
 	updateDocs();
 
@@ -138,7 +138,7 @@ static this()
 	
 	auto router = new UrlRouter;
 	
-	/*router.get("/",          staticTemplate!"home.dt");
+	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
 	router.get("/community",   staticTemplate!"community.dt");
@@ -147,17 +147,17 @@ static this()
 	router.get("/features",  staticTemplate!"features.dt");
 	router.get("/docs",      staticTemplate!"docs.dt");
 	router.get("/developer", staticTemplate!"developer.dt");
-	router.get("/templates", staticTemplate!"templates.dt");*/
+	router.get("/templates", staticTemplate!"templates.dt");
 	//router.get("/api/");
 	router.get("/api/:modulename", delegate(req, res){ res.redirect("/api/"~req.params["modulename"]~"/"); });
 	router.get("/api/:modulename/", &showApiModule);
 	router.get("/api/:modulename/:itemname", &showApiItem);
 
-	/*auto blogsettings = new VibeLogSettings;
+	auto blogsettings = new VibeLogSettings;
 	blogsettings.configName = "vibe.d";
 	blogsettings.basePath = "/blog/";
 	blogsettings.textFilters ~= &prettifyFilter;
-	registerVibeLog(blogsettings, router);*/
+	registerVibeLog(blogsettings, router);
 
 	router.get("*", serveStaticFiles("./public/"));
 	
