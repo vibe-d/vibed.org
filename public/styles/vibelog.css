@@ -44,8 +44,7 @@
 }
 
 
-#vibelogContent .blogPostContent {
-	clear: left;
+#vibelogContent .blogPostContent.with-image {
 	text-align: justify;
 	hyphens: auto;
 }
