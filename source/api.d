@@ -49,8 +49,10 @@ void formatType(R)(ref R dst, Json type)
 			foreach( size_t i, p; type.parameters ){
 				if( i > 0 ) dst.put(", ");
 				formatType(dst, p["type"]);
-				dst.put(' ');
-				dst.put(p.name.get!string);
+				if( "name" in p ){
+					dst.put(' ');
+					dst.put(p.name.get!string);
+				}
 			}
 			dst.put(')');
 			foreach( att; attribs )
