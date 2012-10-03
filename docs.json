@@ -4229,6 +4229,52 @@
 			],
 			[
 				{
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "extractDependencies",
+					"type": {
+						"text": "string[](const(Line[]) lines)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "string",
+								"qualifiedName": "string",
+								"name": "string",
+								"moduleName": ""
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"modifiers": [
+										"const"
+									],
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "Line",
+										"qualifiedName": "vibe.templ.diet.Line",
+										"name": "Line",
+										"moduleName": "vibe.templ.diet"
+									},
+									"attributes": []
+								},
+								"name": "lines"
+							}
+						],
+						"attributes": []
+					},
+					"name": "extractDependencies"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\n",
 					"kind": "function",
 					"protection": "public",
@@ -4371,6 +4417,28 @@
 			],
 			[
 				{
+					"kind": "function",
+					"templateName": "isPartOf(string str,STRINGS...)",
+					"nestedName": "isPartOf",
+					"type": {
+						"text": "bool()",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "bool",
+							"qualifiedName": "bool",
+							"name": "bool",
+							"moduleName": ""
+						},
+						"parameters": [],
+						"attributes": []
+					},
+					"name": "isPartOf"
+				}
+			],
+			[
+				{
 					"ddoc": "\n\tParses the given diet template at compile time and writes the resulting\n\tHTML code into 'stream'.\n\n\tNote that this function currently suffers from multiple DMD bugs in conjunction with local\n\tvariables passed as alias template parameters.\n",
 					"kind": "function",
 					"templateName": "parseDietFile(string template_file,ALIASES...)",
@@ -4455,6 +4523,88 @@
 						"attributes": []
 					},
 					"name": "parseDietFileCompat"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "readFileRec(string FILE,ALREADY_READ...)",
+					"nestedName": "readFileRec",
+					"type": {
+						"text": "void(ref TemplateBlock[] dst)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "TemplateBlock",
+										"qualifiedName": "vibe.templ.diet.TemplateBlock",
+										"name": "TemplateBlock",
+										"moduleName": "vibe.templ.diet"
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readFileRec"
+				}
+			],
+			[
+				{
+					"kind": "function",
+					"templateName": "readFilesRec(alias FILES,ALREADY_READ...)",
+					"nestedName": "readFilesRec",
+					"type": {
+						"text": "void(ref TemplateBlock[] dst)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "array",
+									"elementType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "TemplateBlock",
+										"qualifiedName": "vibe.templ.diet.TemplateBlock",
+										"name": "TemplateBlock",
+										"moduleName": "vibe.templ.diet"
+									},
+									"attributes": [
+										"ref"
+									]
+								},
+								"name": "dst"
+							}
+						],
+						"attributes": []
+					},
+					"name": "readFilesRec"
 				}
 			],
 			[
@@ -6128,9 +6278,9 @@
 											"kind": "type",
 											"typeClass": "primitive",
 											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
+											"qualifiedName": "vibe.inet.path.Path",
 											"name": "Path",
-											"moduleName": "vibe.inet.url"
+											"moduleName": "vibe.inet.path"
 										},
 										"parameters": [],
 										"attributes": [
@@ -6331,9 +6481,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -6424,9 +6574,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -6494,9 +6644,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -6564,9 +6714,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -6692,9 +6842,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "from"
@@ -6704,9 +6854,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "to"
@@ -6786,9 +6936,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -6882,9 +7032,9 @@
 									"kind": "type",
 									"typeClass": "primitive",
 									"nestedName": "Path",
-									"qualifiedName": "vibe.inet.url.Path",
+									"qualifiedName": "vibe.inet.path.Path",
 									"name": "Path",
-									"moduleName": "vibe.inet.url",
+									"moduleName": "vibe.inet.path",
 									"attributes": []
 								},
 								"name": "path"
@@ -7224,9 +7374,9 @@
 											"kind": "type",
 											"typeClass": "primitive",
 											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
+											"qualifiedName": "vibe.inet.path.Path",
 											"name": "Path",
-											"moduleName": "vibe.inet.url"
+											"moduleName": "vibe.inet.path"
 										},
 										"parameters": [],
 										"attributes": [
@@ -7607,6 +7757,16 @@
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2_tcp.d",
 	"ddoc": "\n\tlibevent based driver\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Sönke Ludwig\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n",
 	"members": {
+		"aliases": [
+			[
+				{
+					"kind": "alias",
+					"protection": "public",
+					"nestedName": "TcpContextAlloc",
+					"name": "TcpContextAlloc"
+				}
+			]
+		]
 	},
 	"name": "vibe.core.drivers.libevent2_tcp"
 },
@@ -19984,9 +20144,9 @@
 										"text": "PathEntry",
 										"typeClass": "primitive",
 										"nestedName": "PathEntry",
-										"qualifiedName": "vibe.inet.url.PathEntry",
+										"qualifiedName": "vibe.inet.path.PathEntry",
 										"name": "PathEntry",
-										"moduleName": "vibe.inet.url",
+										"moduleName": "vibe.inet.path",
 										"attributes": []
 									},
 									"name": "filename"
@@ -20020,9 +20180,9 @@
 										"text": "Path",
 										"typeClass": "primitive",
 										"nestedName": "Path",
-										"qualifiedName": "vibe.inet.url.Path",
+										"qualifiedName": "vibe.inet.path.Path",
 										"name": "Path",
-										"moduleName": "vibe.inet.url",
+										"moduleName": "vibe.inet.path",
 										"attributes": []
 									},
 									"name": "tempPath"
@@ -20716,1364 +20876,6 @@
 		"structs": [
 			[
 				{
-					"ddoc": "\n\tRepresents an absolute or relative file system path.\n\n\tThis struct allows to do safe operations on paths, such as concatenation and sub paths. Checks\n\tare done to disallow invalid operations such as concatenating two absolute paths. It also\n\tvalidates path strings and allows for easy checking of malicious relative paths.\n",
-					"kind": "struct",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "Path.this",
-									"type": {
-										"text": "ref Path(string pathstr)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "pathstr"
-											}
-										],
-										"attributes": [
-											"ref"
-										]
-									},
-									"name": "this"
-								}
-							],
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "Path.this",
-									"type": {
-										"text": "ref Path(immutable(PathEntry)[] nodes, bool absolute)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "array",
-													"elementType": {
-														"kind": "type",
-														"modifiers": [
-															"immutable"
-														],
-														"typeClass": "primitive",
-														"nestedName": "PathEntry",
-														"qualifiedName": "vibe.inet.url.PathEntry",
-														"name": "PathEntry",
-														"moduleName": "vibe.inet.url"
-													},
-													"attributes": []
-												},
-												"name": "nodes"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "absolute"
-											}
-										],
-										"attributes": [
-											"ref"
-										]
-									},
-									"name": "this"
-								}
-							],
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "Path.this",
-									"type": {
-										"text": "ref Path(PathEntry entry)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "entry"
-											}
-										],
-										"attributes": [
-											"ref"
-										]
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.__xopEquals",
-									"type": {
-										"text": "bool(const(void*) p, const(void*) q)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "pointer",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "p"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "pointer",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "q"
-											}
-										],
-										"attributes": []
-									},
-									"name": "__xopEquals"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.absolute",
-									"type": {
-										"text": "const @property bool()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "absolute"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.empty",
-									"type": {
-										"text": "const @property bool()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "empty"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.endsWithSlash",
-									"type": {
-										"text": "const @property bool()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "endsWithSlash"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.endsWithSlash",
-									"type": {
-										"text": "@property void(bool v)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "v"
-											}
-										],
-										"attributes": [
-											"@property"
-										]
-									},
-									"name": "endsWithSlash"
-								}
-							],
-							[
-								{
-									"ddoc": " Determines if this path goes outside of its base path (i.e. begins with '..').\n",
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.external",
-									"type": {
-										"text": "const @property bool()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "external"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.head",
-									"type": {
-										"text": "const @property PathEntry()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "PathEntry",
-											"qualifiedName": "vibe.inet.url.PathEntry",
-											"name": "PathEntry",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "head"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.length",
-									"type": {
-										"text": "const @property uint()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "uint",
-											"qualifiedName": "uint",
-											"name": "uint",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "length"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.nodes",
-									"type": {
-										"text": "const @property immutable(PathEntry)[]()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "array",
-											"elementType": {
-												"kind": "type",
-												"modifiers": [
-													"immutable"
-												],
-												"typeClass": "primitive",
-												"nestedName": "PathEntry",
-												"qualifiedName": "vibe.inet.url.PathEntry",
-												"name": "PathEntry",
-												"moduleName": "vibe.inet.url"
-											}
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "nodes"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.normalize",
-									"type": {
-										"text": "void()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": []
-									},
-									"name": "normalize"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opBinary(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opBinary",
-									"type": {
-										"text": "const Path(const Path rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": [
-														"const"
-													]
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opBinary"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opBinary(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opBinary",
-									"type": {
-										"text": "const Path(string rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opBinary"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opBinary(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opBinary",
-									"type": {
-										"text": "const Path(PathEntry rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opBinary"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.opCmp",
-									"type": {
-										"text": "const int(ref const(Path) rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "int",
-											"qualifiedName": "int",
-											"name": "int",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": [
-														"ref"
-													]
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opCmp"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opDollar(int dim) if (dim == 0)",
-									"nestedName": "Path.opDollar",
-									"type": {
-										"text": "const size_t()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "size_t",
-											"qualifiedName": "size_t",
-											"name": "size_t",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opDollar"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.opEquals",
-									"type": {
-										"text": "const bool(ref const(Path) rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": [
-														"ref"
-													]
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opEquals"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.opIndex",
-									"type": {
-										"text": "const PathEntry(uint idx)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "PathEntry",
-											"qualifiedName": "vibe.inet.url.PathEntry",
-											"name": "PathEntry",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "idx"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opIndex"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opOpAssign",
-									"type": {
-										"text": "void(string rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": []
-									},
-									"name": "opOpAssign"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opOpAssign",
-									"type": {
-										"text": "void(PathEntry rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": []
-									},
-									"name": "opOpAssign"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
-									"nestedName": "Path.opOpAssign",
-									"type": {
-										"text": "void(Path rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": []
-									},
-									"name": "opOpAssign"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.opSlice",
-									"type": {
-										"text": "const Path(uint start, uint end)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "start"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "uint",
-													"qualifiedName": "uint",
-													"name": "uint",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "end"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opSlice"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.parentPath",
-									"type": {
-										"text": "const @property Path()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "parentPath"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.relativeTo",
-									"type": {
-										"text": "const Path(const(Path) parentPath)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "parentPath"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "relativeTo"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.startsWith",
-									"type": {
-										"text": "const bool(const(Path) rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
-													"name": "Path",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "startsWith"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.toNativeString",
-									"type": {
-										"text": "const string()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "string",
-											"qualifiedName": "string",
-											"name": "string",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "toNativeString"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "Path.toString",
-									"type": {
-										"text": "const string(bool in_url = false)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "string",
-											"qualifiedName": "string",
-											"name": "string",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"defaultValue": "false",
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "bool",
-													"qualifiedName": "bool",
-													"name": "bool",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "in_url"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "toString"
-								}
-							]
-						]
-					},
-					"nestedName": "Path",
-					"name": "Path"
-				}
-			],
-			[
-				{
-					"kind": "struct",
-					"protection": "public",
-					"members": {
-						"constructors": [
-							[
-								{
-									"kind": "constructor",
-									"protection": "public",
-									"nestedName": "PathEntry.this",
-									"type": {
-										"text": "ref PathEntry(string str)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "PathEntry",
-											"qualifiedName": "vibe.inet.url.PathEntry",
-											"name": "PathEntry",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "str"
-											}
-										],
-										"attributes": [
-											"ref"
-										]
-									},
-									"name": "this"
-								}
-							]
-						],
-						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.__xopEquals",
-									"type": {
-										"text": "bool(const(void*) p, const(void*) q)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "pointer",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "p"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "pointer",
-													"elementType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"attributes": []
-												},
-												"name": "q"
-											}
-										],
-										"attributes": []
-									},
-									"name": "__xopEquals"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"templateName": "opBinary(string OP) if (OP == \"~\")",
-									"nestedName": "PathEntry.opBinary",
-									"type": {
-										"text": "const Path(PathEntry rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
-											"name": "Path",
-											"moduleName": "vibe.inet.url"
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opBinary"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.opCmp",
-									"type": {
-										"text": "const int(ref const(PathEntry) rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "int",
-											"qualifiedName": "int",
-											"name": "int",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": [
-														"ref"
-													]
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opCmp"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.opCmp",
-									"type": {
-										"text": "const int(string rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "int",
-											"qualifiedName": "int",
-											"name": "int",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opCmp"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.opEquals",
-									"type": {
-										"text": "const bool(ref const(PathEntry) rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"modifiers": [
-														"const"
-													],
-													"typeClass": "primitive",
-													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
-													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
-													"attributes": [
-														"ref"
-													]
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opEquals"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.opEquals",
-									"type": {
-										"text": "const bool(string rhs)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "bool",
-											"qualifiedName": "bool",
-											"name": "bool",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "rhs"
-											}
-										],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "opEquals"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "PathEntry.toString",
-									"type": {
-										"text": "const string()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "string",
-											"qualifiedName": "string",
-											"name": "string",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const"
-										]
-									},
-									"name": "toString"
-								}
-							]
-						]
-					},
-					"nestedName": "PathEntry",
-					"name": "PathEntry"
-				}
-			],
-			[
-				{
 					"ddoc": "\n\tRepresents a URL decomposed into its components.\n",
 					"kind": "struct",
 					"protection": "public",
@@ -22081,6 +20883,7 @@
 						"constructors": [
 							[
 								{
+									"ddoc": " Constructs a new URL object from its components.\n",
 									"kind": "constructor",
 									"protection": "public",
 									"nestedName": "Url.this",
@@ -22137,9 +20940,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
+													"qualifiedName": "vibe.inet.path.Path",
 													"name": "Path",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "path"
@@ -22217,6 +21020,7 @@
 							],
 							[
 								{
+									"ddoc": " The anchor part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.anchor",
@@ -22242,7 +21046,7 @@
 							],
 							[
 								{
-									"ddoc": " The host part of the URL\n",
+									"ddoc": " The host part of the URL (depends on the schema)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.host",
@@ -22266,7 +21070,7 @@
 									"name": "host"
 								},
 								{
-									"ddoc": " The host part of the URL\n",
+									"ddoc": " The host part of the URL (depends on the schema)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.host",
@@ -22326,10 +21130,9 @@
 										]
 									},
 									"name": "localURI"
-								}
-							],
-							[
+								},
 								{
+									"ddoc": " The path part plus query string and anchor\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.localURI",
@@ -22387,9 +21190,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
+													"qualifiedName": "vibe.inet.path.Path",
 													"name": "Path",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "rhs"
@@ -22424,9 +21227,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
 													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "rhs"
@@ -22545,9 +21348,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
+													"qualifiedName": "vibe.inet.path.Path",
 													"name": "Path",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "rhs"
@@ -22580,9 +21383,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "PathEntry",
-													"qualifiedName": "vibe.inet.url.PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
 													"name": "PathEntry",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "rhs"
@@ -22595,6 +21398,7 @@
 							],
 							[
 								{
+									"ddoc": " The URL to the parent path with query string and anchor stripped.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.parentUrl",
@@ -22620,6 +21424,7 @@
 							],
 							[
 								{
+									"ddoc": " Constructs a URL from its string representation.\n\n\t\tTODO: additional validation required (e.g. valid host and user names and port)\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.parse",
@@ -22655,6 +21460,7 @@
 							],
 							[
 								{
+									"ddoc": " The password part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.password",
@@ -22676,10 +21482,9 @@
 										]
 									},
 									"name": "password"
-								}
-							],
-							[
+								},
 								{
+									"ddoc": " The password part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.password",
@@ -22752,9 +21557,9 @@
 											"kind": "type",
 											"typeClass": "primitive",
 											"nestedName": "Path",
-											"qualifiedName": "vibe.inet.url.Path",
+											"qualifiedName": "vibe.inet.path.Path",
 											"name": "Path",
-											"moduleName": "vibe.inet.url"
+											"moduleName": "vibe.inet.path"
 										},
 										"parameters": [],
 										"attributes": [
@@ -22786,9 +21591,9 @@
 													"kind": "type",
 													"typeClass": "primitive",
 													"nestedName": "Path",
-													"qualifiedName": "vibe.inet.url.Path",
+													"qualifiedName": "vibe.inet.path.Path",
 													"name": "Path",
-													"moduleName": "vibe.inet.url",
+													"moduleName": "vibe.inet.path",
 													"attributes": []
 												},
 												"name": "p"
@@ -22803,6 +21608,7 @@
 							],
 							[
 								{
+									"ddoc": " The port part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.port",
@@ -22824,10 +21630,9 @@
 										]
 									},
 									"name": "port"
-								}
-							],
-							[
+								},
 								{
+									"ddoc": " The port part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.port",
@@ -22865,6 +21670,7 @@
 							],
 							[
 								{
+									"ddoc": " The query string part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.queryString",
@@ -22886,10 +21692,9 @@
 										]
 									},
 									"name": "queryString"
-								}
-							],
-							[
+								},
 								{
+									"ddoc": " The query string part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.queryString",
@@ -23029,6 +21834,7 @@
 							],
 							[
 								{
+									"ddoc": " Converts this URL object to its string representation.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.toString",
@@ -23053,6 +21859,7 @@
 							],
 							[
 								{
+									"ddoc": " The user name part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.username",
@@ -23074,10 +21881,9 @@
 										]
 									},
 									"name": "username"
-								}
-							],
-							[
+								},
 								{
+									"ddoc": " The user name part of the URL (optional)\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Url.username",
@@ -23117,96 +21923,6 @@
 					},
 					"nestedName": "Url",
 					"name": "Url"
-				}
-			]
-		],
-		"functions": [
-			[
-				{
-					"ddoc": " Joins two path strings. subpath must be relative.\n",
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "joinPath",
-					"type": {
-						"text": "string(string basepath, string subpath)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "basepath"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "subpath"
-							}
-						],
-						"attributes": []
-					},
-					"name": "joinPath"
-				}
-			],
-			[
-				{
-					"ddoc": " Splits up a path string into its elements/folders\n",
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "splitPath",
-					"type": {
-						"text": "PathEntry[](string path)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "PathEntry",
-								"qualifiedName": "vibe.inet.url.PathEntry",
-								"name": "PathEntry",
-								"moduleName": "vibe.inet.url"
-							}
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "path"
-							}
-						],
-						"attributes": []
-					},
-					"name": "splitPath"
 				}
 			]
 		]
@@ -24285,7 +23001,7 @@
 		"structs": [
 			[
 				{
-					"ddoc": "\n\tMakes the variable aliases passed to one of the injectors of the inject!() template accessible\n\tto the local function.\n\n\tExamples:\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\t// access the userinfo variable:\n\t\t\tif( InjectedParams!Aliases.userinfo.length == 0 ) return;\n\n\t\t\t// it's also possible to declare a pseudo-\n\t\t\t// variable like this to access the parameters:\n\t\t\tInjectedParams!Aliases params;\n\t\t\tif( params.userinfo == \"peter\" )\n\t\t\t\tthrow Exception(\"Not allowed!\")\n\n\t\t\tNext!(Vars)(req, res);\n\t\t}\n\t\t---\n",
+					"ddoc": "\n\tMakes the variable aliases passed to one of the injectors of the inject!() template accessible\n\tto the local function.\n\n\tExamples:\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Aliases, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\t// access the userinfo variable:\n\t\t\tif( InjectedParams!Aliases.userinfo.length == 0 ) return;\n\n\t\t\t// it's also possible to declare a pseudo-\n\t\t\t// variable like this to access the parameters:\n\t\t\tInjectedParams!Aliases params;\n\t\t\tif( params.userinfo == \"peter\" )\n\t\t\t\tthrow Exception(\"Not allowed!\")\n\n\t\t\tNext!(Aliases)(req, res);\n\t\t}\n\t\t---\n",
 					"kind": "struct",
 					"protection": "public",
 					"members": {
@@ -24310,7 +23026,7 @@
 		"functions": [
 			[
 				{
-					"ddoc": "\n\tAllows to pass additional variables to a function that renders a templated page.\n\n\tThis function is useful if you need to support additional layers of functionality that should\n\tbe available to your views, such as authentication. This function allows to define variables\n\tthat should be usable from templates using so called \"injectors\". Each injector is a template\n\tfunction that can add its own parameters.\n\n\tIf you should need explicit access to one of the parameters of an upstream injector, you can use\n\tthe InjectedParams!() template.\n\n\tNOTE: this function requires at least DMD 2.060, as it suffers from DMD BUG 2962.\n\n\tExamples:\n\n\t\tThe following example will render the template \"home.dt\" and make the variables 'userinfo',\n\t\t'something_else' and 'message' available. Before the 'page' function is called,\n\t\t'authInjector' and 'somethingInjector' can process the request and decide what to do.\n\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Vars, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring something_else;\n\t\t\tNext!(Vars, something_else)(req, res);\n\t\t}\n\n\t\tvoid page(Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring message = \"Welcome to the example page!\"\n\t\t\tres.render!(\"home.dt\", Aliases, message);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto router = new UrlRouter;\n\t\t\trouter.get(\"/\", inject!(page, authInjector, somethingInjector));\n\t\t}\n\t\t---\n",
+					"ddoc": "\n\tAllows to pass additional variables to a function that renders a templated page.\n\n\tThis function is useful if you need to support additional layers of functionality that should\n\tbe available to your views, such as authentication. This function allows to define variables\n\tthat should be usable from templates using so called \"injectors\". Each injector is a template\n\tfunction that can add its own parameters.\n\n\tIf you should need explicit access to one of the parameters of an upstream injector, you can use\n\tthe InjectedParams!() template.\n\n\tNOTE: this function requires at least DMD 2.060, as it suffers from DMD BUG 2962.\n\n\tExamples:\n\n\t\tThe following example will render the template \"home.dt\" and make the variables 'userinfo',\n\t\t'something_else' and 'message' available. Before the 'page' function is called,\n\t\t'authInjector' and 'somethingInjector' can process the request and decide what to do.\n\n\t\t---\n\t\tvoid authInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring userinfo;\n\t\t\t// TODO: fill userinfo with content, throw an Unauthorized HTTP error etc.\n\t\t\tNext!(Aliases, userinfo)(req, res);\n\t\t}\n\n\t\tvoid somethingInjector(alias Next, Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring something_else;\n\t\t\tNext!(Aliases, something_else)(req, res);\n\t\t}\n\n\t\tvoid page(Aliases...)(HttpServerRequest req, HttpServerResponse res)\n\t\t{\n\t\t\tstring message = \"Welcome to the example page!\"\n\t\t\tres.render!(\"home.dt\", Aliases, message);\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto router = new UrlRouter;\n\t\t\trouter.get(\"/\", inject!(page, authInjector, somethingInjector));\n\t\t}\n\t\t---\n",
 					"kind": "function",
 					"templateName": "inject(alias Page,Injectors...)",
 					"nestedName": "inject",
@@ -24483,12 +23199,12 @@
 													"kind": "function",
 													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.get",
 													"type": {
-														"text": "inout inout(TR)()",
+														"text": "const const(TR)()",
 														"typeClass": "function",
 														"returnType": {
 															"kind": "type",
 															"modifiers": [
-																"inout"
+																"const"
 															],
 															"typeClass": "primitive",
 															"nestedName": "TR",
@@ -24498,8 +23214,29 @@
 														},
 														"parameters": [],
 														"attributes": [
-															"inout"
+															"const"
 														]
+													},
+													"name": "get"
+												}
+											],
+											[
+												{
+													"kind": "function",
+													"nestedName": "FreeListRef(T,bool INIT = true).FreeListRef.get",
+													"type": {
+														"text": "TR()",
+														"typeClass": "function",
+														"returnType": {
+															"kind": "type",
+															"typeClass": "primitive",
+															"nestedName": "TR",
+															"qualifiedName": "TR",
+															"name": "TR",
+															"moduleName": ""
+														},
+														"parameters": [],
+														"attributes": []
 													},
 													"name": "get"
 												}
@@ -32608,6 +31345,1478 @@
 	},
 	"name": "vibe.core.drivers.winrt"
 },
+"vibe.inet.path": {
+	"kind": "module",
+	"file": "..\\source\\vibe\\inet\\path.d",
+	"ddoc": "\n\tContains routines for high level path handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"members": {
+		"structs": [
+			[
+				{
+					"ddoc": "\n\tRepresents an absolute or relative file system path.\n\n\tThis struct allows to do safe operations on paths, such as concatenation and sub paths. Checks\n\tare done to disallow invalid operations such as concatenating two absolute paths. It also\n\tvalidates path strings and allows for easy checking of malicious relative paths.\n",
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"ddoc": " Constructs a Path object by parsing a path string.\n",
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Path.this",
+									"type": {
+										"text": "ref Path(string pathstr)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "pathstr"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							],
+							[
+								{
+									"ddoc": " Constructs a path object from a list of PathEntry objects.\n",
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Path.this",
+									"type": {
+										"text": "ref Path(immutable(PathEntry)[] nodes, bool absolute)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "array",
+													"elementType": {
+														"kind": "type",
+														"modifiers": [
+															"immutable"
+														],
+														"typeClass": "primitive",
+														"nestedName": "PathEntry",
+														"qualifiedName": "vibe.inet.path.PathEntry",
+														"name": "PathEntry",
+														"moduleName": "vibe.inet.path"
+													},
+													"attributes": []
+												},
+												"name": "nodes"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "absolute"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							],
+							[
+								{
+									"ddoc": " Constructs a relative path with one path entry.\n",
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "Path.this",
+									"type": {
+										"text": "ref Path(PathEntry entry)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "entry"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.__xopEquals",
+									"type": {
+										"text": "bool(const(void*) p, const(void*) q)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "p"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "q"
+											}
+										],
+										"attributes": []
+									},
+									"name": "__xopEquals"
+								}
+							],
+							[
+								{
+									"ddoc": " Determines if the path is absolute.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.absolute",
+									"type": {
+										"text": "const @property bool()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "absolute"
+								}
+							],
+							[
+								{
+									"ddoc": " True if the path contains no entries\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.empty",
+									"type": {
+										"text": "const @property bool()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "empty"
+								}
+							],
+							[
+								{
+									"ddoc": " Determines if the path ends with a slash (i.e. is a directory)\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.endsWithSlash",
+									"type": {
+										"text": "const @property bool()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "endsWithSlash"
+								},
+								{
+									"ddoc": " Determines if the path ends with a slash (i.e. is a directory)\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.endsWithSlash",
+									"type": {
+										"text": "@property void(bool v)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "v"
+											}
+										],
+										"attributes": [
+											"@property"
+										]
+									},
+									"name": "endsWithSlash"
+								}
+							],
+							[
+								{
+									"ddoc": " Determines if this path goes outside of its base path (i.e. begins with '..').\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.external",
+									"type": {
+										"text": "const @property bool()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "external"
+								}
+							],
+							[
+								{
+									"ddoc": " The last entry of the path\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.head",
+									"type": {
+										"text": "const @property PathEntry()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "PathEntry",
+											"qualifiedName": "vibe.inet.path.PathEntry",
+											"name": "PathEntry",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "head"
+								}
+							],
+							[
+								{
+									"ddoc": " The number of path entries of which this path is composed\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.length",
+									"type": {
+										"text": "const @property uint()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "uint",
+											"qualifiedName": "uint",
+											"name": "uint",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "length"
+								}
+							],
+							[
+								{
+									"ddoc": " The ist of path entries of which this path is composed\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.nodes",
+									"type": {
+										"text": "const @property immutable(PathEntry)[]()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "array",
+											"elementType": {
+												"kind": "type",
+												"modifiers": [
+													"immutable"
+												],
+												"typeClass": "primitive",
+												"nestedName": "PathEntry",
+												"qualifiedName": "vibe.inet.path.PathEntry",
+												"name": "PathEntry",
+												"moduleName": "vibe.inet.path"
+											}
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "nodes"
+								}
+							],
+							[
+								{
+									"ddoc": " Resolves all '.' and '..' path entries as far as possible.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.normalize",
+									"type": {
+										"text": "void()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": []
+									},
+									"name": "normalize"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opBinary(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opBinary",
+									"type": {
+										"text": "const Path(const Path rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": [
+														"const"
+													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opBinary"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opBinary(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opBinary",
+									"type": {
+										"text": "const Path(string rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opBinary"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opBinary(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opBinary",
+									"type": {
+										"text": "const Path(PathEntry rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opBinary"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.opCmp",
+									"type": {
+										"text": "const int(ref const(Path) rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opCmp"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opDollar(int dim) if (dim == 0)",
+									"nestedName": "Path.opDollar",
+									"type": {
+										"text": "const size_t()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "size_t",
+											"qualifiedName": "size_t",
+											"name": "size_t",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opDollar"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.opEquals",
+									"type": {
+										"text": "const bool(ref const(Path) rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.opIndex",
+									"type": {
+										"text": "const PathEntry(uint idx)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "PathEntry",
+											"qualifiedName": "vibe.inet.path.PathEntry",
+											"name": "PathEntry",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "idx"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opIndex"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opOpAssign",
+									"type": {
+										"text": "void(string rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": []
+									},
+									"name": "opOpAssign"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opOpAssign",
+									"type": {
+										"text": "void(PathEntry rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": []
+									},
+									"name": "opOpAssign"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opOpAssign(string OP) if (OP == \"~\")",
+									"nestedName": "Path.opOpAssign",
+									"type": {
+										"text": "void(Path rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": []
+									},
+									"name": "opOpAssign"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.opSlice",
+									"type": {
+										"text": "const Path(uint start, uint end)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "start"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "uint",
+													"qualifiedName": "uint",
+													"name": "uint",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "end"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opSlice"
+								}
+							],
+							[
+								{
+									"ddoc": " The parent path\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.parentPath",
+									"type": {
+										"text": "const @property Path()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "parentPath"
+								}
+							],
+							[
+								{
+									"ddoc": " Computes the relative path from `parentPath` to this path.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.relativeTo",
+									"type": {
+										"text": "const Path(const(Path) parentPath)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "parentPath"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "relativeTo"
+								}
+							],
+							[
+								{
+									"ddoc": " Tests if `rhs` is an anchestor or the same as this path. \n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.startsWith",
+									"type": {
+										"text": "const bool(const(Path) rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "Path",
+													"qualifiedName": "vibe.inet.path.Path",
+													"name": "Path",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "startsWith"
+								}
+							],
+							[
+								{
+									"ddoc": " Converts the Path object to a native path string (backslash as path separator on Windows).\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.toNativeString",
+									"type": {
+										"text": "const string()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "toNativeString"
+								}
+							],
+							[
+								{
+									"ddoc": " Converts the Path back to a string representation using slashes.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Path.toString",
+									"type": {
+										"text": "const string(bool in_url = false)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"defaultValue": "false",
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "bool",
+													"qualifiedName": "bool",
+													"name": "bool",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "in_url"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "toString"
+								}
+							]
+						]
+					},
+					"nestedName": "Path",
+					"name": "Path"
+				}
+			],
+			[
+				{
+					"kind": "struct",
+					"protection": "public",
+					"members": {
+						"constructors": [
+							[
+								{
+									"kind": "constructor",
+									"protection": "public",
+									"nestedName": "PathEntry.this",
+									"type": {
+										"text": "ref PathEntry(string str)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "PathEntry",
+											"qualifiedName": "vibe.inet.path.PathEntry",
+											"name": "PathEntry",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "str"
+											}
+										],
+										"attributes": [
+											"ref"
+										]
+									},
+									"name": "this"
+								}
+							]
+						],
+						"functions": [
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.__xopEquals",
+									"type": {
+										"text": "bool(const(void*) p, const(void*) q)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "p"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "pointer",
+													"elementType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"attributes": []
+												},
+												"name": "q"
+											}
+										],
+										"attributes": []
+									},
+									"name": "__xopEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"templateName": "opBinary(string OP) if (OP == \"~\")",
+									"nestedName": "PathEntry.opBinary",
+									"type": {
+										"text": "const Path(PathEntry rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "Path",
+											"qualifiedName": "vibe.inet.path.Path",
+											"name": "Path",
+											"moduleName": "vibe.inet.path"
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opBinary"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.opCmp",
+									"type": {
+										"text": "const int(ref const(PathEntry) rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opCmp"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.opCmp",
+									"type": {
+										"text": "const int(string rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "int",
+											"qualifiedName": "int",
+											"name": "int",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opCmp"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.opEquals",
+									"type": {
+										"text": "const bool(ref const(PathEntry) rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"modifiers": [
+														"const"
+													],
+													"typeClass": "primitive",
+													"nestedName": "PathEntry",
+													"qualifiedName": "vibe.inet.path.PathEntry",
+													"name": "PathEntry",
+													"moduleName": "vibe.inet.path",
+													"attributes": [
+														"ref"
+													]
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.opEquals",
+									"type": {
+										"text": "const bool(string rhs)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "bool",
+											"qualifiedName": "bool",
+											"name": "bool",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "rhs"
+											}
+										],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "opEquals"
+								}
+							],
+							[
+								{
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "PathEntry.toString",
+									"type": {
+										"text": "const string()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const"
+										]
+									},
+									"name": "toString"
+								}
+							]
+						]
+					},
+					"nestedName": "PathEntry",
+					"name": "PathEntry"
+				}
+			]
+		],
+		"functions": [
+			[
+				{
+					"ddoc": " Joins two path strings. subpath must be relative.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "joinPath",
+					"type": {
+						"text": "string(string basepath, string subpath)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "string",
+							"qualifiedName": "string",
+							"name": "string",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "basepath"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "subpath"
+							}
+						],
+						"attributes": []
+					},
+					"name": "joinPath"
+				}
+			],
+			[
+				{
+					"ddoc": " Splits up a path string into its elements/folders\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "splitPath",
+					"type": {
+						"text": "PathEntry[](string path)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "PathEntry",
+								"qualifiedName": "vibe.inet.path.PathEntry",
+								"name": "PathEntry",
+								"moduleName": "vibe.inet.path"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "path"
+							}
+						],
+						"attributes": []
+					},
+					"name": "splitPath"
+				}
+			]
+		]
+	},
+	"name": "vibe.inet.path"
+},
 "vibe.core.drivers.libevent2": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\drivers\\libevent2.d",
@@ -32621,6 +32830,22 @@
 					"nestedName": "EWOULDBLOCK",
 					"name": "EWOULDBLOCK"
 				}
+			],
+			[
+				{
+					"kind": "alias",
+					"protection": "public",
+					"nestedName": "LevConditionAlloc",
+					"name": "LevConditionAlloc"
+				}
+			],
+			[
+				{
+					"kind": "alias",
+					"protection": "public",
+					"nestedName": "LevMutexAlloc",
+					"name": "LevMutexAlloc"
+				}
 			]
 		],
 		"structs": [
@@ -32629,16 +32854,6 @@
 					"kind": "struct",
 					"protection": "public",
 					"members": {
-						"aliases": [
-							[
-								{
-									"kind": "alias",
-									"protection": "public",
-									"nestedName": "LevCondition.Alloc",
-									"name": "Alloc"
-								}
-							]
-						],
 						"functions": [
 							[
 								{
@@ -32773,16 +32988,6 @@
 					"kind": "struct",
 					"protection": "public",
 					"members": {
-						"aliases": [
-							[
-								{
-									"kind": "alias",
-									"protection": "public",
-									"nestedName": "LevMutex.Alloc",
-									"name": "Alloc"
-								}
-							]
-						],
 						"functions": [
 							[
 								{
@@ -43364,242 +43569,18 @@
 					"kind": "class",
 					"protection": "public",
 					"members": {
+						"aliases": [
+							[
+								{
+									"ddoc": " Alias for backwards compatibility\n",
+									"kind": "alias",
+									"protection": "public",
+									"nestedName": "UrlRouter.addRoute",
+									"name": "addRoute"
+								}
+							]
+						],
 						"functions": [
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "UrlRouter.addRoute",
-									"type": {
-										"text": "void(HttpMethod method, string path, IHttpServerRequestHandler cb)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "HttpMethod",
-													"qualifiedName": "vibe.http.common.HttpMethod",
-													"name": "HttpMethod",
-													"moduleName": "vibe.http.common",
-													"attributes": []
-												},
-												"name": "method"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "path"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "IHttpServerRequestHandler",
-													"qualifiedName": "vibe.http.server.IHttpServerRequestHandler",
-													"name": "IHttpServerRequestHandler",
-													"moduleName": "vibe.http.server",
-													"attributes": []
-												},
-												"name": "cb"
-											}
-										],
-										"attributes": []
-									},
-									"name": "addRoute"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "UrlRouter.addRoute",
-									"type": {
-										"text": "void(HttpMethod method, string path, void function(HttpServerRequest req, HttpServerResponse res) cb)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "HttpMethod",
-													"qualifiedName": "vibe.http.common.HttpMethod",
-													"name": "HttpMethod",
-													"moduleName": "vibe.http.common",
-													"attributes": []
-												},
-												"name": "method"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "path"
-											},
-											{
-												"type": {
-													"typeClass": "function",
-													"returnType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"parameters": [
-														{
-															"type": {
-																"kind": "type",
-																"typeClass": "primitive",
-																"nestedName": "HttpServerRequest",
-																"qualifiedName": "vibe.http.server.HttpServerRequest",
-																"name": "HttpServerRequest",
-																"moduleName": "vibe.http.server",
-																"attributes": []
-															},
-															"name": "req"
-														},
-														{
-															"type": {
-																"kind": "type",
-																"typeClass": "primitive",
-																"nestedName": "HttpServerResponse",
-																"qualifiedName": "vibe.http.server.HttpServerResponse",
-																"name": "HttpServerResponse",
-																"moduleName": "vibe.http.server",
-																"attributes": []
-															},
-															"name": "res"
-														}
-													],
-													"attributes": []
-												},
-												"name": "cb"
-											}
-										],
-										"attributes": []
-									},
-									"name": "addRoute"
-								}
-							],
-							[
-								{
-									"kind": "function",
-									"protection": "public",
-									"nestedName": "UrlRouter.addRoute",
-									"type": {
-										"text": "void(HttpMethod method, string path, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "void",
-											"qualifiedName": "void",
-											"name": "void",
-											"moduleName": ""
-										},
-										"parameters": [
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "HttpMethod",
-													"qualifiedName": "vibe.http.common.HttpMethod",
-													"name": "HttpMethod",
-													"moduleName": "vibe.http.common",
-													"attributes": []
-												},
-												"name": "method"
-											},
-											{
-												"type": {
-													"kind": "type",
-													"typeClass": "primitive",
-													"nestedName": "string",
-													"qualifiedName": "string",
-													"name": "string",
-													"moduleName": "",
-													"attributes": []
-												},
-												"name": "path"
-											},
-											{
-												"type": {
-													"typeClass": "delegate",
-													"returnType": {
-														"kind": "type",
-														"typeClass": "primitive",
-														"nestedName": "void",
-														"qualifiedName": "void",
-														"name": "void",
-														"moduleName": ""
-													},
-													"parameters": [
-														{
-															"type": {
-																"kind": "type",
-																"typeClass": "primitive",
-																"nestedName": "HttpServerRequest",
-																"qualifiedName": "vibe.http.server.HttpServerRequest",
-																"name": "HttpServerRequest",
-																"moduleName": "vibe.http.server",
-																"attributes": []
-															},
-															"name": "req"
-														},
-														{
-															"type": {
-																"kind": "type",
-																"typeClass": "primitive",
-																"nestedName": "HttpServerResponse",
-																"qualifiedName": "vibe.http.server.HttpServerResponse",
-																"name": "HttpServerResponse",
-																"moduleName": "vibe.http.server",
-																"attributes": []
-															},
-															"name": "res"
-														}
-													],
-													"attributes": []
-												},
-												"name": "cb"
-											}
-										],
-										"attributes": []
-									},
-									"name": "addRoute"
-								}
-							],
 							[
 								{
 									"ddoc": " Adds a new route for requests matching the specified pattern.\n",
@@ -44240,6 +44221,240 @@
 										"attributes": []
 									},
 									"name": "handleRequest"
+								}
+							],
+							[
+								{
+									"ddoc": " Adds a new route for requests matching the specified HTTP method and pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.match",
+									"type": {
+										"text": "void(HttpMethod method, string path, IHttpServerRequestHandler cb)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
+													"attributes": []
+												},
+												"name": "method"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "path"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "IHttpServerRequestHandler",
+													"qualifiedName": "vibe.http.server.IHttpServerRequestHandler",
+													"name": "IHttpServerRequestHandler",
+													"moduleName": "vibe.http.server",
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "match"
+								},
+								{
+									"ddoc": " Adds a new route for requests matching the specified HTTP method and pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.match",
+									"type": {
+										"text": "void(HttpMethod method, string path, void function(HttpServerRequest req, HttpServerResponse res) cb)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
+													"attributes": []
+												},
+												"name": "method"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "path"
+											},
+											{
+												"type": {
+													"typeClass": "function",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerRequest",
+																"qualifiedName": "vibe.http.server.HttpServerRequest",
+																"name": "HttpServerRequest",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "req"
+														},
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerResponse",
+																"qualifiedName": "vibe.http.server.HttpServerResponse",
+																"name": "HttpServerResponse",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "res"
+														}
+													],
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "match"
+								},
+								{
+									"ddoc": " Adds a new route for requests matching the specified HTTP method and pattern.\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "UrlRouter.match",
+									"type": {
+										"text": "void(HttpMethod method, string path, void delegate(HttpServerRequest req, HttpServerResponse res) cb)",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "void",
+											"qualifiedName": "void",
+											"name": "void",
+											"moduleName": ""
+										},
+										"parameters": [
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "HttpMethod",
+													"qualifiedName": "vibe.http.common.HttpMethod",
+													"name": "HttpMethod",
+													"moduleName": "vibe.http.common",
+													"attributes": []
+												},
+												"name": "method"
+											},
+											{
+												"type": {
+													"kind": "type",
+													"typeClass": "primitive",
+													"nestedName": "string",
+													"qualifiedName": "string",
+													"name": "string",
+													"moduleName": "",
+													"attributes": []
+												},
+												"name": "path"
+											},
+											{
+												"type": {
+													"typeClass": "delegate",
+													"returnType": {
+														"kind": "type",
+														"typeClass": "primitive",
+														"nestedName": "void",
+														"qualifiedName": "void",
+														"name": "void",
+														"moduleName": ""
+													},
+													"parameters": [
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerRequest",
+																"qualifiedName": "vibe.http.server.HttpServerRequest",
+																"name": "HttpServerRequest",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "req"
+														},
+														{
+															"type": {
+																"kind": "type",
+																"typeClass": "primitive",
+																"nestedName": "HttpServerResponse",
+																"qualifiedName": "vibe.http.server.HttpServerResponse",
+																"name": "HttpServerResponse",
+																"moduleName": "vibe.http.server",
+																"attributes": []
+															},
+															"name": "res"
+														}
+													],
+													"attributes": []
+												},
+												"name": "cb"
+											}
+										],
+										"attributes": []
+									},
+									"name": "match"
 								}
 							],
 							[
@@ -45546,6 +45761,52 @@
 	"file": "..\\source\\vibe\\textfilter\\ddoc.d",
 	"ddoc": "\n\tDietDoc/DDOC support routines\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
+		"enums": [
+			[
+				{
+					"kind": "enum",
+					"protection": "public",
+					"members": [
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "BLANK",
+							"name": "BLANK"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "TEXT",
+							"name": "TEXT"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "CODE",
+							"name": "CODE"
+						},
+						{
+							"kind": "enum member",
+							"protection": "public",
+							"nestedName": "SECTION",
+							"name": "SECTION"
+						}
+					],
+					"nestedName": "$global",
+					"baseType": {
+						"kind": "type",
+						"text": "void",
+						"typeClass": "primitive",
+						"nestedName": "void",
+						"qualifiedName": "void",
+						"name": "void",
+						"moduleName": "",
+						"attributes": []
+					},
+					"name": "$global"
+				}
+			]
+		],
 		"functions": [
 			[
 				{
@@ -45901,6 +46162,68 @@
 						"attributes": []
 					},
 					"name": "getItemsForKind"
+				},
+				{
+					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "getItemGroupsForKind",
+					"type": {
+						"text": "Json[](string prot, string kind, Json n)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "array",
+							"elementType": {
+								"kind": "type",
+								"typeClass": "primitive",
+								"nestedName": "Json",
+								"qualifiedName": "vibe.data.json.Json",
+								"name": "Json",
+								"moduleName": "vibe.data.json"
+							}
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "prot"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "kind"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Json",
+									"qualifiedName": "vibe.data.json.Json",
+									"name": "Json",
+									"moduleName": "vibe.data.json",
+									"attributes": []
+								},
+								"name": "n"
+							}
+						],
+						"attributes": []
+					},
+					"name": "getItemGroupsForKind"
 				},
 				{
 					"ddoc": "\n\tDetermines if a DDOCsteroids node contains a certain kind of child.\n",

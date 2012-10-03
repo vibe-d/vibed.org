@@ -54,7 +54,7 @@ block body
 			table
 				col.caption
 				tr
-					th Interface name
+					th Class name
 					th Description
 				- foreach( f; classes(mod) )
 					tr
@@ -70,7 +70,7 @@ block body
 			table
 				col.caption
 				tr
-					th Interface name
+					th Struct name
 					th Description
 				- foreach( f; structs(mod) )
 					tr
@@ -86,7 +86,7 @@ block body
 			table
 				col.caption
 				tr
-					th Interface name
+					th Enum name
 					th Description
 				- foreach( f; enums(mod) )
 					tr
@@ -102,12 +102,15 @@ block body
 			table
 				col.caption
 				tr
-					th Interface name
+					th Alias name
+					th Type
 					th Description
 				- foreach( f; aliases(mod) )
 					tr
+						td= f.name
 						td
-							a(href="#{f.name}")= f.name
+							- if( "type" in f )
+								|!= formatType(f["type"])
 						td
 							- if( "ddoc" in f )
 								|!= formatDdocComment(f.ddoc, 3, sec => sec == "$Short")
