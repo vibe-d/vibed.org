@@ -1,6 +1,7 @@
 extends layout
 
 block defs
+	- import api;
 	- import vibe.textfilter.ddoc;
 	- auto mod = info.modules[info.moduleName];
 
