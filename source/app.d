@@ -21,33 +21,50 @@ void download(HttpServerRequest req, HttpServerResponse res)
 
 void showApi(HttpServerRequest req, HttpServerResponse res)
 {
+	struct Info2 {
+		string[] moduleNames;
+		Json[string] modules;
+		Json[] projectTree;
+	}
+	Info2 info;
+
+	info.moduleNames = s_moduleNames;
+	info.modules = s_modules;
+	info.projectTree = s_projectTree;
+
 	res.renderCompat!("api.dt",
 		HttpServerRequest, "req",
-		string[], "moduleNames",
-		Json[string], "modules",
-		Json[], "projectTree")
-		(Variant(req), Variant(s_moduleNames), Variant(s_modules), Variant(s_projectTree));
+		Info2*, "info")
+		(Variant(req), Variant(&info));
 }
 
 void showApiModule(HttpServerRequest req, HttpServerResponse res)
 {
-	string moduleName = req.params["modulename"];
+	struct Info2 {
+		string[] moduleNames;
+		Json[string] modules;
+		Json[] projectTree;
+		string moduleName;
+	}
+	Info2 info;
 
-	auto pm = moduleName in s_modules;
+	info.moduleName = req.params["modulename"];
+	info.moduleNames = s_moduleNames;
+	info.modules = s_modules;
+	info.projectTree = s_projectTree;
+
+	auto pm = info.moduleName in s_modules;
 	if( pm is null ) return;
 
 	res.renderCompat!("api-module.dt",
 		HttpServerRequest, "req",
-		string[], "moduleNames",
-		Json[string], "modules",
-		Json[], "projectTree",
-		string, "moduleName")
-		(Variant(req), Variant(s_moduleNames), Variant(s_modules), Variant(s_projectTree), Variant(moduleName));
+		Info2*, "info")
+		(Variant(req), Variant(&info));
 }
 
 void showApiItem(HttpServerRequest req, HttpServerResponse res)
 {
-	struct Info {
+	struct Info3 {
 		string[] moduleNames;
 		Json[string] modules;
 		Json[] projectTree;
@@ -55,7 +72,7 @@ void showApiItem(HttpServerRequest req, HttpServerResponse res)
 		Json item;
 		Json overloads;
 	}
-	Info info;
+	Info3 info;
 
 
 	info.moduleName = req.params["modulename"];
@@ -87,15 +104,15 @@ void showApiItem(HttpServerRequest req, HttpServerResponse res)
 	switch( info.item.kind.get!string ){
 		default: logWarn("Unknown API item kind: %s", info.item.kind.get!string); return;
 		case "function":
-			res.renderCompat!("api-function.dt", HttpServerRequest, "req", Info*, "info")(Variant(req), Variant(&info));
+			res.renderCompat!("api-function.dt", HttpServerRequest, "req", Info3*, "info")(Variant(req), Variant(&info));
 			break;
 		case "interface":
 		case "class":
 		case "struct":
-			res.renderCompat!("api-class.dt", HttpServerRequest, "req", Info*, "info")(Variant(req), Variant(&info));
+			res.renderCompat!("api-class.dt", HttpServerRequest, "req", Info3*, "info")(Variant(req), Variant(&info));
 			break;
 		case "enum":
-			res.renderCompat!("api-enum.dt", HttpServerRequest, "req", Info*, "info")(Variant(req), Variant(&info));
+			res.renderCompat!("api-enum.dt", HttpServerRequest, "req", Info3*, "info")(Variant(req), Variant(&info));
 			break;
 	}
 }

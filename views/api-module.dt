@@ -2,30 +2,14 @@ extends layout
 
 block defs
 	- import vibe.textfilter.ddoc;
-	- auto mod = modules[moduleName];
+	- auto mod = info.modules[info.moduleName];
 
 block title
-	- auto title = "module " ~ moduleName;
+	- auto title = "module " ~ info.moduleName;
 	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
 	
 block navigation
-	ul
-		- foreach( mname; moduleNames )
-			- auto m = modules[mname];
-			li
-				- if( m.kind == "package" )
-					ul
-						- foreach( sm; m )
-							li
-								- if( m.kind == "package" )
-									ul
-										- foreach( ssm; sm )
-											li
-												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
-								- else
-									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
-				- else
-					a(href="#{req.rootDir}api/#{m.name}")= m.name
+	include api-module-nav
 		
 block body
 	

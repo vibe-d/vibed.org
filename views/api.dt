@@ -8,24 +8,8 @@ block title
 	link(rel="stylesheet", href="#{req.rootDir}styles/api.css", type="text/css")
 	
 block navigation
-	ul
-		- foreach( mname; moduleNames )
-			- auto m = modules[mname];
-			li
-				- if( m.kind == "package" )
-					ul
-						- foreach( sm; m )
-							li
-								- if( m.kind == "package" )
-									ul
-										- foreach( ssm; sm )
-											li
-												a(href="#{req.rootDir}api/#{m.name}.#{sm.name}.#{ssm.name}")= ssm.name
-								- else
-									a(href="#{req.rootDir}api/#{m.name}.#{sm.name}")= sm.name
-				- else
-					a(href="#{req.rootDir}api/#{m.name}")= m.name
-		
+	include api-module-nav
+
 block body
 	
 	table
@@ -33,8 +17,8 @@ block body
 		tr
 			th Module
 			th Description
-		- foreach( mname; moduleNames )
-			- auto m = modules[mname];
+		- foreach( mname; info.moduleNames )
+			- auto m = info.modules[mname];
 			tr
 				td
 					a(href="#{m.name}/")= m.name

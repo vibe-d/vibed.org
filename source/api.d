@@ -21,7 +21,7 @@ string getFunctionName(Json proto)
 
 string formatType()(Json type)
 {
-	logInfo("format type: %s", type);
+	logDebug("format type: %s", type);
 	auto ret = appender!string();
 	formatType(ret, type);
 	return ret.data();
