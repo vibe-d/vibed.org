@@ -4106,105 +4106,9 @@
 "vibe.templ.diet": {
 	"kind": "module",
 	"file": "..\\source\\vibe\\templ\\diet.d",
-	"ddoc": "\n\tImplements a compile-time Diet template parser.\n\n\tDiet templates are an more or less compatible incarnation of Jade templates but with\n\tembedded D source instead of JavaScript. The Diet syntax reference is found at\n\t$(LINK http://vibed.org/templates).\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
+	"ddoc": "\n\tImplements a compile-time Diet template parser.\n\n\tDiet templates are an more or less compatible incarnation of Jade templates but with\n\tembedded D source instead of JavaScript. The Diet syntax reference is found at\n\t$(LINK http://vibed.org/templates/diet).\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n",
 	"members": {
 		"functions": [
-			[
-				{
-					"kind": "function",
-					"templateName": "_toString(T)",
-					"nestedName": "_toString",
-					"type": {
-						"text": "string(T v)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "T",
-									"qualifiedName": "T",
-									"name": "T",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "v"
-							}
-						],
-						"attributes": []
-					},
-					"name": "_toString"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "buildSpecialTag(alias node_stack)",
-					"nestedName": "buildSpecialTag",
-					"type": {
-						"text": "string(string tag, int level, ref bool in_string)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "tag"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "level"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "bool",
-									"qualifiedName": "bool",
-									"name": "bool",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "in_string"
-							}
-						],
-						"attributes": []
-					},
-					"name": "buildSpecialTag"
-				}
-			],
 			[
 				{
 					"kind": "function",
@@ -4225,216 +4129,6 @@
 						"attributes": []
 					},
 					"name": "dietParser"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "extractDependencies",
-					"type": {
-						"text": "string[](const(Line[]) lines)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "array",
-							"elementType": {
-								"kind": "type",
-								"typeClass": "primitive",
-								"nestedName": "string",
-								"qualifiedName": "string",
-								"name": "string",
-								"moduleName": ""
-							}
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"modifiers": [
-										"const"
-									],
-									"typeClass": "array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "Line",
-										"qualifiedName": "vibe.templ.diet.Line",
-										"name": "Line",
-										"moduleName": "vibe.templ.diet"
-									},
-									"attributes": []
-								},
-								"name": "lines"
-							}
-						],
-						"attributes": []
-					},
-					"name": "extractDependencies"
-				}
-			],
-			[
-				{
-					"ddoc": "\n\n",
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "filterCSS",
-					"type": {
-						"text": "string(string text, int indent)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "text"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "indent"
-							}
-						],
-						"attributes": []
-					},
-					"name": "filterCSS"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "filterJavaScript",
-					"type": {
-						"text": "string(string text, int indent)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "text"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "indent"
-							}
-						],
-						"attributes": []
-					},
-					"name": "filterJavaScript"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "filterMarkdown",
-					"type": {
-						"text": "string(string text, int indent)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "text"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "int",
-									"qualifiedName": "int",
-									"name": "int",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "indent"
-							}
-						],
-						"attributes": []
-					},
-					"name": "filterMarkdown"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "isPartOf(string str,STRINGS...)",
-					"nestedName": "isPartOf",
-					"type": {
-						"text": "bool()",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [],
-						"attributes": []
-					},
-					"name": "isPartOf"
 				}
 			],
 			[
@@ -4523,88 +4217,6 @@
 						"attributes": []
 					},
 					"name": "parseDietFileCompat"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "readFileRec(string FILE,ALREADY_READ...)",
-					"nestedName": "readFileRec",
-					"type": {
-						"text": "void(ref TemplateBlock[] dst)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "TemplateBlock",
-										"qualifiedName": "vibe.templ.diet.TemplateBlock",
-										"name": "TemplateBlock",
-										"moduleName": "vibe.templ.diet"
-									},
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							}
-						],
-						"attributes": []
-					},
-					"name": "readFileRec"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"templateName": "readFilesRec(alias FILES,ALREADY_READ...)",
-					"nestedName": "readFilesRec",
-					"type": {
-						"text": "void(ref TemplateBlock[] dst)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "array",
-									"elementType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "TemplateBlock",
-										"qualifiedName": "vibe.templ.diet.TemplateBlock",
-										"name": "TemplateBlock",
-										"moduleName": "vibe.templ.diet"
-									},
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "dst"
-							}
-						],
-						"attributes": []
-					},
-					"name": "readFilesRec"
 				}
 			],
 			[
@@ -5404,6 +5016,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " Creates a new session.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.create",
@@ -5426,6 +5039,7 @@
 							],
 							[
 								{
+									"ddoc": " Terminates the given sessiom.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.destroy",
@@ -5461,6 +5075,7 @@
 							],
 							[
 								{
+									"ddoc": " Returns the value for a given session key.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.get",
@@ -5523,6 +5138,7 @@
 							],
 							[
 								{
+									"ddoc": " Determines if a certain session key is set.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.isKeySet",
@@ -5572,6 +5188,7 @@
 							],
 							[
 								{
+									"ddoc": " Iterates all key/value pairs stored in the given session. \n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.iterateSession",
@@ -5656,6 +5273,7 @@
 							],
 							[
 								{
+									"ddoc": " Opens an existing session.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.open",
@@ -5691,6 +5309,7 @@
 							],
 							[
 								{
+									"ddoc": " Sets a name/value pair for a given session.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "SessionStore.set",
@@ -10395,6 +10014,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tParses a date+time string according to RFC-822/5322.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "parseRFC822DateTimeString",
@@ -10493,6 +10113,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tReturns the RFC-822/5322 date string representation of the given time.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "toRFC822DateString",
@@ -10528,6 +10149,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tReturns the RFC-822 date+time string representation of the given time.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "toRFC822DateTimeString",
@@ -10563,6 +10185,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tReturns the RFC-822 time string representation of the given time.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "toRFC822TimeString",
@@ -10696,6 +10319,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tWrites an RFC-822/5322 date string to the given output range.\n",
 					"kind": "function",
 					"templateName": "writeRFC822DateString(R)",
 					"nestedName": "writeRFC822DateString",
@@ -10745,6 +10369,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tWrites an RFC-822 date+time string to the given output range.\n",
 					"kind": "function",
 					"templateName": "writeRFC822DateTimeString(R)",
 					"nestedName": "writeRFC822DateTimeString",
@@ -10794,6 +10419,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tWrites an RFC-822 time string to the given output range.\n",
 					"kind": "function",
 					"templateName": "writeRFC822TimeString(R)",
 					"nestedName": "writeRFC822TimeString",
@@ -12010,7 +11636,7 @@
 						"functions": [
 							[
 								{
-									"ddoc": "\n\t\tQueries if there is data available for immediate, non-blocking read.\n\t\n",
+									"ddoc": " Queries if there is data available for immediate, non-blocking read.\n\t\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "InputStream.dataAvailableForRead",
@@ -12935,6 +12561,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " Emits the signal, waking up all owners of the signal.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Signal.emit",
@@ -12957,6 +12584,7 @@
 							],
 							[
 								{
+									"ddoc": " A counter that is increased with every emit() call\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Signal.emitCount",
@@ -12982,6 +12610,7 @@
 							],
 							[
 								{
+									"ddoc": " Acquires ownership and waits until the signal is emitted.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Signal.wait",
@@ -13004,6 +12633,7 @@
 							],
 							[
 								{
+									"ddoc": " Acquires ownership and waits until the signal is emitted if no emit has happened since the given reference emit count.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "Signal.wait",
@@ -13692,6 +13322,7 @@
 			],
 			[
 				{
+					"ddoc": " Finds the first occurence of any of the characters in `chars`\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "countUntilAny",
@@ -13739,6 +13370,7 @@
 			],
 			[
 				{
+					"ddoc": " Formats a string using formattedWrite() and returns it.\n",
 					"kind": "function",
 					"templateName": "formatString(ARGS...)",
 					"nestedName": "formatString",
@@ -13786,6 +13418,7 @@
 			],
 			[
 				{
+					"ddoc": " Special version of icmp() with optimization for ASCII characters\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "icmp2",
@@ -13833,6 +13466,7 @@
 			],
 			[
 				{
+					"ddoc": " ASCII alpha character check\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "isAlpha",
@@ -13964,6 +13598,7 @@
 			],
 			[
 				{
+					"ddoc": " ASCII whitespace trimming (space and tab)\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "stripA",
@@ -13999,6 +13634,7 @@
 			],
 			[
 				{
+					"ddoc": " ASCII whitespace trimming (space and tab)\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "stripLeftA",
@@ -14034,6 +13670,7 @@
 			],
 			[
 				{
+					"ddoc": " ASCII whitespace trimming (space and tab)\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "stripRightA",
@@ -14364,6 +14001,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tAugments the given HTTP request with an HTTP Basic Auth header.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "addBasicAuth",
@@ -14423,6 +14061,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tReturns a request handler that enforces request to be authenticated using HTTP Basic Auth.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "performBasicAuth",
@@ -14528,6 +14167,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tEnforces HTTP Basic Auth authentication on the given req/res pair.\n\n\tParams:\n\t\treq = Request object that is to be checked\n\t\tres = Response object that will be used for authentication errors\n\t\trealm = HTTP Basic Auth realm reported to the client\n\t\tpwcheck = A delegate queried for validating user/password pairs\n\n\tReturns: Returns the name of the authenticated user.\n\n\tThrows: Throws a HttpStatusExeption in case of an authentication failure.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "performBasicAuth",
@@ -15295,6 +14935,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " The byte limit of the stream that emitted the exception\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "LimitException.limit",
@@ -15568,6 +15209,7 @@
 							],
 							[
 								{
+									"ddoc": " The stream that is wrapped by this one\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "LimitedInputStream.sourceStream",
@@ -20422,6 +20064,53 @@
 					"protection": "public",
 					"nestedName": "download",
 					"type": {
+						"text": "InputStream(Url url, HttpClient client = null)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "InputStream",
+							"qualifiedName": "vibe.stream.stream.InputStream",
+							"name": "InputStream",
+							"moduleName": "vibe.stream.stream"
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Url",
+									"qualifiedName": "vibe.inet.url.Url",
+									"name": "Url",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "url"
+							},
+							{
+								"defaultValue": "null",
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "HttpClient",
+									"qualifiedName": "vibe.http.client.HttpClient",
+									"name": "HttpClient",
+									"moduleName": "vibe.http.client",
+									"attributes": []
+								},
+								"name": "client"
+							}
+						],
+						"attributes": []
+					},
+					"name": "download"
+				},
+				{
+					"ddoc": "\n\tDownloads a file from the specified URL.\n\n\tAny redirects will be followed until the actual file resource is reached or if the redirection\n\tlimit of 10 is reached. Note that only HTTP(S) is currently supported.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "download",
+					"type": {
 						"text": "void(string url, string filename)",
 						"typeClass": "function",
 						"returnType": {
@@ -20461,6 +20150,52 @@
 						"attributes": []
 					},
 					"name": "download"
+				},
+				{
+					"ddoc": "\n\tDownloads a file from the specified URL.\n\n\tAny redirects will be followed until the actual file resource is reached or if the redirection\n\tlimit of 10 is reached. Note that only HTTP(S) is currently supported.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "download",
+					"type": {
+						"text": "void(Url url, Path filename)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Url",
+									"qualifiedName": "vibe.inet.url.Url",
+									"name": "Url",
+									"moduleName": "vibe.inet.url",
+									"attributes": []
+								},
+								"name": "url"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "Path",
+									"qualifiedName": "vibe.inet.path.Path",
+									"name": "Path",
+									"moduleName": "vibe.inet.path",
+									"attributes": []
+								},
+								"name": "filename"
+							}
+						],
+						"attributes": []
+					},
+					"name": "download"
 				}
 			]
 		]
@@ -20475,7 +20210,7 @@
 		"functions": [
 			[
 				{
-					"ddoc": "\n\tThe predefined vibe.d application entry point.\n",
+					"ddoc": "\n\tThe predefined vibe.d application entry point.\n\n\tThis function will automatically be executed if you import the module vibe.d in your code. It\n\twill perform default command line parsing and starts the event loop.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "main",
@@ -20584,6 +20319,7 @@
 		"classes": [
 			[
 				{
+					"ddoc": " OutputStream that collects the written data in memory and allows to query it\n\tas a byte array.\n",
 					"kind": "class",
 					"protection": "public",
 					"members": {
@@ -20628,6 +20364,7 @@
 						"functions": [
 							[
 								{
+									"ddoc": " An array with all data written to the stream so far.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MemoryOutputStream.data",
@@ -20700,6 +20437,7 @@
 							],
 							[
 								{
+									"ddoc": " Reserves space for data - useful for optimization.\n",
 									"kind": "function",
 									"protection": "public",
 									"nestedName": "MemoryOutputStream.reserve",
@@ -21525,30 +21263,6 @@
 									"ddoc": " The path part of the URL\n",
 									"kind": "function",
 									"protection": "public",
-									"nestedName": "Url.pathString",
-									"type": {
-										"text": "const @property string()",
-										"typeClass": "function",
-										"returnType": {
-											"kind": "type",
-											"typeClass": "primitive",
-											"nestedName": "string",
-											"qualifiedName": "string",
-											"name": "string",
-											"moduleName": ""
-										},
-										"parameters": [],
-										"attributes": [
-											"const",
-											"@property"
-										]
-									},
-									"name": "pathString"
-								},
-								{
-									"ddoc": " The path part of the URL\n",
-									"kind": "function",
-									"protection": "public",
 									"nestedName": "Url.path",
 									"type": {
 										"text": "const @property Path()",
@@ -21604,6 +21318,32 @@
 										]
 									},
 									"name": "path"
+								}
+							],
+							[
+								{
+									"ddoc": " The path part of the URL in the original string form\n",
+									"kind": "function",
+									"protection": "public",
+									"nestedName": "Url.pathString",
+									"type": {
+										"text": "const @property string()",
+										"typeClass": "function",
+										"returnType": {
+											"kind": "type",
+											"typeClass": "primitive",
+											"nestedName": "string",
+											"qualifiedName": "string",
+											"name": "string",
+											"moduleName": ""
+										},
+										"parameters": [],
+										"attributes": [
+											"const",
+											"@property"
+										]
+									},
+									"name": "pathString"
 								}
 							],
 							[
@@ -21937,6 +21677,7 @@
 		"enums": [
 			[
 				{
+					"ddoc": "\n\tRepresents the authentication mechanism used by the SMTP client.\n",
 					"kind": "enum",
 					"protection": "public",
 					"members": [
@@ -21981,6 +21722,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tDetermines the (encryption) type of an SMTP connection.\n",
 					"kind": "enum",
 					"protection": "public",
 					"members": [
@@ -22019,6 +21761,7 @@
 			],
 			[
 				{
+					"ddoc": " Represents the different status codes for SMTP replies.\n",
 					"kind": "enum",
 					"protection": "public",
 					"members": [
@@ -22191,6 +21934,7 @@
 		"classes": [
 			[
 				{
+					"ddoc": "\n\tRepresents an email message, including its headers.\n",
 					"kind": "class",
 					"protection": "public",
 					"members": {
@@ -22249,6 +21993,7 @@
 			],
 			[
 				{
+					"ddoc": "\n\tConfiguration options for the SMTP client.\n",
 					"kind": "class",
 					"protection": "public",
 					"members": {
@@ -22488,6 +22233,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tSends am email using the given settings.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "sendMail",
@@ -27584,144 +27330,6 @@
 					"ddoc": "\n\tStarts listening on the specified port.\n\n\t'connection_callback' will be called for each client that connects to the\n\tserver socket. The 'stream' parameter then allows to perform pseudo-blocking\n\ti/o on the client socket.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n",
 					"kind": "function",
 					"protection": "public",
-					"nestedName": "listenTcpS",
-					"type": {
-						"text": "void(ushort port, void function(TcpConnection stream) connection_callback)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "ushort",
-									"qualifiedName": "ushort",
-									"name": "ushort",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "port"
-							},
-							{
-								"type": {
-									"typeClass": "function",
-									"returnType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "void",
-										"qualifiedName": "void",
-										"name": "void",
-										"moduleName": ""
-									},
-									"parameters": [
-										{
-											"type": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "TcpConnection",
-												"qualifiedName": "vibe.core.net.TcpConnection",
-												"name": "TcpConnection",
-												"moduleName": "vibe.core.net",
-												"attributes": []
-											},
-											"name": "stream"
-										}
-									],
-									"attributes": []
-								},
-								"name": "connection_callback"
-							}
-						],
-						"attributes": []
-					},
-					"name": "listenTcpS"
-				},
-				{
-					"ddoc": "\n\tStarts listening on the specified port.\n\n\t'connection_callback' will be called for each client that connects to the\n\tserver socket. The 'stream' parameter then allows to perform pseudo-blocking\n\ti/o on the client socket.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n",
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "listenTcpS",
-					"type": {
-						"text": "void(ushort port, void function(TcpConnection stream) connection_callback, string address)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "void",
-							"qualifiedName": "void",
-							"name": "void",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "ushort",
-									"qualifiedName": "ushort",
-									"name": "ushort",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "port"
-							},
-							{
-								"type": {
-									"typeClass": "function",
-									"returnType": {
-										"kind": "type",
-										"typeClass": "primitive",
-										"nestedName": "void",
-										"qualifiedName": "void",
-										"name": "void",
-										"moduleName": ""
-									},
-									"parameters": [
-										{
-											"type": {
-												"kind": "type",
-												"typeClass": "primitive",
-												"nestedName": "TcpConnection",
-												"qualifiedName": "vibe.core.net.TcpConnection",
-												"name": "TcpConnection",
-												"moduleName": "vibe.core.net",
-												"attributes": []
-											},
-											"name": "stream"
-										}
-									],
-									"attributes": []
-								},
-								"name": "connection_callback"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "address"
-							}
-						],
-						"attributes": []
-					},
-					"name": "listenTcpS"
-				},
-				{
-					"ddoc": "\n\tStarts listening on the specified port.\n\n\t'connection_callback' will be called for each client that connects to the\n\tserver socket. The 'stream' parameter then allows to perform pseudo-blocking\n\ti/o on the client socket.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n",
-					"kind": "function",
-					"protection": "public",
 					"nestedName": "listenTcp",
 					"type": {
 						"text": "void(ushort port, void delegate(TcpConnection stream) connection_callback)",
@@ -27855,6 +27463,146 @@
 						"attributes": []
 					},
 					"name": "listenTcp"
+				}
+			],
+			[
+				{
+					"ddoc": "\n\tStarts listening on the specified port.\n\n\tThis function is the same as listenTcp() but takes a function callback instead of a delegate.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "listenTcpS",
+					"type": {
+						"text": "void(ushort port, void function(TcpConnection stream) connection_callback)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ushort",
+									"qualifiedName": "ushort",
+									"name": "ushort",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "port"
+							},
+							{
+								"type": {
+									"typeClass": "function",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "void",
+										"qualifiedName": "void",
+										"name": "void",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "TcpConnection",
+												"qualifiedName": "vibe.core.net.TcpConnection",
+												"name": "TcpConnection",
+												"moduleName": "vibe.core.net",
+												"attributes": []
+											},
+											"name": "stream"
+										}
+									],
+									"attributes": []
+								},
+								"name": "connection_callback"
+							}
+						],
+						"attributes": []
+					},
+					"name": "listenTcpS"
+				},
+				{
+					"ddoc": "\n\tStarts listening on the specified port.\n\n\tThis function is the same as listenTcp() but takes a function callback instead of a delegate.\n",
+					"kind": "function",
+					"protection": "public",
+					"nestedName": "listenTcpS",
+					"type": {
+						"text": "void(ushort port, void function(TcpConnection stream) connection_callback, string address)",
+						"typeClass": "function",
+						"returnType": {
+							"kind": "type",
+							"typeClass": "primitive",
+							"nestedName": "void",
+							"qualifiedName": "void",
+							"name": "void",
+							"moduleName": ""
+						},
+						"parameters": [
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "ushort",
+									"qualifiedName": "ushort",
+									"name": "ushort",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "port"
+							},
+							{
+								"type": {
+									"typeClass": "function",
+									"returnType": {
+										"kind": "type",
+										"typeClass": "primitive",
+										"nestedName": "void",
+										"qualifiedName": "void",
+										"name": "void",
+										"moduleName": ""
+									},
+									"parameters": [
+										{
+											"type": {
+												"kind": "type",
+												"typeClass": "primitive",
+												"nestedName": "TcpConnection",
+												"qualifiedName": "vibe.core.net.TcpConnection",
+												"name": "TcpConnection",
+												"moduleName": "vibe.core.net",
+												"attributes": []
+											},
+											"name": "stream"
+										}
+									],
+									"attributes": []
+								},
+								"name": "connection_callback"
+							},
+							{
+								"type": {
+									"kind": "type",
+									"typeClass": "primitive",
+									"nestedName": "string",
+									"qualifiedName": "string",
+									"name": "string",
+									"moduleName": "",
+									"attributes": []
+								},
+								"name": "address"
+							}
+						],
+						"attributes": []
+					},
+					"name": "listenTcpS"
 				}
 			],
 			[
@@ -35915,6 +35663,7 @@
 			],
 			[
 				{
+					"ddoc": " Returns a Markdown filtered HTML string.\n",
 					"kind": "function",
 					"templateName": "filterMarkdown()",
 					"nestedName": "filterMarkdown",
@@ -35950,6 +35699,7 @@
 			],
 			[
 				{
+					"ddoc": " Markdown filters the given string and writes the corresponding HTML to an output range.\n",
 					"kind": "function",
 					"templateName": "filterMarkdown(R)",
 					"nestedName": "filterMarkdown",
@@ -35995,111 +35745,6 @@
 						"attributes": []
 					},
 					"name": "filterMarkdown"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "getHtmlTagName",
-					"type": {
-						"text": "string(string ln)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "string",
-							"qualifiedName": "string",
-							"name": "string",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "ln"
-							}
-						],
-						"attributes": []
-					},
-					"name": "getHtmlTagName"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isHtmlBlockCloseLine",
-					"type": {
-						"text": "bool(string ln)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "ln"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isHtmlBlockCloseLine"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "isHtmlBlockLine",
-					"type": {
-						"text": "bool(string ln)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "ln"
-							}
-						],
-						"attributes": []
-					},
-					"name": "isHtmlBlockLine"
 				}
 			],
 			[
@@ -36161,92 +35806,6 @@
 						"attributes": []
 					},
 					"name": "outputHeaderLine"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "parseAutoLink",
-					"type": {
-						"text": "bool(ref string str, ref string url)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "bool",
-							"qualifiedName": "bool",
-							"name": "bool",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "str"
-							},
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": [
-										"ref"
-									]
-								},
-								"name": "url"
-							}
-						],
-						"attributes": []
-					},
-					"name": "parseAutoLink"
-				}
-			],
-			[
-				{
-					"kind": "function",
-					"protection": "public",
-					"nestedName": "parseHtmlBlockLine",
-					"type": {
-						"text": "HtmlBlockInfo(string ln)",
-						"typeClass": "function",
-						"returnType": {
-							"kind": "type",
-							"typeClass": "primitive",
-							"nestedName": "HtmlBlockInfo",
-							"qualifiedName": "HtmlBlockInfo",
-							"name": "HtmlBlockInfo",
-							"moduleName": ""
-						},
-						"parameters": [
-							{
-								"type": {
-									"kind": "type",
-									"typeClass": "primitive",
-									"nestedName": "string",
-									"qualifiedName": "string",
-									"name": "string",
-									"moduleName": "",
-									"attributes": []
-								},
-								"name": "ln"
-							}
-						],
-						"attributes": []
-					},
-					"name": "parseHtmlBlockLine"
 				}
 			],
 			[
@@ -37823,6 +37382,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": " Returns the HTML escaped version of a given string (escapes every character).\n",
 					"kind": "function",
 					"templateName": "filterHtmlAllEscape()",
 					"nestedName": "filterHtmlAllEscape",
@@ -37858,6 +37418,7 @@
 			],
 			[
 				{
+					"ddoc": " Writes the HTML escaped version of a given string to an output range (escapes every character).\n",
 					"kind": "function",
 					"templateName": "filterHtmlAllEscape(R)",
 					"nestedName": "filterHtmlAllEscape",
@@ -37907,6 +37468,7 @@
 			],
 			[
 				{
+					"ddoc": " Writes the HTML escaped version of a given string to an output range (also escapes double quotes).\n",
 					"kind": "function",
 					"templateName": "filterHtmlAttribEscape(R)",
 					"nestedName": "filterHtmlAttribEscape",
@@ -37956,6 +37518,7 @@
 			],
 			[
 				{
+					"ddoc": " Writes the HTML escaped version of a given string to an output range.\n",
 					"kind": "function",
 					"templateName": "filterHtmlEscape(R)",
 					"nestedName": "filterHtmlEscape",
@@ -38005,6 +37568,7 @@
 			],
 			[
 				{
+					"ddoc": " Writes the HTML escaped version of a character to an output range.\n",
 					"kind": "function",
 					"templateName": "filterHtmlEscape(R)",
 					"nestedName": "filterHtmlEscape",
@@ -38067,6 +37631,7 @@
 			],
 			[
 				{
+					"ddoc": " Returns the HTML escaped version of a given string (also escapes double quotes).\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "htmlAttribEscape",
@@ -38102,6 +37667,7 @@
 			],
 			[
 				{
+					"ddoc": " Returns the HTML escaped version of a given string.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "htmlEscape",
@@ -38835,6 +38401,7 @@
 		"classes": [
 			[
 				{
+					"ddoc": "\n\tConfiguration options for the static file server.\n",
 					"kind": "class",
 					"protection": "public",
 					"members": {
@@ -38972,6 +38539,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": "\n\tReturns a request handler that serves files from the specified directory.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "serveStaticFiles",
@@ -45091,6 +44659,7 @@
 		"functions": [
 			[
 				{
+					"ddoc": " Writes the decoded version of the given URL encoded string to an output range.\n",
 					"kind": "function",
 					"templateName": "filterUrlDecode(R)",
 					"nestedName": "filterUrlDecode",
@@ -45140,6 +44709,7 @@
 			],
 			[
 				{
+					"ddoc": " Writes the URL encoded version of the given string to an output range.\n",
 					"kind": "function",
 					"templateName": "filterUrlEncode(R)",
 					"nestedName": "filterUrlEncode",
@@ -45202,6 +44772,7 @@
 			],
 			[
 				{
+					"ddoc": " Returns the decoded version of a given URL encoded string.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "urlDecode",
@@ -45237,6 +44808,7 @@
 			],
 			[
 				{
+					"ddoc": " Returns the URL encoded version of a given string.\n",
 					"kind": "function",
 					"protection": "public",
 					"nestedName": "urlEncode",
