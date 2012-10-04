@@ -33,7 +33,15 @@ block navigation
 					a(href="##string-interpolations") String interpolations
 
 		li
-			a(href="##extensions") Blocks and extensions
+			a(href="##components") Component templates
+
+			ul
+				li
+					a(href="##blocks") Blocks and Extensions
+				li
+					a(href="##includes") Includes
+				li
+					a(href="##functions") Functions
 			
 		li
 			a(href="##filters") Filters
@@ -86,7 +94,7 @@ block body
 			a#html-elements
 			h3 HTML elements
 			
-			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as <br> or <link> are recognized and output accordingly. The tag name can also be completely omitted, in which case a <div> is assumed.
+			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as &lt;br&gt; or &lt;link&gt; are recognized and output accordingly. The tag name can also be completely omitted, in which case a &lt;div&gt; is assumed.
 			
 			p After each tag, an id, multiple class names, and a list of attributes can follow. Ids are prefixed with '##' and class names with '.'. The attribute list is a comma separated list or key/value pairs delimited by clamps. The string value of an attribute can contain
 				a(href="##string-interpolations") string interpolations
@@ -102,36 +110,38 @@ block body
 					|	head
 					|		title This is the page title
 					|	body
-					|		##main This is a <div> with the id 'main'.
+					|		##main This is a &amp;lt;div&amp;gt; with the id 'main'.
 					|			p##first This paragraph has the id 'first'.
 					|			p.second.red This paragraph has the classes 'second' and 'red' assigned.
 					|			p The following paragraph will have an '8' as its content:
 					|			p= 5+3
 					|			p It's also possible to output raw HTML from a D expression:
-					|			p!= "<u>Underlined text</u>"
+					|			p!= "&lt;u&gt;Underlined text&lt;/u&gt;"
 					|			p(style="color:red") HTML attributes can be specified.
 					|			p##second.test(style="color:green") Id, classes and attributes can also be combined.
 				.caption Example: HTML tags using the various optional features
 
 			code
-				pre.prettyprint.lang-html <!DOCTYPE html>
-					|<html>
-					|	<head>
-					|		<title>This is the page title</title>
-					|	<body>
-					|		<div id="main">
-					|			This is a &lt;div&gt; with the id 'main'.
-					|			<p id="first">This paragraph has the id 'first'.</p>
-					|			<p class="second red">This paragraph has the classes 'second' and 'red' assigned.</p>
-					|			<p>The following paragraph will have an '8' as its content:</p>
-					|			<p>8</p>
-					|			<p>It's also possible to output raw HTML from a D expression:</p>
-					|			<p><u>Underlined text</u></p>
-					|			<p style="color:red">HTML attributes can be specified.</p>
-					|			<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
-					|		</div>
-					|	</body>
-					|</html>
+				pre.prettyprint.lang-html
+					:htmlescape
+						<!DOCTYPE html>
+						<html>
+							<head>
+								<title>This is the page title</title>
+							<body>
+								<div id="main">
+									This is a &lt;div&gt; with the id 'main'.
+									<p id="first">This paragraph has the id 'first'.</p>
+									<p class="second red">This paragraph has the classes 'second' and 'red' assigned.</p>
+									<p>The following paragraph will have an '8' as its content:</p>
+									<p>8</p>
+									<p>It's also possible to output raw HTML from a D expression:</p>
+									<p><u>Underlined text</u></p>
+									<p style="color:red">HTML attributes can be specified.</p>
+									<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
+								</div>
+							</body>
+						</html>
 				.caption Example: HTML output for the example
 				
 		section
@@ -154,32 +164,34 @@ block body
 					|			a(href="http://vibed.org/") link
 					|			| mixed with text.
 					|		p
-					|			|= "<D> expressions"
-					|			|!= "And raw <u>HTML</u> output"
+					|			|= "&lt;D&gt; expressions"
+					|			|!= "And raw &lt;u&gt;HTML&lt;/u&gt; output"
 					|			| are possible.
 				.caption Example: using text nodes to output multiple lines of text
 
 			code
-				pre.prettyprint.lang-html <!DOCTYPE html>
-					|<html>
-					|	<head>
-					|		<title>Plain text test</title>
-					|	<body>
-					|		<pre>This is some multi-line
-					|     preformatted
-					|         text</pre>
-					|		<p>
-					|			This is an example containing a
-					|			<a href="http://vibed.org/">link</a>
-					|			mixed with text.
-					|		</p>
-					|		<p>
-					|			&lt;D&gt; expressions
-					|			And raw <u>HTML</u> output
-					|			are possible.
-					|		</p>
-					|	</body>
-					|</html>
+				pre.prettyprint.lang-html
+					:htmlescape
+						<!DOCTYPE html>
+						<html>
+							<head>
+								<title>Plain text test</title>
+							<body>
+								<pre>This is some multi-line
+						     preformatted
+						         text</pre>
+								<p>
+									This is an example containing a
+									<a href="http://vibed.org/">link</a>
+									mixed with text.
+								</p>
+								<p>
+									&lt;D&gt; expressions
+									And raw <u>HTML</u> output
+									are possible.
+								</p>
+							</body>
+						</html>
 				.caption Example: HTML output for the example
 
 		section
@@ -222,28 +234,31 @@ block body
 					|		p= min(10, 2*6, 8)
 				.caption Example: different possibilities to embed D code
 
-				pre.prettyprint.lang-html <!DOCTYPE html>
-					|<html>
-					|	<head>
-					|		<title>D statement test</title>
-					|	<body>
-					|		<p>Ten items ahead:</p>
-					|		<p>Item
-					|			<b>1</b>
-					|		</p>
-					|		<p>Item
-					|			<b>2</b>
-					|		</p>
-					|		<p>Item
-					|			<b>3</b>
-					|		</p>
-					|		<p>Item
-					|			<b>4</b>
-					|		</p>
-					|		<p>Prints 8:</p>
-					|		<p>8</p>
-					|	</body>
-					|</html>
+				pre.prettyprint.lang-html
+					:htmlescape
+						<!DOCTYPE html>
+						<html>
+							<head>
+								<title>D statement test</title>
+							</head>
+							<body>
+								<p>Ten items ahead:</p>
+								<p>Item
+									<b>1</b>
+								</p>
+								<p>Item
+									<b>2</b>
+								</p>
+								<p>Item
+									<b>3</b>
+								</p>
+								<p>Item
+									<b>4</b>
+								</p>
+								<p>Prints 8:</p>
+								<p>8</p>
+							</body>
+						</html>
 				.caption Example: HTML output for the example
 
 		section
@@ -253,11 +268,72 @@ block body
 			p(style="color:red") TODO
 
 	section
-		a#extensions
-		h2 Blocks and Extensions
+		a#components
+		h2 Component templates
+
+		section
+			a#extensions
+			h2 Blocks and Extensions
+			
+			p(style="color:red") TODO
 		
-		p(style="color:red") TODO
-		
+		section
+			a#includes
+			h2 Includes
+			
+			p(style="color:red") TODO
+
+		section
+			a#functions
+			h2 Functions
+
+			In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
+			
+			code
+				pre
+					|- void css(string file)
+					|	link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
+					|
+					|!!! 5
+					|html
+					|	head
+					|		title Function test page
+					|		- css("common");
+					|		- css("home")
+					|	body
+					|		- foreach(c; ["red", "green", "blue"])
+					|			- void repeat(string c)
+					|				|\#{c}-\#{c}\#{c}
+					|			p
+					|				span(style='color: red;')
+					|					- repeat(c);
+					|				span(style='color: green;')
+					|					- repeat(c);
+				.caption Example: Using local functions to generate parametrized blocks
+
+			code
+				pre.prettyprint.lang-html
+					:htmlescape
+						<!DOCTYPE html>
+						<html>
+							<head>
+								<title>Function test page</title>
+								<link rel="stylesheet" type="text/css" href="styles/common.css"/>
+								<link rel="stylesheet" type="text/css" href="styles/home.css"/>
+							</head>
+							<body>
+								<p>
+									<span style="color: red;">red-red-red</span>
+									<span style="color: green;">red-red-red</span>
+									<span style="color: red;">green-green-green</span>
+									<span style="color: green;">green-green-green</span>
+									<span style="color: red;">blue-blue-blue</span>
+									<span style="color: green;">blue-blue-blue</span>
+								</p>
+							</body>
+						</html>
+				.caption Example: HTML output for the example
+
 	section
 		a#filters
 		h2 Filters
@@ -283,10 +359,11 @@ block body
 				|                 ( ',' OPT_WS html_attr OPT_WS '=' OPT_WS string )*
 				|                 OPT_WS ')'
 				|text_node    : '|' node_content
-				|comment_node : '//if' text
+				|comment_node : '//' text | '//-' text | '//if' text
 				|special_node : code_node | block_node
 				|code_node    : '-' text
-				|block node   : 'block' ' ' text
+				|block_node   : 'block ' text
+				|include_node : 'include ' text
 				|node_content : (empty | '=' | '!=') text
 				|string       : '"' ((^ '"') | '\' ? )* '"'
 				|letter       : ('a'-'z' | 'A'-'Z')
