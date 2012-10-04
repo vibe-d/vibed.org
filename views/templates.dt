@@ -78,7 +78,7 @@ block body
 			Right now, it is necessary to begin the document with an HTML 5 header. This restriction will be removed in the future.
 			
 		code
-			pre !!! 5
+			pre !\!! 5
 				|html
 				|	head
 				|		title Hello, World
@@ -105,7 +105,7 @@ block body
 				|. If the text is prefixed with '=', it is interpreted as a D expression. The outcome of this expression is converted to a string and HTML encoded. Prefixing with '!=' will output the bare string without HTML encoding.
 			
 			code
-				pre !!! 5
+				pre !\!! 5
 					|html
 					|	head
 					|		title This is the page title
@@ -128,6 +128,7 @@ block body
 						<html>
 							<head>
 								<title>This is the page title</title>
+							</head>
 							<body>
 								<div id="main">
 									This is a &lt;div&gt; with the id 'main'.
@@ -151,7 +152,7 @@ block body
 			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting prefromatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
 			
 			code
-				pre !!! 5
+				pre !\!! 5
 					|html
 					|	head
 					|		title Plain text test
@@ -176,6 +177,7 @@ block body
 						<html>
 							<head>
 								<title>Plain text test</title>
+							</head>
 							<body>
 								<pre>This is some multi-line
 						     preformatted
@@ -219,7 +221,7 @@ block body
 			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
 			
 			code
-				pre !!! 5
+				pre !\!! 5
 					|html
 					|	head
 					|		title D statement test
@@ -287,19 +289,19 @@ block body
 			a#functions
 			h2 Functions
 
-			In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
+			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
 			
 			code
 				pre
 					|- void css(string file)
 					|	link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
 					|
-					|!!! 5
+					|!\!! 5
 					|html
 					|	head
 					|		title Function test page
 					|		- css("common");
-					|		- css("home")
+					|		- css("home");
 					|	body
 					|		- foreach(c; ["red", "green", "blue"])
 					|			- void repeat(string c)
@@ -339,6 +341,45 @@ block body
 		h2 Filters
 		
 		p(style="color:red") TODO
+
+		p Standard filters:
+		ul
+			li :css
+			li :javascript
+			li :markdown
+			li :htmlescape
+
+		code
+			pre
+				|!\!! 5
+				|html
+				|	head
+				|		title Filter test page
+				|		:css
+				|			body { background-color: gray; }
+				|	body
+				|		:markdown
+				|			This is a test paragraph
+				|			in [markdown](http://daringfireball.net/projects/markdown/)
+				|			syntax.
+			.caption Example: Usage example for embedded filters
+
+		code
+			pre.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>Filter test page</title>
+							<style type="text/css"><!--
+								body { background-color: gray; }
+							--></style>
+						</head>
+						<body>
+					<p>This is a test paragraph in <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax.</p>
+						</body>
+					</html>
+			.caption Example: HTML output for the example
 
 	section
 		a#grammar
