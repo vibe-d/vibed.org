@@ -67,7 +67,7 @@ html(lang="en-US")
 		#footer
 			p Copyright © 2012 rejectedsoftware e.K.
 			p
-				a(href="#{req.rootDir}about##license") License
+				a(href="#{req.rootDir}about#license") License
 				| –
 				a(href="#{req.rootDir}contact") Contact
 				| –

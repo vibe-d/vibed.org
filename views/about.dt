@@ -6,11 +6,11 @@ block title
 block navigation
 	ul
 		li
-			a(href="##motivation") Why vibe.d?
+			a(href="#motivation") Why vibe.d?
 		li
-			a(href="##who") Who makes vibe.d?
+			a(href="#who") Who makes vibe.d?
 		li
-			a(href="##license") License
+			a(href="#license") License
 
 block body
 

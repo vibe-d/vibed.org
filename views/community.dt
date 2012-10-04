@@ -6,11 +6,11 @@ block title
 block navigation
 	ul
 		li
-			a(href="##newsgroup") Newsgroup server
+			a(href="#newsgroup") Newsgroup server
 		li
-			a(href="##web-forums") Web forums
+			a(href="#web-forums") Web forums
 		li
-			a(href="##issue-tracker") Issue tracker
+			a(href="#issue-tracker") Issue tracker
 
 block body
 

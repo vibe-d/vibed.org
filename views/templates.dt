@@ -6,48 +6,48 @@ block title
 block navigation
 	ul
 		li
-			a(href="##introduction") Introduction
+			a(href="#introduction") Introduction
 			
 		li
-			a(href="##basic-structure") Basic structure
+			a(href="#basic-structure") Basic structure
 			
 		li
-			a(href="##basic-structure") Content elements
+			a(href="#basic-structure") Content elements
 			
 			ul
 				li
-					a(href="##html-elements") HTML elements 
+					a(href="#html-elements") HTML elements 
 				li
-					a(href="##plain-text") Plain text
+					a(href="#plain-text") Plain text
 				li
-					a(href="##comments") Comments
+					a(href="#comments") Comments
 		li
-			a(href="##embedded-code") Embedded source code
+			a(href="#embedded-code") Embedded source code
 
 			ul
 				li
-					a(href="##procedural-content") Procedural content
+					a(href="#procedural-content") Procedural content
 				li
-					a(href="##statements") Statements
+					a(href="#statements") Statements
 				li
-					a(href="##string-interpolations") String interpolations
+					a(href="#string-interpolations") String interpolations
 
 		li
-			a(href="##components") Component templates
+			a(href="#components") Component templates
 
 			ul
 				li
-					a(href="##blocks") Blocks and Extensions
+					a(href="#blocks") Blocks and Extensions
 				li
-					a(href="##includes") Includes
+					a(href="#includes") Includes
 				li
-					a(href="##functions") Functions
+					a(href="#functions") Functions
 			
 		li
-			a(href="##filters") Filters
+			a(href="#filters") Filters
 		
 		li
-			a(href="##grammar") Grammar
+			a(href="#grammar") Grammar
 
 block body
 
@@ -96,12 +96,12 @@ block body
 			
 			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as &lt;br&gt; or &lt;link&gt; are recognized and output accordingly. The tag name can also be completely omitted, in which case a &lt;div&gt; is assumed.
 			
-			p After each tag, an id, multiple class names, and a list of attributes can follow. Ids are prefixed with '##' and class names with '.'. The attribute list is a comma separated list or key/value pairs delimited by clamps. The string value of an attribute can contain
-				a(href="##string-interpolations") string interpolations
-				| so anchors have to be escaped using a double hash '##'.
+			p After each tag, an id, multiple class names, and a list of attributes can follow. Ids are prefixed with '#' and class names with '.'. The attribute list is a comma separated list or key/value pairs delimited by clamps. The string value of an attribute can contain
+				a(href="#string-interpolations") string interpolations
+				|.
 			
 			p The rest of the line contains the nodes text contents. By default, the text is output HTML encoded and can contain
-				a(href="##string-interpolations") string interpolations
+				a(href="#string-interpolations") string interpolations
 				|. If the text is prefixed with '=', it is interpreted as a D expression. The outcome of this expression is converted to a string and HTML encoded. Prefixing with '!=' will output the bare string without HTML encoding.
 			
 			code
@@ -110,15 +110,15 @@ block body
 					|	head
 					|		title This is the page title
 					|	body
-					|		##main This is a &amp;lt;div&amp;gt; with the id 'main'.
-					|			p##first This paragraph has the id 'first'.
+					|		#main This is a &amp;lt;div&amp;gt; with the id 'main'.
+					|			p#first This paragraph has the id 'first'.
 					|			p.second.red This paragraph has the classes 'second' and 'red' assigned.
 					|			p The following paragraph will have an '8' as its content:
 					|			p= 5+3
 					|			p It's also possible to output raw HTML from a D expression:
 					|			p!= "&lt;u&gt;Underlined text&lt;/u&gt;"
 					|			p(style="color:red") HTML attributes can be specified.
-					|			p##second.test(style="color:green") Id, classes and attributes can also be combined.
+					|			p#second.test(style="color:green") Id, classes and attributes can also be combined.
 				.caption Example: HTML tags using the various optional features
 
 			code
@@ -390,7 +390,7 @@ block body
 		code
 			pre
 				|content_line : indent (html_node | text_node | comment_node | special_node)
-				|html_node    : (empty | html_tag) ['##' html_ident] ('.' html_ident)*
+				|html_node    : (empty | html_tag) ['#' html_ident] ('.' html_ident)*
 				|               [html_attr_list] node_content
 				|html_attr    : letter (letter|digit|':'|'-')*
 				|html_ident   : letter (letter|digit|'-')*

@@ -8,51 +8,51 @@ block navigation
 		li.separator
 			a(href="api/") API Reference
 		li
-			a(href="##installation") Installation
+			a(href="#installation") Installation
 		li
-			a(href="##first-steps") First steps
+			a(href="#first-steps") First steps
 		li
-			a(href="##http") HTTP
+			a(href="#http") HTTP
 			ul
 				li
-					a(href="##http-server-config") Server configuration
+					a(href="#http-server-config") Server configuration
 				li
-					a(href="##http-routing") Routing
+					a(href="#http-routing") Routing
 				li
-					a(href="##http-templates") Templates
+					a(href="#http-templates") Templates
 				li
-					a(href="##http-error-pages") Error pages
+					a(href="#http-error-pages") Error pages
 				li
-					a(href="##http-authentication") Authentication
+					a(href="#http-authentication") Authentication
 				li
-					a(href="##http-sessions") Sessions
+					a(href="#http-sessions") Sessions
 				li
-					a(href="##http-client-requests") Client requests
+					a(href="#http-client-requests") Client requests
 		li
-			a(href="##db-support") Database support
+			a(href="#db-support") Database support
 			ul
 				li
-					a(href="##mongo") MongoDB
+					a(href="#mongo") MongoDB
 				li
-					a(href="##redis") Redis
+					a(href="#redis") Redis
 		li
-			a(href="##raw-tcp") Raw TCP
+			a(href="#raw-tcp") Raw TCP
 			ul
 				li
-					a(href="##tcp-server") Server
+					a(href="#tcp-server") Server
 				li
-					a(href="##tcp-client") Client
+					a(href="#tcp-client") Client
 		li.separator
-			a(href="##advanced") Advanced topics
+			a(href="#advanced") Advanced topics
 			ul
 				li
-					a(href="##vpm-publishing") Publishing on the VPM registry
+					a(href="#vpm-publishing") Publishing on the VPM registry
 				li
-					a(href="##custom-main") Custom main function
+					a(href="#custom-main") Custom main function
 				li
-					a(href="##privilege-lowering") Privilege lowering
+					a(href="#privilege-lowering") Privilege lowering
 		li.separator
-			a(href="templates") Diet Reference
+			a(href="templates/diet") Diet Reference
 		li
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
@@ -62,7 +62,7 @@ block body
 		h2 Installation
 		
 		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d##installation-on-linux-debianubuntu-using-apt") github page
+			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
 			| for instructions.
 
 		p On all other systems, the installation currently is a simple manual process. You just have to extract the downloaded archive and make the vibe script callable from anywhere.
@@ -70,7 +70,7 @@ block body
 		p On Windows, add the 'bin' directory to the PATH by going to Advanced System Settings/Advanced/Environment Variables and entering the path into either the user PATH variable or the system wide version.
 		
 		p For Mac, Linux and other *NIXes, there is a setup script that creates the symlink and adds an unprivileged 'vibe' user to allow for
-			a(href="##privilege-lowering") privilege lowering
+			a(href="#privilege-lowering") privilege lowering
 			| on server systems. Depending on the operating system, run setup-linux.sh or setup-mac.sh from the directory where the files have been extracted:
 			code
 				pre $ ./setup-linux.sh
@@ -78,7 +78,7 @@ block body
 				pre $ ./setup-mac.sh
 				
 		p On Mac and Linux you may need to install some additional dependencies. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d##vibed") github page
+			a(href="https://github.com/rejectedsoftware/vibe.d#vibed") github page
 			| for more information.
 		
 		p After the installation, you can run any vibe.d application by typing 'vibe' from inside the application's root directory. You can try this by starting one of the exammples:
@@ -144,7 +144,7 @@ block body
 		p The 'views' sub folder is automatically searched for templates instanciated with render(). The two templates in the example structure might look like this:
 
 		code
-			pre !!! 5
+			pre !\!! 5
 				|html
 				|	head
 				|		title Example page
@@ -161,7 +161,7 @@ block body
 			.caption Example index.dt
 
 		p This structure makes use of the blocks/extensions feature of the template parser. For more advanced template features see the
-			a(href="##http-templates")templates
+			a(href="#http-templates")templates
 			| section.
 			
 		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the
@@ -242,10 +242,11 @@ block body
 			h3 Routing
 
 			p The
-				span.dclass Router
+				code
+					a(href="/api/http.router/UrlRouter") UrlRouter
 				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wildcards. Any matched variable will be available as an entry in the HttpRequest.params dictionary.
 			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
-				span.dclass Router
+				span.dclass UrlRouter
 				| class (e.g. .get() or .post()). The following example will route all GET requests matching the path scheme "/users/*" to the
 				span.dfunction userinfo
 				| handler and serve all other GET requests using the files in the public folder.
@@ -297,28 +298,28 @@ block body
 				| to render into.
 
 			p The following example shows a number of features of the template parser. A full reference of the template syntax is found on the
-				a(href="templates") templates
+				a(href="templates/diet") Diet templates
 				| page.
 
 			code
-				pre.code !!! 5
+				pre.code !\!! 5
 					|html
 					|	head
-					|		title My page: ##{pageTitle}
+					|		title My page: \#{pageTitle}
 					|	body
 					|		h1= pageTitle
 					|		p This is the content of this page. The
-					|			| title "##{pageTitle}" is inserted dynamically.
+					|			| title "\#{pageTitle}" is inserted dynamically.
 					|			| We can also use loops and other D statements:
 					|		block placeholder
 					|		p
 					|			- foreach(i, ch; pageTitle)
-					|				| ##{i+1}. character: ##{ch}
+					|				| \#{i+1}. character: \#{ch}
 					|		p.special.small This paragraph has the 'special'
 					|			| and 'small' CSS classes
-					|		p##footer This paragraph has the id 'footer'.
-					|		##somediv
-					|			| I'm a text inside the div ####somediv
+					|		p#footer This paragraph has the id 'footer'.
+					|		#somediv
+					|			| I'm a text inside the div #\#somediv
 				.caption Example: Template file with dynamic code inserts and several other template features
 
 				
@@ -330,13 +331,13 @@ block body
 			
 			ul
 				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
-					a(href="api/vibe.http.server##HttpServerError")
-						code.prettyprint.lang-d HttpServerError
+					a(href="api/vibe.http.server/HttpStatusException")
+						code.prettyprint.lang-d HttpStatusException
 					|, the code can be customized.
 				li The request handler does not write a message body. In this case the server automatically returns a 404 "Not Found" error.
 			
 			p The
-				a(href="api/vibe.http.server##HttpServerSettings")
+				a(href="api/vibe.http.server/HttpServerSettings")
 					code.prettyprint.lang-d HttpServerSettings
 				| can be used to provide a custom error page handler. If one is provided, it is called for any of the two conditions and must render an error page to the response object. If no handler is given, a simple plain-text error page is generated.			
 
@@ -369,11 +370,11 @@ block body
 			
 			p Currently, the only built-in authentication method is HTTP-Basic-Auth. HTTP-Digest-Auth will follow later and higher level mechanisms such as OAuth will be provided using extension libraries.
 			p The recommended practice for plugging authentication into a web application is to use the fall-through feature of the UrlRouter. If the user is properly authenticated, the
-				a(href="api/vibe.http.auth.basic_auth##performBasicAuth")
+				a(href="api/vibe.http.auth.basic_auth/performBasicAuth")
 					code.prettyprint.lang-d performBasicAuth
 				| function will not do anything and the UrlRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a
-				a(href="api/vibe.http.server##HttpServerError")
-					code.prettyprint.lang-d HttpServerError
+				a(href="api/vibe.http.server/HttpStatusException")
+					code.prettyprint.lang-d HttpStatusException
 				| exception which generates a 403 error page so that the user is prompted with a password dialog on the browser side. The routing stops in this case.
 			
 			code
@@ -410,16 +411,16 @@ block body
 			p Cookie based HTTP sessions are supported directly by the HTTP server. To be able to use them, you first have to set a
 				code.prettyprint.lang-d SessionStore
 				| in the
-				a(href="api/vibe.http.server##HttpServerSettings")
+				a(href="api/vibe.http.server/HttpServerSettings")
 					code.prettyprint.lang-d HttpServerSettings
 				|. Sessions are then established by calling
-				a(href="api/vibe.http.server##HttpServerResponse.startSession")
+				a(href="api/vibe.http.server/HttpServerResponse.startSession")
 					code.prettyprint.lang-d HttpServerResponse.startSession
 				| and stopped using
-				a(href="api/vibe.http.server##HttpServerResponse.stopSession")
+				a(href="api/vibe.http.server/HttpServerResponse.terminateSession")
 					code.prettyprint.lang-d HttpServerResponse.terminateSession
 				|. The returned
-				a(href="api/vibe.http.session##Session")
+				a(href="api/vibe.http.session/Session")
 					code.prettyprint.lang-d Session
 				| object behaves as a key value store taking strings as keys and values.
 			
@@ -483,14 +484,14 @@ block body
 			p A native
 				a.extern(href="http://www.mongodb.org/", target="_blank") MongoDB
 				| driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the
-				a(href="api/vibe.data.bson##Bson")
+				a(href="api/vibe.data.bson#Bson")
 					code.prettyprint.lang-d Bson
 				| struct.
 
 			p For an comprehensive documentation of mongo's operations see the
 				a.extern(href="http://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
 				|. The
-				a(href="api/vibe.db.mongo.db") API reference
+				a(href="api/vibe.db.mongo.mongo/") API reference
 				| contains the documentation for the driver.
 
 			code
@@ -526,10 +527,10 @@ block body
 		h2 Raw TCP
 		
 		p Low level TCP connections are handled using the
-			a(href="api/vibe.core.tcp##TcpConnection")
+			a(href="api/vibe.core.net/TcpConnection")
 				code.prettyprint.lang-d TcpConnection
 			| class, which implements the
-			a(href="api/vibe.stream.stream##Stream")
+			a(href="api/vibe.stream.stream/Stream")
 				code.prettyprint.lang-d Stream
 			| interface. Connections can be established by either listening on a specific port for incoming connections or by actively connecting to a remote server.
 
@@ -538,7 +539,7 @@ block body
 			h3 Server
 			
 			p Listening for TCP connections is done using the
-				a(href="api/vibe.core.tcp##listenTcp")
+				a(href="api/vibe.core.net/listenTcp")
 					code.prettyprint.lang-d listenTcp
 				| function. An implementation of a very simple echo server could look like this:
 				
@@ -550,7 +551,7 @@ block body
 				|}
 
 			p Calling 
-				a(href="api/vibe.core.tcp##listenTcp")
+				a(href="api/vibe.core.net/listenTcp")
 					code.prettyprint.lang-d listenTcp
 				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d import vibe.d;
@@ -571,7 +572,7 @@ block body
 			h3 Client
 			
 			p Connecting to a TCP server is done with the
-				a(href="api/vibe.core.tcp##listenTcp")
+				a(href="api/vibe.core.net/connectTcp")
 					code.prettyprint.lang-d connectTcp
 				| function. The following example gets the current time using the
 				a.extern(href="http://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
@@ -596,9 +597,7 @@ block body
 				a.extern(href="http://registry.vibed.org/", target="_blank") VPM registry
 				| contains packages that extend vibe's core functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the package.json file is present.
 			
-			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the
-				a(href="##first-steps") first steps
-				|). The project currently also has to be hosted on github and as such the package.json must contain a "repository" entry similar to the following example:
+			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github and as such the package.json must contain a "repository" entry similar to the following example:
 				
 			pre.code {
 				|	"name": "vibelog",
@@ -636,9 +635,7 @@ block body
 			a#custom-main
 			h3 Custom main function
 			
-			p When writing a client application, maybe something like
-				a(href="http://www.gnu.org/software/wget/") wget
-				|, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own main() function. To be able to do this, you just have to import "vibe.vibe" instead of "vibe.d". This will tell the compiler to not use the main() function that vibe.d provides.
+			p When writing a client application, maybe something like <a href="http://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own main() function. To be able to do this, you just have to import "vibe.vibe" instead of "vibe.d". This will tell the compiler to not use the main() function that vibe.d provides.
 				
 			pre.code.prettyprint.lang-d import vibe.vibe;
 				|

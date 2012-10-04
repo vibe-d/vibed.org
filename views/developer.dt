@@ -6,9 +6,9 @@ block title
 block navigation
 	ul
 		li
-			a(href="##help") Help developing vibe.d
+			a(href="#help") Help developing vibe.d
 		li	
-			a(href="##hacking-vibe") Hacking vibe.d
+			a(href="#hacking-vibe") Hacking vibe.d
 
 block body
 

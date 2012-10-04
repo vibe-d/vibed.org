@@ -6,17 +6,17 @@ block title
 block navigation
 	ul
 		li
-			a(href="##release-version") Current release
+			a(href="#release-version") Current release
 			
 			ul
 				li
-					a(href="##zip-package") ZIP package
+					a(href="#zip-package") ZIP package
 				li
-					a(href="##apt-repository") APT repository
+					a(href="#apt-repository") APT repository
 				li
-					a(href="##aur-package") AUR package
+					a(href="#aur-package") AUR package
 		li
-			a(href="##development-snapshot") Development snapshot
+			a(href="#development-snapshot") Development snapshot
 
 block body
 
@@ -36,7 +36,7 @@ block body
 			h3 ZIP package
 			
 			p The ZIP package is suitable for all supported operating systems. Simply extract and install according to the
-				a(href="docs##installation") install instructions.
+				a(href="docs#installation") install instructions.
 				
 			p If you are running a Debian or Arch based Linux distribution, you can use the packages below to benefit from an automated install process.
 
@@ -65,7 +65,7 @@ block body
 				| contains a PKGBUILD for building a Packman package. To install, 
 				a.download(href="http://aur.archlinux.org/packages.php?ID=61679") get the tarball from the package page
 				| and then
-				a(href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines##Installing_packages") build and install
+				a(href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages") build and install
 				| the package. Please test and vote if you are running Arch Linux.
 
 	section	

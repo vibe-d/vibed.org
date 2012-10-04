@@ -23,7 +23,7 @@ block plainbody
 				li Integrated
 					em load-balancing
 				li
-					a(href='features##performance') Read more…
+					a(href='features#performance') Read more…
 		#feat-simple.feat-block
 			h2 Simple
 			ul
@@ -40,7 +40,7 @@ block plainbody
 					em Exception based
 					| error handling
 				li
-					a(href="features##simplicity") Read more…
+					a(href="features#simplicity") Read more…
 		#feat-rad.feat-block
 			h2 Productive
 			ul
@@ -57,7 +57,7 @@ block plainbody
 					em Raw TCP and File handling
 					| for building custom protocols
 				li
-					a(href="features##productivity") Read more…
+					a(href="features#productivity") Read more…
 		.clear
 	#container
 		#navigation

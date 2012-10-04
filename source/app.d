@@ -174,7 +174,9 @@ static this()
 	router.get("/features",  staticTemplate!"features.dt");
 	router.get("/docs",      staticTemplate!"docs.dt");
 	router.get("/developer", staticTemplate!"developer.dt");
-	router.get("/templates", staticTemplate!"templates.dt");
+	router.get("/templates", staticRedirect("/templates/"));
+	router.get("/templates/", staticRedirect("/templates/diet"));
+	router.get("/templates/diet", staticTemplate!"templates.dt");
 	router.get("/api", staticRedirect("/api/"));
 	router.get("/api/", &showApi);
 	router.get("/api/:modulename", delegate(req, res){ res.redirect("/api/"~req.params["modulename"]~"/"); });

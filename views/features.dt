@@ -6,34 +6,34 @@ block title
 block navigation
 	ul
 		li
-			a(href="##simplicity") Simplicity
+			a(href="#simplicity") Simplicity
 			ul
 				li
-					a(href="##fibers") Fibers
+					a(href="#fibers") Fibers
 				li
-					a(href="##compact-api") Compact API
+					a(href="#compact-api") Compact API
 				li
-					a(href="##native-code") Zero-downtime changes
+					a(href="#native-code") Zero-downtime changes
 		li
-			a(href="##productivity") Productivity
+			a(href="#productivity") Productivity
 			ul
 				li
-					a(href="##web-framework") Full integrated web framework
+					a(href="#web-framework") Full integrated web framework
 				li
-					a(href="##native-db") Native database drivers
+					a(href="#native-db") Native database drivers
 				li
-					a(href="##raw-sockets") Raw TCP and file handling
+					a(href="#raw-sockets") Raw TCP and file handling
 		li
-			a(href="##performance") Performance
+			a(href="#performance") Performance
 			ul
 				li
-					a(href="##aio") Asynchronous I/O
+					a(href="#aio") Asynchronous I/O
 				li
-					a(href="##native-code") Native machine code
+					a(href="#native-code") Native machine code
 				li
-					a(href="##diet-templates") Diet templates
+					a(href="#diet-templates") Diet templates
 				li
-					a(href="##load-balancing") Load balancing
+					a(href="#load-balancing") Load balancing
 
 block body
 
@@ -48,7 +48,7 @@ block body
 			h3 Fiber based pseudo-blocking programming model
 
 			p The key idea behind vibe was to take the fast
-				a(href="##aio") asynchronous I/O
+				a(href="#aio") asynchronous I/O
 				| model and make it comfortable to program. Other frameworks such as
 				a.extern(href="http://nodejs.org/", target="_blank") node.js
 				| expose the asynchronous interface using callback functions. While this is a workable approach, it has several drawbacks.
@@ -74,7 +74,7 @@ block body
 			h3 Zero-downtime changes
 			
 			p (Work-in-progress) An
-				a(href="##load-balancing")
+				a(href="#load-balancing")
 				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seemless and low-risk changes on live-systems.
 
 		section
@@ -84,7 +84,7 @@ block body
 			p Usually, exception handling usually is restricted to local error handlers in event-based environments - it is impossible to wrap a sequence of events into a try-catch block. vibe.d on the other hand has full support for exception handling.
 			
 			p The
-				a(href="##fibers") fiber
+				a(href="#fibers") fiber
 				| feature behaves almost exactly like a thread regarding the stack; a single consistent call stack exists across all events that are handled in sequence. This way it becomes possible to naturally use exception handling, and especially in a web service environment exceptions are the ideal form of error handling.
 				
 			p Exceptions have the extremely useful feature that you can barely ignore them. As such, it is much more difficult to introduce subtle bugs and security holes by unintentionally ignoring error conditions. Any uncaught exceptions will automatically generate an error page and log all useful information in case of HTTP services.
@@ -128,11 +128,11 @@ block body
 			p These APIs have several advantages. The main point being that the memory overhead is much lower. This is because only one thread is needed to handle an arbitrary number of concurrent operations. The thread typically rests waiting for events and is woken up by the operating system as soon as new data arrived, a new connection is established, or an error occurs. After then issuing a new operation (e.g. new data to write to a socket), the thread will go back to sleep and let the operating system execute the operation.
 
 			p Another important aspect for speed is that because there is only one thread necessary, it is often possible to save a lot of thread context switches. However, if the application has to do a lot of computations apart from the actual I/O operations, vibe.d also supports
-				a(href="##multi-threading") multi-threading
+				a(href="#multi-threading") multi-threading
 				| to fully use the system's multi-core CPU.
 
 			p Because the asynchronous event based model is often more involved regarding the application implementation,
-				a(href="##fibers") fibers
+				a(href="#fibers") fibers
 				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading while retaining the performance characteristics of asynchronous I/O.
 		
 		section
@@ -155,7 +155,7 @@ block body
 					p The ultimate power is given by the possiblity to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
 
 					p These features together with the possibility to read files at compile time have enabled the powerful
-						a(href="##diet-templates") Diet template parser
+						a(href="#diet-templates") Diet template parser
 						|.
 
 				dt Garbage collection
@@ -169,7 +169,7 @@ block body
 				
 				dt Closures and lambdas
 				dd
-					p A feature also known from some scripting amd functional languages, but also C## and a few others are clusures and lambdas. They allow to specify callback functions in a very compact and readably way.
+					p A feature also known from some scripting amd functional languages, but also C# and a few others are clusures and lambdas. They allow to specify callback functions in a very compact and readably way.
 				
 				dt Properties
 				dd
