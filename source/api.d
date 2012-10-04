@@ -45,6 +45,8 @@ void formatType(R)(ref R dst, Json type)
 		case "function":
 		case "delegate":
 			formatType(dst, type.returnType);
+			dst.put(' ');
+			dst.put(type.typeClass.get!string);
 			dst.put('(');
 			foreach( size_t i, p; type.parameters ){
 				if( i > 0 ) dst.put(", ");
