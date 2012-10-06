@@ -2,6 +2,7 @@
 	"name": "vibed.org",
 	"version": "1.0.0",
 	"dependencies": {
-		"vibelog":"~master"
+		"vibelog": "~master",
+		"ddox": "~master"
 	}
 }
