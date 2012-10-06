@@ -19,28 +19,6 @@
 			"comment": "\n\tReturns the active event driver\n"
 		},
 		{
-			"kind": "function",
-			"line": 31,
-			"protection": "package",
-			"type": "void(EventDriver driver)",
-			"name": "setEventDriver",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 36,
-			"protection": "package",
-			"type": "void()",
-			"name": "deleteEventDriver"
-		},
-		{
-			"kind": "variable",
-			"line": 44,
-			"protection": "private",
-			"type": "vibe.core.driver.EventDriver",
-			"name": "s_driver"
-		},
-		{
 			"kind": "interface",
 			"line": 51,
 			"protection": "public",
@@ -422,257 +400,6 @@
 			],
 			"name": "MethodStyle",
 			"comment": "\n\tDetermines the naming convention of an identifier.\n"
-		},
-		{
-			"kind": "template",
-			"line": 356,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 356,
-					"type": "HttpServerRequestDelegate(T inst)",
-					"name": "jsonMethodHandler"
-				}
-			],
-			"name": "jsonMethodHandler(T,string method,FT)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 407,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 407,
-					"type": "HttpServerRequestDelegate(T func)",
-					"name": "formMethodHandler"
-				}
-			],
-			"name": "formMethodHandler(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 418,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 418,
-					"type": "string()",
-					"name": "generateRestInterfaceSubInterfaces"
-				}
-			],
-			"name": "generateRestInterfaceSubInterfaces(I)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 443,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 443,
-					"type": "string()",
-					"name": "generateRestInterfaceSubInterfaceInstances"
-				}
-			],
-			"name": "generateRestInterfaceSubInterfaceInstances(I)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 469,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 469,
-					"type": "string()",
-					"name": "generateRestInterfaceSubInterfaceRequestFilter"
-				}
-			],
-			"name": "generateRestInterfaceSubInterfaceRequestFilter(I)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 495,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 495,
-					"type": "string()",
-					"name": "generateRestInterfaceMethods"
-				}
-			],
-			"name": "generateRestInterfaceMethods(I)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 559,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 559,
-					"type": "string()",
-					"name": "getReturnTypeString"
-				}
-			],
-			"name": "getReturnTypeString(alias F)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 569,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 569,
-					"type": "string()",
-					"name": "getParameterTypeString"
-				}
-			],
-			"name": "getParameterTypeString(alias F,int i)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 579,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 579,
-					"type": "void(string method, out HttpMethod http_verb, out string rest_name)",
-					"name": "getRestMethodName"
-				}
-			],
-			"name": "getRestMethodName(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 600,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 600,
-					"type": "string[]()",
-					"name": "parameterNames"
-				}
-			],
-			"name": "parameterNames(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 627,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 627,
-					"type": "string[]()",
-					"name": "parameterDefaultValues"
-				}
-			],
-			"name": "parameterDefaultValues(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 653,
-			"protection": "private",
-			"type": "string(string str)",
-			"name": "extractParameters"
-		},
-		{
-			"kind": "function",
-			"line": 668,
-			"protection": "private",
-			"type": "void(string str, ref uint i)",
-			"name": "skipWhitespace"
-		},
-		{
-			"kind": "function",
-			"line": 673,
-			"protection": "private",
-			"type": "string(string str, ref uint i)",
-			"name": "skipIdent"
-		},
-		{
-			"kind": "function",
-			"line": 688,
-			"protection": "private",
-			"type": "void(string str, ref uint i)",
-			"name": "skipType"
-		},
-		{
-			"kind": "function",
-			"line": 700,
-			"protection": "private",
-			"type": "string(string chars, string str, ref uint i)",
-			"name": "skipBalancedUntil"
-		},
-		{
-			"kind": "template",
-			"line": 713,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 716,
-					"name": "isPropertyGetter"
-				}
-			],
-			"name": "isPropertyGetter(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 720,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 723,
-					"name": "isPropertySetter"
-				}
-			],
-			"name": "isPropertySetter(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 727,
-			"protection": "private",
-			"type": "string(Json value)",
-			"name": "toRestString",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 739,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 739,
-					"type": "T(string value)",
-					"name": "fromRestString"
-				}
-			],
-			"name": "fromRestString(T)",
-			"comment": " private\n"
 		}
 	],
 	"name": "vibe.http.rest",
@@ -1015,27 +742,6 @@
 			"type": "void(SmtpClientSettings settings, Mail mail)",
 			"name": "sendMail",
 			"comment": "\n\tSends am email using the given settings.\n"
-		},
-		{
-			"kind": "function",
-			"line": 181,
-			"protection": "private",
-			"type": "void(InputStream conn, int expected_status)",
-			"name": "expectStatus"
-		},
-		{
-			"kind": "function",
-			"line": 190,
-			"protection": "private",
-			"type": "int(InputStream conn)",
-			"name": "recvStatus"
-		},
-		{
-			"kind": "function",
-			"line": 198,
-			"protection": "private",
-			"type": "string(string str)",
-			"name": "addressMailPart"
 		}
 	],
 	"name": "vibe.mail.smtp",
@@ -1051,13 +757,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 69,
-					"protection": "private",
-					"type": "Route[][9u]",
-					"name": "m_routes"
-				},
 				{
 					"kind": "function",
 					"line": 73,
@@ -1247,42 +946,6 @@
 			],
 			"name": "UrlRouter",
 			"comment": "\n\tRoutes HTTP requests based on the request method and URL.\n\n\tRoutes are matched using a special URL match string that supports two forms of placeholders.\n\tThe following example shows how these are used.\n\n\tRegistered routes are matched in the same sequence as initially specified.\n\tMatching ends as soon as a route handler writes a response using res.writeBody()\n\tor similar means. If no route matches or if no route handler writes a response,\n\tthe router will simply not handle the request and the HTTP server may generate\n\ta 404 error.\n\n\t---\n\tvoid addGroup(HttpServerRequest req, HttpServerResponse res)\n\t{\n\t\t// Route variables are accessible via the params map\n\t\tlogInfo(\"Getting group %s for user %s.\", req.params[\"groupname\"], req.params[\"username\"]);\n\t}\n\n\tstatic this()\n\t{\n\t\tauto router = new UrlRouter;\n\t\t// Matches all GET requests for /users/*/groups/* and places\n\t\t// the place holders in req.params as 'username' and 'groupname'.\n\t\trouter.get(\"/users/:username/groups/:groupname\", &addGroup);\n\n\t\t// Natches all requests. This can be useful for authorization and\n\t\t// similar tasks. The auth method will only write a response if the\n\t\t// user is _not_ authorized. Otherwise, the router will fall through\n\t\t// and continue with the following routes.\n\t\trouter.any(\"*\", &auth)\n\n\t\t// Matches a POST request\n\t\trouter.post(\"/users/:username/delete\", &deleteUser)\n\n\t\t// Matches all GET requests in /static/ such as /static/img.png or\n\t\t// /static/styles/sty.css\n\t\trouter.get(\"/static/*\", &serveStaticFiles)\n\n\t\t// Setup a HTTP server...\n\t\tauto settings = new HttpServerSettings;\n\t\t// ...\n\n\t\t// The router can be directly passed to the listenHttp function as\n\t\t// the main request handler.\n\t\tlistenHttp(settings, router);\n\t}\n\t---\n"
-		},
-		{
-			"kind": "struct",
-			"line": 157,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 158,
-					"protection": "public",
-					"type": "string",
-					"name": "pattern"
-				},
-				{
-					"kind": "variable",
-					"line": 159,
-					"protection": "public",
-					"type": "void delegate(HttpServerRequest req, HttpServerResponse res)",
-					"name": "cb"
-				},
-				{
-					"kind": "function",
-					"line": 161,
-					"protection": "public",
-					"type": "const bool(string url, ref string[string] params)",
-					"name": "matches"
-				}
-			],
-			"name": "Route"
-		},
-		{
-			"kind": "function",
-			"line": 184,
-			"protection": "private",
-			"type": "string(string str, ref uint idx)",
-			"name": "skipPathNode"
 		}
 	],
 	"name": "vibe.http.router",
@@ -1323,35 +986,6 @@
 	"kind": "module",
 	"file": "..\\source\\vibe\\textfilter\\html.d",
 	"members": [
-		{
-			"kind": "struct",
-			"line": 14,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 15,
-					"protection": "public",
-					"type": "string",
-					"name": "data"
-				},
-				{
-					"kind": "function",
-					"line": 16,
-					"protection": "public",
-					"type": "void(string s)",
-					"name": "put"
-				},
-				{
-					"kind": "function",
-					"line": 17,
-					"protection": "public",
-					"type": "void(char ch)",
-					"name": "put"
-				}
-			],
-			"name": "StringAppender"
-		},
 		{
 			"kind": "function",
 			"line": 23,
@@ -1836,13 +1470,6 @@
 			"members": [
 				{
 					"kind": "variable",
-					"line": 73,
-					"protection": "protected",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
 					"line": 77,
 					"protection": "public",
 					"type": "HttpVersion",
@@ -1868,20 +1495,6 @@
 					"protection": "public",
 					"type": "StrMapCI",
 					"name": "headers"
-				},
-				{
-					"kind": "constructor",
-					"line": 83,
-					"protection": "protected",
-					"type": "HttpRequest(Stream conn)",
-					"name": "this"
-				},
-				{
-					"kind": "constructor",
-					"line": 88,
-					"protection": "protected",
-					"type": "HttpRequest()",
-					"name": "this"
 				},
 				{
 					"kind": "function",
@@ -2018,27 +1631,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 164,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_in"
-				},
-				{
-					"kind": "variable",
-					"line": 165,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_empty"
-				},
-				{
-					"kind": "variable",
-					"line": 166,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_bytesInCurrentChunk"
-				},
-				{
 					"kind": "constructor",
 					"line": 169,
 					"protection": "public",
@@ -2079,13 +1671,6 @@
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
-				},
-				{
-					"kind": "function",
-					"line": 210,
-					"protection": "private",
-					"type": "void()",
-					"name": "readChunk"
 				}
 			],
 			"interfaces": [
@@ -2100,20 +1685,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 236,
-					"protection": "private",
-					"type": "vibe.stream.stream.OutputStream",
-					"name": "m_out"
-				},
-				{
-					"kind": "variable",
-					"line": 237,
-					"protection": "private",
-					"type": "Appender!(ubyte[])",
-					"name": "m_buffer"
-				},
 				{
 					"kind": "constructor",
 					"line": 240,
@@ -2148,13 +1719,6 @@
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize"
-				},
-				{
-					"kind": "function",
-					"line": 285,
-					"protection": "private",
-					"type": "void(long length)",
-					"name": "writeChunkSize"
 				}
 			],
 			"interfaces": [
@@ -2169,55 +1733,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 292,
-					"protection": "private",
-					"type": "string",
-					"name": "m_value"
-				},
-				{
-					"kind": "variable",
-					"line": 293,
-					"protection": "private",
-					"type": "string",
-					"name": "m_domain"
-				},
-				{
-					"kind": "variable",
-					"line": 294,
-					"protection": "private",
-					"type": "string",
-					"name": "m_path"
-				},
-				{
-					"kind": "variable",
-					"line": 295,
-					"protection": "private",
-					"type": "string",
-					"name": "m_expires"
-				},
-				{
-					"kind": "variable",
-					"line": 296,
-					"protection": "private",
-					"type": "long",
-					"name": "m_maxAge"
-				},
-				{
-					"kind": "variable",
-					"line": 297,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_secure"
-				},
-				{
-					"kind": "variable",
-					"line": 298,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_httpOnly"
-				},
 				{
 					"kind": "function",
 					"line": 301,
@@ -2325,63 +1840,6 @@
 			"protection": "public",
 			"members": [
 				{
-					"kind": "struct",
-					"line": 335,
-					"protection": "private",
-					"members": [
-						{
-							"kind": "variable",
-							"line": 335,
-							"protection": "public",
-							"type": "uint",
-							"name": "keyCheckSum"
-						},
-						{
-							"kind": "variable",
-							"line": 335,
-							"protection": "public",
-							"type": "string",
-							"name": "key"
-						},
-						{
-							"kind": "variable",
-							"line": 335,
-							"protection": "public",
-							"type": "string",
-							"name": "value"
-						}
-					],
-					"name": "Field"
-				},
-				{
-					"kind": "variable",
-					"line": 336,
-					"protection": "private",
-					"type": "Field[64u]",
-					"name": "m_fields"
-				},
-				{
-					"kind": "variable",
-					"line": 337,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_fieldCount"
-				},
-				{
-					"kind": "variable",
-					"line": 338,
-					"protection": "private",
-					"type": "Field[]",
-					"name": "m_extendedFields"
-				},
-				{
-					"kind": "variable",
-					"line": 339,
-					"protection": "private",
-					"type": "char[256u]",
-					"name": "s_keyBuffer"
-				},
-				{
 					"kind": "function",
 					"line": 342,
 					"protection": "public",
@@ -2457,20 +1915,6 @@
 					"protection": "public",
 					"type": "const @property StrMapCI()",
 					"name": "dup"
-				},
-				{
-					"kind": "function",
-					"line": 420,
-					"protection": "private",
-					"type": "const int(const(Field[]) map, string key, uint keysum)",
-					"name": "getIndex"
-				},
-				{
-					"kind": "function",
-					"line": 432,
-					"protection": "private",
-					"type": "uint(string s)",
-					"name": "computeCheckSumI"
 				}
 			],
 			"name": "StrMapCI",
@@ -2524,20 +1968,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 44,
-					"protection": "private",
-					"type": "vibe.stream.stream.OutputStream",
-					"name": "m_out"
-				},
-				{
-					"kind": "variable",
-					"line": 45,
-					"protection": "private",
-					"type": "FreeListRef!(Compress)",
-					"name": "m_comp"
-				},
 				{
 					"kind": "constructor",
 					"line": 48,
@@ -2621,34 +2051,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 111,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_in"
-				},
-				{
-					"kind": "variable",
-					"line": 112,
-					"protection": "private",
-					"type": "FreeListRef!(UnCompress)",
-					"name": "m_uncomp"
-				},
-				{
-					"kind": "variable",
-					"line": 113,
-					"protection": "private",
-					"type": "ubyte[]",
-					"name": "m_buffer"
-				},
-				{
-					"kind": "variable",
-					"line": 114,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_finished"
-				},
-				{
 					"kind": "constructor",
 					"line": 117,
 					"protection": "public",
@@ -2689,13 +2091,6 @@
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
-				},
-				{
-					"kind": "function",
-					"line": 161,
-					"protection": "private",
-					"type": "void()",
-					"name": "readChunk"
 				}
 			],
 			"interfaces": [
@@ -2775,21 +2170,6 @@
 			"type": "ubyte[](InputStream stream, uint max_bytes = cast(uint)0)",
 			"name": "readAll",
 			"comment": "\n\tReads the complete contents of a stream, optionally limited by max_bytes.\n\n\tThrows:\n\t\tAn exception is thrown if max_bytes != 0 and the stream contains more than max_bytes data.\n"
-		},
-		{
-			"kind": "struct",
-			"line": 133,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 133,
-					"protection": "public",
-					"type": "ubyte[65536u]",
-					"name": "bytes"
-				}
-			],
-			"name": "Buffer"
 		},
 		{
 			"kind": "interface",
@@ -2916,13 +2296,6 @@
 					"type": "void(const(char[]) elems)",
 					"name": "put",
 					"comment": " ditto\n"
-				},
-				{
-					"kind": "function",
-					"line": 221,
-					"protection": "protected",
-					"type": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
-					"name": "writeDefault"
 				}
 			],
 			"name": "OutputStream",
@@ -3291,20 +2664,6 @@
 					"type": "@property Bson()",
 					"name": "EmptyObject",
 					"comment": " Returns a new, empty Bson value of type Object.\n"
-				},
-				{
-					"kind": "variable",
-					"line": 83,
-					"protection": "private",
-					"type": "Type",
-					"name": "m_type"
-				},
-				{
-					"kind": "variable",
-					"line": 84,
-					"protection": "private",
-					"type": "immutable(ubyte)[]",
-					"name": "m_data"
 				},
 				{
 					"kind": "constructor",
@@ -3719,13 +3078,6 @@
 				},
 				{
 					"kind": "function",
-					"line": 528,
-					"protection": "private",
-					"type": "const void(const(Type[]) valid_types...)",
-					"name": "checkType"
-				},
-				{
-					"kind": "function",
 					"line": 32,
 					"protection": "public",
 					"type": "bool(const(void*) p, const(void*) q)",
@@ -3786,20 +3138,6 @@
 					"name": "Type"
 				},
 				{
-					"kind": "variable",
-					"line": 552,
-					"protection": "private",
-					"type": "Type",
-					"name": "m_type"
-				},
-				{
-					"kind": "variable",
-					"line": 553,
-					"protection": "private",
-					"type": "immutable(ubyte)[]",
-					"name": "m_data"
-				},
-				{
 					"kind": "constructor",
 					"line": 556,
 					"protection": "public",
@@ -3829,34 +3167,6 @@
 			"line": 570,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 572,
-					"protection": "private",
-					"type": "ubyte[12u]",
-					"name": "m_bytes"
-				},
-				{
-					"kind": "variable",
-					"line": 573,
-					"protection": "private",
-					"type": "int",
-					"name": "ms_pid"
-				},
-				{
-					"kind": "variable",
-					"line": 574,
-					"protection": "private",
-					"type": "uint",
-					"name": "ms_inc"
-				},
-				{
-					"kind": "variable",
-					"line": 575,
-					"protection": "private",
-					"type": "uint",
-					"name": "MACHINE_ID"
-				},
 				{
 					"kind": "constructor",
 					"line": 580,
@@ -3929,13 +3239,6 @@
 			"line": 679,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 680,
-					"protection": "private",
-					"type": "long",
-					"name": "m_time"
-				},
 				{
 					"kind": "constructor",
 					"line": 682,
@@ -4030,13 +3333,6 @@
 			"protection": "public",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 724,
-					"protection": "private",
-					"type": "long",
-					"name": "m_time"
-				},
-				{
 					"kind": "constructor",
 					"line": 726,
 					"protection": "public",
@@ -4052,20 +3348,6 @@
 			"line": 735,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 737,
-					"protection": "private",
-					"type": "string",
-					"name": "m_expr"
-				},
-				{
-					"kind": "variable",
-					"line": 738,
-					"protection": "private",
-					"type": "string",
-					"name": "m_options"
-				},
 				{
 					"kind": "constructor",
 					"line": 741,
@@ -4136,27 +3418,6 @@
 				}
 			],
 			"name": "writeBson(R) if (isOutputRange!(R,ubyte))"
-		},
-		{
-			"kind": "function",
-			"line": 982,
-			"protection": "private",
-			"type": "Json(Bson value)",
-			"name": "bsonToJson"
-		},
-		{
-			"kind": "function",
-			"line": 1014,
-			"protection": "private",
-			"type": "Bson(Json value)",
-			"name": "jsonToBson"
-		},
-		{
-			"kind": "function",
-			"line": 1036,
-			"protection": "private",
-			"type": "string(ref immutable(ubyte)[] data)",
-			"name": "skipCString"
 		},
 		{
 			"kind": "template",
@@ -4255,13 +3516,6 @@
 			"comment": " Markdown filters the given string and writes the corresponding HTML to an output range.\n"
 		},
 		{
-			"kind": "variable",
-			"line": 63,
-			"protection": "private",
-			"type": "immutable(char[][])",
-			"name": "s_blockTags"
-		},
-		{
 			"kind": "enum",
 			"line": 66,
 			"protection": "public",
@@ -4346,56 +3600,6 @@
 			"name": "LineType"
 		},
 		{
-			"kind": "struct",
-			"line": 83,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 84,
-					"protection": "public",
-					"type": "LineType",
-					"name": "type"
-				},
-				{
-					"kind": "variable",
-					"line": 85,
-					"protection": "public",
-					"type": "IndentType[]",
-					"name": "indent"
-				},
-				{
-					"kind": "variable",
-					"line": 86,
-					"protection": "public",
-					"type": "string",
-					"name": "text"
-				},
-				{
-					"kind": "variable",
-					"line": 87,
-					"protection": "public",
-					"type": "string",
-					"name": "unindented"
-				},
-				{
-					"kind": "function",
-					"line": 89,
-					"protection": "public",
-					"type": "string(uint n)",
-					"name": "unindent"
-				}
-			],
-			"name": "Line"
-		},
-		{
-			"kind": "function",
-			"line": 108,
-			"protection": "private",
-			"type": "Line[](ref string[] lines)",
-			"name": "parseLines"
-		},
-		{
 			"kind": "enum",
 			"line": 149,
 			"protection": "public",
@@ -4457,329 +3661,6 @@
 				}
 			],
 			"name": "BlockType"
-		},
-		{
-			"kind": "struct",
-			"line": 161,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 162,
-					"protection": "public",
-					"type": "BlockType",
-					"name": "type"
-				},
-				{
-					"kind": "variable",
-					"line": 163,
-					"protection": "public",
-					"type": "string[]",
-					"name": "text"
-				},
-				{
-					"kind": "variable",
-					"line": 164,
-					"protection": "public",
-					"type": "Block[]",
-					"name": "blocks"
-				},
-				{
-					"kind": "variable",
-					"line": 165,
-					"protection": "public",
-					"type": "uint",
-					"name": "headerLevel"
-				}
-			],
-			"name": "Block"
-		},
-		{
-			"kind": "function",
-			"line": 168,
-			"protection": "private",
-			"type": "void(ref Block root, ref Line[] lines, IndentType[] base_indent)",
-			"name": "parseBlocks"
-		},
-		{
-			"kind": "function",
-			"line": 292,
-			"protection": "private",
-			"type": "string[](ref Line[] lines, IndentType[] indent)",
-			"name": "skipText"
-		},
-		{
-			"kind": "template",
-			"line": 318,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 318,
-					"type": "void(ref R dst, ref const Block block, LinkRef[string] links)",
-					"name": "writeBlock"
-				}
-			],
-			"name": "writeBlock(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 403,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 403,
-					"type": "void(ref R dst, string ln, in LinkRef[string] linkrefs)",
-					"name": "writeMarkdownEscaped"
-				}
-			],
-			"name": "writeMarkdownEscaped(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 517,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 517,
-					"type": "void(ref R dst, string ln, string hln)",
-					"name": "outputHeaderLine"
-				}
-			],
-			"name": "outputHeaderLine(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 543,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 543,
-					"type": "void(ref R dst)",
-					"name": "enterBlockQuote"
-				}
-			],
-			"name": "enterBlockQuote(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 549,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 549,
-					"type": "void(ref R dst)",
-					"name": "exitBlockQuote"
-				}
-			],
-			"name": "exitBlockQuote(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 554,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isLineBlank"
-		},
-		{
-			"kind": "function",
-			"line": 559,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isSetextHeaderLine"
-		},
-		{
-			"kind": "function",
-			"line": 568,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isAtxHeaderLine"
-		},
-		{
-			"kind": "function",
-			"line": 574,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isHlineLine"
-		},
-		{
-			"kind": "function",
-			"line": 581,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isQuoteLine"
-		},
-		{
-			"kind": "function",
-			"line": 586,
-			"protection": "private",
-			"type": "uint(string ln)",
-			"name": "getQuoteLevel"
-		},
-		{
-			"kind": "function",
-			"line": 597,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isUListLine"
-		},
-		{
-			"kind": "function",
-			"line": 606,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isOListLine"
-		},
-		{
-			"kind": "function",
-			"line": 621,
-			"protection": "private",
-			"type": "string(string str, LineType tp)",
-			"name": "removeListPrefix"
-		},
-		{
-			"kind": "function",
-			"line": 636,
-			"protection": "private",
-			"type": "HtmlBlockInfo(string ln)",
-			"name": "parseHtmlBlockLine"
-		},
-		{
-			"kind": "function",
-			"line": 672,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isHtmlBlockLine"
-		},
-		{
-			"kind": "function",
-			"line": 678,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isHtmlBlockCloseLine"
-		},
-		{
-			"kind": "function",
-			"line": 684,
-			"protection": "private",
-			"type": "string(string ln)",
-			"name": "getHtmlTagName"
-		},
-		{
-			"kind": "function",
-			"line": 689,
-			"protection": "private",
-			"type": "bool(string ln)",
-			"name": "isLineIndented"
-		},
-		{
-			"kind": "function",
-			"line": 694,
-			"protection": "private",
-			"type": "string(string ln)",
-			"name": "unindentLine"
-		},
-		{
-			"kind": "function",
-			"line": 701,
-			"protection": "private",
-			"type": "int(ref string str, ref string text)",
-			"name": "parseEmphasis"
-		},
-		{
-			"kind": "function",
-			"line": 726,
-			"protection": "private",
-			"type": "bool(ref string str, ref string code)",
-			"name": "parseInlineCode"
-		},
-		{
-			"kind": "function",
-			"line": 744,
-			"protection": "private",
-			"type": "bool(ref string str, ref Link dst, const(LinkRef[string]) linkrefs)",
-			"name": "parseLink"
-		},
-		{
-			"kind": "function",
-			"line": 803,
-			"protection": "private",
-			"type": "bool(ref string str, ref string url)",
-			"name": "parseAutoLink"
-		},
-		{
-			"kind": "function",
-			"line": 818,
-			"protection": "private",
-			"type": "LinkRef[string](ref string[] lines)",
-			"name": "scanForReferences"
-		},
-		{
-			"kind": "struct",
-			"line": 886,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 887,
-					"protection": "public",
-					"type": "string",
-					"name": "id"
-				},
-				{
-					"kind": "variable",
-					"line": 888,
-					"protection": "public",
-					"type": "string",
-					"name": "url"
-				},
-				{
-					"kind": "variable",
-					"line": 889,
-					"protection": "public",
-					"type": "string",
-					"name": "title"
-				}
-			],
-			"name": "LinkRef"
-		},
-		{
-			"kind": "struct",
-			"line": 892,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 893,
-					"protection": "public",
-					"type": "string",
-					"name": "text"
-				},
-				{
-					"kind": "variable",
-					"line": 894,
-					"protection": "public",
-					"type": "string",
-					"name": "url"
-				},
-				{
-					"kind": "variable",
-					"line": 895,
-					"protection": "public",
-					"type": "string",
-					"name": "title"
-				}
-			],
-			"name": "Link"
 		}
 	],
 	"name": "vibe.textfilter.markdown",
@@ -4789,13 +3670,6 @@
 	"kind": "module",
 	"file": "..\\source\\vibe\\http\\websockets.d",
 	"members": [
-		{
-			"kind": "variable",
-			"line": 21,
-			"protection": "private",
-			"type": "immutable(char[])",
-			"name": "s_webSocketGuid"
-		},
 		{
 			"kind": "enum",
 			"line": 23,
@@ -4891,20 +3765,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 101,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 102,
-					"protection": "private",
-					"type": "Appender!(ubyte[])",
-					"name": "m_buffer"
-				},
-				{
 					"kind": "constructor",
 					"line": 105,
 					"protection": "public",
@@ -4952,20 +3812,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 138,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 139,
-					"protection": "private",
-					"type": "Frame",
-					"name": "m_currentFrame"
-				},
-				{
 					"kind": "constructor",
 					"line": 142,
 					"protection": "public",
@@ -5006,13 +3852,6 @@
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
-				},
-				{
-					"kind": "function",
-					"line": 172,
-					"protection": "private",
-					"type": "void()",
-					"name": "readFrame"
 				}
 			],
 			"interfaces": [
@@ -5026,13 +3865,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 198,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_conn"
-				},
 				{
 					"kind": "constructor",
 					"line": 201,
@@ -5107,183 +3939,6 @@
 			"name": "SECURITY_ATTRIBUTES"
 		},
 		{
-			"kind": "struct",
-			"line": 21,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 22,
-					"protection": "public",
-					"type": "uint",
-					"name": "cb"
-				},
-				{
-					"kind": "variable",
-					"line": 23,
-					"protection": "public",
-					"type": "wchar*",
-					"name": "lpReserved"
-				},
-				{
-					"kind": "variable",
-					"line": 24,
-					"protection": "public",
-					"type": "wchar*",
-					"name": "lpDesktop"
-				},
-				{
-					"kind": "variable",
-					"line": 25,
-					"protection": "public",
-					"type": "wchar*",
-					"name": "lpTitle"
-				},
-				{
-					"kind": "variable",
-					"line": 26,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwX"
-				},
-				{
-					"kind": "variable",
-					"line": 27,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwY"
-				},
-				{
-					"kind": "variable",
-					"line": 28,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwXSize"
-				},
-				{
-					"kind": "variable",
-					"line": 29,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwYSize"
-				},
-				{
-					"kind": "variable",
-					"line": 30,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwXCountChars"
-				},
-				{
-					"kind": "variable",
-					"line": 31,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwYCountChars"
-				},
-				{
-					"kind": "variable",
-					"line": 32,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwFillAttribute"
-				},
-				{
-					"kind": "variable",
-					"line": 33,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwFlags"
-				},
-				{
-					"kind": "variable",
-					"line": 34,
-					"protection": "public",
-					"type": "ushort",
-					"name": "wShowWindow"
-				},
-				{
-					"kind": "variable",
-					"line": 35,
-					"protection": "public",
-					"type": "ushort",
-					"name": "cbReserved2"
-				},
-				{
-					"kind": "variable",
-					"line": 36,
-					"protection": "public",
-					"type": "ubyte*",
-					"name": "lpReserved2"
-				},
-				{
-					"kind": "variable",
-					"line": 37,
-					"protection": "public",
-					"type": "void*",
-					"name": "hStdInput"
-				},
-				{
-					"kind": "variable",
-					"line": 38,
-					"protection": "public",
-					"type": "void*",
-					"name": "hStdOutput"
-				},
-				{
-					"kind": "variable",
-					"line": 39,
-					"protection": "public",
-					"type": "void*",
-					"name": "hStdError"
-				}
-			],
-			"name": "STARTUPINFOW"
-		},
-		{
-			"kind": "struct",
-			"line": 42,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 43,
-					"protection": "public",
-					"type": "void*",
-					"name": "hProcess"
-				},
-				{
-					"kind": "variable",
-					"line": 44,
-					"protection": "public",
-					"type": "void*",
-					"name": "hThread"
-				},
-				{
-					"kind": "variable",
-					"line": 45,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwProcessId"
-				},
-				{
-					"kind": "variable",
-					"line": 46,
-					"protection": "public",
-					"type": "uint",
-					"name": "dwThreadId"
-				}
-			],
-			"name": "PROCESS_INFORMATION"
-		},
-		{
-			"kind": "function",
-			"line": 49,
-			"protection": "private",
-			"type": "extern (Windows) int(const(wchar)* lpApplicationName, wchar* lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, int bInheritHandles, uint dwCreationFlags, void* lpEnvironment, const(wchar)* lpCurrentDirectory, STARTUPINFOW* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation)",
-			"name": "CreateProcessW"
-		},
-		{
 			"kind": "function",
 			"line": 64,
 			"protection": "public",
@@ -5296,13 +3951,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 99,
-					"protection": "private",
-					"type": "int",
-					"name": "m_pid"
-				},
 				{
 					"kind": "constructor",
 					"line": 102,
@@ -5341,34 +3989,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 29,
-					"protection": "private",
-					"type": "vibe.db.mongo.connection.MongoClientSettings",
-					"name": "settings"
-				},
-				{
-					"kind": "variable",
-					"line": 30,
-					"protection": "private",
-					"type": "vibe.core.net.TcpConnection",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 31,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_bytesRead"
-				},
-				{
-					"kind": "variable",
-					"line": 32,
-					"protection": "private",
-					"type": "int",
-					"name": "m_msgid"
-				},
 				{
 					"kind": "variable",
 					"line": 35,
@@ -5473,90 +4093,6 @@
 					"protection": "public",
 					"type": "void(long[] cursors)",
 					"name": "killCursors"
-				},
-				{
-					"kind": "function",
-					"line": 177,
-					"protection": "private",
-					"type": "Reply(int reqid)",
-					"name": "recvReply"
-				},
-				{
-					"kind": "function",
-					"line": 216,
-					"protection": "private",
-					"type": "Reply(Message req)",
-					"name": "call"
-				},
-				{
-					"kind": "function",
-					"line": 223,
-					"protection": "private",
-					"type": "int(Message req, int response_to = -1)",
-					"name": "send"
-				},
-				{
-					"kind": "function",
-					"line": 236,
-					"protection": "private",
-					"type": "void(int v)",
-					"name": "sendInt"
-				},
-				{
-					"kind": "function",
-					"line": 237,
-					"protection": "private",
-					"type": "void(long v)",
-					"name": "sendLong"
-				},
-				{
-					"kind": "function",
-					"line": 238,
-					"protection": "private",
-					"type": "void(const(ubyte[]) data)",
-					"name": "send"
-				},
-				{
-					"kind": "function",
-					"line": 240,
-					"protection": "private",
-					"type": "int()",
-					"name": "recvInt"
-				},
-				{
-					"kind": "function",
-					"line": 241,
-					"protection": "private",
-					"type": "long()",
-					"name": "recvLong"
-				},
-				{
-					"kind": "function",
-					"line": 242,
-					"protection": "private",
-					"type": "Bson()",
-					"name": "recvBson"
-				},
-				{
-					"kind": "function",
-					"line": 248,
-					"protection": "private",
-					"type": "void(ubyte[] dst)",
-					"name": "recv"
-				},
-				{
-					"kind": "function",
-					"line": 250,
-					"protection": "private",
-					"type": "int()",
-					"name": "nextMessageId"
-				},
-				{
-					"kind": "function",
-					"line": 252,
-					"protection": "private",
-					"type": "Reply(string collection_name)",
-					"name": "safeModeLastError"
 				}
 			],
 			"interfaces": [
@@ -5572,70 +4108,6 @@
 			"type": "bool(out MongoClientSettings cfg, string url)",
 			"name": "parseMongoDBUrl",
 			"comment": "\n Parses the given string as a mongodb URL. Url must be in the form documented at\n $(LINK http://www.mongodb.org/display/DOCS/Connections) which is:\n\n mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]\n\n Returns: true if the URL was successfully parsed. False if the URL can not be parsed.\n\n If the URL is successfully parsed the MongoClientSettings instance will contain the parsed config.\n If the URL is not successfully parsed the information in the MongoClientSettings instance may be\n incomplete and should not be used.\n \n"
-		},
-		{
-			"kind": "enum",
-			"line": 523,
-			"protection": "public",
-			"base": "int",
-			"members": [
-				{
-					"kind": "enum member",
-					"line": 524,
-					"protection": "public",
-					"name": "Reply"
-				},
-				{
-					"kind": "enum member",
-					"line": 525,
-					"protection": "public",
-					"name": "Msg"
-				},
-				{
-					"kind": "enum member",
-					"line": 526,
-					"protection": "public",
-					"name": "Update"
-				},
-				{
-					"kind": "enum member",
-					"line": 527,
-					"protection": "public",
-					"name": "Insert"
-				},
-				{
-					"kind": "enum member",
-					"line": 528,
-					"protection": "public",
-					"name": "Reserved1"
-				},
-				{
-					"kind": "enum member",
-					"line": 529,
-					"protection": "public",
-					"name": "Query"
-				},
-				{
-					"kind": "enum member",
-					"line": 530,
-					"protection": "public",
-					"name": "GetMore"
-				},
-				{
-					"kind": "enum member",
-					"line": 531,
-					"protection": "public",
-					"name": "Delete"
-				},
-				{
-					"kind": "enum member",
-					"line": 532,
-					"protection": "public",
-					"name": "KillCursors"
-				}
-			],
-			"name": "OpCode",
-			"comment": " private\n"
 		},
 		{
 			"kind": "enum",
@@ -5841,64 +4313,6 @@
 		},
 		{
 			"kind": "class",
-			"line": 577,
-			"protection": "private",
-			"base": "Object",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 579,
-					"protection": "private",
-					"type": "OpCode",
-					"name": "m_opCode"
-				},
-				{
-					"kind": "variable",
-					"line": 580,
-					"protection": "private",
-					"type": "Appender!(ubyte[])",
-					"name": "m_data"
-				},
-				{
-					"kind": "constructor",
-					"line": 583,
-					"protection": "public",
-					"type": "Message(OpCode code)",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 589,
-					"protection": "public",
-					"type": "void(int v)",
-					"name": "addInt"
-				},
-				{
-					"kind": "function",
-					"line": 590,
-					"protection": "public",
-					"type": "void(long v)",
-					"name": "addLong"
-				},
-				{
-					"kind": "function",
-					"line": 591,
-					"protection": "public",
-					"type": "void(string v)",
-					"name": "addCString"
-				},
-				{
-					"kind": "function",
-					"line": 592,
-					"protection": "public",
-					"type": "void(Bson v)",
-					"name": "addBSON"
-				}
-			],
-			"name": "Message"
-		},
-		{
-			"kind": "class",
 			"line": 596,
 			"protection": "public",
 			"base": "Object",
@@ -6042,20 +4456,6 @@
 			"base": "Fiber",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 21,
-					"protection": "private",
-					"type": "VariantN!(20u)[string]",
-					"name": "m_taskLocalStorage"
-				},
-				{
-					"kind": "constructor",
-					"line": 24,
-					"protection": "protected",
-					"type": "Task(void delegate() fun, uint stack_size)",
-					"name": "this"
-				},
-				{
 					"kind": "function",
 					"line": 31,
 					"protection": "public",
@@ -6102,14 +4502,6 @@
 					"type": "bool(string name)",
 					"name": "isSet",
 					"comment": " Determines if a certain task local variable is set.\n\t\n"
-				},
-				{
-					"kind": "function",
-					"line": 59,
-					"protection": "protected",
-					"type": "void()",
-					"name": "resetLocalStorage",
-					"comment": " Clears all task local variables.\n\t\n"
 				}
 			],
 			"name": "Task",
@@ -6123,20 +4515,6 @@
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\args.d",
 	"members": [
-		{
-			"kind": "variable",
-			"line": 37,
-			"protection": "private",
-			"type": "string",
-			"name": "configPath"
-		},
-		{
-			"kind": "function",
-			"line": 39,
-			"protection": "private",
-			"type": "bool(int uid, int gid)",
-			"name": "setUID"
-		},
 		{
 			"kind": "function",
 			"line": 54,
@@ -6159,27 +4537,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 24,
-					"protection": "private",
-					"type": "vibe.http.session.SessionStore",
-					"name": "m_store"
-				},
-				{
-					"kind": "variable",
-					"line": 25,
-					"protection": "private",
-					"type": "string",
-					"name": "m_id"
-				},
-				{
-					"kind": "constructor",
-					"line": 28,
-					"protection": "private",
-					"type": "Session(SessionStore store, string id = null)",
-					"name": "this"
-				},
 				{
 					"kind": "function",
 					"line": 39,
@@ -6218,13 +4575,6 @@
 					"type": "const bool(string key)",
 					"name": "isKeySet",
 					"comment": " Queries the session for the existence of a particular key.\n"
-				},
-				{
-					"kind": "function",
-					"line": 58,
-					"protection": "package",
-					"type": "void()",
-					"name": "destroy"
 				}
 			],
 			"name": "Session",
@@ -6301,13 +4651,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 101,
-					"protection": "private",
-					"type": "string[string][string]",
-					"name": "m_sessions"
-				},
 				{
 					"kind": "constructor",
 					"line": 103,
@@ -6415,55 +4758,6 @@
 			"line": 37,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 40,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_bool"
-				},
-				{
-					"kind": "variable",
-					"line": 41,
-					"protection": "private",
-					"type": "long",
-					"name": "m_int"
-				},
-				{
-					"kind": "variable",
-					"line": 42,
-					"protection": "private",
-					"type": "double",
-					"name": "m_float"
-				},
-				{
-					"kind": "variable",
-					"line": 43,
-					"protection": "private",
-					"type": "string",
-					"name": "m_string"
-				},
-				{
-					"kind": "variable",
-					"line": 44,
-					"protection": "private",
-					"type": "Json[]",
-					"name": "m_array"
-				},
-				{
-					"kind": "variable",
-					"line": 45,
-					"protection": "private",
-					"type": "Json[string]",
-					"name": "m_object"
-				},
-				{
-					"kind": "variable",
-					"line": 47,
-					"protection": "private",
-					"type": "Type",
-					"name": "m_type"
-				},
 				{
 					"kind": "enum",
 					"line": 52,
@@ -7327,72 +5621,6 @@
 			],
 			"name": "toPrettyJson(R)",
 			"comment": " ditto\n"
-		},
-		{
-			"kind": "template",
-			"line": 1009,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 1009,
-					"type": "void(ref R dst, string s)",
-					"name": "jsonEscape"
-				}
-			],
-			"name": "jsonEscape(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 1024,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 1024,
-					"type": "string(ref R range)",
-					"name": "jsonUnescape"
-				}
-			],
-			"name": "jsonUnescape(R)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 1068,
-			"protection": "private",
-			"type": "string(ref string s, out bool is_float)",
-			"name": "skipNumber"
-		},
-		{
-			"kind": "function",
-			"line": 1099,
-			"protection": "private",
-			"type": "string(ref string s, int* line = null)",
-			"name": "skipJsonString"
-		},
-		{
-			"kind": "function",
-			"line": 1109,
-			"protection": "private",
-			"type": "void(ref string s, int* line = null)",
-			"name": "skipWhitespace"
-		},
-		{
-			"kind": "template",
-			"line": 1130,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 1130,
-					"type": "bool(T ch)",
-					"name": "isDigit"
-				}
-			],
-			"name": "isDigit(T)",
-			"comment": " private\n"
 		}
 	],
 	"name": "vibe.data.json",
@@ -7416,13 +5644,6 @@
 			"type": "void(InputStream input, ref StrMapCI dst, uint max_line_length = cast(uint)1000, Allocator alloc = defaultAllocator())",
 			"name": "parseRfc5322Header",
 			"comment": "\n\tParses an internet header according to RFC5322 (with RFC822 compatibility).\n"
-		},
-		{
-			"kind": "variable",
-			"line": 58,
-			"protection": "private",
-			"type": "immutable(char[][])",
-			"name": "monthStrings"
 		},
 		{
 			"kind": "template",
@@ -7546,13 +5767,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 33,
-					"protection": "private",
-					"type": "ssl_ctx_st*",
-					"name": "m_ctx"
-				},
 				{
 					"kind": "constructor",
 					"line": 36,
@@ -7905,13 +6119,6 @@
 			],
 			"name": "FileStream",
 			"comment": "\n\tAccesses the contents of a file as a stream.\n"
-		},
-		{
-			"kind": "function",
-			"line": 173,
-			"protection": "private",
-			"type": "FileInfo(DirEntry ent)",
-			"name": "makeFileInfo"
 		}
 	],
 	"name": "vibe.core.file",
@@ -8040,21 +6247,6 @@
 				}
 			],
 			"name": "isRWField(T,string M)"
-		},
-		{
-			"kind": "template",
-			"line": 30,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 30,
-					"type": "T()",
-					"name": "Tgen"
-				}
-			],
-			"name": "Tgen(T)",
-			"comment": " private\n"
 		}
 	],
 	"name": "vibe.data.utils",
@@ -8530,13 +6722,6 @@
 			"base": "Exception",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 369,
-					"protection": "private",
-					"type": "int",
-					"name": "m_status"
-				},
-				{
 					"kind": "constructor",
 					"line": 372,
 					"protection": "public",
@@ -8659,13 +6844,6 @@
 					"name": "session"
 				},
 				{
-					"kind": "variable",
-					"line": 419,
-					"protection": "private",
-					"type": "SysTime",
-					"name": "m_timeCreated"
-				},
-				{
 					"kind": "constructor",
 					"line": 422,
 					"protection": "public",
@@ -8703,90 +6881,6 @@
 			"protection": "public",
 			"base": "HttpResponse",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 449,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 450,
-					"protection": "private",
-					"type": "vibe.stream.stream.OutputStream",
-					"name": "m_bodyWriter"
-				},
-				{
-					"kind": "variable",
-					"line": 451,
-					"protection": "private",
-					"type": "vibe.utils.memory.Allocator",
-					"name": "m_requestAlloc"
-				},
-				{
-					"kind": "variable",
-					"line": 452,
-					"protection": "private",
-					"type": "FreeListRef!(ChunkedOutputStream)",
-					"name": "m_chunkedBodyWriter"
-				},
-				{
-					"kind": "variable",
-					"line": 453,
-					"protection": "private",
-					"type": "FreeListRef!(CountingOutputStream)",
-					"name": "m_countingWriter"
-				},
-				{
-					"kind": "variable",
-					"line": 454,
-					"protection": "private",
-					"type": "FreeListRef!(GzipOutputStream)",
-					"name": "m_gzipOutputStream"
-				},
-				{
-					"kind": "variable",
-					"line": 455,
-					"protection": "private",
-					"type": "FreeListRef!(DeflateOutputStream)",
-					"name": "m_deflateOutputStream"
-				},
-				{
-					"kind": "variable",
-					"line": 456,
-					"protection": "private",
-					"type": "vibe.http.server.HttpServerSettings",
-					"name": "m_settings"
-				},
-				{
-					"kind": "variable",
-					"line": 457,
-					"protection": "private",
-					"type": "vibe.http.session.Session",
-					"name": "m_session"
-				},
-				{
-					"kind": "variable",
-					"line": 458,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_headerWritten"
-				},
-				{
-					"kind": "variable",
-					"line": 459,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_isHeadResponse"
-				},
-				{
-					"kind": "variable",
-					"line": 460,
-					"protection": "private",
-					"type": "SysTime",
-					"name": "m_timeFinalized"
-				},
 				{
 					"kind": "constructor",
 					"line": 463,
@@ -8919,283 +7013,14 @@
 				},
 				{
 					"kind": "function",
-					"line": 642,
-					"protection": "private",
-					"type": "void()",
-					"name": "finalize",
-					"comment": " Finalizes the response. This is called automatically by the server.\n"
-				},
-				{
-					"kind": "function",
 					"line": 649,
 					"protection": "public",
 					"type": "@property SysTime()",
 					"name": "timeFinalized"
-				},
-				{
-					"kind": "function",
-					"line": 651,
-					"protection": "private",
-					"type": "void()",
-					"name": "writeHeader"
 				}
 			],
 			"name": "HttpServerResponse",
 			"comment": "\n\tRepresents a HTTP response as sent from the server side.\n"
-		},
-		{
-			"kind": "struct",
-			"line": 731,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 732,
-					"protection": "public",
-					"type": "void delegate(HttpServerRequest req, HttpServerResponse res)",
-					"name": "requestHandler"
-				},
-				{
-					"kind": "variable",
-					"line": 733,
-					"protection": "public",
-					"type": "vibe.http.server.HttpServerSettings",
-					"name": "settings"
-				},
-				{
-					"kind": "variable",
-					"line": 734,
-					"protection": "public",
-					"type": "HttpLogger[]",
-					"name": "loggers"
-				}
-			],
-			"name": "HTTPServerContext",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "struct",
-			"line": 737,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 738,
-					"protection": "public",
-					"type": "string",
-					"name": "bindAddress"
-				},
-				{
-					"kind": "variable",
-					"line": 739,
-					"protection": "public",
-					"type": "ushort",
-					"name": "bindPort"
-				},
-				{
-					"kind": "variable",
-					"line": 740,
-					"protection": "public",
-					"type": "string",
-					"name": "sslCertFile"
-				},
-				{
-					"kind": "variable",
-					"line": 741,
-					"protection": "public",
-					"type": "string",
-					"name": "sslKeyFile"
-				}
-			],
-			"name": "HTTPServerListener"
-		},
-		{
-			"kind": "variable",
-			"line": 744,
-			"protection": "private",
-			"type": "int",
-			"name": "MaxHttpHeaderLineLength"
-		},
-		{
-			"kind": "variable",
-			"line": 745,
-			"protection": "private",
-			"type": "int",
-			"name": "MaxHttpRequestHeaderSize"
-		},
-		{
-			"kind": "class",
-			"line": 747,
-			"protection": "private",
-			"base": "LimitedInputStream",
-			"members": [
-				{
-					"kind": "constructor",
-					"line": 748,
-					"protection": "public",
-					"type": "LimitedHttpInputStream(InputStream stream, ulong byte_limit, bool silent_limit = false)",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 751,
-					"protection": "public",
-					"type": "void()",
-					"name": "onSizeLimitReached"
-				}
-			],
-			"name": "LimitedHttpInputStream"
-		},
-		{
-			"kind": "class",
-			"line": 756,
-			"protection": "private",
-			"base": "Object",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 758,
-					"protection": "private",
-					"type": "SysTime",
-					"name": "m_timeref"
-				},
-				{
-					"kind": "variable",
-					"line": 759,
-					"protection": "private",
-					"type": "Duration",
-					"name": "m_timeleft"
-				},
-				{
-					"kind": "variable",
-					"line": 760,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_in"
-				},
-				{
-					"kind": "constructor",
-					"line": 763,
-					"protection": "public",
-					"type": "TimeoutHttpInputStream(InputStream stream, Duration timeleft)",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 770,
-					"protection": "public",
-					"type": "@property bool()",
-					"name": "empty"
-				},
-				{
-					"kind": "function",
-					"line": 771,
-					"protection": "public",
-					"type": "@property ulong()",
-					"name": "leastSize"
-				},
-				{
-					"kind": "function",
-					"line": 772,
-					"protection": "public",
-					"type": "@property bool()",
-					"name": "dataAvailableForRead"
-				},
-				{
-					"kind": "function",
-					"line": 773,
-					"protection": "public",
-					"type": "const(ubyte)[]()",
-					"name": "peek"
-				},
-				{
-					"kind": "function",
-					"line": 775,
-					"protection": "public",
-					"type": "void(ubyte[] dst)",
-					"name": "read"
-				},
-				{
-					"kind": "function",
-					"line": 782,
-					"protection": "private",
-					"type": "void()",
-					"name": "checkTimeout"
-				}
-			],
-			"interfaces": [
-				"InputStream"
-			],
-			"name": "TimeoutHttpInputStream"
-		},
-		{
-			"kind": "variable",
-			"line": 796,
-			"protection": "private",
-			"type": "shared(immutable(char)[])",
-			"name": "s_distHost",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 797,
-			"protection": "private",
-			"type": "shared(ushort)",
-			"name": "s_distPort",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 798,
-			"protection": "private",
-			"type": "shared(bool)",
-			"name": "s_listenersStarted",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 799,
-			"protection": "private",
-			"type": "HTTPServerContext[]",
-			"name": "g_contexts",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 800,
-			"protection": "private",
-			"type": "HTTPServerListener[]",
-			"name": "g_listeners",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "function",
-			"line": 804,
-			"protection": "private",
-			"type": "void(TcpConnection conn_, HTTPServerListener listen_info)",
-			"name": "handleHttpConnection",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 838,
-			"protection": "private",
-			"type": "bool(Stream conn, string peer_address, HTTPServerListener listen_info, ref HttpServerSettings settings)",
-			"name": "handleRequest"
-		},
-		{
-			"kind": "function",
-			"line": 1064,
-			"protection": "private",
-			"type": "void(HttpServerRequest req, InputStream conn, Allocator alloc)",
-			"name": "parseRequest"
-		},
-		{
-			"kind": "function",
-			"line": 1091,
-			"protection": "private",
-			"type": "void(string str, ref string[string] cookies)",
-			"name": "parseCookies"
 		},
 		{
 			"kind": "template",
@@ -9225,27 +7050,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 21,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_input"
-				},
-				{
-					"kind": "variable",
-					"line": 22,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_sizeLimit"
-				},
-				{
-					"kind": "variable",
-					"line": 23,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_silentLimit"
-				},
 				{
 					"kind": "constructor",
 					"line": 34,
@@ -9296,13 +7100,6 @@
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
-				},
-				{
-					"kind": "function",
-					"line": 60,
-					"protection": "protected",
-					"type": "void()",
-					"name": "onSizeLimitReached"
 				}
 			],
 			"interfaces": [
@@ -9317,20 +7114,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 71,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_bytesWritten"
-				},
-				{
-					"kind": "variable",
-					"line": 72,
-					"protection": "private",
-					"type": "vibe.stream.stream.OutputStream",
-					"name": "m_out"
-				},
 				{
 					"kind": "constructor",
 					"line": 74,
@@ -9386,20 +7169,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 102,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_bytesRead"
-				},
-				{
-					"kind": "variable",
-					"line": 103,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_in"
-				},
 				{
 					"kind": "constructor",
 					"line": 105,
@@ -9463,13 +7232,6 @@
 			"base": "Exception",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 126,
-					"protection": "private",
-					"type": "ulong",
-					"name": "m_limit"
-				},
-				{
 					"kind": "constructor",
 					"line": 128,
 					"protection": "public",
@@ -9495,27 +7257,6 @@
 	"kind": "module",
 	"file": "..\\source\\vibe\\core\\log.d",
 	"members": [
-		{
-			"kind": "variable",
-			"line": 19,
-			"protection": "private",
-			"type": "shared(LogLevel)",
-			"name": "s_minLevel"
-		},
-		{
-			"kind": "variable",
-			"line": 20,
-			"protection": "private",
-			"type": "shared(LogLevel)",
-			"name": "s_logFileLevel"
-		},
-		{
-			"kind": "variable",
-			"line": 21,
-			"protection": "private",
-			"type": "vibe.core.file.FileStream",
-			"name": "s_logFile"
-		},
 		{
 			"kind": "function",
 			"line": 25,
@@ -9695,53 +7436,11 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 15,
-					"protection": "private",
-					"type": "vibe.core.net.TcpConnection",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 16,
-					"protection": "private",
-					"type": "ubyte[]",
-					"name": "m_data"
-				},
-				{
-					"kind": "variable",
-					"line": 17,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_length"
-				},
-				{
-					"kind": "variable",
-					"line": 18,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_index"
-				},
-				{
-					"kind": "variable",
-					"line": 19,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_multi"
-				},
-				{
 					"kind": "constructor",
 					"line": 22,
 					"protection": "public",
 					"type": "RedisReply(TcpConnection conn)",
 					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 56,
-					"protection": "private",
-					"type": "ubyte[](string sizeLn)",
-					"name": "readBulk"
 				},
 				{
 					"kind": "function",
@@ -9773,27 +7472,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 87,
-					"protection": "private",
-					"type": "string",
-					"name": "m_host"
-				},
-				{
-					"kind": "variable",
-					"line": 88,
-					"protection": "private",
-					"type": "ushort",
-					"name": "m_port"
-				},
-				{
-					"kind": "variable",
-					"line": 89,
-					"protection": "private",
-					"type": "vibe.core.net.TcpConnection",
-					"name": "m_conn"
-				},
 				{
 					"kind": "constructor",
 					"line": 92,
@@ -10768,13 +8446,6 @@
 					"protection": "public",
 					"type": "HttpConsoleLogger(HttpServerSettings settings, string format)",
 					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 26,
-					"protection": "protected",
-					"type": "void(string ln)",
-					"name": "writeLine"
 				}
 			],
 			"name": "HttpConsoleLogger"
@@ -10785,13 +8456,6 @@
 			"protection": "public",
 			"base": "HttpLogger",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 34,
-					"protection": "private",
-					"type": "vibe.core.file.FileStream",
-					"name": "m_stream"
-				},
 				{
 					"kind": "constructor",
 					"line": 37,
@@ -10805,13 +8469,6 @@
 					"protection": "public",
 					"type": "void()",
 					"name": "close"
-				},
-				{
-					"kind": "function",
-					"line": 49,
-					"protection": "protected",
-					"type": "void(string ln)",
-					"name": "writeLine"
 				}
 			],
 			"name": "HttpFileLogger"
@@ -10822,20 +8479,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 59,
-					"protection": "private",
-					"type": "string",
-					"name": "m_format"
-				},
-				{
-					"kind": "variable",
-					"line": 60,
-					"protection": "private",
-					"type": "vibe.http.server.HttpServerSettings",
-					"name": "m_settings"
-				},
 				{
 					"kind": "constructor",
 					"line": 63,
@@ -10856,13 +8499,6 @@
 					"protection": "public",
 					"type": "void(HttpServerRequest req, HttpServerResponse res)",
 					"name": "log"
-				},
-				{
-					"kind": "function",
-					"line": 77,
-					"protection": "protected",
-					"type": "void(string ln)",
-					"name": "writeLine"
 				}
 			],
 			"name": "HttpLogger"
@@ -10887,20 +8523,6 @@
 			"line": 25,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 26,
-					"protection": "private",
-					"type": "vibe.db.mongo.cursor.MongoCursorData",
-					"name": "m_data"
-				},
-				{
-					"kind": "constructor",
-					"line": 28,
-					"protection": "package",
-					"type": "ref MongoCursor(MongoDB db, string collection, int nret, Reply first_chunk)",
-					"name": "this"
-				},
 				{
 					"kind": "function",
 					"line": 50,
@@ -10942,114 +8564,6 @@
 			],
 			"name": "MongoCursor",
 			"comment": "\n\tRepresents a cursor for a MongoDB query.\n\n\tUse foreach( doc; cursor ) to iterate over the list of documents.\n\n\tThis struct uses reference counting to destroy the underlying MongoDB cursor.\n"
-		},
-		{
-			"kind": "class",
-			"line": 92,
-			"protection": "private",
-			"base": "Object",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 94,
-					"protection": "private",
-					"type": "int",
-					"name": "m_refCount"
-				},
-				{
-					"kind": "variable",
-					"line": 95,
-					"protection": "private",
-					"type": "vibe.db.mongo.db.MongoDB",
-					"name": "m_db"
-				},
-				{
-					"kind": "variable",
-					"line": 96,
-					"protection": "private",
-					"type": "string",
-					"name": "m_collection"
-				},
-				{
-					"kind": "variable",
-					"line": 97,
-					"protection": "private",
-					"type": "long",
-					"name": "m_cursor"
-				},
-				{
-					"kind": "variable",
-					"line": 98,
-					"protection": "private",
-					"type": "int",
-					"name": "m_nret"
-				},
-				{
-					"kind": "variable",
-					"line": 99,
-					"protection": "private",
-					"type": "int",
-					"name": "m_offset"
-				},
-				{
-					"kind": "variable",
-					"line": 100,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_currentDoc"
-				},
-				{
-					"kind": "variable",
-					"line": 101,
-					"protection": "private",
-					"type": "Bson[]",
-					"name": "m_documents"
-				},
-				{
-					"kind": "constructor",
-					"line": 104,
-					"protection": "public",
-					"type": "MongoCursorData(MongoDB db, string collection, int nret, Reply first_chunk)",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 113,
-					"protection": "public",
-					"type": "bool()",
-					"name": "hasNext"
-				},
-				{
-					"kind": "function",
-					"line": 125,
-					"protection": "public",
-					"type": "uint()",
-					"name": "getNextIndex"
-				},
-				{
-					"kind": "function",
-					"line": 130,
-					"protection": "public",
-					"type": "Bson()",
-					"name": "getNext"
-				},
-				{
-					"kind": "function",
-					"line": 135,
-					"protection": "private",
-					"type": "void()",
-					"name": "destroy"
-				},
-				{
-					"kind": "function",
-					"line": 143,
-					"protection": "private",
-					"type": "void(Reply reply)",
-					"name": "handleReply"
-				}
-			],
-			"name": "MongoCursorData",
-			"comment": "\n\tInternal class exposed through MongoCursor.\n"
 		}
 	],
 	"name": "vibe.db.mongo.cursor",
@@ -11232,35 +8746,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 26,
-					"protection": "private",
-					"type": "vibe.db.mongo.connection.MongoClientSettings",
-					"name": "settings"
-				},
-				{
-					"kind": "variable",
-					"line": 27,
-					"protection": "private",
-					"type": "vibe.core.connectionpool.ConnectionPool!(MongoConnection).ConnectionPool",
-					"name": "m_connections"
-				},
-				{
-					"kind": "constructor",
-					"line": 30,
-					"protection": "package",
-					"type": "MongoDB(string host, ushort port = cast(ushort)27017)",
-					"name": "this"
-				},
-				{
-					"kind": "constructor",
-					"line": 44,
-					"protection": "package",
-					"type": "MongoDB(string url)",
-					"name": "this",
-					"comment": "\n Throws: an exception if the URL cannot be parsed as a valid MongoDB URL.\n\n Url must be in the form documented at\n $(LINK http://www.mongodb.org/display/DOCS/Connections) which is:\n\n mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]\n\n\t \n"
-				},
-				{
 					"kind": "function",
 					"line": 62,
 					"protection": "public",
@@ -11307,13 +8792,6 @@
 					"type": "MongoCollection(string db_and_col)",
 					"name": "getCollection",
 					"comment": "\n Return: MongoCollection for the given database and collecting specified.\n\n If a default database has been set in the MongoClientSettings it is NOT used here.\n The full database.collection path must be specified.\n\n Example:\n ---\n auto col = db.getCollection(\"mydb.mycollection\");\n ---\n\n The opIndex function should be used to get a relative collection name where the\n default database is taken into consideration.\n\n Most user code should use opIndex.\n\t \n"
-				},
-				{
-					"kind": "function",
-					"line": 131,
-					"protection": "package",
-					"type": "LockedConnection!(MongoConnection)()",
-					"name": "lockConnection"
 				}
 			],
 			"name": "MongoDB",
@@ -11388,27 +8866,6 @@
 			"line": 88,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 90,
-					"protection": "private",
-					"type": "sockaddr",
-					"name": "addr"
-				},
-				{
-					"kind": "variable",
-					"line": 91,
-					"protection": "private",
-					"type": "sockaddr_in",
-					"name": "addr_ip4"
-				},
-				{
-					"kind": "variable",
-					"line": 92,
-					"protection": "private",
-					"type": "sockaddr_in6",
-					"name": "addr_ip6"
-				},
 				{
 					"kind": "function",
 					"line": 97,
@@ -11667,64 +9124,6 @@
 			"members": [],
 			"name": "localAliasesCompat(int i,TYPES_AND_NAMES...)",
 			"comment": " When mixed in, makes all ALIASES available in the local scope. Note that there must be a\n Variant[] args__ available that matches TYPES_AND_NAMES\n"
-		},
-		{
-			"kind": "template",
-			"line": 123,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 123,
-					"type": "string(T x)",
-					"name": "cttostring"
-				}
-			],
-			"name": "cttostring(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 140,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "alias",
-					"line": 142,
-					"type": "Injectors[0]",
-					"name": "First"
-				},
-				{
-					"kind": "alias",
-					"line": 143,
-					"type": "Injectors[1 .. __dollar]",
-					"name": "Rest"
-				},
-				{
-					"kind": "alias",
-					"line": 144,
-					"type": "First!(Rest)",
-					"name": "injectReverse"
-				}
-			],
-			"name": "injectReverse(Injectors...)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 148,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 148,
-					"type": "void(HttpServerRequest req, HttpServerResponse res)",
-					"name": "reqInjector",
-					"comment": " private\n"
-				}
-			],
-			"name": "reqInjector(alias Next,Vars...)",
-			"comment": " private\n"
 		}
 	],
 	"name": "vibe.templ.utils",
@@ -11775,22 +9174,6 @@
 			"comment": "\n\tRegisters a new text filter for use in Diet templates.\n\n\tThe filter will be available using :filtername inside of the template. The following filters are\n\tpredefined: css, javascript, markdown\n"
 		},
 		{
-			"kind": "variable",
-			"line": 97,
-			"protection": "private",
-			"type": "string",
-			"name": "StreamVariableName",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 98,
-			"protection": "private",
-			"type": "string function(string, int indent)[string]",
-			"name": "s_filters",
-			"comment": "\n\n"
-		},
-		{
 			"kind": "template",
 			"line": 110,
 			"protection": "public",
@@ -11803,514 +9186,6 @@
 				}
 			],
 			"name": "dietParser(string template_file)"
-		},
-		{
-			"kind": "struct",
-			"line": 123,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 124,
-					"protection": "public",
-					"type": "string",
-					"name": "name"
-				},
-				{
-					"kind": "variable",
-					"line": 125,
-					"protection": "public",
-					"type": "int",
-					"name": "mode"
-				},
-				{
-					"kind": "variable",
-					"line": 126,
-					"protection": "public",
-					"type": "string",
-					"name": "indentStyle"
-				},
-				{
-					"kind": "variable",
-					"line": 127,
-					"protection": "public",
-					"type": "Line[]",
-					"name": "lines"
-				}
-			],
-			"name": "TemplateBlock",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "struct",
-			"line": 131,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 132,
-					"protection": "public",
-					"type": "string",
-					"name": "file"
-				},
-				{
-					"kind": "variable",
-					"line": 133,
-					"protection": "public",
-					"type": "int",
-					"name": "number"
-				},
-				{
-					"kind": "variable",
-					"line": 134,
-					"protection": "public",
-					"type": "string",
-					"name": "text"
-				}
-			],
-			"name": "Line"
-		},
-		{
-			"kind": "template",
-			"line": 138,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 138,
-					"type": "void(ref TemplateBlock[] dst)",
-					"name": "readFileRec"
-				}
-			],
-			"name": "readFileRec(string FILE,ALREADY_READ...)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 155,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 155,
-					"type": "void(ref TemplateBlock[] dst)",
-					"name": "readFilesRec"
-				}
-			],
-			"name": "readFilesRec(alias FILES,ALREADY_READ...)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "template",
-			"line": 164,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 164,
-					"type": "bool()",
-					"name": "isPartOf"
-				}
-			],
-			"name": "isPartOf(string str,STRINGS...)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 172,
-			"protection": "private",
-			"type": "string[](const(Line[]) lines)",
-			"name": "extractDependencies"
-		},
-		{
-			"kind": "function",
-			"line": 183,
-			"protection": "private",
-			"type": "string(ref const(Line[]) lines)",
-			"name": "detectIndentStyle"
-		},
-		{
-			"kind": "struct",
-			"line": 210,
-			"protection": "private",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 212,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_lineIndex"
-				},
-				{
-					"kind": "variable",
-					"line": 213,
-					"protection": "private",
-					"type": "TemplateBlock*",
-					"name": "block"
-				},
-				{
-					"kind": "variable",
-					"line": 214,
-					"protection": "private",
-					"type": "TemplateBlock[]*",
-					"name": "files"
-				},
-				{
-					"kind": "variable",
-					"line": 215,
-					"protection": "private",
-					"type": "TemplateBlock[]*",
-					"name": "blocks"
-				},
-				{
-					"kind": "function",
-					"line": 218,
-					"protection": "public",
-					"type": "@property ref string()",
-					"name": "indentStyle"
-				},
-				{
-					"kind": "function",
-					"line": 219,
-					"protection": "public",
-					"type": "@property uint()",
-					"name": "lineCount"
-				},
-				{
-					"kind": "function",
-					"line": 220,
-					"protection": "public",
-					"type": "ref Line(uint ln)",
-					"name": "line"
-				},
-				{
-					"kind": "function",
-					"line": 221,
-					"protection": "public",
-					"type": "ref Line()",
-					"name": "currLine"
-				},
-				{
-					"kind": "function",
-					"line": 222,
-					"protection": "public",
-					"type": "ref string()",
-					"name": "currLineText"
-				},
-				{
-					"kind": "function",
-					"line": 223,
-					"protection": "public",
-					"type": "Line[](uint from, uint to)",
-					"name": "lineRange"
-				},
-				{
-					"kind": "constructor",
-					"line": 225,
-					"protection": "public",
-					"type": "ref DietCompiler()",
-					"name": "this"
-				},
-				{
-					"kind": "constructor",
-					"line": 227,
-					"protection": "public",
-					"type": "ref DietCompiler(TemplateBlock* block, TemplateBlock[]* files)",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 233,
-					"protection": "public",
-					"type": "string()",
-					"name": "buildWriter"
-				},
-				{
-					"kind": "function",
-					"line": 242,
-					"protection": "public",
-					"type": "string(ref string[] node_stack, ref bool in_string, int base_level)",
-					"name": "buildWriter"
-				},
-				{
-					"kind": "function",
-					"line": 303,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, ref bool in_string, int base_level, int start_indent_level)",
-					"name": "buildBodyWriter"
-				},
-				{
-					"kind": "function",
-					"line": 454,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, const(immutable(char)[]) textline, int level, ref bool in_string)",
-					"name": "buildTextNodeWriter"
-				},
-				{
-					"kind": "function",
-					"line": 476,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, ref const(immutable(char)[]) tag, const(immutable(char)[]) line, int level, ref bool in_string, bool has_child_nodes)",
-					"name": "buildHtmlNodeWriter"
-				},
-				{
-					"kind": "function",
-					"line": 526,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, ref const(immutable(char)[]) tag, const(immutable(char)[]) tagline, int level, int base_level, ref bool in_string, const(Line[]) lines)",
-					"name": "buildRawNodeWriter"
-				},
-				{
-					"kind": "function",
-					"line": 564,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, ref const(immutable(char)[]) tagline, int tagline_number, int indent, ref bool in_string, const(Line[]) lines)",
-					"name": "buildFilterNodeWriter"
-				},
-				{
-					"kind": "function",
-					"line": 612,
-					"protection": "private",
-					"type": "void(ref const(immutable(char)[]) line, out uint i, out Tuple!(string,string)[] attribs)",
-					"name": "parseHtmlTag"
-				},
-				{
-					"kind": "function",
-					"line": 663,
-					"protection": "private",
-					"type": "string(ref string[] node_stack, ref const(immutable(char)[]) tag, int level, ref bool in_string, ref Tuple!(string,string)[] attribs, bool is_singular_tag)",
-					"name": "buildHtmlTag"
-				},
-				{
-					"kind": "function",
-					"line": 674,
-					"protection": "private",
-					"type": "void(ref const(immutable(char)[]) str, ref Tuple!(string,string)[] attribs)",
-					"name": "parseAttributes"
-				},
-				{
-					"kind": "function",
-					"line": 710,
-					"protection": "private",
-					"type": "bool(ref const(immutable(char)[]) str)",
-					"name": "hasInterpolations"
-				},
-				{
-					"kind": "function",
-					"line": 731,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) str, bool prevconcat = false, bool nextconcat = false, bool escape_quotes = false)",
-					"name": "buildInterpolatedString"
-				},
-				{
-					"kind": "function",
-					"line": 790,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) s, ref uint idx, string additional_chars = null)",
-					"name": "skipIdent"
-				},
-				{
-					"kind": "function",
-					"line": 814,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) s, ref uint idx)",
-					"name": "skipWhitespace"
-				},
-				{
-					"kind": "function",
-					"line": 824,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) s, ref uint idx)",
-					"name": "skipUntilClosingBrace"
-				},
-				{
-					"kind": "function",
-					"line": 838,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) s, ref uint idx)",
-					"name": "skipUntilClosingClamp"
-				},
-				{
-					"kind": "function",
-					"line": 852,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) s, ref uint idx, char delimiter)",
-					"name": "skipAttribString"
-				},
-				{
-					"kind": "function",
-					"line": 869,
-					"protection": "private",
-					"type": "string(ref const(immutable(char)[]) str, ref const(immutable(char)[]) indent)",
-					"name": "unindent"
-				},
-				{
-					"kind": "function",
-					"line": 875,
-					"protection": "private",
-					"type": "int(ref const(immutable(char)[]) s, ref const(immutable(char)[]) indent, bool strict = true)",
-					"name": "indentLevel"
-				},
-				{
-					"kind": "function",
-					"line": 885,
-					"protection": "private",
-					"type": "int(ref const(Line[]) ln, string indent)",
-					"name": "indentLevel"
-				},
-				{
-					"kind": "function",
-					"line": 890,
-					"protection": "private",
-					"type": "void(bool cond, string text = null, string file = __FILE__, int cline = __LINE__)",
-					"name": "assertp"
-				},
-				{
-					"kind": "function",
-					"line": 897,
-					"protection": "private",
-					"type": "TemplateBlock*(string filename)",
-					"name": "getFile"
-				},
-				{
-					"kind": "function",
-					"line": 906,
-					"protection": "private",
-					"type": "TemplateBlock*(string name)",
-					"name": "getBlock"
-				}
-			],
-			"name": "DietCompiler",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "template",
-			"line": 917,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 917,
-					"type": "string(string tag, int level, ref bool in_string)",
-					"name": "buildSpecialTag"
-				}
-			],
-			"name": "buildSpecialTag(alias node_stack)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 927,
-			"protection": "private",
-			"type": "@property string(ref bool in_string)",
-			"name": "startString"
-		},
-		{
-			"kind": "function",
-			"line": 933,
-			"protection": "private",
-			"type": "@property string(ref bool in_string)",
-			"name": "endString"
-		},
-		{
-			"kind": "function",
-			"line": 940,
-			"protection": "private",
-			"type": "void(ref const(Line) ln, bool cond, string text = null, string file = __FILE__, int line = __LINE__)",
-			"name": "assert_ln"
-		},
-		{
-			"kind": "function",
-			"line": 947,
-			"protection": "private",
-			"type": "string(ref const(immutable(char)[]) str, ref const(immutable(char)[]) indent)",
-			"name": "unindent"
-		},
-		{
-			"kind": "function",
-			"line": 953,
-			"protection": "private",
-			"type": "int(ref const(immutable(char)[]) s, ref const(immutable(char)[]) indent)",
-			"name": "indentLevel"
-		},
-		{
-			"kind": "function",
-			"line": 962,
-			"protection": "private",
-			"type": "string(ref const(Line) ln)",
-			"name": "lineMarker"
-		},
-		{
-			"kind": "function",
-			"line": 969,
-			"protection": "private",
-			"type": "string(char ch)",
-			"name": "dstringEscape"
-		},
-		{
-			"kind": "function",
-			"line": 980,
-			"protection": "private",
-			"type": "string(ref const(immutable(char)[]) str)",
-			"name": "dstringEscape"
-		},
-		{
-			"kind": "template",
-			"line": 988,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 988,
-					"type": "string(T v)",
-					"name": "_toString"
-				}
-			],
-			"name": "_toString(T)",
-			"comment": " private\n"
-		},
-		{
-			"kind": "function",
-			"line": 996,
-			"protection": "private",
-			"type": "string(string s)",
-			"name": "ctstrip"
-		},
-		{
-			"kind": "function",
-			"line": 1004,
-			"protection": "private",
-			"type": "Line[](string text, string file)",
-			"name": "removeEmptyLines"
-		},
-		{
-			"kind": "function",
-			"line": 1042,
-			"protection": "private",
-			"type": "string(string text, int indent)",
-			"name": "filterCSS",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "function",
-			"line": 1059,
-			"protection": "private",
-			"type": "string(string text, int indent)",
-			"name": "filterJavaScript"
-		},
-		{
-			"kind": "function",
-			"line": 1074,
-			"protection": "private",
-			"type": "string(string text, int indent)",
-			"name": "filterMarkdown"
-		},
-		{
-			"kind": "function",
-			"line": 1079,
-			"protection": "private",
-			"type": "string(string text, int indent)",
-			"name": "filterHtmlEscape"
 		}
 	],
 	"name": "vibe.templ.diet",
@@ -12325,27 +9200,6 @@
 			"line": 24,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 26,
-					"protection": "private",
-					"type": "immutable(PathEntry)[]",
-					"name": "m_nodes"
-				},
-				{
-					"kind": "variable",
-					"line": 27,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_absolute"
-				},
-				{
-					"kind": "variable",
-					"line": 28,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_endsWithSlash"
-				},
 				{
 					"kind": "constructor",
 					"line": 32,
@@ -12625,13 +9479,6 @@
 			"protection": "public",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 225,
-					"protection": "private",
-					"type": "string",
-					"name": "m_name"
-				},
-				{
 					"kind": "constructor",
 					"line": 228,
 					"protection": "public",
@@ -12699,13 +9546,6 @@
 		},
 		{
 			"kind": "function",
-			"line": 244,
-			"protection": "private",
-			"type": "bool(string str)",
-			"name": "isValidFilename"
-		},
-		{
-			"kind": "function",
 			"line": 252,
 			"protection": "public",
 			"type": "string(string basepath, string subpath)",
@@ -12761,55 +9601,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 34,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_stream"
-				},
-				{
-					"kind": "variable",
-					"line": 35,
-					"protection": "private",
-					"type": "vibe.crypto.ssl.SslContext",
-					"name": "m_sslCtx"
-				},
-				{
-					"kind": "variable",
-					"line": 36,
-					"protection": "private",
-					"type": "SslStreamState",
-					"name": "m_state"
-				},
-				{
-					"kind": "variable",
-					"line": 37,
-					"protection": "private",
-					"type": "bio_st*",
-					"name": "m_bio"
-				},
-				{
-					"kind": "variable",
-					"line": 38,
-					"protection": "private",
-					"type": "ssl_st*",
-					"name": "m_ssl"
-				},
-				{
-					"kind": "variable",
-					"line": 39,
-					"protection": "private",
-					"type": "ubyte[64u]",
-					"name": "m_peekBuffer"
-				},
-				{
-					"kind": "variable",
-					"line": 40,
-					"protection": "private",
-					"type": "Exception[]",
-					"name": "m_exceptions"
-				},
 				{
 					"kind": "constructor",
 					"line": 43,
@@ -12879,68 +9670,12 @@
 					"protection": "public",
 					"type": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write"
-				},
-				{
-					"kind": "function",
-					"line": 157,
-					"protection": "private",
-					"type": "void()",
-					"name": "checkExceptions"
 				}
 			],
 			"interfaces": [
 				"Stream"
 			],
 			"name": "SslStream"
-		},
-		{
-			"kind": "function",
-			"line": 169,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b)",
-			"name": "onBioNew"
-		},
-		{
-			"kind": "function",
-			"line": 178,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b)",
-			"name": "onBioFree"
-		},
-		{
-			"kind": "function",
-			"line": 190,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b, char* outb, int outlen)",
-			"name": "onBioRead"
-		},
-		{
-			"kind": "function",
-			"line": 204,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b, const(char)* inb, int inlen)",
-			"name": "onBioWrite"
-		},
-		{
-			"kind": "function",
-			"line": 216,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b, int cmd, int num, void* ptr)",
-			"name": "onBioCtrl"
-		},
-		{
-			"kind": "function",
-			"line": 247,
-			"protection": "private",
-			"type": "nothrow extern (C) int(bio_st* b, const(char)* s)",
-			"name": "onBioPuts"
-		},
-		{
-			"kind": "variable",
-			"line": 253,
-			"protection": "private",
-			"type": "bio_method_st",
-			"name": "s_bio_methods"
 		}
 	],
 	"name": "vibe.stream.ssl",
@@ -13008,20 +9743,6 @@
 			"type": "void(string str, ref string[string] params)",
 			"name": "parseUrlEncodedForm",
 			"comment": "\n\tParses a url encoded form (query string format) and puts the key/value pairs into params.\n"
-		},
-		{
-			"kind": "function",
-			"line": 85,
-			"protection": "private",
-			"type": "void(ref string[string] fields, ref FilePart[string] files, string content_type, InputStream body_reader)",
-			"name": "parseMultiPartForm"
-		},
-		{
-			"kind": "function",
-			"line": 97,
-			"protection": "private",
-			"type": "bool(InputStream stream, ref string[string] form, ref FilePart[string] files, string boundary)",
-			"name": "parseMultipartFormPart"
 		}
 	],
 	"name": "vibe.http.form",
@@ -13181,250 +9902,6 @@
 			"type": "string",
 			"name": "VibeVersionString",
 			"comment": "\n\tA version string representing the current vibe version\n"
-		},
-		{
-			"kind": "class",
-			"line": 290,
-			"protection": "private",
-			"base": "Task",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 292,
-					"protection": "private",
-					"type": "void delegate()",
-					"name": "m_taskFunc"
-				},
-				{
-					"kind": "variable",
-					"line": 293,
-					"protection": "private",
-					"type": "object.Exception",
-					"name": "m_exception"
-				},
-				{
-					"kind": "constructor",
-					"line": 296,
-					"protection": "public",
-					"type": "CoreTask()",
-					"name": "this"
-				},
-				{
-					"kind": "function",
-					"line": 301,
-					"protection": "private",
-					"type": "void()",
-					"name": "run"
-				}
-			],
-			"name": "CoreTask",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "class",
-			"line": 327,
-			"protection": "private",
-			"base": "Object",
-			"members": [
-				{
-					"kind": "variable",
-					"line": 329,
-					"protection": "private",
-					"type": "Duration",
-					"name": "m_gcCollectTimeout"
-				},
-				{
-					"kind": "variable",
-					"line": 330,
-					"protection": "private",
-					"type": "vibe.core.driver.Timer",
-					"name": "m_gcTimer"
-				},
-				{
-					"kind": "variable",
-					"line": 331,
-					"protection": "private",
-					"type": "bool",
-					"name": "m_ignoreIdleForGC"
-				},
-				{
-					"kind": "function",
-					"line": 334,
-					"protection": "private",
-					"type": "void()",
-					"name": "setupGcTimer"
-				},
-				{
-					"kind": "function",
-					"line": 340,
-					"protection": "public",
-					"type": "void()",
-					"name": "yieldForEvent"
-				},
-				{
-					"kind": "function",
-					"line": 365,
-					"protection": "public",
-					"type": "void(Task task, Exception event_exception = null)",
-					"name": "resumeTask"
-				},
-				{
-					"kind": "function",
-					"line": 383,
-					"protection": "public",
-					"type": "void()",
-					"name": "notifyIdle"
-				},
-				{
-					"kind": "function",
-					"line": 400,
-					"protection": "private",
-					"type": "void()",
-					"name": "collectGarbage"
-				}
-			],
-			"interfaces": [
-				"DriverCore"
-			],
-			"name": "VibeDriverCore"
-		},
-		{
-			"kind": "variable",
-			"line": 416,
-			"protection": "private",
-			"type": "uint",
-			"name": "s_taskStackSize",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 417,
-			"protection": "private",
-			"type": "Task[]",
-			"name": "s_yieldedTasks",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 418,
-			"protection": "private",
-			"type": "bool",
-			"name": "s_eventLoopRunning",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 419,
-			"protection": "private",
-			"type": "vibe.core.core.VibeDriverCore",
-			"name": "s_core",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 420,
-			"protection": "private",
-			"type": "VariantN!(20u)[string]",
-			"name": "s_taskLocalStorageGlobal",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 421,
-			"protection": "private",
-			"type": "CoreTask[]",
-			"name": "s_availableFibers",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 422,
-			"protection": "private",
-			"type": "uint",
-			"name": "s_availableFibersCount",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 423,
-			"protection": "private",
-			"type": "uint",
-			"name": "s_fiberCount",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 424,
-			"protection": "private",
-			"type": "void delegate()",
-			"name": "s_idleHandler",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 426,
-			"protection": "private",
-			"type": "core.sync.mutex.Mutex",
-			"name": "st_workerTaskMutex",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 427,
-			"protection": "private",
-			"type": "void delegate()[]",
-			"name": "st_workerTasks",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "variable",
-			"line": 428,
-			"protection": "private",
-			"type": "vibe.core.signal.Signal",
-			"name": "st_workerTaskSignal",
-			"comment": "\n\n"
-		},
-		{
-			"kind": "function",
-			"line": 520,
-			"protection": "private",
-			"type": "void()",
-			"name": "setupDriver"
-		},
-		{
-			"kind": "function",
-			"line": 531,
-			"protection": "private",
-			"type": "void()",
-			"name": "workerThreadFunc"
-		},
-		{
-			"kind": "function",
-			"line": 539,
-			"protection": "private",
-			"type": "void()",
-			"name": "handleWorkerTasks"
-		},
-		{
-			"kind": "function",
-			"line": 566,
-			"protection": "private",
-			"type": "nothrow extern (C) void()",
-			"name": "extrap"
-		},
-		{
-			"kind": "function",
-			"line": 571,
-			"protection": "private",
-			"type": "nothrow extern (C) void(int signal)",
-			"name": "onSignal"
-		},
-		{
-			"kind": "function",
-			"line": 579,
-			"protection": "private",
-			"type": "nothrow extern (C) void(int signal)",
-			"name": "onBrokenPipe"
 		}
 	],
 	"name": "vibe.core.core",
@@ -13439,20 +9916,6 @@
 			"line": 49,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 51,
-					"protection": "private",
-					"type": "vibe.db.mongo.db.MongoDB",
-					"name": "m_db"
-				},
-				{
-					"kind": "variable",
-					"line": 52,
-					"protection": "private",
-					"type": "string",
-					"name": "m_collection"
-				},
 				{
 					"kind": "constructor",
 					"line": 55,
@@ -13677,69 +10140,6 @@
 			"line": 24,
 			"protection": "public",
 			"members": [
-				{
-					"kind": "variable",
-					"line": 26,
-					"protection": "private",
-					"type": "string",
-					"name": "m_schema"
-				},
-				{
-					"kind": "variable",
-					"line": 27,
-					"protection": "private",
-					"type": "string",
-					"name": "m_pathString"
-				},
-				{
-					"kind": "variable",
-					"line": 28,
-					"protection": "private",
-					"type": "Path",
-					"name": "m_path"
-				},
-				{
-					"kind": "variable",
-					"line": 29,
-					"protection": "private",
-					"type": "string",
-					"name": "m_host"
-				},
-				{
-					"kind": "variable",
-					"line": 30,
-					"protection": "private",
-					"type": "ushort",
-					"name": "m_port"
-				},
-				{
-					"kind": "variable",
-					"line": 31,
-					"protection": "private",
-					"type": "string",
-					"name": "m_username"
-				},
-				{
-					"kind": "variable",
-					"line": 32,
-					"protection": "private",
-					"type": "string",
-					"name": "m_password"
-				},
-				{
-					"kind": "variable",
-					"line": 33,
-					"protection": "private",
-					"type": "string",
-					"name": "m_queryString"
-				},
-				{
-					"kind": "variable",
-					"line": 34,
-					"protection": "private",
-					"type": "string",
-					"name": "m_anchor"
-				},
 				{
 					"kind": "constructor",
 					"line": 38,
@@ -14130,34 +10530,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 93,
-					"protection": "private",
-					"type": "vibe.utils.memory.Allocator",
-					"name": "m_baseAlloc"
-				},
-				{
-					"kind": "variable",
-					"line": 94,
-					"protection": "private",
-					"type": "uint[const(void)*]",
-					"name": "m_blocks"
-				},
-				{
-					"kind": "variable",
-					"line": 95,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_bytes"
-				},
-				{
-					"kind": "variable",
-					"line": 96,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_maxBytes"
-				},
-				{
 					"kind": "constructor",
 					"line": 99,
 					"protection": "public",
@@ -14285,20 +10657,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 161,
-					"protection": "private",
-					"type": "FreeListAlloc[]",
-					"name": "m_freeLists"
-				},
-				{
-					"kind": "variable",
-					"line": 162,
-					"protection": "private",
-					"type": "vibe.utils.memory.Allocator",
-					"name": "m_baseAlloc"
-				},
-				{
 					"kind": "constructor",
 					"line": 165,
 					"protection": "public",
@@ -14397,41 +10755,6 @@
 					"name": "Destructor"
 				},
 				{
-					"kind": "variable",
-					"line": 214,
-					"protection": "private",
-					"type": "vibe.utils.memory.Allocator",
-					"name": "m_baseAllocator"
-				},
-				{
-					"kind": "variable",
-					"line": 215,
-					"protection": "private",
-					"type": "Pool*",
-					"name": "m_freePools"
-				},
-				{
-					"kind": "variable",
-					"line": 216,
-					"protection": "private",
-					"type": "Pool*",
-					"name": "m_fullPools"
-				},
-				{
-					"kind": "variable",
-					"line": 217,
-					"protection": "private",
-					"type": "Destructor*",
-					"name": "m_destructors"
-				},
-				{
-					"kind": "variable",
-					"line": 218,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_poolSize"
-				},
-				{
 					"kind": "constructor",
 					"line": 221,
 					"protection": "public",
@@ -14499,56 +10822,6 @@
 			"protection": "public",
 			"base": "Object",
 			"members": [
-				{
-					"kind": "struct",
-					"line": 325,
-					"protection": "private",
-					"members": [
-						{
-							"kind": "variable",
-							"line": 325,
-							"protection": "public",
-							"type": "FreeListSlot*",
-							"name": "next"
-						}
-					],
-					"name": "FreeListSlot"
-				},
-				{
-					"kind": "variable",
-					"line": 327,
-					"protection": "private",
-					"type": "immutable(uint)",
-					"name": "m_elemSize"
-				},
-				{
-					"kind": "variable",
-					"line": 328,
-					"protection": "private",
-					"type": "vibe.utils.memory.Allocator",
-					"name": "m_baseAlloc"
-				},
-				{
-					"kind": "variable",
-					"line": 329,
-					"protection": "private",
-					"type": "FreeListSlot*",
-					"name": "m_firstFree"
-				},
-				{
-					"kind": "variable",
-					"line": 330,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_nalloc"
-				},
-				{
-					"kind": "variable",
-					"line": 331,
-					"protection": "private",
-					"type": "uint",
-					"name": "m_nfree"
-				},
 				{
 					"kind": "constructor",
 					"line": 334,
@@ -14930,13 +11203,6 @@
 			"base": "Object",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 23,
-					"protection": "private",
-					"type": "AllocAppender!(ubyte[])",
-					"name": "m_destination"
-				},
-				{
 					"kind": "constructor",
 					"line": 26,
 					"protection": "public",
@@ -15040,55 +11306,6 @@
 					"name": "MaxHttpHeaderLineLength"
 				},
 				{
-					"kind": "variable",
-					"line": 96,
-					"protection": "private",
-					"type": "string",
-					"name": "m_server"
-				},
-				{
-					"kind": "variable",
-					"line": 97,
-					"protection": "private",
-					"type": "ushort",
-					"name": "m_port"
-				},
-				{
-					"kind": "variable",
-					"line": 98,
-					"protection": "private",
-					"type": "vibe.core.net.TcpConnection",
-					"name": "m_conn"
-				},
-				{
-					"kind": "variable",
-					"line": 99,
-					"protection": "private",
-					"type": "vibe.stream.stream.Stream",
-					"name": "m_stream"
-				},
-				{
-					"kind": "variable",
-					"line": 100,
-					"protection": "private",
-					"type": "vibe.crypto.ssl.SslContext",
-					"name": "m_ssl"
-				},
-				{
-					"kind": "variable",
-					"line": 101,
-					"protection": "private",
-					"type": "vibe.stream.stream.NullOutputStream",
-					"name": "m_sink"
-				},
-				{
-					"kind": "variable",
-					"line": 102,
-					"protection": "private",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "m_bodyReader"
-				},
-				{
 					"kind": "constructor",
 					"line": 105,
 					"protection": "public",
@@ -15151,20 +11368,6 @@
 			"base": "HttpRequest",
 			"members": [
 				{
-					"kind": "variable",
-					"line": 204,
-					"protection": "private",
-					"type": "vibe.stream.stream.OutputStream",
-					"name": "m_bodyWriter"
-				},
-				{
-					"kind": "constructor",
-					"line": 207,
-					"protection": "private",
-					"type": "HttpClientRequest(Stream conn)",
-					"name": "this"
-				},
-				{
 					"kind": "function",
 					"line": 212,
 					"protection": "public",
@@ -15212,20 +11415,6 @@
 					"protection": "public",
 					"type": "@property OutputStream()",
 					"name": "bodyWriter"
-				},
-				{
-					"kind": "function",
-					"line": 248,
-					"protection": "private",
-					"type": "void()",
-					"name": "writeHeader"
-				},
-				{
-					"kind": "function",
-					"line": 262,
-					"protection": "private",
-					"type": "void()",
-					"name": "finalize"
 				}
 			],
 			"name": "HttpClientRequest"
