@@ -35,6 +35,7 @@ void updateDocs()
 		string text = readText("docs.json");
 		auto json = parseJson(text);
 		auto settings = new DdoxSettings;
+		settings.declSort = SortMode.Name;
 		m_rootPackage = parseJsonDocs(json, settings);
 		//m_rootPackage = loaDdox(json);
 	} catch( Exception e ){
