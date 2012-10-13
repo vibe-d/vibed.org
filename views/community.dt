@@ -6,21 +6,13 @@ block title
 block navigation
 	ul
 		li
-			a(href="#newsgroup") Newsgroup server
-		li
 			a(href="#web-forums") Web forums
+		li
+			a(href="#newsgroup") Newsgroup server
 		li
 			a(href="#issue-tracker") Issue tracker
 
 block body
-
-	section
-		a#newsgroup
-		h2 Newsgroup server
-			
-		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at:
-		
-		pre news.rejectedsoftware.com
 
 	section
 		a#web-forums
@@ -28,11 +20,14 @@ block body
 		
 		p The
 			a.extern(href="http://news.rejectedsoftware.com/", target="_blank") web forum
-			| is a front end to the newsgroup for those who don't want to use a newsreader or who cannot access it because of a firewall. The forum is based on the great 
-			a.extern(href="https://github.com/cybershadow/dfeed", target="_blank") DFeed
-			| package that powers the
-			a.extern(href="http://forum.dlang.org/", target="_blank") D web forums
-			|.
+			| is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
+		p The forum, as well as the NNTP server is based on <a href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
+
+	section
+		a#newsgroup
+		h2 Newsgroup server
+			
+		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a href="nntp://news.rejectedsoftware.com:119/rejectedsoftware.vibed"><code>news.rejectedsoftware.com:119</code></a>.
 
 	section
 		a#issue-tracker
