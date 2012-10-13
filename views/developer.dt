@@ -6,34 +6,39 @@ block title
 block navigation
 	ul
 		li
-			a(href="#help") Help developing vibe.d
+			a(href="#external-projects") The VPM registry
+		li
+			a(href="#helping") Help developing vibe.d
 		li	
 			a(href="#hacking-vibe") Hacking vibe.d
 
 block body
 
-	a#help
-	h2 Help developing vibe.d
+	a#external-projects
+	h2 The VPM registry
+
+	p The 
+		a(href="http://registry.vibed.org/") VPM registry
+		| provides a central place for publishing vibe.d projects and extension libraries. All packages registered there can be used by simply adding a corresponding entry into the package.json file of a vibe.d project. So if you are searching for advanced functionality or if you have a project which you'd like to make available, this is the right place.
+
+	a#helping
+	h2 Help vibe.d's development
 	
 	p You can help with vibe's development in several ways. The easiest way is by filing bug reports or by voting for new features on the
 		a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
 		|.
 	
-	p A hands-on way to contribute is by writing a new extension module for vibe and registering it in the
-		a(href="http://registry.vibed.org/") VPM registry
-		|.
-		
 	p Finally, you can clone the GIT repository and start hacking directly on vibe's code base.
 	
 	a#hacking-vibe
 	h2 Hacking on vibe.d
 	
-	p To start developing for vibe, fork the repository using the "Fork" button on the github repository:
+	p To start developing vibe.d, fork the repository using the "Fork" button on the github repository:
 	p
 		a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
 
 	p Then you can clone the repository to your local computer using
-	pre $ git clone http://github.com/<your username>/vibe.d.git
+	pre $ git clone http://github.com/&lt;your username&gt;/vibe.d.git
 	p Your commits can then be packed into a pull request to the main vibe.d repository. See
 		a(href="http://help.github.com/fork-a-repo/") "Fork a repository"
 		| and

@@ -85,9 +85,7 @@ block body
 			code
 				pre $ cd examples/http_server
 					|$ vibe
-					|Updating application in 'C:\Users\ghosthunter\Develop\vibe.d\examples\http_server'
-					|You are up to date
-					|Failed to parse config file vibe.conf: vibe.conf: The system cannot find the file specified.
+					|Checking dependencies in 'C:\\Users\\sludwig\\Develop\\vibe.d\\examples\\http_server'
 					|Listening on 0.0.0.0 port 8080 succeeded
 					|Listening on :: port 8080 succeeded
 					|Running event loop...
@@ -96,21 +94,26 @@ block body
 		a#first-steps
 		h2 First steps
 
-		p When vibe.d has been installed, you can run any of the examples by calling
-			code
-				pre $ ./run_example [example name]
-			| from the vibe/bin directory. Calling without arguments will print the list of available examples.
+		p The easiest way to get started is to run the following command from your projects directory:
 
-		p When starting a new web application project, a structure similar to the following is recommended:
+		code
+			pre
+				|$ cd /path/to/my/projects
+				|$ vibe init &lt;project-name&gt;
+
+		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>package.json</code> file if you want to publish your project.
+
+		p The recommended structure for a project is about as follows:
 
 		code
 			pre appname/
 				|	package.json
-				|	source
+				|	source/
 				|		app.d
 				|	public/
 				|		images/
-				|		style.css
+				|		styles/
+				|			style.css
 				|	views/
 				|		layout.dt
 				|		index.dt
@@ -141,7 +144,7 @@ block body
 				|}
 			.caption Simple app.d file with minimal routing
 
-		p The 'views' sub folder is automatically searched for templates instanciated with render(). The two templates in the example structure might look like this:
+		p The 'views' sub folder is automatically searched for templates instanciated with <a href="api/vibe.http.server/render"><code class="prettyprint">render()</code></a>. The two templates in the example structure might look like this:
 
 		code
 			pre !\!! 5
@@ -160,9 +163,9 @@ block body
 				|	p Hello, World!
 			.caption Example index.dt
 
-		p This structure makes use of the blocks/extensions feature of the template parser. For more advanced template features see the
-			a(href="#http-templates")templates
-			| section.
+		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the
+			a(href="templates/diet")Diet template documentation
+			|.
 			
 		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the
 			a(href="http://registry.vibed.org/") public extension registry
@@ -174,7 +177,6 @@ block body
 				|	"description": "My fabulous new app",
 				|	"copyright": "Copyright (c) 1984 Me.",
 				|	"homepage": "http://appname.org",
-				|	"version": "1.0.0",
 				|	"authors": [
 				|		"Hans Wurst"
 				|	],
@@ -187,12 +189,11 @@ block body
 			code
 				pre $ cd path/to/project
 					|$ vibe
-					|Updating application in 'C:\Users\ghosthunter\Develop\vibe.d\examples\http_server'
-					|You are up to date
-					|Failed to parse config file vibe.conf: vibe.conf: The system cannot find the file specified.
+					|Checking dependencies in 'path/to/project'
 					|Listening on 0.0.0.0 port 8080 succeeded
 					|Listening on :: port 8080 succeeded
 					|Running event loop...
+
 	section
 		a#http
 		h2 HTTP
@@ -217,20 +218,20 @@ block body
 						code
 							pre.code.prettyprint.lang-d void errorPage(HttpServerRequest req,
 								|               HttpServerResponse res,
-								|               int code, string msg)
+								|               HttpServerErrorInfo error)
 								|{
-								|	//res.render!("error.dt", req, code, msg); // requires dmd >= 2.060
+								|	//res.render!("error.dt", req, error); // still affected by a compiler bug
 								|	res.renderCompat!("error.dt",
 								|		HttpServerRequest, "req",
-								|		int, "code",
-								|		string, "msg")
-								|		(Variant(req), Variant(code), Variant(msg));
+								|		HttpServerErrorInfo, "error")
+								|		(Variant(req), Variant(error));
 								|}
 								|
 								|static this()
 								|{
 								|	auto settings = new HttpServerSettings;
 								|	settings.errorPageHandler = toDelegate(&errorPage);
+								|	// ...
 								|}
 						| Inside of the error.dt template, the variables req, code and msg are available in this example.
 
@@ -285,7 +286,7 @@ block body
 
 		section
 			a#http-templates
-			h3 Templates
+			h3 Diet templates
 
 			p Vibe supports HTML templates with a syntax mostly compatible to
 				a.extern(href="http://jade-lang.com/", target="_blank") jade
@@ -333,8 +334,8 @@ block body
 				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
 					a(href="api/vibe.http.server/HttpStatusException")
 						code.prettyprint.lang-d HttpStatusException
-					|, the code can be customized.
-				li The request handler does not write a message body. In this case the server automatically returns a 404 "Not Found" error.
+					|, the status code can be customized.
+				li The request handler does not write a response. In this case the server automatically returns a 404 "Not Found" error.
 			
 			p The
 				a(href="api/vibe.http.server/HttpServerSettings")
@@ -471,7 +472,22 @@ block body
 			a#http-client-requests
 			h3 Client requests
 			
-			p(style="color: red") TODO
+			p Client request are done using the <a href="api/vibe.http.client/requestHttp"><code class="prettyprint">requestHttp()</code></a> function.
+
+			code
+				pre.prettyprint.lang-d
+					|import vibe.vibe
+					|
+					|void main()
+					|{
+					|	auto res = requestHttp("http://google.com", (req){
+					|			/* could e.g. add headers here before sending*/
+					|		});
+					|	logInfo("Response: %s", res.bodyReader.readAllUtf8());
+					|}
+				.caption Example: Performing a simple HTTP request
+
+			p A connection pool is used internally in conjunction with persistent HTTP connection to reduce the number of connection establishments.
 
 	section
 		a#db-support
@@ -516,7 +532,7 @@ block body
 			a#redis
 			h3 Redis
 			
-			p A rudimnetary client for the structured storage server
+			p A rudimentary client for the structured storage server
 				a.extern(href="http://redis.io", target="_blank") Redis
 				| is included in Vibe. Commands and operations on redis data types are implemented as instance methods of the client. The methods are named after their corresponding redis command documented in the
 				a.extern(href="http://redis.io/commands") command reference
@@ -597,7 +613,7 @@ block body
 				a.extern(href="http://registry.vibed.org/", target="_blank") VPM registry
 				| contains packages that extend vibe's core functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the package.json file is present.
 			
-			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github and as such the package.json must contain a "repository" entry similar to the following example:
+			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github. 
 				
 			pre.code {
 				|	"name": "vibelog",
@@ -606,13 +622,7 @@ block body
 				|	"authors": [
 				|		"Sönke Ludwig"
 				|	],
-				|	"version": "0.0.1",
 				|	"dependencies": {
-				|	},
-				|	"repository": {
-				|		"kind": "github",
-				|		"owner": "rejectedsoftware",
-				|		"project": "vibelog"
 				|	}
 				|}
 			.caption Example: A package.json file suitable for registration as a VPM package.

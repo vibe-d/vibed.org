@@ -62,9 +62,9 @@ block body
 			
 			p The
 				a(href="http://aur.archlinux.org/") Arch User Repository
-				| contains a PKGBUILD for building a Packman package. To install, 
-				a.download(href="http://aur.archlinux.org/packages.php?ID=61679") get the tarball from the package page
-				| and then
+				| contains a PKGBUILD for building a Packman package. To install, get the 
+				a.download(href="http://aur.archlinux.org/packages.php?ID=61679") tarball
+				| from the package page and then
 				a(href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages") build and install
 				| the package. Please test and vote if you are running Arch Linux.
 
