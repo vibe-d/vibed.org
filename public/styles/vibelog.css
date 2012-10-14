@@ -21,16 +21,13 @@
 	margin-bottom: 40pt;
 }
 
-#vibelogContent header {
+#vibelogContent .blogPostHeaderContent  {
 	display: table-row;
 }
 
-#vibelogContent .blogPostHeaderContent {
-	display: table-cell;
-	vertical-align: middle;
-}
-
 #vibelogContent .blogPostHeaderText {
+	display: table-cell;
+	vertical-align: top;
 	margin-bottom: 9pt;
 	font-weight: 600;
 	color: #ddd;

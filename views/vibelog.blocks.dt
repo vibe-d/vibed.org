@@ -1,0 +1,7 @@
+extends layout
+
+block navigation
+	block vibelog-recent-list
+
+block body
+	block vibelog-content
