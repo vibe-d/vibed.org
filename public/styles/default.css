@@ -1,29 +1,24 @@
 #container {
 	background-image: url(../images/top-shadow.png);
 	background-repeat: repeat-x;
+	padding-left: 216pt;
+	padding-right: 18pt;
 }
 
-
-@media screen and (min-width: 600px) {
-	#container {
-		padding-left: 216pt;
-		padding-right: 18pt;
-	}
-
-	h1 {
-		margin-bottom: 18pt;
-	}
-
-	#navigation {
-		float: left;
-		margin-left: -198pt;
-		width: 180pt;
-	}
-
-	#maincontent {
-		width: 100%;
-	}
+h1 {
+	margin-bottom: 18pt;
 }
+
+#navigation {
+	float: left;
+	margin-left: -198pt;
+	width: 180pt;
+}
+
+#maincontent {
+	width: 100%;
+}
+
 
 h1 {
 	font-size: 24pt;
@@ -133,4 +128,57 @@ dl.feat dt {
 	font-style: italic;
 	color: white;
 	margin: 6pt 0 0 0;
+}
+
+
+@media screen and (max-width: 750px) {
+	#navigation {
+		width: auto;
+		font-size: 0;
+	}
+
+	#navigation nav {
+		/*-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;*/
+	}
+	#navigation nav li {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		font-size: 10pt;
+		display: inline-block;
+		width: 33.333%;
+	}
+
+	#navigation {
+		float: none;
+		margin-left: 0;
+		margin-bottom: 18pt;
+	}
+
+	#container {
+		padding-left: 18pt;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#navigation nav li {
+		width: 50%;
+	}
+
+	col.caption {
+		margin: 0;
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#navigation nav li {
+		width: auto;
+		display: block;
+	}
 }

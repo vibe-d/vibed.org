@@ -170,13 +170,21 @@ col.caption {
 }
 
 #download {
-	display: none;
-	background-image: url(../images/download-button.png);
+	display: block;
 	position: absolute;
+	top: 18pt;
+	right: 0px;
 	width: 167px;
 	height: 55px;
+	background-image: url(../images/download-button.png);
 	border: none;
 	color: white;	
+}
+
+@media screen and (max-width: 600px) {
+	#download {
+		display: none;
+	}
 }
 
 #download .downloadArrow {
@@ -205,14 +213,6 @@ col.caption {
 	width: 167px;
 	font-size: 10pt;
 	color: #dde;
-}
-@media screen and (min-width: 600px) {
-	#download {
-		display: block;
-		position: absolute;
-		top: 18pt;
-		right: 0px;
-	}
 }
 
 
