@@ -85,10 +85,13 @@ a.download:hover {
 	background-image: url(../images/download-link-hover.png);
 }
 
-pre {
-	font-family: 'Courier New', monospace;
+pre, code {
+	font-family: 'Consolas', 'Courier New', monospace;
 	font-size: 10pt;
 	font-weight: bold;
+}
+
+pre {
 	line-height: 14pt;
 	background-color: #1a1a1a;
 	border: 1px solid #444;
