@@ -21,6 +21,15 @@
 	margin-bottom: 40pt;
 }
 
+#vibelogContent header {
+	display: table-row;
+}
+
+#vibelogContent .blogPostHeaderContent {
+	display: table-cell;
+	vertical-align: middle;
+}
+
 #vibelogContent .blogPostHeaderText {
 	margin-bottom: 9pt;
 	font-weight: 600;
@@ -30,7 +39,7 @@
 }
 
 #vibelogContent img.headerImage {
-	float: left;
+	display: table-cell;
 	margin-right: 10pt;
 	max-height: 64pt;
 	max-width: 64pt;
