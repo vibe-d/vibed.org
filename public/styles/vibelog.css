@@ -95,3 +95,19 @@
 	background-color: #222;
 	overflow: auto;
 }
+
+#vibelogContent .caption {
+	width: 100pt;
+}
+
+#vibelogContent .comment-form {
+	max-width: 300pt;
+}
+
+#vibelogContent input, #vibelogContent textarea, #vibelogContent select {
+	width: 100%;
+}
+
+#vibelogContent .checkbox { width: auto; }
+
+#vibelogContent td { vertical-align: top; }
