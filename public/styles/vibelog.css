@@ -88,3 +88,10 @@
 	margin: 10pt;
 	padding: 4pt;
 }
+
+#vibelogContent #message-preview {
+	padding: 4pt;
+	border: 1px solid #444;
+	background-color: #222;
+	overflow: auto;
+}
