@@ -14,20 +14,12 @@ html(lang="en-US")
 			link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
 
 		link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
-		meta(name="viewport", content="width = device-width, user-scalable = no, maximum-scale = 1.0")
-
 		link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")		
 		link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
 		
-		
+		meta(name="viewport", content="width = device-width, user-scalable = no, maximum-scale = 1.0")
 		meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
 		meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
-		meta(name="application-name", content="vibe.d")
-		meta(name="msapplication-task", content="name=Homepage;action-uri=http://vibed.org;icon-uri=http://vibed.org/favicon.ico")
-		meta(name="msapplication-task", content="name=Download;action-uri=http://vibed.org/download;icon-uri=http://vibed.org/favicon.ico")
-		meta(name="msapplication-task", content="name=Blog;action-uri=http://vibed.org/blog/;icon-uri=http://vibed.org/favicon.ico")
-		meta(name="msapplication-task", content="name=Features;action-uri=http://vibed.org/features;icon-uri=http://vibed.org/favicon.ico")
-		meta(name="msapplication-task", content="name=Documentation;action-uri=http://vibed.org/docs;icon-uri=http://vibed.org/favicon.ico")
 
 		script(type="text/javascript", src="#{req.rootDir}prettify/prettify.js")/**/
 		
