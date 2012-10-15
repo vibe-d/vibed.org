@@ -78,7 +78,7 @@ static this()
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
 	auto docsettings = new GeneratorSettings;
-	docsettings.navPackageTree = false;
+	docsettings.navPackageTree = true;
 	registerApiDocs(router, m_rootPackage, "/api", docsettings);
 
 	auto blogsettings = new VibeLogSettings;

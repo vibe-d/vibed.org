@@ -1,0 +1,15 @@
+extends layout
+
+block title
+	block ddox.defs
+	block ddox.title
+	link(rel="stylesheet", type="text/css", href="#{req.rootDir}styles/ddox.css")
+	script(type="text/javascript", src="#{req.rootDir}scripts/jquery.js")
+	script(type="text/javascript", src="#{req.rootDir}scripts/ddox.js")
+
+block navigation
+	block ddox.navigation
+	:javascript setupDdox();
+
+block body
+	block ddox.body
