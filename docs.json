@@ -58,7 +58,7 @@
 					"kind": "function",
 					"line": 73,
 					"protection": "public",
-					"type": "FileStream(string path, FileMode mode)",
+					"type": "FileStream(Path path, FileMode mode)",
 					"name": "openFile",
 					"comment": " Opens a file on disk with the speficied file mode.\n\t\n"
 				},
@@ -66,13 +66,21 @@
 					"kind": "function",
 					"line": 77,
 					"protection": "public",
+					"type": "DirectoryWatcher(Path path, bool recursive)",
+					"name": "watchDirectory",
+					"comment": " Starts watching a directory for changes.\n\t\n"
+				},
+				{
+					"kind": "function",
+					"line": 81,
+					"protection": "public",
 					"type": "NetworkAddress(string host, ushort family, bool no_dns)",
 					"name": "resolveHost",
 					"comment": " Resolves the given host name or IP address string.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 83,
+					"line": 87,
 					"protection": "public",
 					"type": "TcpConnection(string host, ushort port)",
 					"name": "connectTcp",
@@ -80,7 +88,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 90,
+					"line": 94,
 					"protection": "public",
 					"type": "void(ushort port, void delegate(TcpConnection stream) conn_callback, string bind_address)",
 					"name": "listenTcp",
@@ -88,7 +96,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 97,
+					"line": 101,
 					"protection": "public",
 					"type": "UdpConnection(ushort port, string bind_address = \"0.0.0.0\")",
 					"name": "listenUdp",
@@ -96,7 +104,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 101,
+					"line": 105,
 					"protection": "public",
 					"type": "Signal()",
 					"name": "createSignal",
@@ -104,7 +112,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 107,
+					"line": 111,
 					"protection": "public",
 					"type": "Timer(void delegate() callback)",
 					"name": "createTimer",
@@ -116,26 +124,26 @@
 		},
 		{
 			"kind": "interface",
-			"line": 114,
+			"line": 118,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 115,
+					"line": 119,
 					"protection": "public",
 					"type": "void()",
 					"name": "yieldForEvent"
 				},
 				{
 					"kind": "function",
-					"line": 116,
+					"line": 120,
 					"protection": "public",
 					"type": "void(Task f, Exception event_exception = null)",
 					"name": "resumeTask"
 				},
 				{
 					"kind": "function",
-					"line": 117,
+					"line": 121,
 					"protection": "public",
 					"type": "void()",
 					"name": "notifyIdle"
@@ -146,12 +154,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 129,
+			"line": 133,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 131,
+					"line": 135,
 					"protection": "public",
 					"type": "void()",
 					"name": "release",
@@ -159,7 +167,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 134,
+					"line": 138,
 					"protection": "public",
 					"type": "void()",
 					"name": "acquire",
@@ -167,7 +175,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 137,
+					"line": 141,
 					"protection": "public",
 					"type": "bool()",
 					"name": "isOwner",
@@ -179,43 +187,47 @@
 		},
 		{
 			"kind": "interface",
-			"line": 143,
+			"line": 148,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 144,
+					"line": 150,
 					"protection": "public",
 					"type": "@property bool()",
-					"name": "pending"
+					"name": "pending",
+					"comment": " True if the timer is yet to fire.\n"
 				},
 				{
 					"kind": "function",
-					"line": 146,
+					"line": 154,
 					"protection": "public",
 					"type": "void(Duration dur, bool periodic = false)",
-					"name": "rearm"
+					"name": "rearm",
+					"comment": " Resets the timer to the specified timeout\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 147,
+					"line": 158,
 					"protection": "public",
 					"type": "void()",
-					"name": "stop"
+					"name": "stop",
+					"comment": " Resets the timer and avoids any firing.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 148,
+					"line": 162,
 					"protection": "public",
 					"type": "void()",
-					"name": "wait"
+					"name": "wait",
+					"comment": " Waits until the timer fires.\n\t\n"
 				}
 			],
 			"interfaces": [
 				"EventedObject"
 			],
 			"name": "Timer",
-			"comment": "\n"
+			"comment": "\n\tRepresents a timer.\n"
 		}
 	],
 	"name": "vibe.core.driver",
@@ -269,61 +281,65 @@
 					"members": [
 						{
 							"kind": "alias",
-							"line": 229,
+							"line": 231,
 							"type": "void delegate(HttpClientRequest req)",
 							"name": "RequestFilter"
 						},
 						{
 							"kind": "variable",
-							"line": 231,
+							"line": 233,
 							"type": "Url",
 							"name": "m_baseUrl"
 						},
 						{
 							"kind": "variable",
-							"line": 232,
+							"line": 234,
 							"type": "MethodStyle",
 							"name": "m_methodStyle"
 						},
 						{
 							"kind": "variable",
-							"line": 233,
+							"line": 235,
 							"type": "RequestFilter",
 							"name": "m_requestFilter"
 						},
 						{
 							"kind": "alias",
-							"line": 236,
+							"line": 238,
 							"type": "I",
 							"name": "BaseInterface"
 						},
 						{
 							"kind": "constructor",
-							"line": 238,
+							"line": 242,
 							"type": "(string base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
-							"name": "this"
+							"name": "this",
+							"comment": " Creates a new REST implementation of I\n\t\n"
 						},
 						{
 							"kind": "constructor",
-							"line": 245,
+							"line": 249,
 							"type": "(Url base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
-							"name": "this"
+							"name": "this",
+							"comment": " ditto\n"
 						},
 						{
 							"kind": "function",
-							"line": 252,
+							"line": 258,
 							"type": "RequestFilter()",
-							"name": "requestFilter"
+							"name": "requestFilter",
+							"comment": " An optional request filter that allows to modify each request before it is made.\n\t\n"
 						},
 						{
 							"kind": "function",
-							"line": 253,
+							"line": 260,
 							"type": "void(RequestFilter v)",
-							"name": "requestFilter"
+							"name": "requestFilter",
+							"comment": " ditto\n"
 						},
 						{
 							"kind": "function",
-							"line": 268,
+							"line": 270,
 							"type": "const Json(string verb, string name, Json params, bool[string] param_is_json)",
 							"name": "request"
 						}
@@ -336,7 +352,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 313,
+			"line": 315,
 			"protection": "public",
 			"type": "string(string name, MethodStyle style)",
 			"name": "adjustMethodStyle",
@@ -344,55 +360,55 @@
 		},
 		{
 			"kind": "enum",
-			"line": 344,
+			"line": 346,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 345,
+					"line": 347,
 					"protection": "public",
 					"name": "Unaltered",
 					"comment": " Special value for free-style conventions\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 346,
+					"line": 348,
 					"protection": "public",
 					"name": "CamelCase",
 					"comment": " camelCaseNaming\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 347,
+					"line": 349,
 					"protection": "public",
 					"name": "PascalCase",
 					"comment": " PascalCaseNaming\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 348,
+					"line": 350,
 					"protection": "public",
 					"name": "LowerCase",
 					"comment": " lowercasenaming\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 349,
+					"line": 351,
 					"protection": "public",
 					"name": "UpperCase",
 					"comment": " UPPERCASENAMING\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 350,
+					"line": 352,
 					"protection": "public",
 					"name": "LowerUnderscored",
 					"comment": " lower_case_naming\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 351,
+					"line": 353,
 					"protection": "public",
 					"name": "UpperUnderscored",
 					"comment": " UPPER_CASE_NAMING\n"
@@ -1043,11 +1059,11 @@
 					"kind": "function",
 					"line": 70,
 					"type": "string(string str)",
-					"name": "filterHtmlAllEscape",
+					"name": "htmlAllEscape",
 					"comment": " Returns the HTML escaped version of a given string (escapes every character).\n"
 				}
 			],
-			"name": "filterHtmlAllEscape()",
+			"name": "htmlAllEscape()",
 			"comment": " Returns the HTML escaped version of a given string (escapes every character).\n"
 		},
 		{
@@ -1450,72 +1466,81 @@
 		},
 		{
 			"kind": "function",
-			"line": 45,
+			"line": 49,
 			"protection": "public",
 			"type": "string(HttpMethod m)",
-			"name": "httpMethodString"
+			"name": "httpMethodString",
+			"comment": "\n\tReturns the string representation of the given HttpMethod.\n"
 		},
 		{
 			"kind": "function",
-			"line": 52,
+			"line": 60,
 			"protection": "public",
 			"type": "HttpMethod(string str)",
-			"name": "httpMethodFromString"
+			"name": "httpMethodFromString",
+			"comment": "\n\tReturns the HttpMethod value matching the given HTTP method string.\n"
 		},
 		{
 			"kind": "class",
-			"line": 71,
+			"line": 79,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 77,
+					"line": 86,
 					"protection": "public",
 					"type": "HttpVersion",
-					"name": "httpVersion"
+					"name": "httpVersion",
+					"comment": " The HTTP protocol version used for the request\n"
 				},
 				{
 					"kind": "variable",
-					"line": 78,
+					"line": 89,
 					"protection": "public",
 					"type": "HttpMethod",
-					"name": "method"
+					"name": "method",
+					"comment": " The HTTP method of the request\n"
 				},
 				{
 					"kind": "variable",
-					"line": 79,
-					"protection": "public",
-					"type": "string",
-					"name": "url"
-				},
-				{
-					"kind": "variable",
-					"line": 80,
-					"protection": "public",
-					"type": "StrMapCI",
-					"name": "headers"
-				},
-				{
-					"kind": "function",
 					"line": 92,
 					"protection": "public",
-					"type": "const @property string()",
-					"name": "host"
+					"type": "string",
+					"name": "url",
+					"comment": " The full request URL\n"
 				},
 				{
-					"kind": "function",
-					"line": 93,
-					"protection": "public",
-					"type": "@property void(string v)",
-					"name": "host"
-				},
-				{
-					"kind": "function",
+					"kind": "variable",
 					"line": 95,
 					"protection": "public",
+					"type": "StrMapCI",
+					"name": "headers",
+					"comment": " All request headers\n"
+				},
+				{
+					"kind": "function",
+					"line": 109,
+					"protection": "public",
+					"type": "const @property string()",
+					"name": "host",
+					"comment": " Shortcut to the 'Host' header (always present for HTTP 1.1)\n\t\n"
+				},
+				{
+					"kind": "function",
+					"line": 111,
+					"protection": "public",
+					"type": "@property void(string v)",
+					"name": "host",
+					"comment": " ditto\n"
+				},
+				{
+					"kind": "function",
+					"line": 115,
+					"protection": "public",
 					"type": "const @property bool()",
-					"name": "persistent"
+					"name": "persistent",
+					"comment": " Determines if the connection persists across requests.\n\t\n"
 				}
 			],
 			"name": "HttpRequest",
@@ -1523,58 +1548,60 @@
 		},
 		{
 			"kind": "class",
-			"line": 116,
+			"line": 136,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 118,
+					"line": 138,
 					"protection": "public",
 					"type": "HttpVersion",
 					"name": "httpVersion"
 				},
 				{
 					"kind": "variable",
-					"line": 119,
+					"line": 139,
 					"protection": "public",
 					"type": "int",
 					"name": "statusCode"
 				},
 				{
 					"kind": "variable",
-					"line": 120,
+					"line": 140,
 					"protection": "public",
 					"type": "string",
 					"name": "statusPhrase"
 				},
 				{
 					"kind": "variable",
-					"line": 121,
+					"line": 141,
 					"protection": "public",
 					"type": "StrMapCI",
 					"name": "headers"
 				},
 				{
 					"kind": "variable",
-					"line": 122,
+					"line": 142,
 					"protection": "public",
 					"type": "Cookie[string]",
 					"name": "cookies"
 				},
 				{
 					"kind": "function",
-					"line": 125,
+					"line": 147,
 					"protection": "public",
 					"type": "const @property string()",
-					"name": "contentType"
+					"name": "contentType",
+					"comment": " Shortcut to the \"Content-Type\" header\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 126,
+					"line": 149,
 					"protection": "public",
 					"type": "@property void(string ct)",
-					"name": "contentType"
+					"name": "contentType",
+					"comment": " ditto\n"
 				}
 			],
 			"name": "HttpResponse",
@@ -1582,27 +1609,27 @@
 		},
 		{
 			"kind": "class",
-			"line": 130,
+			"line": 153,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 131,
+					"line": 154,
 					"protection": "public",
 					"type": "string",
 					"name": "contentType"
 				},
 				{
 					"kind": "variable",
-					"line": 133,
+					"line": 156,
 					"protection": "public",
 					"type": "vibe.stream.stream.InputStream",
 					"name": "stream"
 				},
 				{
 					"kind": "variable",
-					"line": 135,
+					"line": 158,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "form"
@@ -1612,62 +1639,62 @@
 		},
 		{
 			"kind": "function",
-			"line": 138,
+			"line": 161,
 			"protection": "public",
 			"type": "string(HttpVersion ver)",
 			"name": "getHttpVersionString"
 		},
 		{
 			"kind": "function",
-			"line": 146,
+			"line": 169,
 			"protection": "public",
 			"type": "HttpVersion(ref string str)",
 			"name": "parseHttpVersion"
 		},
 		{
 			"kind": "class",
-			"line": 162,
+			"line": 185,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 169,
+					"line": 192,
 					"protection": "public",
 					"type": "ChunkedInputStream(InputStream stream)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 176,
+					"line": 199,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "empty"
 				},
 				{
 					"kind": "function",
-					"line": 178,
+					"line": 201,
 					"protection": "public",
 					"type": "const @property ulong()",
 					"name": "leastSize"
 				},
 				{
 					"kind": "function",
-					"line": 180,
+					"line": 203,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead"
 				},
 				{
 					"kind": "function",
-					"line": 182,
+					"line": 205,
 					"protection": "public",
 					"type": "const(ubyte)[]()",
 					"name": "peek"
 				},
 				{
 					"kind": "function",
-					"line": 188,
+					"line": 211,
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
@@ -1681,41 +1708,41 @@
 		},
 		{
 			"kind": "class",
-			"line": 234,
+			"line": 257,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 240,
+					"line": 263,
 					"protection": "public",
 					"type": "ChunkedOutputStream(OutputStream stream)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 246,
+					"line": 269,
 					"protection": "public",
 					"type": "void(const(ubyte[]) bytes, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 252,
+					"line": 275,
 					"protection": "public",
 					"type": "void(InputStream data, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 268,
+					"line": 291,
 					"protection": "public",
 					"type": "void()",
 					"name": "flush"
 				},
 				{
 					"kind": "function",
-					"line": 280,
+					"line": 303,
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize"
@@ -1729,104 +1756,104 @@
 		},
 		{
 			"kind": "class",
-			"line": 290,
+			"line": 313,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "function",
-					"line": 301,
+					"line": 324,
 					"protection": "public",
 					"type": "Cookie(string value)",
 					"name": "setValue"
 				},
 				{
 					"kind": "function",
-					"line": 302,
+					"line": 325,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "value"
 				},
 				{
 					"kind": "function",
-					"line": 304,
+					"line": 327,
 					"protection": "public",
 					"type": "Cookie(string domain)",
 					"name": "setDomain"
 				},
 				{
 					"kind": "function",
-					"line": 305,
+					"line": 328,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "domain"
 				},
 				{
 					"kind": "function",
-					"line": 307,
+					"line": 330,
 					"protection": "public",
 					"type": "Cookie(string path)",
 					"name": "setPath"
 				},
 				{
 					"kind": "function",
-					"line": 308,
+					"line": 331,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "path"
 				},
 				{
 					"kind": "function",
-					"line": 310,
+					"line": 333,
 					"protection": "public",
 					"type": "Cookie(string expires)",
 					"name": "setExpire"
 				},
 				{
 					"kind": "function",
-					"line": 311,
+					"line": 334,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "expires"
 				},
 				{
 					"kind": "function",
-					"line": 313,
+					"line": 336,
 					"protection": "public",
 					"type": "Cookie(long maxAge)",
 					"name": "setMaxAge"
 				},
 				{
 					"kind": "function",
-					"line": 314,
+					"line": 337,
 					"protection": "public",
 					"type": "@property long()",
 					"name": "maxAge"
 				},
 				{
 					"kind": "function",
-					"line": 316,
+					"line": 339,
 					"protection": "public",
 					"type": "Cookie(bool enabled)",
 					"name": "setSecure"
 				},
 				{
 					"kind": "function",
-					"line": 317,
+					"line": 340,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "isSecure"
 				},
 				{
 					"kind": "function",
-					"line": 319,
+					"line": 342,
 					"protection": "public",
 					"type": "Cookie(bool enabled)",
 					"name": "setHttpOnly"
 				},
 				{
 					"kind": "function",
-					"line": 320,
+					"line": 343,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "isHttpOnly"
@@ -1836,45 +1863,45 @@
 		},
 		{
 			"kind": "struct",
-			"line": 333,
+			"line": 356,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 342,
+					"line": 365,
 					"protection": "public",
 					"type": "const @property uint()",
 					"name": "length"
 				},
 				{
 					"kind": "function",
-					"line": 344,
+					"line": 367,
 					"protection": "public",
 					"type": "void(string key)",
 					"name": "remove"
 				},
 				{
 					"kind": "function",
-					"line": 357,
+					"line": 380,
 					"protection": "public",
 					"type": "string(string key)",
 					"name": "opIndex"
 				},
 				{
 					"kind": "function",
-					"line": 362,
+					"line": 385,
 					"protection": "public",
 					"type": "string(string val, string key)",
 					"name": "opIndexAssign"
 				},
 				{
 					"kind": "template",
-					"line": 370,
+					"line": 393,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 370,
+							"line": 393,
 							"type": "inout inout(string)*(string key)",
 							"name": "opBinaryRight"
 						}
@@ -1883,12 +1910,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 379,
+					"line": 402,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 379,
+							"line": 402,
 							"type": "inout bool(string key)",
 							"name": "opBinaryRight"
 						}
@@ -1897,21 +1924,21 @@
 				},
 				{
 					"kind": "function",
-					"line": 383,
+					"line": 406,
 					"protection": "public",
 					"type": "int(int delegate(ref string key, ref string val) del)",
 					"name": "opApply"
 				},
 				{
 					"kind": "function",
-					"line": 398,
+					"line": 421,
 					"protection": "public",
 					"type": "int(int delegate(ref string name) del)",
 					"name": "opApply"
 				},
 				{
 					"kind": "function",
-					"line": 411,
+					"line": 434,
 					"protection": "public",
 					"type": "const @property StrMapCI()",
 					"name": "dup"
@@ -2073,21 +2100,21 @@
 				},
 				{
 					"kind": "function",
-					"line": 137,
+					"line": 141,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead"
 				},
 				{
 					"kind": "function",
-					"line": 142,
+					"line": 146,
 					"protection": "public",
 					"type": "const(ubyte)[]()",
 					"name": "peek"
 				},
 				{
 					"kind": "function",
-					"line": 147,
+					"line": 151,
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
@@ -2172,13 +2199,21 @@
 			"comment": "\n\tReads the complete contents of a stream, optionally limited by max_bytes.\n\n\tThrows:\n\t\tAn exception is thrown if max_bytes != 0 and the stream contains more than max_bytes data.\n"
 		},
 		{
+			"kind": "function",
+			"line": 149,
+			"protection": "public",
+			"type": "string(InputStream stream, bool sanitize = false, uint max_bytes = cast(uint)0)",
+			"name": "readAllUtf8",
+			"comment": "\n\tReads the complete contents of a stream, assuming UTF-8 encoding.\n\n\tParams:\n\t\tstream = Specifies the stream from which to read.\n\t\tsanitize = If true, the input data will not be validated but will instead be made valid UTF-8.\n\t\tmax_bytes = Optional size limit of the data that is read.\n\n\tReturns:\n\t\tThe full contents of the stream, excluding a possible BOM, are returned as a UTF-8 string.\n\n\tThrows:\n\t\tAn exception is thrown if max_bytes != 0 and the stream contains more than max_bytes data.\n\t\tIf the sanitize parameter is fals and the stream contains invalid UTF-8 code sequences,\n\t\ta UtfException is thrown.\n"
+		},
+		{
 			"kind": "interface",
-			"line": 142,
+			"line": 170,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 145,
+					"line": 173,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "empty",
@@ -2186,7 +2221,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 151,
+					"line": 179,
 					"protection": "public",
 					"type": "@property ulong()",
 					"name": "leastSize",
@@ -2194,7 +2229,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 155,
+					"line": 183,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead",
@@ -2202,7 +2237,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 163,
+					"line": 191,
 					"protection": "public",
 					"type": "const(ubyte)[]()",
 					"name": "peek",
@@ -2210,7 +2245,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 169,
+					"line": 197,
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read",
@@ -2222,12 +2257,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 175,
+			"line": 203,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 178,
+					"line": 206,
 					"protection": "public",
 					"type": "void(const(ubyte[]) bytes, bool do_flush = true)",
 					"name": "write",
@@ -2235,7 +2270,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 182,
+					"line": 210,
 					"protection": "public",
 					"type": "void()",
 					"name": "flush",
@@ -2243,7 +2278,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 189,
+					"line": 217,
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize",
@@ -2251,7 +2286,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 193,
+					"line": 221,
 					"protection": "public",
 					"type": "void(const(char[]) bytes, bool do_flush = true)",
 					"name": "write",
@@ -2259,7 +2294,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 204,
+					"line": 232,
 					"protection": "public",
 					"type": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write",
@@ -2267,7 +2302,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 213,
+					"line": 241,
 					"protection": "public",
 					"type": "void(ubyte elem)",
 					"name": "put",
@@ -2275,7 +2310,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 215,
+					"line": 243,
 					"protection": "public",
 					"type": "void(const(ubyte[]) elems)",
 					"name": "put",
@@ -2283,7 +2318,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 217,
+					"line": 245,
 					"protection": "public",
 					"type": "void(char elem)",
 					"name": "put",
@@ -2291,7 +2326,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 219,
+					"line": 247,
 					"protection": "public",
 					"type": "void(const(char[]) elems)",
 					"name": "put",
@@ -2303,7 +2338,7 @@
 		},
 		{
 			"kind": "interface",
-			"line": 251,
+			"line": 279,
 			"protection": "public",
 			"members": [],
 			"interfaces": [
@@ -2314,35 +2349,87 @@
 			"comment": "\n\tInterface for all classes implementing readable and writable streams.\n"
 		},
 		{
+			"kind": "interface",
+			"line": 286,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 288,
+					"protection": "public",
+					"type": "const nothrow @property ulong()",
+					"name": "size",
+					"comment": " Returns the total size of the file.\n"
+				},
+				{
+					"kind": "function",
+					"line": 291,
+					"protection": "public",
+					"type": "const nothrow @property bool()",
+					"name": "readable",
+					"comment": " Determines if this stream is readable.\n"
+				},
+				{
+					"kind": "function",
+					"line": 294,
+					"protection": "public",
+					"type": "const nothrow @property bool()",
+					"name": "writable",
+					"comment": " Determines if this stream is writable.\n"
+				},
+				{
+					"kind": "function",
+					"line": 297,
+					"protection": "public",
+					"type": "void(ulong offset)",
+					"name": "seek",
+					"comment": " Seeks to a specific position in the file if supported by the stream.\n"
+				},
+				{
+					"kind": "function",
+					"line": 300,
+					"protection": "public",
+					"type": "nothrow ulong()",
+					"name": "tell",
+					"comment": " Returns the current offset of the file pointer\n"
+				}
+			],
+			"interfaces": [
+				"Stream"
+			],
+			"name": "RandomAccessStream",
+			"comment": "\n\tInterface for all streams supporting random access.\n"
+		},
+		{
 			"kind": "class",
-			"line": 261,
+			"line": 309,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "function",
-					"line": 262,
+					"line": 310,
 					"protection": "public",
 					"type": "void(const(ubyte[]) bytes, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 263,
+					"line": 311,
 					"protection": "public",
 					"type": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 267,
+					"line": 315,
 					"protection": "public",
 					"type": "void()",
 					"name": "flush"
 				},
 				{
 					"kind": "function",
-					"line": 268,
+					"line": 316,
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize"
@@ -3375,28 +3462,28 @@
 		},
 		{
 			"kind": "template",
-			"line": 780,
+			"line": 800,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 780,
+					"line": 800,
 					"type": "Bson(T value)",
 					"name": "serializeToBson",
-					"comment": "\n\tSerializes the given value to BSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Bson)            $(DD Used as-is)\n\t\t$(DT Json)            $(DD Converted to BSON)\n\t\t$(DT BsonBinData)     $(DD Converted to Bson.Type.BinData)\n\t\t$(DT BsonObjectID)    $(DD Converted to Bson.Type.ObjectID)\n\t\t$(DT BsonDate)        $(DD Converted to Bson.Type.Date)\n\t\t$(DT BsonTimestamp)   $(DD Converted to Bson.Type.Timestamp)\n\t\t$(DT BsonRegex)       $(DD Converted to Bson.Type.Regex)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Long)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT ubyte[])         $(DD Converted to Bson.Type.BinData)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n"
+					"comment": "\n\tSerializes the given value to BSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Bson)            $(DD Used as-is)\n\t\t$(DT Json)            $(DD Converted to BSON)\n\t\t$(DT BsonBinData)     $(DD Converted to Bson.Type.BinData)\n\t\t$(DT BsonObjectID)    $(DD Converted to Bson.Type.ObjectID)\n\t\t$(DT BsonDate)        $(DD Converted to Bson.Type.Date)\n\t\t$(DT BsonTimestamp)   $(DD Converted to Bson.Type.Timestamp)\n\t\t$(DT BsonRegex)       $(DD Converted to Bson.Type.Regex)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Long)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT ubyte[])         $(DD Converted to Bson.Type.BinData)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n\n\tFields ending with an underscore will have the last underscore stripped in the\n\tserialized output. This makes it possible to use fields with D keywords as their name\n\tby simply appending an underscore.\n\n\tThe following methods can be used to customize the serialization of structs/classes:\n\n\t---\n\tBson toBson() const;\n\tstatic T fromBson(Bson src);\n\n\tJson toJson() const;\n\tstatic T fromJson(Json src);\n\n\tstring toString() const;\n\tstatic T fromString(string src);\n\t---\n\n\tThe methods will have to be defined in pairs. The first pair that is implemented by\n\tthe type will be used for serialization (i.e. toBson overrides toJson).\n"
 				}
 			],
 			"name": "serializeToBson(T)",
-			"comment": "\n\tSerializes the given value to BSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Bson)            $(DD Used as-is)\n\t\t$(DT Json)            $(DD Converted to BSON)\n\t\t$(DT BsonBinData)     $(DD Converted to Bson.Type.BinData)\n\t\t$(DT BsonObjectID)    $(DD Converted to Bson.Type.ObjectID)\n\t\t$(DT BsonDate)        $(DD Converted to Bson.Type.Date)\n\t\t$(DT BsonTimestamp)   $(DD Converted to Bson.Type.Timestamp)\n\t\t$(DT BsonRegex)       $(DD Converted to Bson.Type.Regex)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Long)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT ubyte[])         $(DD Converted to Bson.Type.BinData)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n"
+			"comment": "\n\tSerializes the given value to BSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Bson)            $(DD Used as-is)\n\t\t$(DT Json)            $(DD Converted to BSON)\n\t\t$(DT BsonBinData)     $(DD Converted to Bson.Type.BinData)\n\t\t$(DT BsonObjectID)    $(DD Converted to Bson.Type.ObjectID)\n\t\t$(DT BsonDate)        $(DD Converted to Bson.Type.Date)\n\t\t$(DT BsonTimestamp)   $(DD Converted to Bson.Type.Timestamp)\n\t\t$(DT BsonRegex)       $(DD Converted to Bson.Type.Regex)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Long)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT ubyte[])         $(DD Converted to Bson.Type.BinData)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n\n\tFields ending with an underscore will have the last underscore stripped in the\n\tserialized output. This makes it possible to use fields with D keywords as their name\n\tby simply appending an underscore.\n\n\tThe following methods can be used to customize the serialization of structs/classes:\n\n\t---\n\tBson toBson() const;\n\tstatic T fromBson(Bson src);\n\n\tJson toJson() const;\n\tstatic T fromJson(Json src);\n\n\tstring toString() const;\n\tstatic T fromString(string src);\n\t---\n\n\tThe methods will have to be defined in pairs. The first pair that is implemented by\n\tthe type will be used for serialization (i.e. toBson overrides toJson).\n"
 		},
 		{
 			"kind": "template",
-			"line": 836,
+			"line": 862,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 836,
+					"line": 862,
 					"type": "void(ref T dst, Bson src)",
 					"name": "deserializeBson",
 					"comment": "\n\tDeserializes a BSON value into the destination variable.\n\n\tThe same types as for serializeToBson() are supported and handled inversely.\n"
@@ -3407,12 +3494,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 929,
+			"line": 961,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 929,
+					"line": 961,
 					"type": "Bson.Type(ref R dst, in Json value)",
 					"name": "writeBson"
 				}
@@ -3421,12 +3508,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1045,
+			"line": 1077,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1045,
+					"line": 1077,
 					"type": "void(R dst, string str)",
 					"name": "putCString"
 				}
@@ -3435,12 +3522,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1051,
+			"line": 1083,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1051,
+					"line": 1083,
 					"type": "ubyte[](T v)",
 					"name": "toBsonData"
 				}
@@ -3449,12 +3536,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1061,
+			"line": 1093,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1061,
+					"line": 1093,
 					"type": "T(in ubyte[] v)",
 					"name": "fromBsonData"
 				}
@@ -3463,12 +3550,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1069,
+			"line": 1101,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1069,
+					"line": 1101,
 					"type": "ubyte[](T v)",
 					"name": "toBigEndianData"
 				}
@@ -3491,7 +3578,7 @@
 				{
 					"kind": "function",
 					"line": 42,
-					"type": "string(string str)",
+					"type": "string(string str, bool coding_variant = false)",
 					"name": "filterMarkdown",
 					"comment": " Returns a Markdown filtered HTML string.\n"
 				}
@@ -3507,7 +3594,7 @@
 				{
 					"kind": "function",
 					"line": 52,
-					"type": "void(ref R dst, string src)",
+					"type": "void(ref R dst, string src, bool coding_variant = false)",
 					"name": "filterMarkdown",
 					"comment": " Markdown filters the given string and writes the corresponding HTML to an output range.\n"
 				}
@@ -3595,67 +3682,73 @@
 					"line": 80,
 					"protection": "public",
 					"name": "HtmlBlock"
+				},
+				{
+					"kind": "enum member",
+					"line": 81,
+					"protection": "public",
+					"name": "CodeBlockDelimiter"
 				}
 			],
 			"name": "LineType"
 		},
 		{
 			"kind": "enum",
-			"line": 149,
+			"line": 151,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 150,
+					"line": 152,
 					"protection": "public",
 					"name": "Plain"
 				},
 				{
 					"kind": "enum member",
-					"line": 151,
+					"line": 153,
 					"protection": "public",
 					"name": "Text"
 				},
 				{
 					"kind": "enum member",
-					"line": 152,
+					"line": 154,
 					"protection": "public",
 					"name": "Paragraph"
 				},
 				{
 					"kind": "enum member",
-					"line": 153,
+					"line": 155,
 					"protection": "public",
 					"name": "Header"
 				},
 				{
 					"kind": "enum member",
-					"line": 154,
+					"line": 156,
 					"protection": "public",
 					"name": "OList"
 				},
 				{
 					"kind": "enum member",
-					"line": 155,
+					"line": 157,
 					"protection": "public",
 					"name": "UList"
 				},
 				{
 					"kind": "enum member",
-					"line": 156,
+					"line": 158,
 					"protection": "public",
 					"name": "ListItem"
 				},
 				{
 					"kind": "enum member",
-					"line": 157,
+					"line": 159,
 					"protection": "public",
 					"name": "Code"
 				},
 				{
 					"kind": "enum member",
-					"line": 158,
+					"line": 160,
 					"protection": "public",
 					"name": "Quote"
 				}
@@ -4070,7 +4163,7 @@
 					"kind": "function",
 					"line": 126,
 					"protection": "public",
-					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1739;\r\n , __ctmp1739).this(null))",
+					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1741;\r\n , __ctmp1741).this(null))",
 					"name": "query"
 				},
 				{
@@ -4451,13 +4544,13 @@
 	"members": [
 		{
 			"kind": "class",
-			"line": 19,
+			"line": 20,
 			"protection": "public",
 			"base": "Fiber",
 			"members": [
 				{
 					"kind": "function",
-					"line": 31,
+					"line": 32,
 					"protection": "public",
 					"type": "Task()",
 					"name": "getThis",
@@ -4465,12 +4558,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 35,
+					"line": 36,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 35,
+							"line": 36,
 							"type": "void(string name, T value)",
 							"name": "set",
 							"comment": " Sets a task local variable.\n\t\n"
@@ -4481,12 +4574,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 42,
+					"line": 43,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 42,
+							"line": 43,
 							"type": "T(string name)",
 							"name": "get",
 							"comment": " Returns a task local variable.\n\t\n"
@@ -4497,7 +4590,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 52,
+					"line": 53,
 					"protection": "public",
 					"type": "bool(string name)",
 					"name": "isSet",
@@ -4755,67 +4848,67 @@
 	"members": [
 		{
 			"kind": "struct",
-			"line": 37,
+			"line": 69,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "enum",
-					"line": 52,
+					"line": 84,
 					"protection": "public",
 					"base": "int",
 					"members": [
 						{
 							"kind": "enum member",
-							"line": 54,
+							"line": 86,
 							"protection": "public",
 							"name": "Undefined",
 							"comment": " A non-existent value in a JSON object\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 56,
+							"line": 88,
 							"protection": "public",
 							"name": "Null",
 							"comment": " Null value\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 58,
+							"line": 90,
 							"protection": "public",
 							"name": "Bool",
 							"comment": " Boolean value\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 60,
+							"line": 92,
 							"protection": "public",
 							"name": "Int",
 							"comment": " 64-bit integer value\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 62,
+							"line": 94,
 							"protection": "public",
 							"name": "Float",
 							"comment": " 64-bit floating point value\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 64,
+							"line": 96,
 							"protection": "public",
 							"name": "String",
 							"comment": " UTF-8 string\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 66,
+							"line": 98,
 							"protection": "public",
 							"name": "Array",
 							"comment": " Array of JSON values\n"
 						},
 						{
 							"kind": "enum member",
-							"line": 68,
+							"line": 100,
 							"protection": "public",
 							"name": "Object",
 							"comment": " JSON object aka. dictionary from string to Json\n"
@@ -4826,7 +4919,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 72,
+					"line": 104,
 					"protection": "public",
 					"type": "@property Json()",
 					"name": "Undefined",
@@ -4834,7 +4927,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 75,
+					"line": 107,
 					"protection": "public",
 					"type": "@property Json()",
 					"name": "EmptyObject",
@@ -4842,7 +4935,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 78,
+					"line": 110,
 					"protection": "public",
 					"type": "@property Json()",
 					"name": "EmptyArray",
@@ -4850,7 +4943,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 85,
+					"line": 117,
 					"protection": "public",
 					"type": "ref Json(typeof(null))",
 					"name": "this",
@@ -4858,7 +4951,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 87,
+					"line": 119,
 					"protection": "public",
 					"type": "ref Json(bool v)",
 					"name": "this",
@@ -4866,7 +4959,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 89,
+					"line": 121,
 					"protection": "public",
 					"type": "ref Json(int v)",
 					"name": "this",
@@ -4874,7 +4967,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 91,
+					"line": 123,
 					"protection": "public",
 					"type": "ref Json(long v)",
 					"name": "this",
@@ -4882,7 +4975,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 93,
+					"line": 125,
 					"protection": "public",
 					"type": "ref Json(double v)",
 					"name": "this",
@@ -4890,7 +4983,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 95,
+					"line": 127,
 					"protection": "public",
 					"type": "ref Json(string v)",
 					"name": "this",
@@ -4898,7 +4991,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 97,
+					"line": 129,
 					"protection": "public",
 					"type": "ref Json(Json[] v)",
 					"name": "this",
@@ -4906,7 +4999,7 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 99,
+					"line": 131,
 					"protection": "public",
 					"type": "ref Json(Json[string] v)",
 					"name": "this",
@@ -4914,7 +5007,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 104,
+					"line": 136,
 					"protection": "public",
 					"type": "ref Json(Json v)",
 					"name": "opAssign",
@@ -4922,7 +5015,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 119,
+					"line": 151,
 					"protection": "public",
 					"type": "void(typeof(null))",
 					"name": "opAssign",
@@ -4930,7 +5023,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 121,
+					"line": 153,
 					"protection": "public",
 					"type": "bool(bool v)",
 					"name": "opAssign",
@@ -4938,7 +5031,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 123,
+					"line": 155,
 					"protection": "public",
 					"type": "int(int v)",
 					"name": "opAssign",
@@ -4946,7 +5039,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 125,
+					"line": 157,
 					"protection": "public",
 					"type": "long(long v)",
 					"name": "opAssign",
@@ -4954,7 +5047,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 127,
+					"line": 159,
 					"protection": "public",
 					"type": "double(double v)",
 					"name": "opAssign",
@@ -4962,7 +5055,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 129,
+					"line": 161,
 					"protection": "public",
 					"type": "string(string v)",
 					"name": "opAssign",
@@ -4970,7 +5063,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 131,
+					"line": 163,
 					"protection": "public",
 					"type": "Json[](Json[] v)",
 					"name": "opAssign",
@@ -4978,7 +5071,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 133,
+					"line": 165,
 					"protection": "public",
 					"type": "Json[string](Json[string] v)",
 					"name": "opAssign",
@@ -4986,7 +5079,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 138,
+					"line": 170,
 					"protection": "public",
 					"type": "const @property Type()",
 					"name": "type",
@@ -4994,7 +5087,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 143,
+					"line": 175,
 					"protection": "public",
 					"type": "inout ref inout(Json)(uint idx)",
 					"name": "opIndex",
@@ -5002,7 +5095,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 149,
+					"line": 181,
 					"protection": "public",
 					"type": "const const(Json)(string key)",
 					"name": "opIndex",
@@ -5010,7 +5103,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 156,
+					"line": 188,
 					"protection": "public",
 					"type": "ref Json(string key)",
 					"name": "opIndex",
@@ -5018,7 +5111,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 169,
+					"line": 201,
 					"protection": "public",
 					"type": "inout inout(Json[])()",
 					"name": "opSlice",
@@ -5026,7 +5119,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 171,
+					"line": 203,
 					"protection": "public",
 					"type": "inout inout(Json[])(uint from, uint to)",
 					"name": "opSlice",
@@ -5034,7 +5127,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 176,
+					"line": 208,
 					"protection": "public",
 					"type": "const @property uint()",
 					"name": "length",
@@ -5042,7 +5135,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 191,
+					"line": 223,
 					"protection": "public",
 					"type": "int(int delegate(ref Json obj) del)",
 					"name": "opApply",
@@ -5050,7 +5143,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 208,
+					"line": 240,
 					"protection": "public",
 					"type": "const int(int delegate(ref const(Json) obj) del)",
 					"name": "opApply",
@@ -5058,7 +5151,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 225,
+					"line": 257,
 					"protection": "public",
 					"type": "int(int delegate(ref uint idx, ref Json obj) del)",
 					"name": "opApply",
@@ -5066,7 +5159,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 234,
+					"line": 266,
 					"protection": "public",
 					"type": "const int(int delegate(ref uint idx, ref const(Json) obj) del)",
 					"name": "opApply",
@@ -5074,7 +5167,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 243,
+					"line": 275,
 					"protection": "public",
 					"type": "int(int delegate(ref string idx, ref Json obj) del)",
 					"name": "opApply",
@@ -5082,7 +5175,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 253,
+					"line": 285,
 					"protection": "public",
 					"type": "const int(int delegate(ref string idx, ref const(Json) obj) del)",
 					"name": "opApply",
@@ -5090,12 +5183,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 266,
+					"line": 298,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 266,
+							"line": 298,
 							"type": "inout inout(T)()",
 							"name": "opCast",
 							"comment": "\n\t\tConverts the JSON value to the corresponding D type - types must match exactly.\n\t\n"
@@ -5106,12 +5199,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 268,
+					"line": 300,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 268,
+							"line": 300,
 							"type": "inout inout(T)()",
 							"name": "get"
 						}
@@ -5121,12 +5214,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 282,
+					"line": 314,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 282,
+							"line": 314,
 							"type": "const const(T)(const(T) def = T.init)",
 							"name": "opt"
 						}
@@ -5136,12 +5229,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 288,
+					"line": 320,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 288,
+							"line": 320,
 							"type": "T(T def = T.init)",
 							"name": "opt"
 						}
@@ -5151,12 +5244,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 297,
+					"line": 329,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 297,
+							"line": 329,
 							"type": "inout inout(T)()",
 							"name": "to"
 						}
@@ -5166,12 +5259,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 388,
+					"line": 420,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 388,
+							"line": 420,
 							"type": "const Json()",
 							"name": "opUnary",
 							"comment": "\n\t\tPerforms unary operations on the JSON value.\n\n\t\tThe following operations are supported for each type:\n\n\t\t$(DL\n\t\t\t$(DT Null)   $(DD none)\n\t\t\t$(DT Bool)   $(DD ~)\n\t\t\t$(DT Int)    $(DD +, -, ++, --)\n\t\t\t$(DT Float)  $(DD +, -, ++, --)\n\t\t\t$(DT String) $(DD none)\n\t\t\t$(DT Array)  $(DD none)\n\t\t\t$(DT Object) $(DD none)\n\t\t)\n\t\n"
@@ -5182,12 +5275,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 417,
+					"line": 449,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 417,
+							"line": 449,
 							"type": "const Json(ref const(Json) other)",
 							"name": "opBinary",
 							"comment": "\n\t\tPerforms binary operations between JSON values.\n\n\t\tThe two JSON values must be of the same run time type or an exception\n\t\twill be thrown. Only the operations listed are allowed for each of the\n\t\ttypes.\n\n\t\t$(DL\n\t\t\t$(DT Null)   $(DD none)\n\t\t\t$(DT Bool)   $(DD &&, ||)\n\t\t\t$(DT Int)    $(DD +, -, *, /, %)\n\t\t\t$(DT Float)  $(DD +, -, *, /, %)\n\t\t\t$(DT String) $(DD ~)\n\t\t\t$(DT Array)  $(DD ~)\n\t\t\t$(DT Object) $(DD none)\n\t\t)\n\t\n"
@@ -5198,12 +5291,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 453,
+					"line": 485,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 453,
+							"line": 485,
 							"type": "Json(Json other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5214,12 +5307,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 464,
+					"line": 496,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 464,
+							"line": 496,
 							"type": "void(Json other)",
 							"name": "opOpAssign",
 							"comment": " ditto\n"
@@ -5230,12 +5323,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 496,
+					"line": 528,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 496,
+							"line": 528,
 							"type": "const Json(bool other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5246,12 +5339,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 498,
+					"line": 530,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 498,
+							"line": 530,
 							"type": "const Json(long other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5262,12 +5355,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 500,
+					"line": 532,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 500,
+							"line": 532,
 							"type": "const Json(double other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5278,12 +5371,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 502,
+					"line": 534,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 502,
+							"line": 534,
 							"type": "const Json(string other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5294,12 +5387,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 504,
+					"line": 536,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 504,
+							"line": 536,
 							"type": "Json(Json[] other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5310,12 +5403,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 506,
+					"line": 538,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 506,
+							"line": 538,
 							"type": "const Json(bool other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5326,12 +5419,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 508,
+					"line": 540,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 508,
+							"line": 540,
 							"type": "const Json(long other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5342,12 +5435,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 510,
+					"line": 542,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 510,
+							"line": 542,
 							"type": "const Json(double other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5358,12 +5451,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 512,
+					"line": 544,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 512,
+							"line": 544,
 							"type": "const Json(string other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5374,12 +5467,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 514,
+					"line": 546,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 514,
+							"line": 546,
 							"type": "inout inout(Json)*(string other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5390,12 +5483,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 522,
+					"line": 554,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 522,
+							"line": 554,
 							"type": "Json(Json[] other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5406,12 +5499,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 527,
+					"line": 559,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 527,
+							"line": 559,
 							"type": "const const(Json)()",
 							"name": "opDispatch"
 						}
@@ -5421,12 +5514,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 529,
+					"line": 561,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 529,
+							"line": 561,
 							"type": "Json()",
 							"name": "opDispatch"
 						}
@@ -5436,7 +5529,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 538,
+					"line": 570,
 					"protection": "public",
 					"type": "const bool(ref const(Json) other)",
 					"name": "opEquals",
@@ -5444,7 +5537,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 553,
+					"line": 585,
 					"protection": "public",
 					"type": "const bool(typeof(null))",
 					"name": "opEquals",
@@ -5452,35 +5545,35 @@
 				},
 				{
 					"kind": "function",
-					"line": 554,
+					"line": 586,
 					"protection": "public",
 					"type": "const bool(bool v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 555,
+					"line": 587,
 					"protection": "public",
 					"type": "const bool(long v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 556,
+					"line": 588,
 					"protection": "public",
 					"type": "const bool(double v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 557,
+					"line": 589,
 					"protection": "public",
 					"type": "const bool(string v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 569,
+					"line": 601,
 					"protection": "public",
 					"type": "const int(ref const(Json) other)",
 					"name": "opCmp",
@@ -5488,12 +5581,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 591,
+					"line": 623,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 591,
+							"line": 623,
 							"type": "Type()",
 							"name": "typeId"
 						}
@@ -5503,7 +5596,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 609,
+					"line": 641,
 					"protection": "public",
 					"type": "const string()",
 					"name": "toString",
@@ -5511,12 +5604,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 615,
+					"line": 647,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 615,
+							"line": 647,
 							"type": "const void()",
 							"name": "checkType"
 						}
@@ -5525,7 +5618,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 37,
+					"line": 69,
 					"protection": "public",
 					"type": "bool(const(void*) p, const(void*) q)",
 					"name": "__xopEquals"
@@ -5536,12 +5629,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 639,
+			"line": 671,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 639,
+					"line": 671,
 					"type": "Json(ref R range, int* line = null)",
 					"name": "parseJson",
 					"comment": "\n\n\n\tParses the given range as a JSON string and returns the corresponding Json object.\n\n\tThe range is shrunk during parsing, leaving any remaining text that is now part of\n\tthe JSON contents.\n\n\tThrows an Exception if any parsing error occured.\n"
@@ -5552,7 +5645,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 725,
+			"line": 757,
 			"protection": "public",
 			"type": "Json(string str)",
 			"name": "parseJsonString",
@@ -5560,28 +5653,28 @@
 		},
 		{
 			"kind": "template",
-			"line": 765,
+			"line": 814,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 765,
+					"line": 814,
 					"type": "Json(T value)",
 					"name": "serializeToJson",
-					"comment": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Int)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n"
+					"comment": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Int)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall public fields of a struct/class are recursively serialized using the same rules.\n\n\tFields ending with an underscore will have the last underscore stripped in the\n\tserialized output. This makes it possible to use fields with D keywords as their name\n\tby simply appending an underscore.\n\n\tThe following methods can be used to customize the serialization of structs/classes:\n\n\t---\n\tJson toJson() const;\n\tstatic T fromJson(Json src);\n\n\tstring toString() const;\n\tstatic T fromString(string src);\n\t---\n\n\tThe methods will have to be defined in pairs. The first pair that is implemented by\n\tthe type will be used for serialization (i.e. toJson overrides toString).\n"
 				}
 			],
 			"name": "serializeToJson(T)",
-			"comment": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Int)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall fields of a struct/class are recursively serialized using the same rules.\n"
+			"comment": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Bson.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Bson.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Bson.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Bson.Type.Int)\n\t\t$(DT string)          $(DD Converted to Bson.Type.String)\n\t\t$(DT T[])             $(DD Converted to Bson.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Bson.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Bson.Type.Object)\n\t\t$(DT class)           $(DD Converted to Bson.Type.Object or Bson.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall public fields of a struct/class are recursively serialized using the same rules.\n\n\tFields ending with an underscore will have the last underscore stripped in the\n\tserialized output. This makes it possible to use fields with D keywords as their name\n\tby simply appending an underscore.\n\n\tThe following methods can be used to customize the serialization of structs/classes:\n\n\t---\n\tJson toJson() const;\n\tstatic T fromJson(Json src);\n\n\tstring toString() const;\n\tstatic T fromString(string src);\n\t---\n\n\tThe methods will have to be defined in pairs. The first pair that is implemented by\n\tthe type will be used for serialization (i.e. toJson overrides toString).\n"
 		},
 		{
 			"kind": "template",
-			"line": 819,
+			"line": 870,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 819,
+					"line": 870,
 					"type": "void(ref T dst, Json src)",
 					"name": "deserializeJson",
 					"comment": "\n\tDeserializes a JSON value into the destination variable.\n\n\tThe same types as for serializeToJson() are supported and handled inversely.\n"
@@ -5592,12 +5685,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 919,
+			"line": 972,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 919,
+					"line": 972,
 					"type": "void(ref R dst, in Json json)",
 					"name": "toJson",
 					"comment": "\n\tWrites the given JSON object as a JSON string into the destination range.\n\n\tThe basic version will not output any whitespace and thus minizime the size of the string.\n\n\ttoPrettyJSON() in the other hand will add newlines and indents to make the output human\n\treadable.\n"
@@ -5608,12 +5701,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 958,
+			"line": 1015,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 958,
+					"line": 1015,
 					"type": "void(ref R dst, in Json json, int level = 0)",
 					"name": "toPrettyJson",
 					"comment": " ditto\n"
@@ -5624,7 +5717,7 @@
 		}
 	],
 	"name": "vibe.data.json",
-	"comment": "\n\tJSON serialization and value handling.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n"
+	"comment": "\n\tJSON serialization and value handling.\n\n\tThis module provides the Json struct for reading, writing and manipulating JSON values in a seemless,\n\tJavaScript like way. De(serialization) of arbitrary D types is also supported.\n\n\tExamples:\n\n\t---\n\tvoid manipulateJson(Json j)\n\t{\n\t\t// object members can be accessed using member syntax, just like in JavaScript\n\t\tj = Json.EmptyObject;\n\t\tj.name = \"Example\";\n\t\tj.id = 1;\n\n\t\t// retrieving the values is done using get()\n\t\tassert(j[\"name\"].get!string == \"Example\");\n\t\tassert(j[\"id\"].get!int == 1);\n\n\t\t// semantic convertions can be done using to()\n\t\tassert(j.id.to!string == \"1\");\n\n\t\t// prints:\n\t\t// name: \"Example\"\n\t\t// id: 1\n\t\tforeach( string key, value; j ){\n\t\t\twritefln(\"%s: %s\", key, value);\n\t\t}\n\n\t\t// print out as JSON: {\"name\": \"Example\", \"id\": 1}\n\t\twritefln(\"JSON: %s\", j.toString());\n\t}\n\t---\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n"
 },
 {
 	"kind": "module",
@@ -5835,7 +5928,7 @@
 	"members": [
 		{
 			"kind": "function",
-			"line": 26,
+			"line": 27,
 			"protection": "public",
 			"type": "FileStream(Path path, FileMode mode = cast(FileMode)0)",
 			"name": "openFile",
@@ -5843,7 +5936,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 31,
+			"line": 32,
 			"protection": "public",
 			"type": "FileStream(string path, FileMode mode = cast(FileMode)0)",
 			"name": "openFile",
@@ -5851,7 +5944,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 39,
+			"line": 40,
 			"protection": "public",
 			"type": "FileStream()",
 			"name": "createTempFile",
@@ -5859,7 +5952,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 52,
+			"line": 53,
 			"protection": "public",
 			"type": "void(Path from, Path to)",
 			"name": "moveFile",
@@ -5867,7 +5960,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 57,
+			"line": 58,
 			"protection": "public",
 			"type": "void(string from, string to)",
 			"name": "moveFile",
@@ -5875,7 +5968,23 @@
 		},
 		{
 			"kind": "function",
-			"line": 65,
+			"line": 78,
+			"protection": "public",
+			"type": "void(Path from, Path to, bool overwrite = false)",
+			"name": "copyFile",
+			"comment": "\n\tCopies a file.\n\n\tNote that attributes and time stamps are currently not retained.\n\n\tParams:\n\t\tfrom = Path of the source file\n\t\tto = Path for the destination file\n\t\toverwrite = If true, any file existing at the destination path will be\n\t\t\toverwritten. If this is false, an excpetion will be thrown should\n\t\t\ta file already exist at the destination path.\n\n\tThrows:\n\t\tAn Exception if the copy operation fails for some reason.\n"
+		},
+		{
+			"kind": "function",
+			"line": 92,
+			"protection": "public",
+			"type": "void(string from, string to)",
+			"name": "copyFile",
+			"comment": " ditto\n"
+		},
+		{
+			"kind": "function",
+			"line": 100,
 			"protection": "public",
 			"type": "void(Path path)",
 			"name": "removeFile",
@@ -5883,7 +5992,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 70,
+			"line": 105,
 			"protection": "public",
 			"type": "void(string path)",
 			"name": "removeFile",
@@ -5891,7 +6000,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 77,
+			"line": 112,
 			"protection": "public",
 			"type": "bool(Path path)",
 			"name": "existsFile",
@@ -5899,7 +6008,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 81,
+			"line": 116,
 			"protection": "public",
 			"type": "bool(string path)",
 			"name": "existsFile",
@@ -5907,7 +6016,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 90,
+			"line": 125,
 			"protection": "public",
 			"type": "FileInfo(Path path)",
 			"name": "getFileInfo",
@@ -5915,7 +6024,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 96,
+			"line": 131,
 			"protection": "public",
 			"type": "FileInfo(string path)",
 			"name": "getFileInfo",
@@ -5923,7 +6032,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 104,
+			"line": 139,
 			"protection": "public",
 			"type": "void(Path path)",
 			"name": "createDirectory",
@@ -5931,7 +6040,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 109,
+			"line": 144,
 			"protection": "public",
 			"type": "void(string path)",
 			"name": "createDirectory",
@@ -5939,113 +6048,139 @@
 		},
 		{
 			"kind": "function",
-			"line": 115,
+			"line": 152,
 			"protection": "public",
 			"type": "void(Path path, bool delegate(FileInfo info) del)",
 			"name": "listDirectory",
-			"comment": " Enumerates all files in the specified directory. \n"
+			"comment": "\n\tEnumerates all files in the specified directory.\n"
 		},
 		{
 			"kind": "function",
-			"line": 122,
+			"line": 159,
 			"protection": "public",
 			"type": "void(string path, bool delegate(FileInfo info) del)",
 			"name": "listDirectory",
 			"comment": " ditto\n"
 		},
 		{
+			"kind": "function",
+			"line": 167,
+			"protection": "public",
+			"type": "DirectoryWatcher(Path path, bool recursive = true)",
+			"name": "watchDirectory",
+			"comment": "\n\tStarts watching a directory for changes.\n"
+		},
+		{
+			"kind": "function",
+			"line": 172,
+			"protection": "public",
+			"type": "DirectoryWatcher(string path, bool recursive = true)",
+			"name": "watchDirectory"
+		},
+		{
 			"kind": "struct",
-			"line": 128,
+			"line": 180,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 129,
+					"line": 182,
 					"protection": "public",
 					"type": "string",
-					"name": "name"
+					"name": "name",
+					"comment": " Name of the file (not including the path)\n"
 				},
 				{
 					"kind": "variable",
-					"line": 130,
+					"line": 185,
 					"protection": "public",
 					"type": "ulong",
-					"name": "size"
+					"name": "size",
+					"comment": " Size of the file (zero for directories)\n"
 				},
 				{
 					"kind": "variable",
-					"line": 131,
+					"line": 188,
 					"protection": "public",
 					"type": "SysTime",
-					"name": "timeModified"
+					"name": "timeModified",
+					"comment": " Time of the last modification\n"
 				},
 				{
 					"kind": "variable",
-					"line": 132,
+					"line": 191,
 					"protection": "public",
 					"type": "SysTime",
-					"name": "timeCreated"
+					"name": "timeCreated",
+					"comment": " Time of creation (not available on all operating systems/file systems)\n"
 				},
 				{
 					"kind": "variable",
-					"line": 133,
+					"line": 194,
 					"protection": "public",
 					"type": "bool",
-					"name": "isSymlink"
+					"name": "isSymlink",
+					"comment": " True if this is a symlink to an actual file\n"
 				},
 				{
 					"kind": "variable",
-					"line": 134,
+					"line": 197,
 					"protection": "public",
 					"type": "bool",
-					"name": "isDirectory"
+					"name": "isDirectory",
+					"comment": " True if this is a directory or a symlink pointing to a directory\n"
 				},
 				{
 					"kind": "function",
-					"line": 128,
+					"line": 180,
 					"protection": "public",
 					"type": "const bool(const(FileInfo) p)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 128,
+					"line": 180,
 					"protection": "public",
 					"type": "bool(const(void*) p, const(void*) q)",
 					"name": "__xopEquals"
 				}
 			],
-			"name": "FileInfo"
+			"name": "FileInfo",
+			"comment": " Contains general information about a file.\n"
 		},
 		{
 			"kind": "enum",
-			"line": 140,
+			"line": 203,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 141,
+					"line": 205,
 					"protection": "public",
-					"name": "Read"
+					"name": "Read",
+					"comment": " The file is opened read-only.\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 142,
+					"line": 207,
 					"protection": "public",
-					"name": "ReadWrite"
+					"name": "ReadWrite",
+					"comment": " The file is opened for read-write random access.\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 143,
+					"line": 209,
 					"protection": "public",
-					"name": "CreateTrunc"
+					"name": "CreateTrunc",
+					"comment": " The file is truncated if it exists and created otherwise and the opened for read-write access.\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 144,
+					"line": 211,
 					"protection": "public",
-					"name": "Append"
+					"name": "Append",
+					"comment": " The file is opened for appending data to it and created if it does not exist.\n"
 				}
 			],
 			"name": "FileMode",
@@ -6053,72 +6188,135 @@
 		},
 		{
 			"kind": "interface",
-			"line": 150,
+			"line": 217,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 152,
+					"line": 219,
 					"protection": "public",
-					"type": "const @property Path()",
+					"type": "const nothrow @property Path()",
 					"name": "path",
 					"comment": " The path of the file.\n"
 				},
 				{
 					"kind": "function",
-					"line": 155,
-					"protection": "public",
-					"type": "const @property ulong()",
-					"name": "size",
-					"comment": " Returns the total size of the file.\n"
-				},
-				{
-					"kind": "function",
-					"line": 158,
-					"protection": "public",
-					"type": "const @property bool()",
-					"name": "readable",
-					"comment": " Determines if this stream is readable.\n"
-				},
-				{
-					"kind": "function",
-					"line": 161,
-					"protection": "public",
-					"type": "const @property bool()",
-					"name": "writable",
-					"comment": " Determines if this stream is writable.\n"
-				},
-				{
-					"kind": "function",
-					"line": 164,
+					"line": 222,
 					"protection": "public",
 					"type": "void()",
 					"name": "close",
 					"comment": " Closes the file handle.\n"
-				},
-				{
-					"kind": "function",
-					"line": 167,
-					"protection": "public",
-					"type": "void(ulong offset)",
-					"name": "seek",
-					"comment": " Seeks to a specific position in the file if supported by the stream.\n"
-				},
-				{
-					"kind": "function",
-					"line": 170,
-					"protection": "public",
-					"type": "ulong()",
-					"name": "tell",
-					"comment": " Returns the current offset of the file pointer\n"
 				}
 			],
 			"interfaces": [
-				"Stream",
+				"RandomAccessStream",
 				"EventedObject"
 			],
 			"name": "FileStream",
 			"comment": "\n\tAccesses the contents of a file as a stream.\n"
+		},
+		{
+			"kind": "interface",
+			"line": 232,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 234,
+					"protection": "public",
+					"type": "const @property Path()",
+					"name": "path",
+					"comment": " The path of the watched directory\n"
+				},
+				{
+					"kind": "function",
+					"line": 237,
+					"protection": "public",
+					"type": "const @property bool()",
+					"name": "recursive",
+					"comment": " Indicates if the directory is watched recursively\n"
+				},
+				{
+					"kind": "function",
+					"line": 252,
+					"protection": "public",
+					"type": "bool(ref DirectoryChange[] dst, Duration timeout = dur(-1L))",
+					"name": "readChanges",
+					"comment": " Fills the destination array with all changes that occured since the last call.\n\n\t\tThe function will blok until either directory changes have occured or until the\n\t\ttiout has elapsed. Specifying a negative duration will cause the function to\n\t\twait without a timeout.\n\n\t\tParams:\n\t\t\tdst = The destination array to which the changes will be appended\n\t\t\ttimeout = Optional timeout for the read operation\n\n\t\tReturns:\n\t\t\tIf the call completed successfully, true is returned.\n\t\n"
+				}
+			],
+			"name": "DirectoryWatcher",
+			"comment": "\n\tInterface for directory watcher implementations.\n\n\tDirectory watchers monitor the contents of a directory (wither recursively or non-recursively)\n\tfor changes, such as file additions, deletions or modifications.\n"
+		},
+		{
+			"kind": "enum",
+			"line": 258,
+			"protection": "public",
+			"base": "int",
+			"members": [
+				{
+					"kind": "enum member",
+					"line": 260,
+					"protection": "public",
+					"name": "Added",
+					"comment": " A file or directory was added\n"
+				},
+				{
+					"kind": "enum member",
+					"line": 262,
+					"protection": "public",
+					"name": "Removed",
+					"comment": " A file or directory was deleted\n"
+				},
+				{
+					"kind": "enum member",
+					"line": 264,
+					"protection": "public",
+					"name": "Modified",
+					"comment": " A file or directory was modified\n"
+				}
+			],
+			"name": "DirectoryChangeType",
+			"comment": " Specifies the kind of change in a watched directory.\n"
+		},
+		{
+			"kind": "struct",
+			"line": 270,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "variable",
+					"line": 272,
+					"protection": "public",
+					"type": "DirectoryChangeType",
+					"name": "type",
+					"comment": " The type of change\n"
+				},
+				{
+					"kind": "variable",
+					"line": 275,
+					"protection": "public",
+					"type": "Path",
+					"name": "path",
+					"comment": " Path of the file/directory that was changed\n"
+				},
+				{
+					"kind": "function",
+					"line": 270,
+					"protection": "public",
+					"type": "const bool(const(DirectoryChange) p)",
+					"name": "opEquals"
+				},
+				{
+					"kind": "function",
+					"line": 270,
+					"protection": "public",
+					"type": "bool(const(void*) p, const(void*) q)",
+					"name": "__xopEquals"
+				}
+			],
+			"name": "DirectoryChange",
+			"comment": " Describes a single change in a watched directory.\n"
 		}
 	],
 	"name": "vibe.core.file",
@@ -6335,15 +6533,15 @@
 	"members": [
 		{
 			"kind": "function",
-			"line": 69,
+			"line": 70,
 			"protection": "public",
 			"type": "void(HttpServerSettings settings, void delegate(HttpServerRequest req, HttpServerResponse res) request_handler)",
 			"name": "listenHttp",
-			"comment": "\n\n\n\tStarts a HTTP server listening on the specified port.\n\n\t'request_task' will be called for each HTTP request that is made. The\n\t'res' parameter of the callback then has to be filled with the response\n\tdata.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n\n\trequest_task can be either HttpServerRequestDelegate/HttpServerRequestFunction\n\tor a class/struct with a member function 'handleRequest' that has the same\n\tsignature as HttpServerRequestDelegate/Function.\n\n\tNote that if the application has been started with the --disthost command line\n\tswitch, listenHttp() will automatically listen on the specified VibeDist host\n\tinstead of locally. This allows for a seemless switch from single-host to\n\tmulti-host scenarios without changing the code. If you need to listen locally,\n\tuse listenHttpPlain() instead.\n"
+			"comment": "\n\n\n\tStarts a HTTP server listening on the specified port.\n\n\trequest_handler will be called for each HTTP request that is made. The\n\tres parameter of the callback then has to be filled with the response\n\tdata.\n\n\trequest_handler can be either HttpServerRequestDelegate/HttpServerRequestFunction\n\tor a class/struct with a member function 'handleRequest' that has the same\n\tsignature.\n\n\tNote that if the application has been started with the --disthost command line\n\tswitch, listenHttp() will automatically listen on the specified VibeDist host\n\tinstead of locally. This allows for a seemless switch from single-host to\n\tmulti-host scenarios without changing the code. If you need to listen locally,\n\tuse listenHttpPlain() instead.\n\n\tParams:\n\t\tsettings = Customizes the HTTP servers functionality.\n\t\trequest_handler = This callback is invoked for each incoming request and is responsible\n\t\t\tfor generating the response.\n"
 		},
 		{
 			"kind": "function",
-			"line": 95,
+			"line": 96,
 			"protection": "public",
 			"type": "void(HttpServerSettings settings, void function(HttpServerRequest req, HttpServerResponse res) request_handler)",
 			"name": "listenHttp",
@@ -6351,7 +6549,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 100,
+			"line": 101,
 			"protection": "public",
 			"type": "void(HttpServerSettings settings, IHttpServerRequestHandler request_handler)",
 			"name": "listenHttp",
@@ -6359,7 +6557,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 112,
+			"line": 113,
 			"protection": "public",
 			"type": "void(HttpServerSettings settings, void delegate(HttpServerRequest req, HttpServerResponse res) request_handler)",
 			"name": "listenHttpPlain",
@@ -6367,12 +6565,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 153,
+			"line": 156,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 153,
+					"line": 156,
 					"type": "HttpServerRequestDelegate()",
 					"name": "staticTemplate"
 				}
@@ -6382,7 +6580,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 167,
+			"line": 170,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res)(string url)",
 			"name": "staticRedirect",
@@ -6390,7 +6588,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 177,
+			"line": 180,
 			"protection": "public",
 			"type": "void(string host, ushort port)",
 			"name": "setVibeDistHost",
@@ -6398,19 +6596,19 @@
 		},
 		{
 			"kind": "function",
-			"line": 183,
+			"line": 186,
 			"protection": "public",
 			"type": "void()",
 			"name": "startListening"
 		},
 		{
 			"kind": "template",
-			"line": 213,
+			"line": 216,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 213,
+					"line": 216,
 					"type": "void(HttpServerResponse res)",
 					"name": "render"
 				}
@@ -6420,7 +6618,7 @@
 		},
 		{
 			"kind": "alias",
-			"line": 226,
+			"line": 229,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res)",
 			"name": "HttpServerRequestDelegate",
@@ -6428,7 +6626,7 @@
 		},
 		{
 			"kind": "alias",
-			"line": 228,
+			"line": 231,
 			"protection": "public",
 			"type": "void function(HttpServerRequest req, HttpServerResponse res)",
 			"name": "HttpServerRequestFunction",
@@ -6436,12 +6634,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 230,
+			"line": 233,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 232,
+					"line": 235,
 					"protection": "public",
 					"type": "void(HttpServerRequest req, HttpServerResponse res)",
 					"name": "handleRequest",
@@ -6453,13 +6651,13 @@
 		},
 		{
 			"kind": "class",
-			"line": 236,
+			"line": 239,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 238,
+					"line": 241,
 					"protection": "public",
 					"type": "int",
 					"name": "code",
@@ -6467,7 +6665,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 240,
+					"line": 243,
 					"protection": "public",
 					"type": "string",
 					"name": "message",
@@ -6475,7 +6673,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 242,
+					"line": 245,
 					"protection": "public",
 					"type": "string",
 					"name": "debugMessage",
@@ -6483,7 +6681,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 244,
+					"line": 247,
 					"protection": "public",
 					"type": "object.Throwable",
 					"name": "exception",
@@ -6495,7 +6693,7 @@
 		},
 		{
 			"kind": "alias",
-			"line": 248,
+			"line": 251,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)",
 			"name": "HttpServerErrorPageHandler",
@@ -6503,54 +6701,54 @@
 		},
 		{
 			"kind": "enum",
-			"line": 255,
+			"line": 258,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 256,
+					"line": 259,
 					"protection": "public",
 					"name": "None"
 				},
 				{
 					"kind": "enum member",
-					"line": 258,
+					"line": 261,
 					"protection": "public",
 					"name": "ParseURL",
 					"comment": " Fills the .path, .queryString fields in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 260,
+					"line": 263,
 					"protection": "public",
 					"name": "ParseQueryString",
 					"comment": " Fills the .query field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 262,
+					"line": 265,
 					"protection": "public",
 					"name": "ParseFormBody",
 					"comment": " Fills the .form field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 264,
+					"line": 267,
 					"protection": "public",
 					"name": "ParseJsonBody",
 					"comment": " Fills the .json field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 266,
+					"line": 269,
 					"protection": "public",
 					"name": "ParseMultiPartBody",
 					"comment": " Enables use of the .nextPart() method in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 268,
+					"line": 271,
 					"protection": "public",
 					"name": "ParseCookies",
 					"comment": " Fills the .cookies field in the request\n"
@@ -6561,13 +6759,13 @@
 		},
 		{
 			"kind": "class",
-			"line": 277,
+			"line": 280,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 283,
+					"line": 286,
 					"protection": "public",
 					"type": "ushort",
 					"name": "port",
@@ -6575,7 +6773,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 289,
+					"line": 292,
 					"protection": "public",
 					"type": "string[]",
 					"name": "bindAddresses",
@@ -6583,7 +6781,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 296,
+					"line": 299,
 					"protection": "public",
 					"type": "string",
 					"name": "hostName",
@@ -6591,7 +6789,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 303,
+					"line": 306,
 					"protection": "public",
 					"type": "HttpServerOption",
 					"name": "options",
@@ -6599,7 +6797,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 312,
+					"line": 315,
 					"protection": "public",
 					"type": "Duration",
 					"name": "maxRequestTime",
@@ -6607,7 +6805,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 315,
+					"line": 318,
 					"protection": "public",
 					"type": "Duration",
 					"name": "keepAliveTimeout",
@@ -6615,7 +6813,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 319,
+					"line": 322,
 					"protection": "public",
 					"type": "ulong",
 					"name": "maxRequestSize",
@@ -6623,7 +6821,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 324,
+					"line": 327,
 					"protection": "public",
 					"type": "ulong",
 					"name": "maxRequestHeaderSize",
@@ -6631,14 +6829,14 @@
 				},
 				{
 					"kind": "variable",
-					"line": 326,
+					"line": 329,
 					"protection": "public",
 					"type": "uint",
 					"name": "maxRequestHeaderCount"
 				},
 				{
 					"kind": "variable",
-					"line": 329,
+					"line": 332,
 					"protection": "public",
 					"type": "void delegate(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)",
 					"name": "errorPageHandler",
@@ -6646,7 +6844,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 332,
+					"line": 335,
 					"protection": "public",
 					"type": "string",
 					"name": "sslCertFile",
@@ -6654,7 +6852,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 334,
+					"line": 337,
 					"protection": "public",
 					"type": "string",
 					"name": "sslKeyFile",
@@ -6662,7 +6860,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 337,
+					"line": 340,
 					"protection": "public",
 					"type": "vibe.http.session.SessionStore",
 					"name": "sessionStore",
@@ -6670,14 +6868,14 @@
 				},
 				{
 					"kind": "variable",
-					"line": 338,
+					"line": 341,
 					"protection": "public",
 					"type": "string",
 					"name": "sessionIdCookie"
 				},
 				{
 					"kind": "variable",
-					"line": 341,
+					"line": 344,
 					"protection": "public",
 					"type": "string",
 					"name": "serverString",
@@ -6685,28 +6883,28 @@
 				},
 				{
 					"kind": "variable",
-					"line": 347,
+					"line": 350,
 					"protection": "public",
 					"type": "string",
 					"name": "accessLogFormat"
 				},
 				{
 					"kind": "variable",
-					"line": 348,
+					"line": 351,
 					"protection": "public",
 					"type": "string",
 					"name": "accessLogFile"
 				},
 				{
 					"kind": "variable",
-					"line": 349,
+					"line": 352,
 					"protection": "public",
 					"type": "bool",
 					"name": "accessLogToConsole"
 				},
 				{
 					"kind": "function",
-					"line": 351,
+					"line": 354,
 					"protection": "public",
 					"type": "@property HttpServerSettings()",
 					"name": "dup"
@@ -6717,20 +6915,20 @@
 		},
 		{
 			"kind": "class",
-			"line": 367,
+			"line": 370,
 			"protection": "public",
 			"base": "Exception",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 372,
+					"line": 375,
 					"protection": "public",
 					"type": "HttpStatusException(int status, string message = null, Throwable next = null, string file = __FILE__, int line = __LINE__)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 378,
+					"line": 381,
 					"protection": "public",
 					"type": "const @property int()",
 					"name": "status"
@@ -6741,132 +6939,132 @@
 		},
 		{
 			"kind": "class",
-			"line": 384,
+			"line": 387,
 			"protection": "public",
 			"base": "HttpRequest",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 386,
+					"line": 389,
 					"protection": "public",
 					"type": "string",
 					"name": "peer"
 				},
 				{
 					"kind": "variable",
-					"line": 389,
+					"line": 392,
 					"protection": "public",
 					"type": "string",
 					"name": "path"
 				},
 				{
 					"kind": "variable",
-					"line": 390,
+					"line": 393,
 					"protection": "public",
 					"type": "string",
 					"name": "username"
 				},
 				{
 					"kind": "variable",
-					"line": 391,
+					"line": 394,
 					"protection": "public",
 					"type": "string",
 					"name": "password"
 				},
 				{
 					"kind": "variable",
-					"line": 392,
+					"line": 395,
 					"protection": "public",
 					"type": "string",
 					"name": "queryString"
 				},
 				{
 					"kind": "variable",
-					"line": 395,
+					"line": 398,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "cookies"
 				},
 				{
 					"kind": "variable",
-					"line": 398,
+					"line": 401,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "query"
 				},
 				{
 					"kind": "variable",
-					"line": 400,
+					"line": 403,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "params"
 				},
 				{
 					"kind": "variable",
-					"line": 403,
+					"line": 406,
 					"protection": "public",
 					"type": "vibe.stream.stream.InputStream",
 					"name": "bodyReader"
 				},
 				{
 					"kind": "variable",
-					"line": 404,
+					"line": 407,
 					"protection": "public",
 					"type": "ubyte[]",
 					"name": "data"
 				},
 				{
 					"kind": "variable",
-					"line": 405,
+					"line": 408,
 					"protection": "public",
 					"type": "Json",
 					"name": "json"
 				},
 				{
 					"kind": "variable",
-					"line": 406,
+					"line": 409,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "form"
 				},
 				{
 					"kind": "variable",
-					"line": 407,
+					"line": 410,
 					"protection": "public",
 					"type": "FilePart[string]",
 					"name": "files"
 				},
 				{
 					"kind": "variable",
-					"line": 416,
+					"line": 419,
 					"protection": "public",
 					"type": "vibe.http.session.Session",
 					"name": "session"
 				},
 				{
 					"kind": "constructor",
-					"line": 422,
+					"line": 425,
 					"protection": "public",
 					"type": "HttpServerRequest()",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 427,
+					"line": 430,
 					"protection": "public",
 					"type": "@property SysTime()",
 					"name": "timeCreated"
 				},
 				{
 					"kind": "function",
-					"line": 431,
+					"line": 434,
 					"protection": "public",
 					"type": "MultiPart()",
 					"name": "nextPart"
 				},
 				{
 					"kind": "function",
-					"line": 436,
+					"line": 439,
 					"protection": "public",
 					"type": "const @property string()",
 					"name": "rootDir"
@@ -6877,34 +7075,34 @@
 		},
 		{
 			"kind": "class",
-			"line": 447,
+			"line": 450,
 			"protection": "public",
 			"base": "HttpResponse",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 463,
+					"line": 466,
 					"protection": "public",
 					"type": "HttpServerResponse(Stream conn, HttpServerSettings settings, Allocator req_alloc)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 471,
+					"line": 474,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "headerWritten"
 				},
 				{
 					"kind": "function",
-					"line": 473,
+					"line": 476,
 					"protection": "public",
 					"type": "const bool()",
 					"name": "isHeadResponse"
 				},
 				{
 					"kind": "function",
-					"line": 476,
+					"line": 479,
 					"protection": "public",
 					"type": "void(const(ubyte[]) data, string content_type = null)",
 					"name": "writeBody",
@@ -6912,19 +7110,19 @@
 				},
 				{
 					"kind": "function",
-					"line": 483,
+					"line": 486,
 					"protection": "public",
 					"type": "void(string data, string content_type = \"text/plain\")",
 					"name": "writeBody"
 				},
 				{
 					"kind": "template",
-					"line": 489,
+					"line": 492,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 489,
+							"line": 492,
 							"type": "void(T data, int status = HttpStatus.OK)",
 							"name": "writeJsonBody",
 							"comment": " Writes a JSON message with the specified status\n"
@@ -6935,7 +7133,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 497,
+					"line": 500,
 					"protection": "public",
 					"type": "void()",
 					"name": "writeVoidBody",
@@ -6943,7 +7141,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 512,
+					"line": 515,
 					"protection": "public",
 					"type": "@property OutputStream()",
 					"name": "bodyWriter",
@@ -6951,7 +7149,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 562,
+					"line": 565,
 					"protection": "public",
 					"type": "void(string url, int status = 302)",
 					"name": "redirect",
@@ -6959,14 +7157,14 @@
 				},
 				{
 					"kind": "function",
-					"line": 570,
+					"line": 573,
 					"protection": "public",
 					"type": "Stream(string protocol)",
 					"name": "switchProtocol"
 				},
 				{
 					"kind": "function",
-					"line": 578,
+					"line": 581,
 					"protection": "public",
 					"type": "Cookie(string name, string value)",
 					"name": "setCookie",
@@ -6974,7 +7172,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 592,
+					"line": 595,
 					"protection": "public",
 					"type": "Session()",
 					"name": "startSession",
@@ -6982,7 +7180,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 603,
+					"line": 606,
 					"protection": "public",
 					"type": "void()",
 					"name": "terminateSession",
@@ -6990,19 +7188,19 @@
 				},
 				{
 					"kind": "function",
-					"line": 610,
+					"line": 613,
 					"protection": "public",
 					"type": "@property ulong()",
 					"name": "bytesWritten"
 				},
 				{
 					"kind": "template",
-					"line": 634,
+					"line": 637,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 634,
+							"line": 637,
 							"type": "void(Variant[] args...)",
 							"name": "renderCompat",
 							"comment": "\n\t\tCompatibility version of render() that takes a list of explicit names and types instead\n\t\tof variable aliases.\n\n\t\tThis version of render() works around a compiler bug in DMD (Issue 2962). You should use\n\t\tthis method instead of render() as long as this bug is not fixed.\n\n\t\tNote that the variables are copied and not referenced inside of the template - any\n\t\tmodification you do on them from within the template will get lost.\n\n\t\tExamples:\n\t\t\t---\n\t\t\tstring title = \"Hello, World!\";\n\t\t\tint pageNumber = 1;\n\t\t\tres.renderCompat!(\"mytemplate.jd\",\n\t\t\t\tstring, \"title\",\n\t\t\t\tint, \"pageNumber\")\n\t\t\t\t(Variant(title), Variant(pageNumber));\n\t\t\t---\n\t\n"
@@ -7013,7 +7211,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 649,
+					"line": 652,
 					"protection": "public",
 					"type": "@property SysTime()",
 					"name": "timeFinalized"
@@ -7024,12 +7222,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1106,
+			"line": 1109,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1106,
+					"line": 1109,
 					"type": "string(Allocator alloc, string fmt, ARGS args)",
 					"name": "formatAlloc"
 				}
@@ -7259,7 +7457,7 @@
 	"members": [
 		{
 			"kind": "function",
-			"line": 25,
+			"line": 26,
 			"protection": "public",
 			"type": "nothrow void(LogLevel level)",
 			"name": "setLogLevel",
@@ -7267,7 +7465,15 @@
 		},
 		{
 			"kind": "function",
-			"line": 31,
+			"line": 32,
+			"protection": "public",
+			"type": "void(bool enable)",
+			"name": "setPlainLogging",
+			"comment": " Disables output of thread/task ids with each log message\n"
+		},
+		{
+			"kind": "function",
+			"line": 38,
 			"protection": "public",
 			"type": "void(string filename, LogLevel min_level = cast(LogLevel)4)",
 			"name": "setLogFile",
@@ -7275,12 +7481,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 44,
+			"line": 51,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 44,
+					"line": 51,
 					"type": "nothrow void(string fmt, auto ref T args)",
 					"name": "logTrace",
 					"comment": "\n\tLogs a message.\n\n\tParams:\n\t\tlevel = The log level for the logged message\n\t\tfmt = See http://dlang.org/phobos/std_format.html#format-string\n"
@@ -7291,12 +7497,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 46,
+			"line": 53,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 46,
+					"line": 53,
 					"type": "nothrow void(string fmt, auto ref T args)",
 					"name": "logDebug",
 					"comment": " ditto\n"
@@ -7307,12 +7513,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 48,
+			"line": 55,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 48,
+					"line": 55,
 					"type": "nothrow void(string fmt, auto ref T args)",
 					"name": "logInfo",
 					"comment": " ditto\n"
@@ -7323,12 +7529,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 50,
+			"line": 57,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 50,
+					"line": 57,
 					"type": "nothrow void(string fmt, auto ref T args)",
 					"name": "logWarn",
 					"comment": " ditto\n"
@@ -7339,12 +7545,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 52,
+			"line": 59,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 52,
+					"line": 59,
 					"type": "nothrow void(string fmt, auto ref T args)",
 					"name": "logError",
 					"comment": " ditto\n"
@@ -7355,12 +7561,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 55,
+			"line": 62,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 55,
+					"line": 62,
 					"type": "nothrow void(LogLevel level, string fmt, auto ref T args)",
 					"name": "log",
 					"comment": " ditto\n"
@@ -7371,49 +7577,49 @@
 		},
 		{
 			"kind": "enum",
-			"line": 105,
+			"line": 113,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 106,
+					"line": 114,
 					"protection": "public",
 					"name": "Trace"
 				},
 				{
 					"kind": "enum member",
-					"line": 107,
+					"line": 115,
 					"protection": "public",
 					"name": "Debug"
 				},
 				{
 					"kind": "enum member",
-					"line": 108,
+					"line": 116,
 					"protection": "public",
 					"name": "Info"
 				},
 				{
 					"kind": "enum member",
-					"line": 109,
+					"line": 117,
 					"protection": "public",
 					"name": "Warn"
 				},
 				{
 					"kind": "enum member",
-					"line": 110,
+					"line": 118,
 					"protection": "public",
 					"name": "Error"
 				},
 				{
 					"kind": "enum member",
-					"line": 111,
+					"line": 119,
 					"protection": "public",
 					"name": "Fatal"
 				},
 				{
 					"kind": "enum member",
-					"line": 112,
+					"line": 120,
 					"protection": "public",
 					"name": "None"
 				}
@@ -8747,7 +8953,7 @@
 			"members": [
 				{
 					"kind": "function",
-					"line": 62,
+					"line": 65,
 					"protection": "public",
 					"type": "Bson(string db, Bson command_and_options)",
 					"name": "runCommand",
@@ -8755,7 +8961,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 68,
+					"line": 71,
 					"protection": "public",
 					"type": "Bson(string db, string mask)",
 					"name": "getLog",
@@ -8763,7 +8969,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 71,
+					"line": 74,
 					"protection": "public",
 					"type": "Bson(string db, bool async = false)",
 					"name": "fsync",
@@ -8771,7 +8977,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 74,
+					"line": 77,
 					"protection": "public",
 					"type": "Bson(string db)",
 					"name": "getLastError",
@@ -8779,7 +8985,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 90,
+					"line": 93,
 					"protection": "public",
 					"type": "MongoCollection(string name)",
 					"name": "opIndex",
@@ -8787,7 +8993,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 126,
+					"line": 129,
 					"protection": "public",
 					"type": "MongoCollection(string db_and_col)",
 					"name": "getCollection",
@@ -10777,33 +10983,33 @@
 				},
 				{
 					"kind": "function",
-					"line": 277,
+					"line": 281,
 					"protection": "public",
 					"type": "void(void[] mem)",
 					"name": "free"
 				},
 				{
 					"kind": "function",
-					"line": 281,
+					"line": 285,
 					"protection": "public",
 					"type": "void()",
 					"name": "freeAll"
 				},
 				{
 					"kind": "function",
-					"line": 302,
+					"line": 306,
 					"protection": "public",
 					"type": "void()",
 					"name": "reset"
 				},
 				{
 					"kind": "template",
-					"line": 316,
+					"line": 320,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 316,
+							"line": 320,
 							"type": "(void* ptr)",
 							"name": "destroy"
 						}
@@ -10818,41 +11024,41 @@
 		},
 		{
 			"kind": "class",
-			"line": 323,
+			"line": 327,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 334,
+					"line": 338,
 					"protection": "public",
 					"type": "FreeListAlloc(uint elem_size, Allocator base_allocator)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 342,
+					"line": 346,
 					"protection": "public",
 					"type": "const @property uint()",
 					"name": "elementSize"
 				},
 				{
 					"kind": "function",
-					"line": 344,
+					"line": 348,
 					"protection": "public",
 					"type": "void[](uint sz)",
 					"name": "alloc"
 				},
 				{
 					"kind": "function",
-					"line": 363,
+					"line": 367,
 					"protection": "public",
 					"type": "void[](void[] mem, uint sz)",
 					"name": "realloc"
 				},
 				{
 					"kind": "function",
-					"line": 370,
+					"line": 374,
 					"protection": "public",
 					"type": "void(void[] mem)",
 					"name": "free"
@@ -10865,22 +11071,22 @@
 		},
 		{
 			"kind": "template",
-			"line": 381,
+			"line": 385,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 383,
+					"line": 387,
 					"name": "ElemSize"
 				},
 				{
 					"kind": "template",
-					"line": 391,
+					"line": 395,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 391,
+							"line": 395,
 							"type": "TR(ARGS args)",
 							"name": "alloc"
 						}
@@ -10889,7 +11095,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 400,
+					"line": 404,
 					"type": "void(TR obj)",
 					"name": "free"
 				}
@@ -10898,46 +11104,46 @@
 		},
 		{
 			"kind": "template",
-			"line": 411,
+			"line": 415,
 			"protection": "public",
 			"members": [],
 			"name": "AllocSize(T)"
 		},
 		{
 			"kind": "struct",
-			"line": 418,
+			"line": 422,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "struct",
-					"line": 418,
+					"line": 422,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "variable",
-							"line": 419,
+							"line": 423,
 							"name": "ElemSize"
 						},
 						{
 							"kind": "variable",
-							"line": 427,
+							"line": 431,
 							"type": "TR",
 							"name": "m_object"
 						},
 						{
 							"kind": "variable",
-							"line": 428,
+							"line": 432,
 							"type": "size_t",
 							"name": "m_magic"
 						},
 						{
 							"kind": "template",
-							"line": 430,
+							"line": 434,
 							"protection": "public",
 							"members": [
 								{
 									"kind": "function",
-									"line": 430,
+									"line": 434,
 									"type": "FreeListRef(ARGS args)",
 									"name": "opCall"
 								}
@@ -10946,31 +11152,31 @@
 						},
 						{
 							"kind": "function",
-							"line": 462,
+							"line": 466,
 							"type": "void(FreeListRef other)",
 							"name": "opAssign"
 						},
 						{
 							"kind": "function",
-							"line": 472,
+							"line": 476,
 							"type": "void()",
 							"name": "clear"
 						},
 						{
 							"kind": "function",
-							"line": 495,
+							"line": 499,
 							"type": "const const(TR)()",
 							"name": "get"
 						},
 						{
 							"kind": "function",
-							"line": 496,
+							"line": 500,
 							"type": "TR()",
 							"name": "get"
 						},
 						{
 							"kind": "function",
-							"line": 499,
+							"line": 503,
 							"type": "int()",
 							"name": "refCount"
 						}
