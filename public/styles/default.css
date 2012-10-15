@@ -105,12 +105,16 @@ nav#global-nav li {
 }
 
 #maincontent td, #maincontent th {
-	border: 1px dotted #aaa;
 	padding: 2pt;
 }
 #maincontent th {
-	background-color: #666;
+	background-color: #444;
 	color: #eee;
+	text-align: left;
+	font-weight: bold;
+}
+#maincontent td {
+	border-bottom: 1px dashed #444;
 }
 
 #maincontent table.blind td, #maincontent table.blind th {
@@ -130,6 +134,42 @@ dl.feat dt {
 	margin: 6pt 0 0 0;
 }
 
+/******************************************************************************/
+/* Featured projects                                                          */
+/******************************************************************************/
+
+ul.featured-projects {
+	margin-top: 18pt;
+	padding: 9pt;
+	text-align: left;
+	font-size: 0;
+
+	background-color: #1a1a1a;
+	border: 1px solid #444;
+}
+
+ul.featured-projects li {
+	display: inline-block;
+	width: 192px;
+	padding: 9pt;
+	text-align: center;
+	vertical-align: top;
+	font-size: 9pt;
+}
+
+ul.featured-projects img {
+	border: 1px solid black;
+}
+
+ul.featured-projects a.img {
+	text-decoration: none;
+	border: none;
+}
+
+
+/******************************************************************************/
+/* Media queries                                                              */
+/******************************************************************************/
 
 @media screen and (max-width: 750px) {
 	#navigation {
