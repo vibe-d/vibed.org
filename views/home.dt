@@ -66,25 +66,25 @@ block plainbody
 				ul
 					li.nav-about
 						a(href="about") About
-							p All about the project's motivation, goals and the creators
+						p All about the project's motivation, goals and the creators
 					li.nav-download
 						a(href="download") Download
-							p Get the latest release and accompaning material
+						p Get the latest release and accompaning material
 					li.nav-blog
 						a(href="blog/") Blog
-							p Follow the development of vibe.d and stay up to date with news and events
+						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-features
 						a(href="features") Features
-							p View a list of all features explaining what's so cool about them
+						p View a list of all features explaining how they work and what makes them special
 					li.nav-community
 						a(href="community") Community
-							p Places to get help, report bugs, and discuss vibe.d in general
+						p Places to <a href="http://news.rejectedsoftware.com/">get help</a>, <a href="http://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://news.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
 					li.nav-docs
 						a(href="docs") Documentation
-							p Development documentation including the full API reference
+						p Development documentation including the full <a href="/api/">API reference</a>
 					li.nav-developer
 						a(href="developer") Development
-							p Get involved with vibe's development
+						p Get involved with vibe's development
 		#example-http-server
 			h2 Example of a simple HTTP server
 			pre.code.prettyprint.lang-d import vibe.d;
