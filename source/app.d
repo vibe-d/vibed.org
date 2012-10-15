@@ -5,6 +5,7 @@ import vibelog.vibelog;
 import ddox.ddox;
 import ddox.entities;
 import ddox.htmlserver;
+import ddox.htmlgenerator;
 import ddox.jsonparser;
 import std.algorithm;
 import std.array;
@@ -37,7 +38,6 @@ void updateDocs()
 		auto settings = new DdoxSettings;
 		settings.declSort = SortMode.Name;
 		m_rootPackage = parseJsonDocs(json, settings);
-		//m_rootPackage = loaDdox(json);
 	} catch( Exception e ){
 		logError("Error loading docs: %s", e.toString());
 		throw e;
@@ -77,7 +77,9 @@ static this()
 	router.get("/templates/", staticRedirect("/templates/diet"));
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
-	registerApiDocs(router, m_rootPackage, "/api", false);
+	auto docsettings = new GeneratorSettings;
+	docsettings.navPackageTree = false;
+	registerApiDocs(router, m_rootPackage, "/api", docsettings);
 
 	auto blogsettings = new VibeLogSettings;
 	blogsettings.configName = "vibe.d";
