@@ -4,6 +4,8 @@ block title
 	- string title = "";
 
 block plainbody
+	h1(style="display: none;") vibe.d
+
 	#features
 		a#forkme(href="https://github.com/rejectedsoftware/vibe.d")
 			img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
