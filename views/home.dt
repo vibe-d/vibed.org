@@ -100,7 +100,7 @@ block plainbody
 				|	auto settings = new HttpServerSettings;
 				|	settings.port = 8080;
 				|
-				|	listenHttp(settings, &handleRequest);
+				|	listenHttp(settings, &amp;handleRequest);
 				|}
 		#example-echo-server
 			h2 Example of an echo server

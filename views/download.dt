@@ -57,7 +57,7 @@ block body
 			pre $ apt-get install vibe
 
 		section
-			a#apt-repository
+			a#aur-package
 			h3 AUR package
 			
 			p The
