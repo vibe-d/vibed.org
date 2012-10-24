@@ -254,85 +254,69 @@
 			"comment": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n"
 		},
 		{
-			"kind": "template",
-			"line": 170,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 170,
-					"type": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
-					"name": "registerFormInterface",
-					"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded parameters. Complex\n\tparameters are encoded as JSON strings.\n\n\tNote that this function is currently not fully implemented.\n"
-				}
-			],
-			"name": "registerFormInterface(I)",
-			"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded parameters. Complex\n\tparameters are encoded as JSON strings.\n\n\tNote that this function is currently not fully implemented.\n"
-		},
-		{
 			"kind": "class",
-			"line": 227,
+			"line": 203,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "class",
-					"line": 227,
+					"line": 203,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "alias",
-							"line": 231,
+							"line": 207,
 							"type": "void delegate(HttpClientRequest req)",
 							"name": "RequestFilter"
 						},
 						{
 							"kind": "variable",
-							"line": 233,
+							"line": 209,
 							"type": "Url",
 							"name": "m_baseUrl"
 						},
 						{
 							"kind": "variable",
-							"line": 234,
+							"line": 210,
 							"type": "MethodStyle",
 							"name": "m_methodStyle"
 						},
 						{
 							"kind": "variable",
-							"line": 235,
+							"line": 211,
 							"type": "RequestFilter",
 							"name": "m_requestFilter"
 						},
 						{
 							"kind": "alias",
-							"line": 238,
+							"line": 214,
 							"type": "I",
 							"name": "BaseInterface"
 						},
 						{
 							"kind": "constructor",
-							"line": 242,
+							"line": 218,
 							"type": "(string base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
 							"name": "this",
 							"comment": " Creates a new REST implementation of I\n\t\n"
 						},
 						{
 							"kind": "constructor",
-							"line": 249,
+							"line": 225,
 							"type": "(Url base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
 							"name": "this",
 							"comment": " ditto\n"
 						},
 						{
 							"kind": "function",
-							"line": 258,
+							"line": 234,
 							"type": "RequestFilter()",
 							"name": "requestFilter",
 							"comment": " An optional request filter that allows to modify each request before it is made.\n\t\n"
 						},
 						{
 							"kind": "function",
-							"line": 260,
+							"line": 236,
 							"type": "void(RequestFilter v)",
 							"name": "requestFilter",
 							"comment": " ditto\n"
@@ -1549,7 +1533,7 @@
 					"protection": "public",
 					"type": "HttpMethod",
 					"name": "method",
-					"comment": " The HTTP method of the request\n"
+					"comment": " The HTTP _method of the request\n"
 				},
 				{
 					"kind": "variable",
@@ -1565,7 +1549,7 @@
 					"protection": "public",
 					"type": "StrMapCI",
 					"name": "headers",
-					"comment": " All request headers\n"
+					"comment": " All request _headers\n"
 				},
 				{
 					"kind": "function",
@@ -1603,42 +1587,47 @@
 			"members": [
 				{
 					"kind": "variable",
-					"line": 138,
-					"protection": "public",
-					"type": "HttpVersion",
-					"name": "httpVersion"
-				},
-				{
-					"kind": "variable",
 					"line": 139,
 					"protection": "public",
-					"type": "int",
-					"name": "statusCode"
-				},
-				{
-					"kind": "variable",
-					"line": 140,
-					"protection": "public",
-					"type": "string",
-					"name": "statusPhrase"
-				},
-				{
-					"kind": "variable",
-					"line": 141,
-					"protection": "public",
-					"type": "StrMapCI",
-					"name": "headers"
+					"type": "HttpVersion",
+					"name": "httpVersion",
+					"comment": " The protocol version of the response - should not be changed\n"
 				},
 				{
 					"kind": "variable",
 					"line": 142,
 					"protection": "public",
+					"type": "int",
+					"name": "statusCode",
+					"comment": " The status code of the response, 200 by default\n"
+				},
+				{
+					"kind": "variable",
+					"line": 148,
+					"protection": "public",
+					"type": "string",
+					"name": "statusPhrase",
+					"comment": " The status phrase of the response\n\n\t\t\tIf no phrase is set, a default one corresponding to the status code will be used.\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 151,
+					"protection": "public",
+					"type": "StrMapCI",
+					"name": "headers",
+					"comment": " The response header fields\n"
+				},
+				{
+					"kind": "variable",
+					"line": 154,
+					"protection": "public",
 					"type": "Cookie[string]",
-					"name": "cookies"
+					"name": "cookies",
+					"comment": " All cookies that shall be set on the client for this request\n"
 				},
 				{
 					"kind": "function",
-					"line": 147,
+					"line": 159,
 					"protection": "public",
 					"type": "const @property string()",
 					"name": "contentType",
@@ -1646,7 +1635,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 149,
+					"line": 161,
 					"protection": "public",
 					"type": "@property void(string ct)",
 					"name": "contentType",
@@ -1658,27 +1647,27 @@
 		},
 		{
 			"kind": "class",
-			"line": 153,
+			"line": 165,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 154,
+					"line": 166,
 					"protection": "public",
 					"type": "string",
 					"name": "contentType"
 				},
 				{
 					"kind": "variable",
-					"line": 156,
+					"line": 168,
 					"protection": "public",
 					"type": "vibe.stream.stream.InputStream",
 					"name": "stream"
 				},
 				{
 					"kind": "variable",
-					"line": 158,
+					"line": 170,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "form"
@@ -1688,62 +1677,62 @@
 		},
 		{
 			"kind": "function",
-			"line": 161,
+			"line": 173,
 			"protection": "public",
 			"type": "string(HttpVersion ver)",
 			"name": "getHttpVersionString"
 		},
 		{
 			"kind": "function",
-			"line": 169,
+			"line": 181,
 			"protection": "public",
 			"type": "HttpVersion(ref string str)",
 			"name": "parseHttpVersion"
 		},
 		{
 			"kind": "class",
-			"line": 185,
+			"line": 197,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 192,
+					"line": 204,
 					"protection": "public",
 					"type": "ChunkedInputStream(InputStream stream)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 199,
+					"line": 211,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "empty"
 				},
 				{
 					"kind": "function",
-					"line": 201,
+					"line": 213,
 					"protection": "public",
 					"type": "const @property ulong()",
 					"name": "leastSize"
 				},
 				{
 					"kind": "function",
-					"line": 203,
+					"line": 215,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead"
 				},
 				{
 					"kind": "function",
-					"line": 205,
+					"line": 217,
 					"protection": "public",
 					"type": "const(ubyte)[]()",
 					"name": "peek"
 				},
 				{
 					"kind": "function",
-					"line": 211,
+					"line": 223,
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
@@ -1757,41 +1746,41 @@
 		},
 		{
 			"kind": "class",
-			"line": 257,
+			"line": 269,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 263,
+					"line": 275,
 					"protection": "public",
 					"type": "ChunkedOutputStream(OutputStream stream)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 269,
+					"line": 281,
 					"protection": "public",
 					"type": "void(const(ubyte[]) bytes, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 275,
+					"line": 287,
 					"protection": "public",
 					"type": "void(InputStream data, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 291,
+					"line": 303,
 					"protection": "public",
 					"type": "void()",
 					"name": "flush"
 				},
 				{
 					"kind": "function",
-					"line": 303,
+					"line": 315,
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize"
@@ -1805,104 +1794,104 @@
 		},
 		{
 			"kind": "class",
-			"line": 313,
+			"line": 325,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "function",
-					"line": 324,
+					"line": 336,
 					"protection": "public",
 					"type": "Cookie(string value)",
 					"name": "setValue"
 				},
 				{
 					"kind": "function",
-					"line": 325,
+					"line": 337,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "value"
 				},
 				{
 					"kind": "function",
-					"line": 327,
+					"line": 339,
 					"protection": "public",
 					"type": "Cookie(string domain)",
 					"name": "setDomain"
 				},
 				{
 					"kind": "function",
-					"line": 328,
+					"line": 340,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "domain"
 				},
 				{
 					"kind": "function",
-					"line": 330,
+					"line": 342,
 					"protection": "public",
 					"type": "Cookie(string path)",
 					"name": "setPath"
 				},
 				{
 					"kind": "function",
-					"line": 331,
+					"line": 343,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "path"
 				},
 				{
 					"kind": "function",
-					"line": 333,
+					"line": 345,
 					"protection": "public",
 					"type": "Cookie(string expires)",
 					"name": "setExpire"
 				},
 				{
 					"kind": "function",
-					"line": 334,
+					"line": 346,
 					"protection": "public",
 					"type": "@property string()",
 					"name": "expires"
 				},
 				{
 					"kind": "function",
-					"line": 336,
+					"line": 348,
 					"protection": "public",
 					"type": "Cookie(long maxAge)",
 					"name": "setMaxAge"
 				},
 				{
 					"kind": "function",
-					"line": 337,
+					"line": 349,
 					"protection": "public",
 					"type": "@property long()",
 					"name": "maxAge"
 				},
 				{
 					"kind": "function",
-					"line": 339,
+					"line": 351,
 					"protection": "public",
 					"type": "Cookie(bool enabled)",
 					"name": "setSecure"
 				},
 				{
 					"kind": "function",
-					"line": 340,
+					"line": 352,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "isSecure"
 				},
 				{
 					"kind": "function",
-					"line": 342,
+					"line": 354,
 					"protection": "public",
 					"type": "Cookie(bool enabled)",
 					"name": "setHttpOnly"
 				},
 				{
 					"kind": "function",
-					"line": 343,
+					"line": 355,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "isHttpOnly"
@@ -1912,45 +1901,45 @@
 		},
 		{
 			"kind": "struct",
-			"line": 356,
+			"line": 368,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 365,
+					"line": 377,
 					"protection": "public",
 					"type": "const @property uint()",
 					"name": "length"
 				},
 				{
 					"kind": "function",
-					"line": 367,
+					"line": 379,
 					"protection": "public",
 					"type": "void(string key)",
 					"name": "remove"
 				},
 				{
 					"kind": "function",
-					"line": 380,
+					"line": 392,
 					"protection": "public",
 					"type": "string(string key)",
 					"name": "opIndex"
 				},
 				{
 					"kind": "function",
-					"line": 385,
+					"line": 397,
 					"protection": "public",
 					"type": "string(string val, string key)",
 					"name": "opIndexAssign"
 				},
 				{
 					"kind": "template",
-					"line": 393,
+					"line": 405,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 393,
+							"line": 405,
 							"type": "inout inout(string)*(string key)",
 							"name": "opBinaryRight"
 						}
@@ -1959,12 +1948,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 402,
+					"line": 414,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 402,
+							"line": 414,
 							"type": "inout bool(string key)",
 							"name": "opBinaryRight"
 						}
@@ -1973,21 +1962,21 @@
 				},
 				{
 					"kind": "function",
-					"line": 406,
+					"line": 418,
 					"protection": "public",
 					"type": "int(int delegate(ref string key, ref string val) del)",
 					"name": "opApply"
 				},
 				{
 					"kind": "function",
-					"line": 421,
+					"line": 433,
 					"protection": "public",
 					"type": "int(int delegate(ref string name) del)",
 					"name": "opApply"
 				},
 				{
 					"kind": "function",
-					"line": 434,
+					"line": 446,
 					"protection": "public",
 					"type": "const @property StrMapCI()",
 					"name": "dup"
@@ -3573,12 +3562,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1070,
+			"line": 1094,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1070,
+					"line": 1094,
 					"type": "void(R dst, string str)",
 					"name": "putCString"
 				}
@@ -3587,12 +3576,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1076,
+			"line": 1100,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1076,
+					"line": 1100,
 					"type": "ubyte[](T v)",
 					"name": "toBsonData"
 				}
@@ -3601,12 +3590,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1086,
+			"line": 1110,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1086,
+					"line": 1110,
 					"type": "T(in ubyte[] v)",
 					"name": "fromBsonData"
 				}
@@ -3615,12 +3604,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1094,
+			"line": 1118,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1094,
+					"line": 1118,
 					"type": "ubyte[](T v)",
 					"name": "toBigEndianData"
 				}
@@ -4273,7 +4262,7 @@
 					"kind": "function",
 					"line": 126,
 					"protection": "public",
-					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1744;\r\n , __ctmp1744).this(null))",
+					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1745;\r\n , __ctmp1745).this(null))",
 					"name": "query"
 				},
 				{
@@ -5213,7 +5202,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 188,
+					"line": 189,
 					"protection": "public",
 					"type": "ref Json(string key)",
 					"name": "opIndex",
@@ -5221,7 +5210,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 201,
+					"line": 203,
 					"protection": "public",
 					"type": "inout inout(Json[])()",
 					"name": "opSlice",
@@ -5229,7 +5218,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 203,
+					"line": 205,
 					"protection": "public",
 					"type": "inout inout(Json[])(uint from, uint to)",
 					"name": "opSlice",
@@ -5237,7 +5226,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 208,
+					"line": 210,
 					"protection": "public",
 					"type": "const @property uint()",
 					"name": "length",
@@ -5245,7 +5234,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 223,
+					"line": 225,
 					"protection": "public",
 					"type": "int(int delegate(ref Json obj) del)",
 					"name": "opApply",
@@ -5253,7 +5242,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 240,
+					"line": 242,
 					"protection": "public",
 					"type": "const int(int delegate(ref const(Json) obj) del)",
 					"name": "opApply",
@@ -5261,7 +5250,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 257,
+					"line": 259,
 					"protection": "public",
 					"type": "int(int delegate(ref uint idx, ref Json obj) del)",
 					"name": "opApply",
@@ -5269,7 +5258,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 266,
+					"line": 268,
 					"protection": "public",
 					"type": "const int(int delegate(ref uint idx, ref const(Json) obj) del)",
 					"name": "opApply",
@@ -5277,7 +5266,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 275,
+					"line": 277,
 					"protection": "public",
 					"type": "int(int delegate(ref string idx, ref Json obj) del)",
 					"name": "opApply",
@@ -5285,27 +5274,11 @@
 				},
 				{
 					"kind": "function",
-					"line": 285,
+					"line": 287,
 					"protection": "public",
 					"type": "const int(int delegate(ref string idx, ref const(Json) obj) del)",
 					"name": "opApply",
 					"comment": " ditto\n"
-				},
-				{
-					"kind": "template",
-					"line": 298,
-					"protection": "public",
-					"members": [
-						{
-							"kind": "function",
-							"line": 298,
-							"type": "inout inout(T)()",
-							"name": "opCast",
-							"comment": "\n\t\tConverts the JSON value to the corresponding D type - types must match exactly.\n\t\n"
-						}
-					],
-					"name": "opCast(T)",
-					"comment": "\n\t\tConverts the JSON value to the corresponding D type - types must match exactly.\n\t\n"
 				},
 				{
 					"kind": "template",
@@ -5316,6 +5289,22 @@
 							"kind": "function",
 							"line": 300,
 							"type": "inout inout(T)()",
+							"name": "opCast",
+							"comment": "\n\t\tConverts the JSON value to the corresponding D type - types must match exactly.\n\t\n"
+						}
+					],
+					"name": "opCast(T)",
+					"comment": "\n\t\tConverts the JSON value to the corresponding D type - types must match exactly.\n\t\n"
+				},
+				{
+					"kind": "template",
+					"line": 302,
+					"protection": "public",
+					"members": [
+						{
+							"kind": "function",
+							"line": 302,
+							"type": "inout inout(T)()",
 							"name": "get"
 						}
 					],
@@ -5324,12 +5313,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 314,
+					"line": 316,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 314,
+							"line": 316,
 							"type": "const const(T)(const(T) def = T.init)",
 							"name": "opt"
 						}
@@ -5339,12 +5328,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 320,
+					"line": 322,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 320,
+							"line": 322,
 							"type": "T(T def = T.init)",
 							"name": "opt"
 						}
@@ -5354,12 +5343,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 329,
+					"line": 331,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 329,
+							"line": 331,
 							"type": "inout inout(T)()",
 							"name": "to"
 						}
@@ -5369,12 +5358,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 420,
+					"line": 422,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 420,
+							"line": 422,
 							"type": "const Json()",
 							"name": "opUnary",
 							"comment": "\n\t\tPerforms unary operations on the JSON value.\n\n\t\tThe following operations are supported for each type:\n\n\t\t$(DL\n\t\t\t$(DT Null)   $(DD none)\n\t\t\t$(DT Bool)   $(DD ~)\n\t\t\t$(DT Int)    $(DD +, -, ++, --)\n\t\t\t$(DT Float)  $(DD +, -, ++, --)\n\t\t\t$(DT String) $(DD none)\n\t\t\t$(DT Array)  $(DD none)\n\t\t\t$(DT Object) $(DD none)\n\t\t)\n\t\n"
@@ -5385,12 +5374,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 449,
+					"line": 451,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 449,
+							"line": 451,
 							"type": "const Json(ref const(Json) other)",
 							"name": "opBinary",
 							"comment": "\n\t\tPerforms binary operations between JSON values.\n\n\t\tThe two JSON values must be of the same run time type or an exception\n\t\twill be thrown. Only the operations listed are allowed for each of the\n\t\ttypes.\n\n\t\t$(DL\n\t\t\t$(DT Null)   $(DD none)\n\t\t\t$(DT Bool)   $(DD &&, ||)\n\t\t\t$(DT Int)    $(DD +, -, *, /, %)\n\t\t\t$(DT Float)  $(DD +, -, *, /, %)\n\t\t\t$(DT String) $(DD ~)\n\t\t\t$(DT Array)  $(DD ~)\n\t\t\t$(DT Object) $(DD none)\n\t\t)\n\t\n"
@@ -5401,12 +5390,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 485,
+					"line": 487,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 485,
+							"line": 487,
 							"type": "Json(Json other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
@@ -5417,12 +5406,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 496,
+					"line": 498,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 496,
+							"line": 498,
 							"type": "void(Json other)",
 							"name": "opOpAssign",
 							"comment": " ditto\n"
@@ -5433,29 +5422,13 @@
 				},
 				{
 					"kind": "template",
-					"line": 528,
-					"protection": "public",
-					"members": [
-						{
-							"kind": "function",
-							"line": 528,
-							"type": "const Json(bool other)",
-							"name": "opBinary",
-							"comment": " ditto\n"
-						}
-					],
-					"name": "opBinary(string op)",
-					"comment": " ditto\n"
-				},
-				{
-					"kind": "template",
 					"line": 530,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
 							"line": 530,
-							"type": "const Json(long other)",
+							"type": "const Json(bool other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
 						}
@@ -5471,7 +5444,7 @@
 						{
 							"kind": "function",
 							"line": 532,
-							"type": "const Json(double other)",
+							"type": "const Json(long other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
 						}
@@ -5487,7 +5460,7 @@
 						{
 							"kind": "function",
 							"line": 534,
-							"type": "const Json(string other)",
+							"type": "const Json(double other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
 						}
@@ -5503,7 +5476,7 @@
 						{
 							"kind": "function",
 							"line": 536,
-							"type": "Json(Json[] other)",
+							"type": "const Json(string other)",
 							"name": "opBinary",
 							"comment": " ditto\n"
 						}
@@ -5519,12 +5492,12 @@
 						{
 							"kind": "function",
 							"line": 538,
-							"type": "const Json(bool other)",
-							"name": "opBinaryRight",
+							"type": "Json(Json[] other)",
+							"name": "opBinary",
 							"comment": " ditto\n"
 						}
 					],
-					"name": "opBinaryRight(string op)",
+					"name": "opBinary(string op)",
 					"comment": " ditto\n"
 				},
 				{
@@ -5535,7 +5508,7 @@
 						{
 							"kind": "function",
 							"line": 540,
-							"type": "const Json(long other)",
+							"type": "const Json(bool other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
 						}
@@ -5551,7 +5524,7 @@
 						{
 							"kind": "function",
 							"line": 542,
-							"type": "const Json(double other)",
+							"type": "const Json(long other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
 						}
@@ -5567,12 +5540,12 @@
 						{
 							"kind": "function",
 							"line": 544,
-							"type": "const Json(string other)",
+							"type": "const Json(double other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
 						}
 					],
-					"name": "opBinaryRight(string op) if (op == \"~\")",
+					"name": "opBinaryRight(string op)",
 					"comment": " ditto\n"
 				},
 				{
@@ -5583,6 +5556,22 @@
 						{
 							"kind": "function",
 							"line": 546,
+							"type": "const Json(string other)",
+							"name": "opBinaryRight",
+							"comment": " ditto\n"
+						}
+					],
+					"name": "opBinaryRight(string op) if (op == \"~\")",
+					"comment": " ditto\n"
+				},
+				{
+					"kind": "template",
+					"line": 548,
+					"protection": "public",
+					"members": [
+						{
+							"kind": "function",
+							"line": 548,
 							"type": "inout inout(Json)*(string other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5593,12 +5582,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 554,
+					"line": 556,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 554,
+							"line": 556,
 							"type": "Json(Json[] other)",
 							"name": "opBinaryRight",
 							"comment": " ditto\n"
@@ -5609,12 +5598,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 559,
+					"line": 561,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 559,
+							"line": 561,
 							"type": "const const(Json)()",
 							"name": "opDispatch"
 						}
@@ -5624,12 +5613,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 561,
+					"line": 563,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 561,
+							"line": 563,
 							"type": "Json()",
 							"name": "opDispatch"
 						}
@@ -5639,7 +5628,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 570,
+					"line": 572,
 					"protection": "public",
 					"type": "const bool(ref const(Json) other)",
 					"name": "opEquals",
@@ -5647,7 +5636,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 585,
+					"line": 587,
 					"protection": "public",
 					"type": "const bool(typeof(null))",
 					"name": "opEquals",
@@ -5655,35 +5644,35 @@
 				},
 				{
 					"kind": "function",
-					"line": 586,
+					"line": 588,
 					"protection": "public",
 					"type": "const bool(bool v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 587,
+					"line": 589,
 					"protection": "public",
 					"type": "const bool(long v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 588,
+					"line": 590,
 					"protection": "public",
 					"type": "const bool(double v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 589,
+					"line": 591,
 					"protection": "public",
 					"type": "const bool(string v)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 601,
+					"line": 603,
 					"protection": "public",
 					"type": "const int(ref const(Json) other)",
 					"name": "opCmp",
@@ -5691,12 +5680,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 623,
+					"line": 625,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 623,
+							"line": 625,
 							"type": "Type()",
 							"name": "typeId"
 						}
@@ -5706,7 +5695,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 641,
+					"line": 643,
 					"protection": "public",
 					"type": "const string()",
 					"name": "toString",
@@ -5714,12 +5703,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 647,
+					"line": 649,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 647,
+							"line": 649,
 							"type": "const void()",
 							"name": "checkType"
 						}
@@ -5739,12 +5728,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 671,
+			"line": 675,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 671,
+					"line": 675,
 					"type": "Json(ref R range, int* line = null)",
 					"name": "parseJson",
 					"comment": "\n\n\n\tParses the given range as a JSON string and returns the corresponding Json object.\n\n\tThe range is shrunk during parsing, leaving any remaining text that is now part of\n\tthe JSON contents.\n\n\tThrows an Exception if any parsing error occured.\n"
@@ -5755,7 +5744,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 757,
+			"line": 761,
 			"protection": "public",
 			"type": "Json(string str)",
 			"name": "parseJsonString",
@@ -5763,12 +5752,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 814,
+			"line": 818,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 814,
+					"line": 818,
 					"type": "Json(T value)",
 					"name": "serializeToJson",
 					"comment": "\n\tSerializes the given value to JSON.\n\n\tThe following types of values are supported:\n\n\t$(DL\n\t\t$(DT Json)            $(DD Used as-is)\n\t\t$(DT null)            $(DD Converted to Json.Type.Null)\n\t\t$(DT bool)            $(DD Converted to Json.Type.Bool)\n\t\t$(DT float, double)   $(DD Converted to Json.Type.Double)\n\t\t$(DT short, ushort, int, uint, long, ulong) $(DD Converted to Json.Type.Int)\n\t\t$(DT string)          $(DD Converted to Json.Type.String)\n\t\t$(DT T[])             $(DD Converted to Json.Type.Array)\n\t\t$(DT T[string])       $(DD Converted to Json.Type.Object)\n\t\t$(DT struct)          $(DD Converted to Json.Type.Object)\n\t\t$(DT class)           $(DD Converted to Json.Type.Object or Json.Type.Null)\n\t)\n\n\tAll entries of an array or an associative array, as well as all R/W properties and\n\tall public fields of a struct/class are recursively serialized using the same rules.\n\n\tFields ending with an underscore will have the last underscore stripped in the\n\tserialized output. This makes it possible to use fields with D keywords as their name\n\tby simply appending an underscore.\n\n\tThe following methods can be used to customize the serialization of structs/classes:\n\n\t---\n\tJson toJson() const;\n\tstatic T fromJson(Json src);\n\n\tstring toString() const;\n\tstatic T fromString(string src);\n\t---\n\n\tThe methods will have to be defined in pairs. The first pair that is implemented by\n\tthe type will be used for serialization (i.e. toJson overrides toString).\n"
@@ -5779,12 +5768,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 870,
+			"line": 874,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 870,
+					"line": 874,
 					"type": "void(ref T dst, Json src)",
 					"name": "deserializeJson",
 					"comment": "\n\tDeserializes a JSON value into the destination variable.\n\n\tThe same types as for serializeToJson() are supported and handled inversely.\n"
@@ -5795,12 +5784,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 972,
+			"line": 976,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 972,
+					"line": 976,
 					"type": "void(ref R dst, in Json json)",
 					"name": "toJson",
 					"comment": "\n\tWrites the given JSON object as a JSON string into the destination range.\n\n\tThe basic version will not output any whitespace and thus minizime the size of the string.\n\n\ttoPrettyJSON() in the other hand will add newlines and indents to make the output human\n\treadable.\n"
@@ -5811,12 +5800,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1015,
+			"line": 1019,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1015,
+					"line": 1019,
 					"type": "void(ref R dst, in Json json, int level = 0)",
 					"name": "toPrettyJson",
 					"comment": " ditto\n"
@@ -6993,31 +6982,35 @@
 				},
 				{
 					"kind": "variable",
-					"line": 350,
+					"line": 354,
 					"protection": "public",
 					"type": "string",
-					"name": "accessLogFormat"
+					"name": "accessLogFormat",
+					"comment": " Specifies the format used for the access log.\n\n\t\tThe log format is given using the Apache server syntax. By default NCSA combined is used.\n\n\t\t---\n\t\t\"%h - %u %t \\\"%r\\\" %s %b \\\"%{Referer}i\\\" \\\"%{User-Agent}i\\\"\"\n\t\t---\n\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 351,
+					"line": 357,
 					"protection": "public",
 					"type": "string",
-					"name": "accessLogFile"
+					"name": "accessLogFile",
+					"comment": " Spefifies the name of a file to which access log messages are appended.\n"
 				},
 				{
 					"kind": "variable",
-					"line": 352,
+					"line": 360,
 					"protection": "public",
 					"type": "bool",
-					"name": "accessLogToConsole"
+					"name": "accessLogToConsole",
+					"comment": " If set, access log entries will be output to the console.\n"
 				},
 				{
 					"kind": "function",
-					"line": 354,
+					"line": 363,
 					"protection": "public",
 					"type": "@property HttpServerSettings()",
-					"name": "dup"
+					"name": "dup",
+					"comment": " Returns a duplicate of the settings object.\n"
 				}
 			],
 			"name": "HttpServerSettings",
@@ -7025,23 +7018,24 @@
 		},
 		{
 			"kind": "class",
-			"line": 370,
+			"line": 379,
 			"protection": "public",
 			"base": "Exception",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 375,
+					"line": 384,
 					"protection": "public",
 					"type": "HttpStatusException(int status, string message = null, Throwable next = null, string file = __FILE__, int line = __LINE__)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 381,
+					"line": 391,
 					"protection": "public",
 					"type": "const @property int()",
-					"name": "status"
+					"name": "status",
+					"comment": " The HTTP status code\n"
 				}
 			],
 			"name": "HttpStatusException",
@@ -7049,135 +7043,142 @@
 		},
 		{
 			"kind": "class",
-			"line": 387,
+			"line": 397,
 			"protection": "public",
 			"base": "HttpRequest",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 389,
+					"line": 400,
 					"protection": "public",
 					"type": "string",
-					"name": "peer"
-				},
-				{
-					"kind": "variable",
-					"line": 392,
-					"protection": "public",
-					"type": "string",
-					"name": "path"
-				},
-				{
-					"kind": "variable",
-					"line": 393,
-					"protection": "public",
-					"type": "string",
-					"name": "username"
-				},
-				{
-					"kind": "variable",
-					"line": 394,
-					"protection": "public",
-					"type": "string",
-					"name": "password"
-				},
-				{
-					"kind": "variable",
-					"line": 395,
-					"protection": "public",
-					"type": "string",
-					"name": "queryString"
-				},
-				{
-					"kind": "variable",
-					"line": 398,
-					"protection": "public",
-					"type": "string[string]",
-					"name": "cookies"
-				},
-				{
-					"kind": "variable",
-					"line": 401,
-					"protection": "public",
-					"type": "string[string]",
-					"name": "query"
-				},
-				{
-					"kind": "variable",
-					"line": 403,
-					"protection": "public",
-					"type": "string[string]",
-					"name": "params"
+					"name": "peer",
+					"comment": " The address of the _peer (in IP _form)\n"
 				},
 				{
 					"kind": "variable",
 					"line": 406,
 					"protection": "public",
-					"type": "vibe.stream.stream.InputStream",
-					"name": "bodyReader"
+					"type": "string",
+					"name": "path",
+					"comment": " The _path part of the URL.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseURL is set.\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 407,
+					"line": 412,
 					"protection": "public",
-					"type": "ubyte[]",
-					"name": "data"
+					"type": "string",
+					"name": "username",
+					"comment": " The user name part of the URL, if present.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseURL is set.\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 408,
+					"line": 418,
 					"protection": "public",
-					"type": "Json",
-					"name": "json"
+					"type": "string",
+					"name": "password",
+					"comment": " The _password part of the URL, if present.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseURL is set.\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 409,
+					"line": 424,
+					"protection": "public",
+					"type": "string",
+					"name": "queryString",
+					"comment": " The _query string part of the URL.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseURL is set.\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 430,
 					"protection": "public",
 					"type": "string[string]",
-					"name": "form"
+					"name": "cookies",
+					"comment": " Contains the list of _cookies that are stored on the client.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseCookies is set.\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 410,
+					"line": 436,
+					"protection": "public",
+					"type": "string[string]",
+					"name": "query",
+					"comment": " Contains all _form fields supplied using the _query string.\n\n\t\t\tRemarks: This field is only set if HttpServerOption.ParseQueryString is set.\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 444,
+					"protection": "public",
+					"type": "string[string]",
+					"name": "params",
+					"comment": " A map of general parameters for the request.\n\n\t\t\tThis map is supposed to be used by middleware functionality to store\n\t\t\tinformation for later stages. For example vibe.http.router.UrlRouter uses this map\n\t\t\tto store the value of any named placeholders.\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 452,
+					"protection": "public",
+					"type": "vibe.stream.stream.InputStream",
+					"name": "bodyReader",
+					"comment": " Supplies the request body as a stream.\n\n\t\t\tIf the body has not already been read because one of the body parsers has\n\t\t\tprocessed it (e.g. HttpServerOption.ParseFormBody), it can be read from\n\t\t\tthis stream.\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 461,
+					"protection": "public",
+					"type": "Json",
+					"name": "json",
+					"comment": " Contains the parsed Json for a JSON request.\n\n\t\t\tRemarks:\n\t\t\t\tThis field is only set if HttpServerOption.ParseJsonBody is set.\n\n\t\t\t\tA JSON request must have the Content-Type \"application/json\".\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 471,
+					"protection": "public",
+					"type": "string[string]",
+					"name": "form",
+					"comment": " Contains the parsed parameters of a HTML _form request.\n\n\t\t\tRemarks:\n\t\t\t\tThis field is only set if HttpServerOption.ParseFormBody is set.\n\n\t\t\t\tA form request must either have the Content-Type\n\t\t\t\t\"application/x-www-form-urlencoded\" or \"multipart/form-data\".\n\t\t\n"
+				},
+				{
+					"kind": "variable",
+					"line": 479,
 					"protection": "public",
 					"type": "FilePart[string]",
-					"name": "files"
+					"name": "files",
+					"comment": " Contains information about any uploaded file for a HTML _form request.\n\n\t\t\tRemarks:\n\t\t\t\tThis field is only set if HttpServerOption.ParseFormBody is set amd\n\t\t\t\tif the Content-Type is \"multipart/form-data\".\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 419,
+					"line": 489,
 					"protection": "public",
 					"type": "vibe.http.session.Session",
-					"name": "session"
+					"name": "session",
+					"comment": " The current Session object.\n\n\t\t\tThis field is set if HttpServerResponse.startSession() has been called\n\t\t\ton a previous response and if the client has sent back the matching\n\t\t\tcookie.\n\n\t\t\tRemarks: Requires the HttpServerOption.ParseCookies option.\n\t\t\n"
 				},
 				{
 					"kind": "constructor",
-					"line": 425,
+					"line": 495,
 					"protection": "public",
 					"type": "HttpServerRequest()",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 430,
+					"line": 500,
 					"protection": "public",
-					"type": "@property SysTime()",
+					"type": "inout @property inout(SysTime)()",
 					"name": "timeCreated"
 				},
 				{
 					"kind": "function",
-					"line": 434,
+					"line": 502,
 					"protection": "public",
 					"type": "MultiPart()",
 					"name": "nextPart"
 				},
 				{
 					"kind": "function",
-					"line": 439,
+					"line": 515,
 					"protection": "public",
 					"type": "const @property string()",
-					"name": "rootDir"
+					"name": "rootDir",
+					"comment": " The relative path the the root folder.\n\n\t\tUsing this function instead of absolute URLs for embedded links can be\n\t\tuseful to avoid dead link when the site is piped through a\n\t\treverse-proxy.\n\n\t\tThe returned string always ends with a slash.\n\t\n"
 				}
 			],
 			"name": "HttpServerRequest",
@@ -7185,54 +7186,64 @@
 		},
 		{
 			"kind": "class",
-			"line": 450,
+			"line": 526,
 			"protection": "public",
 			"base": "HttpResponse",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 466,
+					"line": 542,
 					"protection": "public",
 					"type": "HttpServerResponse(Stream conn, HttpServerSettings settings, Allocator req_alloc)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 474,
+					"line": 550,
+					"protection": "public",
+					"type": "@property SysTime()",
+					"name": "timeFinalized"
+				},
+				{
+					"kind": "function",
+					"line": 554,
 					"protection": "public",
 					"type": "const @property bool()",
-					"name": "headerWritten"
+					"name": "headerWritten",
+					"comment": " Determines if the HTTP header has already been written.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 476,
+					"line": 558,
 					"protection": "public",
 					"type": "const bool()",
-					"name": "isHeadResponse"
+					"name": "isHeadResponse",
+					"comment": " Determines if the response does not need a body.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 479,
+					"line": 561,
 					"protection": "public",
 					"type": "void(const(ubyte[]) data, string content_type = null)",
 					"name": "writeBody",
-					"comment": " Writes the hole body of the response at once.\n"
+					"comment": " Writes the hole response body at once.\n"
 				},
 				{
 					"kind": "function",
-					"line": 486,
+					"line": 568,
 					"protection": "public",
 					"type": "void(string data, string content_type = \"text/plain\")",
-					"name": "writeBody"
+					"name": "writeBody",
+					"comment": " ditto\n"
 				},
 				{
 					"kind": "template",
-					"line": 492,
+					"line": 574,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 492,
+							"line": 574,
 							"type": "void(T data, int status = HttpStatus.OK)",
 							"name": "writeJsonBody",
 							"comment": " Writes a JSON message with the specified status\n"
@@ -7243,7 +7254,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 500,
+					"line": 582,
 					"protection": "public",
 					"type": "void()",
 					"name": "writeVoidBody",
@@ -7251,7 +7262,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 515,
+					"line": 597,
 					"protection": "public",
 					"type": "@property OutputStream()",
 					"name": "bodyWriter",
@@ -7259,7 +7270,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 565,
+					"line": 647,
 					"protection": "public",
 					"type": "void(string url, int status = 302)",
 					"name": "redirect",
@@ -7267,14 +7278,15 @@
 				},
 				{
 					"kind": "function",
-					"line": 573,
+					"line": 657,
 					"protection": "public",
 					"type": "Stream(string protocol)",
-					"name": "switchProtocol"
+					"name": "switchProtocol",
+					"comment": " Special method sending a SWITCHING_PROTOCOLS response to the client.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 581,
+					"line": 665,
 					"protection": "public",
 					"type": "Cookie(string name, string value)",
 					"name": "setCookie",
@@ -7282,7 +7294,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 595,
+					"line": 679,
 					"protection": "public",
 					"type": "Session()",
 					"name": "startSession",
@@ -7290,7 +7302,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 606,
+					"line": 690,
 					"protection": "public",
 					"type": "void()",
 					"name": "terminateSession",
@@ -7298,19 +7310,19 @@
 				},
 				{
 					"kind": "function",
-					"line": 613,
+					"line": 697,
 					"protection": "public",
 					"type": "@property ulong()",
 					"name": "bytesWritten"
 				},
 				{
 					"kind": "template",
-					"line": 637,
+					"line": 721,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 637,
+							"line": 721,
 							"type": "void(Variant[] args...)",
 							"name": "renderCompat",
 							"comment": "\n\t\tCompatibility version of render() that takes a list of explicit names and types instead\n\t\tof variable aliases.\n\n\t\tThis version of render() works around a compiler bug in DMD (Issue 2962). You should use\n\t\tthis method instead of render() as long as this bug is not fixed.\n\n\t\tNote that the variables are copied and not referenced inside of the template - any\n\t\tmodification you do on them from within the template will get lost.\n\n\t\tExamples:\n\t\t\t---\n\t\t\tstring title = \"Hello, World!\";\n\t\t\tint pageNumber = 1;\n\t\t\tres.renderCompat!(\"mytemplate.jd\",\n\t\t\t\tstring, \"title\",\n\t\t\t\tint, \"pageNumber\")\n\t\t\t\t(Variant(title), Variant(pageNumber));\n\t\t\t---\n\t\n"
@@ -7318,13 +7330,6 @@
 					],
 					"name": "renderCompat(string template_file,TYPES_AND_NAMES...)",
 					"comment": "\n\t\tCompatibility version of render() that takes a list of explicit names and types instead\n\t\tof variable aliases.\n\n\t\tThis version of render() works around a compiler bug in DMD (Issue 2962). You should use\n\t\tthis method instead of render() as long as this bug is not fixed.\n\n\t\tNote that the variables are copied and not referenced inside of the template - any\n\t\tmodification you do on them from within the template will get lost.\n\n\t\tExamples:\n\t\t\t---\n\t\t\tstring title = \"Hello, World!\";\n\t\t\tint pageNumber = 1;\n\t\t\tres.renderCompat!(\"mytemplate.jd\",\n\t\t\t\tstring, \"title\",\n\t\t\t\tint, \"pageNumber\")\n\t\t\t\t(Variant(title), Variant(pageNumber));\n\t\t\t---\n\t\n"
-				},
-				{
-					"kind": "function",
-					"line": 652,
-					"protection": "public",
-					"type": "@property SysTime()",
-					"name": "timeFinalized"
 				}
 			],
 			"name": "HttpServerResponse",
@@ -7332,12 +7337,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1109,
+			"line": 1192,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1109,
+					"line": 1192,
 					"type": "string(Allocator alloc, string fmt, ARGS args)",
 					"name": "formatAlloc"
 				}
@@ -10003,40 +10008,40 @@
 	"members": [
 		{
 			"kind": "struct",
-			"line": 22,
+			"line": 31,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 23,
+					"line": 32,
 					"protection": "public",
 					"type": "StrMapCI",
 					"name": "headers"
 				},
 				{
 					"kind": "variable",
-					"line": 24,
+					"line": 33,
 					"protection": "public",
 					"type": "PathEntry",
 					"name": "filename"
 				},
 				{
 					"kind": "variable",
-					"line": 25,
+					"line": 34,
 					"protection": "public",
 					"type": "Path",
 					"name": "tempPath"
 				},
 				{
 					"kind": "function",
-					"line": 22,
+					"line": 31,
 					"protection": "public",
 					"type": "const bool(const(FilePart) p)",
 					"name": "opEquals"
 				},
 				{
 					"kind": "function",
-					"line": 22,
+					"line": 31,
 					"protection": "public",
 					"type": "bool(const(void*) p, const(void*) q)",
 					"name": "__xopEquals"
@@ -10046,7 +10051,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 31,
+			"line": 40,
 			"protection": "public",
 			"type": "bool(ref string[string] fields, ref FilePart[string] files, string content_type, InputStream body_reader, uint max_line_length)",
 			"name": "parseFormData",
@@ -10054,11 +10059,105 @@
 		},
 		{
 			"kind": "function",
-			"line": 51,
+			"line": 60,
 			"protection": "public",
 			"type": "void(string str, ref string[string] params)",
 			"name": "parseUrlEncodedForm",
 			"comment": "\n\tParses a url encoded form (query string format) and puts the key/value pairs into params.\n"
+		},
+		{
+			"kind": "template",
+			"line": 182,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 182,
+					"type": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
+					"name": "registerFormInterface",
+					"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via url: url_prefix~method_name.  A method named\n\t\"index\" will be made available via url_prefix.  All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameters name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n"
+				}
+			],
+			"name": "registerFormInterface(I)",
+			"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via url: url_prefix~method_name.  A method named\n\t\"index\" will be made available via url_prefix.  All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameters name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n"
+		},
+		{
+			"kind": "template",
+			"line": 204,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 204,
+					"type": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
+					"name": "registerFormMethod",
+					"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.  See_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
+				}
+			],
+			"name": "registerFormMethod(string method,I)",
+			"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.  See_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
+		},
+		{
+			"kind": "template",
+			"line": 229,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 229,
+					"type": "HttpServerRequestDelegate(DelegateType func)",
+					"name": "formMethodHandler",
+					"comment": "\n\tGenerate a HttpServerRequestDelegate from a generic function with arbitrary arguments.\n\tThe arbitrary arguments will be filled in with data from the form in req. For details see applyParametersFromAssociativeArrays.\n\tSee_Also: applyParametersFromAssociativeArrays\n\tParams:\n\t\tdelegate = Some function, which some arguments which must be constructible from strings with to!ArgType(some_string), except one optional parameter\n\t\tof type HttpServerRequest and one of type HttpServerResponse which are passed over.\n\n\tReturns: A HttpServerRequestDelegate which passes over any form data to the given function.\n This is private because untested and I am also not sure whether it a) works and b) if it is useful at all.\n private\n"
+				}
+			],
+			"name": "formMethodHandler(DelegateType) if (isCallable!(DelegateType))",
+			"comment": "\n\tGenerate a HttpServerRequestDelegate from a generic function with arbitrary arguments.\n\tThe arbitrary arguments will be filled in with data from the form in req. For details see applyParametersFromAssociativeArrays.\n\tSee_Also: applyParametersFromAssociativeArrays\n\tParams:\n\t\tdelegate = Some function, which some arguments which must be constructible from strings with to!ArgType(some_string), except one optional parameter\n\t\tof type HttpServerRequest and one of type HttpServerResponse which are passed over.\n\n\tReturns: A HttpServerRequestDelegate which passes over any form data to the given function.\n This is private because untested and I am also not sure whether it a) works and b) if it is useful at all.\n private\n"
+		},
+		{
+			"kind": "template",
+			"line": 245,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 245,
+					"type": "HttpServerRequestDelegate(T inst)",
+					"name": "formMethodHandler",
+					"comment": "\n\tCreate a delegate handling form data for any matching overload of T.method.\n\n\tT is some class or struct. Method some probably overloaded method of T. The returned delegate will try all overloads\n\tof the passed method and will only raise an error if no conforming overload is found.\n"
+				}
+			],
+			"name": "formMethodHandler(T,string method)",
+			"comment": "\n\tCreate a delegate handling form data for any matching overload of T.method.\n\n\tT is some class or struct. Method some probably overloaded method of T. The returned delegate will try all overloads\n\tof the passed method and will only raise an error if no conforming overload is found.\n"
+		},
+		{
+			"kind": "template",
+			"line": 303,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 303,
+					"type": "bool(HttpServerRequest req, HttpServerResponse res, Func func, out string error)",
+					"name": "applyParametersFromAssociativeArray"
+				}
+			],
+			"name": "applyParametersFromAssociativeArray(Func)",
+			"comment": "\n\tTries to apply all named arguments in args to func.\n\n\tIf it succeeds it calls the function with req, res (if it has one\n\tparameter of type HttpServerRequest and one of type HttpServerResponse), and\n\tall the values found in args.\n\n\tIf any supplied argument could not be applied or the method has\n\trequires more arguments than given, the method returns false and does not call\n\tfunc.  In this case error gets filled with some string describing which\n\tparameters could not be applied. Exceptions are not used in this situation,\n\tbecause when traversing overloads this might be a quite common scenario.\n\n\tCalls: applyParametersFromAssociativeArray!(Func,Func)(req, res, func, error),\n\tif you want to handle overloads of func, use the second version of this method\n\tand pass the overload alias as first template parameter. (For retrieving parameter names)\n\n\tSee_Also: formMethodHandler\n\n\tParams:\n\t\treq = The HttpServerRequest object that gets queried for form\n\t\tdata (req.query for GET requests, req.form for POST requests) and that is\n\t\tpassed on to func, if func has a parameter of matching type. Each key in the\n\t\tform data must match a parameter name, the corresponding value is then applied.\n\t\tHttpServerRequest and HttpServerResponse arguments are excluded as they are\n\t\tqrovided by the passed req and res objects.\n\n\n\t\tres = The response object that gets passed on to func if func\n\t\thas a parameter of matching type.\n\n\t\terror = This string will be set to a descriptive message if not all parameters could be matched.\n\n\tReturns: true if successful, false otherwise.\n private\n"
+		},
+		{
+			"kind": "template",
+			"line": 308,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 308,
+					"type": "bool(HttpServerRequest req, HttpServerResponse res, Func func, out string error)",
+					"name": "applyParametersFromAssociativeArray"
+				}
+			],
+			"name": "applyParametersFromAssociativeArray(alias Overload,Func)",
+			"comment": " Overload which takes additional parameter for handling overloads of func.\n private\n"
 		}
 	],
 	"name": "vibe.http.form",
