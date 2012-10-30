@@ -16,9 +16,10 @@ Package m_rootPackage;
 
 void download(HttpServerRequest req, HttpServerResponse res)
 {
-	if( "file" in req.query )
-		res.redirect("https://github.com/rejectedsoftware/vibe.d/"~req.query["file"]);
-	else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
+	if( auto pf = "file" in req.query ){
+		if( pf.startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/"~req.query["file"]);
+		else res.redirect("https://github.com/downloads/rejectedsoftware/vibe.d/"~req.query["file"]);
+	} else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
 }
 
 void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)

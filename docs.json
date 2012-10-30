@@ -3958,35 +3958,35 @@
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 125,
+					"line": 126,
 					"protection": "public",
-					"type": "OutgoingWebSocketMessage(Stream conn)",
+					"type": "OutgoingWebSocketMessage(Stream conn, FrameOpcode frameOpcode)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 130,
+					"line": 132,
 					"protection": "public",
 					"type": "void(const(ubyte[]) bytes, bool do_flush = true)",
 					"name": "write"
 				},
 				{
 					"kind": "function",
-					"line": 134,
+					"line": 136,
 					"protection": "public",
 					"type": "void()",
 					"name": "flush"
 				},
 				{
 					"kind": "function",
-					"line": 142,
+					"line": 144,
 					"protection": "public",
 					"type": "void()",
 					"name": "finalize"
 				},
 				{
 					"kind": "function",
-					"line": 150,
+					"line": 152,
 					"protection": "public",
 					"type": "void(InputStream stream, ulong nbytes = cast(ulong)0, bool do_flush = true)",
 					"name": "write"
@@ -3999,48 +3999,55 @@
 		},
 		{
 			"kind": "class",
-			"line": 156,
+			"line": 158,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 162,
+					"line": 164,
 					"protection": "public",
 					"type": "IncommingWebSocketMessage(Stream conn)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 169,
+					"line": 171,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "empty"
 				},
 				{
 					"kind": "function",
-					"line": 171,
+					"line": 173,
 					"protection": "public",
 					"type": "const @property ulong()",
 					"name": "leastSize"
 				},
 				{
 					"kind": "function",
-					"line": 173,
+					"line": 175,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead"
 				},
 				{
 					"kind": "function",
-					"line": 175,
+					"line": 177,
+					"protection": "public",
+					"type": "@property FrameOpcode()",
+					"name": "frameOpcode"
+				},
+				{
+					"kind": "function",
+					"line": 179,
 					"protection": "public",
 					"type": "const(ubyte)[]()",
 					"name": "peek"
 				},
 				{
 					"kind": "function",
-					"line": 177,
+					"line": 181,
 					"protection": "public",
 					"type": "void(ubyte[] dst)",
 					"name": "read"
@@ -4053,55 +4060,69 @@
 		},
 		{
 			"kind": "class",
-			"line": 216,
+			"line": 218,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 221,
+					"line": 225,
 					"protection": "public",
 					"type": "WebSocket(Stream conn)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 227,
+					"line": 231,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "connected"
 				},
 				{
 					"kind": "function",
-					"line": 228,
+					"line": 242,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "dataAvailableForRead"
 				},
 				{
 					"kind": "function",
-					"line": 230,
+					"line": 244,
+					"protection": "public",
+					"type": "void(string data)",
+					"name": "send"
+				},
+				{
+					"kind": "function",
+					"line": 248,
 					"protection": "public",
 					"type": "void(ubyte[] data)",
 					"name": "send"
 				},
 				{
 					"kind": "function",
-					"line": 234,
+					"line": 252,
 					"protection": "public",
-					"type": "void(void delegate(OutgoingWebSocketMessage) sender)",
+					"type": "void(void delegate(OutgoingWebSocketMessage) sender, FrameOpcode frameOpcode = cast(FrameOpcode)1)",
 					"name": "send"
 				},
 				{
 					"kind": "function",
-					"line": 239,
+					"line": 257,
+					"protection": "public",
+					"type": "void()",
+					"name": "close"
+				},
+				{
+					"kind": "function",
+					"line": 265,
 					"protection": "public",
 					"type": "ubyte[]()",
 					"name": "receive"
 				},
 				{
 					"kind": "function",
-					"line": 246,
+					"line": 273,
 					"protection": "public",
 					"type": "void(void delegate(IncommingWebSocketMessage) receiver)",
 					"name": "receive"
@@ -4111,7 +4132,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 252,
+			"line": 280,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res)(void delegate(WebSocket) onHandshake)",
 			"name": "handleWebSockets"
@@ -4262,7 +4283,7 @@
 					"kind": "function",
 					"line": 126,
 					"protection": "public",
-					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1745;\r\n , __ctmp1745).this(null))",
+					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1747;\r\n , __ctmp1747).this(null))",
 					"name": "query"
 				},
 				{
@@ -4839,62 +4860,62 @@
 		},
 		{
 			"kind": "class",
-			"line": 99,
+			"line": 105,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 103,
+					"line": 109,
 					"protection": "public",
 					"type": "MemorySessionStore()",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 105,
+					"line": 111,
 					"protection": "public",
 					"type": "Session()",
 					"name": "create"
 				},
 				{
 					"kind": "function",
-					"line": 108,
+					"line": 114,
 					"protection": "public",
 					"type": "Session(string id)",
 					"name": "open"
 				},
 				{
 					"kind": "function",
-					"line": 112,
+					"line": 118,
 					"protection": "public",
 					"type": "void(string id, string name, string value)",
 					"name": "set"
 				},
 				{
 					"kind": "function",
-					"line": 116,
+					"line": 122,
 					"protection": "public",
 					"type": "const string(string id, string name, string defaultVal = null)",
 					"name": "get"
 				},
 				{
 					"kind": "function",
-					"line": 126,
+					"line": 132,
 					"protection": "public",
 					"type": "const bool(string id, string key)",
 					"name": "isKeySet"
 				},
 				{
 					"kind": "function",
-					"line": 130,
+					"line": 136,
 					"protection": "public",
 					"type": "void(string id)",
 					"name": "destroy"
 				},
 				{
 					"kind": "function",
-					"line": 135,
+					"line": 141,
 					"protection": "public",
 					"type": "int delegate(int delegate(ref string key, ref string val))(string id)",
 					"name": "iterateSession"
@@ -6716,8 +6737,24 @@
 			"comment": "\n\tRenders the given template and makes all ALIASES available to the template.\n\n\tThis currently suffers from multiple DMD bugs - use renderCompat() instead for the time being.\n\n\tYou can call this function as a member of HttpServerResponse using D's uniform function\n\tcall syntax.\n\n\tExamples:\n\t\t---\n\t\tstring title = \"Hello, World!\";\n\t\tint pageNumber = 1;\n\t\tres.render!(\"mytemplate.jd\", title, pageNumber);\n\t\t---\n"
 		},
 		{
+			"kind": "template",
+			"line": 226,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "function",
+					"line": 226,
+					"type": "void(T condition, HttpStatus statusCode, string message = null)",
+					"name": "enforceHttp",
+					"comment": "\n\tUtility function that throws a HttpStatusException if the _condition is not met.\n"
+				}
+			],
+			"name": "enforceHttp(T)",
+			"comment": "\n\tUtility function that throws a HttpStatusException if the _condition is not met.\n"
+		},
+		{
 			"kind": "alias",
-			"line": 229,
+			"line": 237,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res)",
 			"name": "HttpServerRequestDelegate",
@@ -6725,7 +6762,7 @@
 		},
 		{
 			"kind": "alias",
-			"line": 231,
+			"line": 239,
 			"protection": "public",
 			"type": "void function(HttpServerRequest req, HttpServerResponse res)",
 			"name": "HttpServerRequestFunction",
@@ -6733,12 +6770,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 233,
+			"line": 241,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 235,
+					"line": 243,
 					"protection": "public",
 					"type": "void(HttpServerRequest req, HttpServerResponse res)",
 					"name": "handleRequest",
@@ -6750,13 +6787,13 @@
 		},
 		{
 			"kind": "class",
-			"line": 239,
+			"line": 247,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 241,
+					"line": 249,
 					"protection": "public",
 					"type": "int",
 					"name": "code",
@@ -6764,7 +6801,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 243,
+					"line": 251,
 					"protection": "public",
 					"type": "string",
 					"name": "message",
@@ -6772,7 +6809,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 245,
+					"line": 253,
 					"protection": "public",
 					"type": "string",
 					"name": "debugMessage",
@@ -6780,7 +6817,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 247,
+					"line": 255,
 					"protection": "public",
 					"type": "object.Throwable",
 					"name": "exception",
@@ -6792,7 +6829,7 @@
 		},
 		{
 			"kind": "alias",
-			"line": 251,
+			"line": 259,
 			"protection": "public",
 			"type": "void delegate(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)",
 			"name": "HttpServerErrorPageHandler",
@@ -6800,54 +6837,54 @@
 		},
 		{
 			"kind": "enum",
-			"line": 258,
+			"line": 266,
 			"protection": "public",
 			"base": "int",
 			"members": [
 				{
 					"kind": "enum member",
-					"line": 259,
+					"line": 267,
 					"protection": "public",
 					"name": "None"
 				},
 				{
 					"kind": "enum member",
-					"line": 261,
+					"line": 269,
 					"protection": "public",
 					"name": "ParseURL",
 					"comment": " Fills the .path, .queryString fields in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 263,
+					"line": 271,
 					"protection": "public",
 					"name": "ParseQueryString",
 					"comment": " Fills the .query field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 265,
+					"line": 273,
 					"protection": "public",
 					"name": "ParseFormBody",
 					"comment": " Fills the .form field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 267,
+					"line": 275,
 					"protection": "public",
 					"name": "ParseJsonBody",
 					"comment": " Fills the .json field in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 269,
+					"line": 277,
 					"protection": "public",
 					"name": "ParseMultiPartBody",
 					"comment": " Enables use of the .nextPart() method in the request\n"
 				},
 				{
 					"kind": "enum member",
-					"line": 271,
+					"line": 279,
 					"protection": "public",
 					"name": "ParseCookies",
 					"comment": " Fills the .cookies field in the request\n"
@@ -6858,13 +6895,13 @@
 		},
 		{
 			"kind": "class",
-			"line": 280,
+			"line": 288,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 286,
+					"line": 294,
 					"protection": "public",
 					"type": "ushort",
 					"name": "port",
@@ -6872,7 +6909,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 292,
+					"line": 300,
 					"protection": "public",
 					"type": "string[]",
 					"name": "bindAddresses",
@@ -6880,7 +6917,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 299,
+					"line": 307,
 					"protection": "public",
 					"type": "string",
 					"name": "hostName",
@@ -6888,7 +6925,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 306,
+					"line": 314,
 					"protection": "public",
 					"type": "HttpServerOption",
 					"name": "options",
@@ -6896,7 +6933,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 315,
+					"line": 323,
 					"protection": "public",
 					"type": "Duration",
 					"name": "maxRequestTime",
@@ -6904,7 +6941,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 318,
+					"line": 326,
 					"protection": "public",
 					"type": "Duration",
 					"name": "keepAliveTimeout",
@@ -6912,7 +6949,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 322,
+					"line": 330,
 					"protection": "public",
 					"type": "ulong",
 					"name": "maxRequestSize",
@@ -6920,7 +6957,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 327,
+					"line": 335,
 					"protection": "public",
 					"type": "ulong",
 					"name": "maxRequestHeaderSize",
@@ -6928,14 +6965,14 @@
 				},
 				{
 					"kind": "variable",
-					"line": 329,
+					"line": 337,
 					"protection": "public",
 					"type": "uint",
 					"name": "maxRequestHeaderCount"
 				},
 				{
 					"kind": "variable",
-					"line": 332,
+					"line": 340,
 					"protection": "public",
 					"type": "void delegate(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)",
 					"name": "errorPageHandler",
@@ -6943,7 +6980,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 335,
+					"line": 343,
 					"protection": "public",
 					"type": "string",
 					"name": "sslCertFile",
@@ -6951,7 +6988,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 337,
+					"line": 345,
 					"protection": "public",
 					"type": "string",
 					"name": "sslKeyFile",
@@ -6959,7 +6996,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 340,
+					"line": 348,
 					"protection": "public",
 					"type": "vibe.http.session.SessionStore",
 					"name": "sessionStore",
@@ -6967,14 +7004,14 @@
 				},
 				{
 					"kind": "variable",
-					"line": 341,
+					"line": 349,
 					"protection": "public",
 					"type": "string",
 					"name": "sessionIdCookie"
 				},
 				{
 					"kind": "variable",
-					"line": 344,
+					"line": 352,
 					"protection": "public",
 					"type": "string",
 					"name": "serverString",
@@ -6982,7 +7019,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 354,
+					"line": 362,
 					"protection": "public",
 					"type": "string",
 					"name": "accessLogFormat",
@@ -6990,7 +7027,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 357,
+					"line": 365,
 					"protection": "public",
 					"type": "string",
 					"name": "accessLogFile",
@@ -6998,7 +7035,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 360,
+					"line": 368,
 					"protection": "public",
 					"type": "bool",
 					"name": "accessLogToConsole",
@@ -7006,7 +7043,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 363,
+					"line": 371,
 					"protection": "public",
 					"type": "@property HttpServerSettings()",
 					"name": "dup",
@@ -7018,20 +7055,20 @@
 		},
 		{
 			"kind": "class",
-			"line": 379,
+			"line": 387,
 			"protection": "public",
 			"base": "Exception",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 384,
+					"line": 392,
 					"protection": "public",
 					"type": "HttpStatusException(int status, string message = null, Throwable next = null, string file = __FILE__, int line = __LINE__)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 391,
+					"line": 399,
 					"protection": "public",
 					"type": "const @property int()",
 					"name": "status",
@@ -7043,13 +7080,13 @@
 		},
 		{
 			"kind": "class",
-			"line": 397,
+			"line": 405,
 			"protection": "public",
 			"base": "HttpRequest",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 400,
+					"line": 408,
 					"protection": "public",
 					"type": "string",
 					"name": "peer",
@@ -7057,7 +7094,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 406,
+					"line": 414,
 					"protection": "public",
 					"type": "string",
 					"name": "path",
@@ -7065,7 +7102,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 412,
+					"line": 420,
 					"protection": "public",
 					"type": "string",
 					"name": "username",
@@ -7073,7 +7110,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 418,
+					"line": 426,
 					"protection": "public",
 					"type": "string",
 					"name": "password",
@@ -7081,7 +7118,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 424,
+					"line": 432,
 					"protection": "public",
 					"type": "string",
 					"name": "queryString",
@@ -7089,7 +7126,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 430,
+					"line": 438,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "cookies",
@@ -7097,7 +7134,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 436,
+					"line": 444,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "query",
@@ -7105,7 +7142,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 444,
+					"line": 452,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "params",
@@ -7113,7 +7150,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 452,
+					"line": 460,
 					"protection": "public",
 					"type": "vibe.stream.stream.InputStream",
 					"name": "bodyReader",
@@ -7121,7 +7158,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 461,
+					"line": 469,
 					"protection": "public",
 					"type": "Json",
 					"name": "json",
@@ -7129,15 +7166,15 @@
 				},
 				{
 					"kind": "variable",
-					"line": 471,
+					"line": 479,
 					"protection": "public",
 					"type": "string[string]",
 					"name": "form",
-					"comment": " Contains the parsed parameters of a HTML _form request.\n\n\t\t\tRemarks:\n\t\t\t\tThis field is only set if HttpServerOption.ParseFormBody is set.\n\n\t\t\t\tA form request must either have the Content-Type\n\t\t\t\t\"application/x-www-form-urlencoded\" or \"multipart/form-data\".\n\t\t\n"
+					"comment": " Contains the parsed parameters of a HTML POST _form request.\n\n\t\t\tRemarks:\n\t\t\t\tThis field is only set if HttpServerOption.ParseFormBody is set.\n\n\t\t\t\tA form request must either have the Content-Type\n\t\t\t\t\"application/x-www-form-urlencoded\" or \"multipart/form-data\".\n\t\t\n"
 				},
 				{
 					"kind": "variable",
-					"line": 479,
+					"line": 487,
 					"protection": "public",
 					"type": "FilePart[string]",
 					"name": "files",
@@ -7145,7 +7182,7 @@
 				},
 				{
 					"kind": "variable",
-					"line": 489,
+					"line": 497,
 					"protection": "public",
 					"type": "vibe.http.session.Session",
 					"name": "session",
@@ -7153,28 +7190,28 @@
 				},
 				{
 					"kind": "constructor",
-					"line": 495,
+					"line": 503,
 					"protection": "public",
 					"type": "HttpServerRequest()",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 500,
+					"line": 508,
 					"protection": "public",
 					"type": "inout @property inout(SysTime)()",
 					"name": "timeCreated"
 				},
 				{
 					"kind": "function",
-					"line": 502,
+					"line": 510,
 					"protection": "public",
 					"type": "MultiPart()",
 					"name": "nextPart"
 				},
 				{
 					"kind": "function",
-					"line": 515,
+					"line": 523,
 					"protection": "public",
 					"type": "const @property string()",
 					"name": "rootDir",
@@ -7186,27 +7223,27 @@
 		},
 		{
 			"kind": "class",
-			"line": 526,
+			"line": 534,
 			"protection": "public",
 			"base": "HttpResponse",
 			"members": [
 				{
 					"kind": "constructor",
-					"line": 542,
+					"line": 550,
 					"protection": "public",
 					"type": "HttpServerResponse(Stream conn, HttpServerSettings settings, Allocator req_alloc)",
 					"name": "this"
 				},
 				{
 					"kind": "function",
-					"line": 550,
+					"line": 558,
 					"protection": "public",
 					"type": "@property SysTime()",
 					"name": "timeFinalized"
 				},
 				{
 					"kind": "function",
-					"line": 554,
+					"line": 562,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "headerWritten",
@@ -7214,7 +7251,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 558,
+					"line": 566,
 					"protection": "public",
 					"type": "const bool()",
 					"name": "isHeadResponse",
@@ -7222,7 +7259,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 561,
+					"line": 569,
 					"protection": "public",
 					"type": "void(const(ubyte[]) data, string content_type = null)",
 					"name": "writeBody",
@@ -7230,7 +7267,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 568,
+					"line": 576,
 					"protection": "public",
 					"type": "void(string data, string content_type = \"text/plain\")",
 					"name": "writeBody",
@@ -7238,12 +7275,12 @@
 				},
 				{
 					"kind": "template",
-					"line": 574,
+					"line": 582,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 574,
+							"line": 582,
 							"type": "void(T data, int status = HttpStatus.OK)",
 							"name": "writeJsonBody",
 							"comment": " Writes a JSON message with the specified status\n"
@@ -7254,7 +7291,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 582,
+					"line": 590,
 					"protection": "public",
 					"type": "void()",
 					"name": "writeVoidBody",
@@ -7262,7 +7299,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 597,
+					"line": 605,
 					"protection": "public",
 					"type": "@property OutputStream()",
 					"name": "bodyWriter",
@@ -7270,7 +7307,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 647,
+					"line": 655,
 					"protection": "public",
 					"type": "void(string url, int status = 302)",
 					"name": "redirect",
@@ -7278,7 +7315,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 657,
+					"line": 665,
 					"protection": "public",
 					"type": "Stream(string protocol)",
 					"name": "switchProtocol",
@@ -7286,7 +7323,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 665,
+					"line": 673,
 					"protection": "public",
 					"type": "Cookie(string name, string value)",
 					"name": "setCookie",
@@ -7294,7 +7331,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 679,
+					"line": 687,
 					"protection": "public",
 					"type": "Session()",
 					"name": "startSession",
@@ -7302,7 +7339,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 690,
+					"line": 698,
 					"protection": "public",
 					"type": "void()",
 					"name": "terminateSession",
@@ -7310,19 +7347,19 @@
 				},
 				{
 					"kind": "function",
-					"line": 697,
+					"line": 705,
 					"protection": "public",
 					"type": "@property ulong()",
 					"name": "bytesWritten"
 				},
 				{
 					"kind": "template",
-					"line": 721,
+					"line": 729,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 721,
+							"line": 729,
 							"type": "void(Variant[] args...)",
 							"name": "renderCompat",
 							"comment": "\n\t\tCompatibility version of render() that takes a list of explicit names and types instead\n\t\tof variable aliases.\n\n\t\tThis version of render() works around a compiler bug in DMD (Issue 2962). You should use\n\t\tthis method instead of render() as long as this bug is not fixed.\n\n\t\tNote that the variables are copied and not referenced inside of the template - any\n\t\tmodification you do on them from within the template will get lost.\n\n\t\tExamples:\n\t\t\t---\n\t\t\tstring title = \"Hello, World!\";\n\t\t\tint pageNumber = 1;\n\t\t\tres.renderCompat!(\"mytemplate.jd\",\n\t\t\t\tstring, \"title\",\n\t\t\t\tint, \"pageNumber\")\n\t\t\t\t(Variant(title), Variant(pageNumber));\n\t\t\t---\n\t\n"
@@ -7337,12 +7374,12 @@
 		},
 		{
 			"kind": "template",
-			"line": 1192,
+			"line": 1200,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 1192,
+					"line": 1200,
 					"type": "string(Allocator alloc, string fmt, ARGS args)",
 					"name": "formatAlloc"
 				}
@@ -10142,7 +10179,7 @@
 				}
 			],
 			"name": "applyParametersFromAssociativeArray(Func)",
-			"comment": "\n\tTries to apply all named arguments in args to func.\n\n\tIf it succeeds it calls the function with req, res (if it has one\n\tparameter of type HttpServerRequest and one of type HttpServerResponse), and\n\tall the values found in args.\n\n\tIf any supplied argument could not be applied or the method has\n\trequires more arguments than given, the method returns false and does not call\n\tfunc.  In this case error gets filled with some string describing which\n\tparameters could not be applied. Exceptions are not used in this situation,\n\tbecause when traversing overloads this might be a quite common scenario.\n\n\tCalls: applyParametersFromAssociativeArray!(Func,Func)(req, res, func, error),\n\tif you want to handle overloads of func, use the second version of this method\n\tand pass the overload alias as first template parameter. (For retrieving parameter names)\n\n\tSee_Also: formMethodHandler\n\n\tParams:\n\t\treq = The HttpServerRequest object that gets queried for form\n\t\tdata (req.query for GET requests, req.form for POST requests) and that is\n\t\tpassed on to func, if func has a parameter of matching type. Each key in the\n\t\tform data must match a parameter name, the corresponding value is then applied.\n\t\tHttpServerRequest and HttpServerResponse arguments are excluded as they are\n\t\tqrovided by the passed req and res objects.\n\n\n\t\tres = The response object that gets passed on to func if func\n\t\thas a parameter of matching type.\n\n\t\terror = This string will be set to a descriptive message if not all parameters could be matched.\n\n\tReturns: true if successful, false otherwise.\n private\n"
+			"comment": "\n\tTries to apply all named arguments in args to func.\n\n\tIf it succeeds it calls the function with req, res (if it has one\n\tparameter of type HttpServerRequest and one of type HttpServerResponse), and\n\tall the values found in args.\n\n\tIf any supplied argument could not be applied or the method\n\trequires more arguments than given, the method returns false and does not call\n\tfunc.  In this case error gets filled with some string describing which\n\tparameters could not be applied. Exceptions are not used in this situation,\n\tbecause when traversing overloads this might be a quite common scenario.\n\n\tCalls: applyParametersFromAssociativeArray!(Func,Func)(req, res, func, error),\n\tif you want to handle overloads of func, use the second version of this method\n\tand pass the overload alias as first template parameter. (For retrieving parameter names)\n\n\tSee_Also: formMethodHandler\n\n\tParams:\n\t\treq = The HttpServerRequest object that gets queried for form\n\t\tdata (req.query for GET requests, req.form for POST requests) and that is\n\t\tpassed on to func, if func has a parameter of matching type. Each key in the\n\t\tform data must match a parameter name, the corresponding value is then applied.\n\t\tHttpServerRequest and HttpServerResponse arguments are excluded as they are\n\t\tqrovided by the passed req and res objects.\n\n\n\t\tres = The response object that gets passed on to func if func\n\t\thas a parameter of matching type.\n\n\t\terror = This string will be set to a descriptive message if not all parameters could be matched.\n\n\tReturns: true if successful, false otherwise.\n private\n"
 		},
 		{
 			"kind": "template",
@@ -11907,39 +11944,39 @@
 		},
 		{
 			"kind": "class",
-			"line": 202,
+			"line": 206,
 			"protection": "public",
 			"base": "HttpRequest",
 			"members": [
 				{
 					"kind": "function",
-					"line": 212,
+					"line": 216,
 					"protection": "public",
 					"type": "void(InputStream data, ulong length)",
 					"name": "writeBody"
 				},
 				{
 					"kind": "function",
-					"line": 218,
+					"line": 222,
 					"protection": "public",
 					"type": "void(ubyte[] data, string content_type = null)",
 					"name": "writeBody"
 				},
 				{
 					"kind": "function",
-					"line": 225,
+					"line": 229,
 					"protection": "public",
 					"type": "void(string[string] form)",
 					"name": "writeBody"
 				},
 				{
 					"kind": "template",
-					"line": 230,
+					"line": 234,
 					"protection": "public",
 					"members": [
 						{
 							"kind": "function",
-							"line": 230,
+							"line": 234,
 							"type": "void(T data)",
 							"name": "writeJsonBody"
 						}
@@ -11948,14 +11985,14 @@
 				},
 				{
 					"kind": "function",
-					"line": 235,
+					"line": 239,
 					"protection": "public",
 					"type": "void(MultiPart part)",
 					"name": "writePart"
 				},
 				{
 					"kind": "function",
-					"line": 240,
+					"line": 244,
 					"protection": "public",
 					"type": "@property OutputStream()",
 					"name": "bodyWriter"
@@ -11965,20 +12002,20 @@
 		},
 		{
 			"kind": "class",
-			"line": 268,
+			"line": 272,
 			"protection": "public",
 			"base": "HttpResponse",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 269,
+					"line": 273,
 					"protection": "public",
 					"type": "vibe.stream.stream.InputStream",
 					"name": "bodyReader"
 				},
 				{
 					"kind": "function",
-					"line": 271,
+					"line": 275,
 					"protection": "public",
 					"type": "Json()",
 					"name": "readJson"

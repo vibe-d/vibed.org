@@ -41,7 +41,7 @@ block body
 			p If you are running a Debian or Arch based Linux distribution, you can use the packages below to benefit from an automated install process.
 
 			p
-				a.download(href="download?file=zipball/v0.7.8") Download Current Beta Release (0.7.8)
+				a.download(href="download?file=vibed-0.7.9.zip") Download Current Beta Release (0.7.9)
 
 		section
 			a#apt-repository
