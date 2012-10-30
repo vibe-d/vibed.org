@@ -17,8 +17,8 @@ Package m_rootPackage;
 void download(HttpServerRequest req, HttpServerResponse res)
 {
 	if( auto pf = "file" in req.query ){
-		if( pf.startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/"~req.query["file"]);
-		else res.redirect("https://github.com/downloads/rejectedsoftware/vibe.d/"~req.query["file"]);
+		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/" ~ *pf);
+		else res.redirect("https://github.com/downloads/rejectedsoftware/vibe.d/" ~ *pf);
 	} else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
 }
 
