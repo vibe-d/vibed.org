@@ -10092,7 +10092,7 @@
 			"protection": "public",
 			"type": "bool(ref string[string] fields, ref FilePart[string] files, string content_type, InputStream body_reader, uint max_line_length)",
 			"name": "parseFormData",
-			"comment": "\n\tParses the form given by 'content_type' and 'body_reader'.\n"
+			"comment": "\n\tParses the form given by content_type and body_reader.\n"
 		},
 		{
 			"kind": "function",
@@ -10104,97 +10104,35 @@
 		},
 		{
 			"kind": "template",
-			"line": 182,
+			"line": 223,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 182,
+					"line": 223,
 					"type": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
 					"name": "registerFormInterface",
-					"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via url: url_prefix~method_name.  A method named\n\t\"index\" will be made available via url_prefix.  All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameters name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n"
+					"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via the URL url_prefix~method_name. A method named\n\t\"index\" will be made available via url_prefix. method_name is generated from\n\tthe original method name ba the same rules as for\n\tvibe.http.rest.registerRestInterface. All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameter name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod, vibe.http.rest.registerRestInterface\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n\tExamples:\n\n\t---\n\tclass FrontEnd {\n\t\t// GET /\n\t\tvoid index(HttpServerResponse res)\n\t\t{\n\t\t\tres.render!(\"index.dt\");\n\t\t}\n\n\t\t/// GET /files?folder=...\n\t\tvoid getFiles(HttpServerRequest req, HttpServerResponse res, string folder)\n\t\t{\n\t\t\tres.render!(\"files.dt\", req, folder);\n\t\t}\n\n\t\t/// POST /login\n\t\tvoid login(HttpServerRequest req, HttpServerResponse res, string username,\n\t\t\tstring password)\n\t\t{\n\t\t\tif( username != \"tester\" || password != \"secret\" )\n\t\t\t\tthrow new HttpStatusException(HttpStatus.Unauthorized);\n\t\t\tauto session = req.session;\n\t\t\tif( !session ) session = res.startSession();\n\t\t\tsession[\"username\"] = username;\n\t\t\tres.redirect(\"/\");\n\t\t}\n\t}\n\n\tstatic this()\n\t{\n\t\tauto settings = new HttpServerSettings;\n\t\tsettings.port = 8080;\n\t\tauto router = new UrlRouter;\n\t\tregisterFormInterface(router, new FrontEnd);\n\t\tlistenHttp(settings, router);\n\t}\n\t---\n\n"
 				}
 			],
 			"name": "registerFormInterface(I)",
-			"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via url: url_prefix~method_name.  A method named\n\t\"index\" will be made available via url_prefix.  All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameters name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n"
+			"comment": "\n\tGenerates a form based interface to the given instance.\n\n\tEach function is callable with either GET or POST using form encoded\n\tparameters.  All methods of I that start with \"get\", \"query\", \"add\", \"create\",\n\t\"post\" are made available via the URL url_prefix~method_name. A method named\n\t\"index\" will be made available via url_prefix. method_name is generated from\n\tthe original method name ba the same rules as for\n\tvibe.http.rest.registerRestInterface. All these methods might take a\n\tHttpServerRequest parameter and a HttpServerResponse parameter, but don't have\n\tto.\n\n\tAll additional parameters will be filled with available form-data fields.\n\tEvery parameter name has to match a form field name. The registered handler\n\twill throw an exception if no overload is found that is compatible with all\n\tavailable form data fields.\n\n\tFor a thorough example of how to use this method, see the form_interface\n\texample in the examples directory.\n\n\tSee_Also: registerFormMethod, vibe.http.rest.registerRestInterface\n\n\tParams:\n\t\trouter = The router the found methods are registered with.\n\n\t\tinstance = The instance whose methods should be called via the registered URLs.\n\n\t\turl_prefix = The prefix before the method name. A method named getWelcomePage\n\t\twith a given url_prefix=\"/mywebapp/welcomePage/\" would be made available as\n\t\t\"/mywebapp/welcomePage/getWelcomePage\" if MethodStyle is Unaltered.\n\n\t\tstyle = How the url part representing the method name should be altered.\n\n\tExamples:\n\n\t---\n\tclass FrontEnd {\n\t\t// GET /\n\t\tvoid index(HttpServerResponse res)\n\t\t{\n\t\t\tres.render!(\"index.dt\");\n\t\t}\n\n\t\t/// GET /files?folder=...\n\t\tvoid getFiles(HttpServerRequest req, HttpServerResponse res, string folder)\n\t\t{\n\t\t\tres.render!(\"files.dt\", req, folder);\n\t\t}\n\n\t\t/// POST /login\n\t\tvoid login(HttpServerRequest req, HttpServerResponse res, string username,\n\t\t\tstring password)\n\t\t{\n\t\t\tif( username != \"tester\" || password != \"secret\" )\n\t\t\t\tthrow new HttpStatusException(HttpStatus.Unauthorized);\n\t\t\tauto session = req.session;\n\t\t\tif( !session ) session = res.startSession();\n\t\t\tsession[\"username\"] = username;\n\t\t\tres.redirect(\"/\");\n\t\t}\n\t}\n\n\tstatic this()\n\t{\n\t\tauto settings = new HttpServerSettings;\n\t\tsettings.port = 8080;\n\t\tauto router = new UrlRouter;\n\t\tregisterFormInterface(router, new FrontEnd);\n\t\tlistenHttp(settings, router);\n\t}\n\t---\n\n"
 		},
 		{
 			"kind": "template",
-			"line": 204,
+			"line": 249,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 204,
+					"line": 249,
 					"type": "void(UrlRouter router, I instance, string url_prefix, MethodStyle style = MethodStyle.Unaltered)",
 					"name": "registerFormMethod",
-					"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.  See_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
+					"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.\n\n\tSee_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
 				}
 			],
 			"name": "registerFormMethod(string method,I)",
-			"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.  See_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
-		},
-		{
-			"kind": "template",
-			"line": 229,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 229,
-					"type": "HttpServerRequestDelegate(DelegateType func)",
-					"name": "formMethodHandler",
-					"comment": "\n\tGenerate a HttpServerRequestDelegate from a generic function with arbitrary arguments.\n\tThe arbitrary arguments will be filled in with data from the form in req. For details see applyParametersFromAssociativeArrays.\n\tSee_Also: applyParametersFromAssociativeArrays\n\tParams:\n\t\tdelegate = Some function, which some arguments which must be constructible from strings with to!ArgType(some_string), except one optional parameter\n\t\tof type HttpServerRequest and one of type HttpServerResponse which are passed over.\n\n\tReturns: A HttpServerRequestDelegate which passes over any form data to the given function.\n This is private because untested and I am also not sure whether it a) works and b) if it is useful at all.\n private\n"
-				}
-			],
-			"name": "formMethodHandler(DelegateType) if (isCallable!(DelegateType))",
-			"comment": "\n\tGenerate a HttpServerRequestDelegate from a generic function with arbitrary arguments.\n\tThe arbitrary arguments will be filled in with data from the form in req. For details see applyParametersFromAssociativeArrays.\n\tSee_Also: applyParametersFromAssociativeArrays\n\tParams:\n\t\tdelegate = Some function, which some arguments which must be constructible from strings with to!ArgType(some_string), except one optional parameter\n\t\tof type HttpServerRequest and one of type HttpServerResponse which are passed over.\n\n\tReturns: A HttpServerRequestDelegate which passes over any form data to the given function.\n This is private because untested and I am also not sure whether it a) works and b) if it is useful at all.\n private\n"
-		},
-		{
-			"kind": "template",
-			"line": 245,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 245,
-					"type": "HttpServerRequestDelegate(T inst)",
-					"name": "formMethodHandler",
-					"comment": "\n\tCreate a delegate handling form data for any matching overload of T.method.\n\n\tT is some class or struct. Method some probably overloaded method of T. The returned delegate will try all overloads\n\tof the passed method and will only raise an error if no conforming overload is found.\n"
-				}
-			],
-			"name": "formMethodHandler(T,string method)",
-			"comment": "\n\tCreate a delegate handling form data for any matching overload of T.method.\n\n\tT is some class or struct. Method some probably overloaded method of T. The returned delegate will try all overloads\n\tof the passed method and will only raise an error if no conforming overload is found.\n"
-		},
-		{
-			"kind": "template",
-			"line": 303,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 303,
-					"type": "bool(HttpServerRequest req, HttpServerResponse res, Func func, out string error)",
-					"name": "applyParametersFromAssociativeArray"
-				}
-			],
-			"name": "applyParametersFromAssociativeArray(Func)",
-			"comment": "\n\tTries to apply all named arguments in args to func.\n\n\tIf it succeeds it calls the function with req, res (if it has one\n\tparameter of type HttpServerRequest and one of type HttpServerResponse), and\n\tall the values found in args.\n\n\tIf any supplied argument could not be applied or the method\n\trequires more arguments than given, the method returns false and does not call\n\tfunc.  In this case error gets filled with some string describing which\n\tparameters could not be applied. Exceptions are not used in this situation,\n\tbecause when traversing overloads this might be a quite common scenario.\n\n\tCalls: applyParametersFromAssociativeArray!(Func,Func)(req, res, func, error),\n\tif you want to handle overloads of func, use the second version of this method\n\tand pass the overload alias as first template parameter. (For retrieving parameter names)\n\n\tSee_Also: formMethodHandler\n\n\tParams:\n\t\treq = The HttpServerRequest object that gets queried for form\n\t\tdata (req.query for GET requests, req.form for POST requests) and that is\n\t\tpassed on to func, if func has a parameter of matching type. Each key in the\n\t\tform data must match a parameter name, the corresponding value is then applied.\n\t\tHttpServerRequest and HttpServerResponse arguments are excluded as they are\n\t\tqrovided by the passed req and res objects.\n\n\n\t\tres = The response object that gets passed on to func if func\n\t\thas a parameter of matching type.\n\n\t\terror = This string will be set to a descriptive message if not all parameters could be matched.\n\n\tReturns: true if successful, false otherwise.\n private\n"
-		},
-		{
-			"kind": "template",
-			"line": 308,
-			"protection": "public",
-			"members": [
-				{
-					"kind": "function",
-					"line": 308,
-					"type": "bool(HttpServerRequest req, HttpServerResponse res, Func func, out string error)",
-					"name": "applyParametersFromAssociativeArray"
-				}
-			],
-			"name": "applyParametersFromAssociativeArray(alias Overload,Func)",
-			"comment": " Overload which takes additional parameter for handling overloads of func.\n private\n"
+			"comment": "\n\tRegisters just a single method.\n\n\tFor details see registerFormInterface. This method does exactly the\n\tsame, but instead of registering found methods that match a scheme it just\n\tregisters the method specified.\n\n\tSee_Also: registerFormInterface\n\n\tParams:\n\t\tmethod = The name of the method to register. It might be\n\t\toverloaded, one overload has to match any given form data, otherwise an error is triggered.\n"
 		}
 	],
 	"name": "vibe.http.form",
