@@ -61,7 +61,7 @@ block body
 
 			p What makes this possible is D's support for so called fibers (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special yield() function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called yield().
 
-			p This cooperative pseudo-threading is used to completely hide the asynchronous event based operation of the core system. It also blends seemlessly with the built-in support for multi-threading; to the user of the framework there is no visible difference between a fiber and a thread.
+			p This cooperative pseudo-threading is used to completely hide the asynchronous event based operation of the core system. It also blends seamlessly with the built-in support for multi-threading; to the user of the framework there is no visible difference between a fiber and a thread.
 
 		section		
 			a#compact-api
@@ -75,7 +75,7 @@ block body
 			
 			p (Work-in-progress) An
 				a(href="#load-balancing")
-				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seemless and low-risk changes on live-systems.
+				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seamless and low-risk changes on live-systems.
 
 		section
 			a#exception-based
@@ -212,8 +212,8 @@ block body
 			a#load-balancing
 			h3 Integrated load balancing
 
-			p The installation package contains a load balancer application that can almost seemlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
+			p The installation package contains a load balancer application that can almost seamlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
 
-			p When the sources for the application have been changed, the load balancer can automatically compile and run the modified application and seemlessly switch to it. The old application is shut down as soon as there are no more clients connected.
+			p When the sources for the application have been changed, the load balancer can automatically compile and run the modified application and seamlessly switch to it. The old application is shut down as soon as there are no more clients connected.
 
 			p In the future, running an automated test suite before the new application instance is switched live will be supported. Rapid development processes with safe modifications on the live system become possible this way.

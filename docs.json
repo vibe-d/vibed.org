@@ -88,15 +88,15 @@
 				},
 				{
 					"kind": "function",
-					"line": 94,
+					"line": 95,
 					"protection": "public",
 					"type": "void(ushort port, void delegate(TcpConnection stream) conn_callback, string bind_address)",
 					"name": "listenTcp",
-					"comment": " Listens on the specified port and interface for TCP connections.\n\n\t\t'bind_address' must be an IPv4 or IPv6 address string corresponding to a local network\n\t\tinterface.\n\t\n"
+					"comment": " Listens on the specified port and interface for TCP connections.\n\n\t\t'bind_address' must be an IPv4 or IPv6 address string corresponding to a local network\n\t\tinterface. conn_callback is called for every incoming connection, each time from a\n\t\tnew task.\n\t\n"
 				},
 				{
 					"kind": "function",
-					"line": 101,
+					"line": 102,
 					"protection": "public",
 					"type": "UdpConnection(ushort port, string bind_address = \"0.0.0.0\")",
 					"name": "listenUdp",
@@ -104,7 +104,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 105,
+					"line": 106,
 					"protection": "public",
 					"type": "Signal()",
 					"name": "createSignal",
@@ -112,7 +112,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 111,
+					"line": 112,
 					"protection": "public",
 					"type": "Timer(void delegate() callback)",
 					"name": "createTimer",
@@ -124,26 +124,26 @@
 		},
 		{
 			"kind": "interface",
-			"line": 118,
+			"line": 119,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 119,
+					"line": 120,
 					"protection": "public",
 					"type": "void()",
 					"name": "yieldForEvent"
 				},
 				{
 					"kind": "function",
-					"line": 120,
+					"line": 121,
 					"protection": "public",
 					"type": "void(Task f, Exception event_exception = null)",
 					"name": "resumeTask"
 				},
 				{
 					"kind": "function",
-					"line": 121,
+					"line": 122,
 					"protection": "public",
 					"type": "void()",
 					"name": "notifyIdle"
@@ -154,12 +154,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 133,
+			"line": 134,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 135,
+					"line": 136,
 					"protection": "public",
 					"type": "void()",
 					"name": "release",
@@ -167,7 +167,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 138,
+					"line": 139,
 					"protection": "public",
 					"type": "void()",
 					"name": "acquire",
@@ -175,7 +175,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 141,
+					"line": 142,
 					"protection": "public",
 					"type": "bool()",
 					"name": "isOwner",
@@ -187,12 +187,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 148,
+			"line": 149,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 150,
+					"line": 151,
 					"protection": "public",
 					"type": "@property bool()",
 					"name": "pending",
@@ -200,7 +200,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 154,
+					"line": 155,
 					"protection": "public",
 					"type": "void(Duration dur, bool periodic = false)",
 					"name": "rearm",
@@ -208,7 +208,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 158,
+					"line": 159,
 					"protection": "public",
 					"type": "void()",
 					"name": "stop",
@@ -216,7 +216,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 162,
+					"line": 163,
 					"protection": "public",
 					"type": "void()",
 					"name": "wait",
@@ -247,11 +247,11 @@
 					"line": 127,
 					"type": "void(UrlRouter router, T instance, string url_prefix = \"/\", MethodStyle style = MethodStyle.LowerUnderscored)",
 					"name": "registerRestInterface",
-					"comment": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n"
+					"comment": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seamless way to acces such a generated API\n"
 				}
 			],
 			"name": "registerRestInterface(T)",
-			"comment": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seemless way to acces such a generated API\n"
+			"comment": "\n\tGenerates registers a REST interface and connects it the the given instance.\n\n\tEach method is mapped to the corresponing HTTP verb. Property methods are mapped to GET/PUT and\n\tall other methods are mapped according to their prefix verb. If the method has no known prefix,\n\tPOST is used. The following table lists the mappings from prefix verb to HTTP verb:\n\n\t<table>\n\t\t<tr><th>Prefix</th><th>HTTP verb</th></tr>\n\t\t<tr><td>get</td><td>GET</td></tr>\n\t\t<tr><td>query</td><td>GET</td></tr>\n\t\t<tr><td>set</td><td>PUT</td></tr>\n\t\t<tr><td>put</td><td>PUT</td></tr>\n\t\t<tr><td>update</td><td>PATCH</td></tr>\n\t\t<tr><td>patch</td><td>PATCH</td></tr>\n\t\t<tr><td>add</td><td>POST</td></tr>\n\t\t<tr><td>create</td><td>POST</td></tr>\n\t\t<tr><td>post</td><td>POST</td></tr>\n\t</table>\n\n\tA method named 'index' is mapped to the root URL (e.g. GET /api/). If a method has its first\n\tparameter named 'id', it will be mapped to ':id/method' and 'id' is expected to be part of the\n\tURL instead of a JSON request.\n\n\tAny interface that you return from a getter will be made available with the base url and its name appended.\n\n\tExamples:\n\n\t\tThe following example makes MyApi available using HTTP requests. Valid requests are:\n\n\t\t<ul>\n\t\t  $(LI GET /api/status &rarr; \"OK\")\n\t\t  $(LI GET /api/greeting &rarr; \"&lt;current greeting&gt;\")\n\t\t  $(LI PUT /api/greeting &larr; {\"text\": \"&lt;new text&gt;\"})\n\t\t  $(LI POST /api/new_user &larr; {\"name\": \"&lt;new user name&gt;\"})\n\t\t  $(LI GET /api/users &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/ &rarr; [\"&lt;user 1&gt;\", \"&lt;user 2&gt;\"])\n\t\t  $(LI GET /api/:id/name &rarr; [\"&lt;user name for id&gt;\"])\n\t\t  $(LI GET /api/items/text &rarr; \"Hello, World\")\n\t\t  $(LI GET /api/items/:id/index &rarr; &lt;item index&gt;)\n\t\t</ul>\n\t\t---\n\t\timport vibe.d;\n\n\t\tinterface IMyItemsApi {\n\t\t\tstring getText();\n\t\t\tint getIndex(int id);\n\t\t}\n\n\t\tinterface IMyApi {\n\t\t\tstring getStatus();\n\n\t\t\t@property string greeting();\n\t\t\t@property void greeting(string text);\n\n\t\t\tvoid addNewUser(string name);\n\t\t\t@property string[] users();\n\t\t\tstring[] index();\n\t\t\tstring getName(int id);\n\n\t\t\t@property IMyItemsApi items();\n\t\t}\n\n\t\tclass MyItemsApiImpl : IMyItemsApi {\n\t\t\tstring getText() { return \"Hello, World\"; }\n\t\t\tint getIndex(int id) { return id; }\n\t\t}\n\n\t\tclass MyApiImpl : IMyApi {\n\t\t\tprivate string m_greeting;\n\t\t\tprivate string[] m_users;\n\t\t\tprivate MyItemsApiImpl m_items;\n\n\t\t\tthis() { m_items = new MyItemsApiImpl; }\n\n\t\t\tstring getStatus() { return \"OK\"; }\n\n\t\t\t@property string greeting() { return m_greeting; }\n\t\t\t@property void greeting(string text) { m_greeting = text; }\n\n\t\t\tvoid addNewUser(string name) { m_users ~= name; }\n\t\t\t@property string[] users() { return m_users; }\n\t\t\tstring[] index() { return m_users; }\n\t\t\tstring getName(int id) { return m_users[id]; }\n\n\t\t\t@property MyItemsApiImpl items() { return m_items; }\n\t\t}\n\n\t\tstatic this()\n\t\t{\n\t\t\tauto routes = new UrlRouter;\n\n\t\t\tregisterRestInterface(routes, new MyApiImpl, \"/api/\");\n\n\t\t\tlistenHttp(new HttpServerSettings, routes);\n\t\t}\n\t\t---\n\n\tSee_Also:\n\n\t\tRestInterfaceClient class for a seamless way to acces such a generated API\n"
 		},
 		{
 			"kind": "class",
@@ -265,58 +265,58 @@
 					"members": [
 						{
 							"kind": "alias",
-							"line": 207,
+							"line": 209,
 							"type": "void delegate(HttpClientRequest req)",
 							"name": "RequestFilter"
 						},
 						{
 							"kind": "variable",
-							"line": 209,
+							"line": 211,
 							"type": "Url",
 							"name": "m_baseUrl"
 						},
 						{
 							"kind": "variable",
-							"line": 210,
+							"line": 212,
 							"type": "MethodStyle",
 							"name": "m_methodStyle"
 						},
 						{
 							"kind": "variable",
-							"line": 211,
+							"line": 213,
 							"type": "RequestFilter",
 							"name": "m_requestFilter"
 						},
 						{
 							"kind": "alias",
-							"line": 214,
+							"line": 216,
 							"type": "I",
 							"name": "BaseInterface"
 						},
 						{
 							"kind": "constructor",
-							"line": 218,
+							"line": 220,
 							"type": "(string base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
 							"name": "this",
 							"comment": " Creates a new REST implementation of I\n\t\n"
 						},
 						{
 							"kind": "constructor",
-							"line": 225,
+							"line": 227,
 							"type": "(Url base_url, MethodStyle style = MethodStyle.LowerUnderscored)",
 							"name": "this",
 							"comment": " ditto\n"
 						},
 						{
 							"kind": "function",
-							"line": 234,
+							"line": 236,
 							"type": "RequestFilter()",
 							"name": "requestFilter",
 							"comment": " An optional request filter that allows to modify each request before it is made.\n\t\n"
 						},
 						{
 							"kind": "function",
-							"line": 236,
+							"line": 238,
 							"type": "void(RequestFilter v)",
 							"name": "requestFilter",
 							"comment": " ditto\n"
@@ -655,54 +655,47 @@
 					"kind": "variable",
 					"line": 77,
 					"protection": "public",
-					"type": "bool",
-					"name": "useTLS"
-				},
-				{
-					"kind": "variable",
-					"line": 78,
-					"protection": "public",
 					"type": "string",
 					"name": "localname"
 				},
 				{
 					"kind": "variable",
-					"line": 79,
+					"line": 78,
 					"protection": "public",
 					"type": "SmtpConnectionType",
 					"name": "connectionType"
 				},
 				{
 					"kind": "variable",
-					"line": 80,
+					"line": 79,
 					"protection": "public",
 					"type": "SmtpAuthType",
 					"name": "authType"
 				},
 				{
 					"kind": "variable",
-					"line": 81,
+					"line": 80,
 					"protection": "public",
 					"type": "string",
 					"name": "username"
 				},
 				{
 					"kind": "variable",
-					"line": 82,
+					"line": 81,
 					"protection": "public",
 					"type": "string",
 					"name": "password"
 				},
 				{
 					"kind": "constructor",
-					"line": 84,
+					"line": 83,
 					"protection": "public",
 					"type": "SmtpClientSettings()",
 					"name": "this"
 				},
 				{
 					"kind": "constructor",
-					"line": 85,
+					"line": 84,
 					"protection": "public",
 					"type": "SmtpClientSettings(string host, ushort port)",
 					"name": "this"
@@ -713,20 +706,20 @@
 		},
 		{
 			"kind": "class",
-			"line": 91,
+			"line": 90,
 			"protection": "public",
 			"base": "Object",
 			"members": [
 				{
 					"kind": "variable",
-					"line": 92,
+					"line": 91,
 					"protection": "public",
 					"type": "StrMapCI",
 					"name": "headers"
 				},
 				{
 					"kind": "variable",
-					"line": 93,
+					"line": 92,
 					"protection": "public",
 					"type": "string",
 					"name": "bodyText"
@@ -737,7 +730,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 99,
+			"line": 98,
 			"protection": "public",
 			"type": "void(SmtpClientSettings settings, Mail mail)",
 			"name": "sendMail",
@@ -4283,7 +4276,7 @@
 					"kind": "function",
 					"line": 126,
 					"protection": "public",
-					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1747;\r\n , __ctmp1747).this(null))",
+					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1745;\r\n , __ctmp1745).this(null))",
 					"name": "query"
 				},
 				{
@@ -5837,7 +5830,7 @@
 		}
 	],
 	"name": "vibe.data.json",
-	"comment": "\n\tJSON serialization and value handling.\n\n\tThis module provides the Json struct for reading, writing and manipulating JSON values in a seemless,\n\tJavaScript like way. De(serialization) of arbitrary D types is also supported.\n\n\tExamples:\n\n\t---\n\tvoid manipulateJson(Json j)\n\t{\n\t\t// object members can be accessed using member syntax, just like in JavaScript\n\t\tj = Json.EmptyObject;\n\t\tj.name = \"Example\";\n\t\tj.id = 1;\n\n\t\t// retrieving the values is done using get()\n\t\tassert(j[\"name\"].get!string == \"Example\");\n\t\tassert(j[\"id\"].get!int == 1);\n\n\t\t// semantic convertions can be done using to()\n\t\tassert(j.id.to!string == \"1\");\n\n\t\t// prints:\n\t\t// name: \"Example\"\n\t\t// id: 1\n\t\tforeach( string key, value; j ){\n\t\t\twritefln(\"%s: %s\", key, value);\n\t\t}\n\n\t\t// print out as JSON: {\"name\": \"Example\", \"id\": 1}\n\t\twritefln(\"JSON: %s\", j.toString());\n\t}\n\t---\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n"
+	"comment": "\n\tJSON serialization and value handling.\n\n\tThis module provides the Json struct for reading, writing and manipulating JSON values in a seamless,\n\tJavaScript like way. De(serialization) of arbitrary D types is also supported.\n\n\tExamples:\n\n\t---\n\tvoid manipulateJson(Json j)\n\t{\n\t\t// object members can be accessed using member syntax, just like in JavaScript\n\t\tj = Json.EmptyObject;\n\t\tj.name = \"Example\";\n\t\tj.id = 1;\n\n\t\t// retrieving the values is done using get()\n\t\tassert(j[\"name\"].get!string == \"Example\");\n\t\tassert(j[\"id\"].get!int == 1);\n\n\t\t// semantic convertions can be done using to()\n\t\tassert(j.id.to!string == \"1\");\n\n\t\t// prints:\n\t\t// name: \"Example\"\n\t\t// id: 1\n\t\tforeach( string key, value; j ){\n\t\t\twritefln(\"%s: %s\", key, value);\n\t\t}\n\n\t\t// print out as JSON: {\"name\": \"Example\", \"id\": 1}\n\t\twritefln(\"JSON: %s\", j.toString());\n\t}\n\t---\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n"
 },
 {
 	"kind": "module",
@@ -6657,7 +6650,7 @@
 			"protection": "public",
 			"type": "void(HttpServerSettings settings, void delegate(HttpServerRequest req, HttpServerResponse res) request_handler)",
 			"name": "listenHttp",
-			"comment": "\n\n\n\tStarts a HTTP server listening on the specified port.\n\n\trequest_handler will be called for each HTTP request that is made. The\n\tres parameter of the callback then has to be filled with the response\n\tdata.\n\n\trequest_handler can be either HttpServerRequestDelegate/HttpServerRequestFunction\n\tor a class/struct with a member function 'handleRequest' that has the same\n\tsignature.\n\n\tNote that if the application has been started with the --disthost command line\n\tswitch, listenHttp() will automatically listen on the specified VibeDist host\n\tinstead of locally. This allows for a seemless switch from single-host to\n\tmulti-host scenarios without changing the code. If you need to listen locally,\n\tuse listenHttpPlain() instead.\n\n\tParams:\n\t\tsettings = Customizes the HTTP servers functionality.\n\t\trequest_handler = This callback is invoked for each incoming request and is responsible\n\t\t\tfor generating the response.\n"
+			"comment": "\n\n\n\tStarts a HTTP server listening on the specified port.\n\n\trequest_handler will be called for each HTTP request that is made. The\n\tres parameter of the callback then has to be filled with the response\n\tdata.\n\n\trequest_handler can be either HttpServerRequestDelegate/HttpServerRequestFunction\n\tor a class/struct with a member function 'handleRequest' that has the same\n\tsignature.\n\n\tNote that if the application has been started with the --disthost command line\n\tswitch, listenHttp() will automatically listen on the specified VibeDist host\n\tinstead of locally. This allows for a seamless switch from single-host to\n\tmulti-host scenarios without changing the code. If you need to listen locally,\n\tuse listenHttpPlain() instead.\n\n\tParams:\n\t\tsettings = Customizes the HTTP servers functionality.\n\t\trequest_handler = This callback is invoked for each incoming request and is responsible\n\t\t\tfor generating the response.\n"
 		},
 		{
 			"kind": "function",
@@ -7090,7 +7083,7 @@
 					"protection": "public",
 					"type": "string",
 					"name": "peer",
-					"comment": " The address of the _peer (in IP _form)\n"
+					"comment": " The IP address of the client\n"
 				},
 				{
 					"kind": "variable",
@@ -9165,7 +9158,7 @@
 	"members": [
 		{
 			"kind": "function",
-			"line": 24,
+			"line": 25,
 			"protection": "public",
 			"type": "NetworkAddress(string host, ushort address_family = cast(ushort)0, bool use_dns = true)",
 			"name": "resolveHost",
@@ -9173,15 +9166,15 @@
 		},
 		{
 			"kind": "function",
-			"line": 41,
+			"line": 42,
 			"protection": "public",
 			"type": "void(ushort port, void delegate(TcpConnection stream) connection_callback)",
 			"name": "listenTcp",
-			"comment": "\n\tStarts listening on the specified port.\n\n\t'connection_callback' will be called for each client that connects to the\n\tserver socket. The 'stream' parameter then allows to perform pseudo-blocking\n\ti/o on the client socket.\n\n\tThe 'ip4_addr' or 'ip6_addr' parameters can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n"
+			"comment": "\n\tStarts listening on the specified port.\n\n\t'connection_callback' will be called for each client that connects to the\n\tserver socket. Each new connection gets its own fiber. The stream parameter\n\tthen allows to perform blocking I/O on the client socket.\n\n\tThe address parameter can be used to specify the network\n\tinterface on which the server socket is supposed to listen for connections.\n\tBy default, all IPv4 and IPv6 interfaces will be used.\n"
 		},
 		{
 			"kind": "function",
-			"line": 47,
+			"line": 48,
 			"protection": "public",
 			"type": "void(ushort port, void delegate(TcpConnection stream) connection_callback, string address)",
 			"name": "listenTcp",
@@ -9189,15 +9182,15 @@
 		},
 		{
 			"kind": "function",
-			"line": 57,
+			"line": 58,
 			"protection": "public",
 			"type": "void(ushort port, void function(TcpConnection stream) connection_callback)",
 			"name": "listenTcpS",
-			"comment": "\n\tStarts listening on the specified port.\n\n\tThis function is the same as listenTcp() but takes a function callback instead of a delegate.\n"
+			"comment": "\n\tStarts listening on the specified port.\n\n\tThis function is the same as listenTcp but takes a function callback instead of a delegate.\n"
 		},
 		{
 			"kind": "function",
-			"line": 62,
+			"line": 63,
 			"protection": "public",
 			"type": "void(ushort port, void function(TcpConnection stream) connection_callback, string address)",
 			"name": "listenTcpS",
@@ -9205,7 +9198,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 70,
+			"line": 71,
 			"protection": "public",
 			"type": "TcpConnection(string host, ushort port)",
 			"name": "connectTcp",
@@ -9213,7 +9206,7 @@
 		},
 		{
 			"kind": "function",
-			"line": 79,
+			"line": 80,
 			"protection": "public",
 			"type": "UdpConnection(ushort port, string bind_address = \"0.0.0.0\")",
 			"name": "listenUdp",
@@ -9221,12 +9214,12 @@
 		},
 		{
 			"kind": "struct",
-			"line": 88,
+			"line": 89,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 97,
+					"line": 98,
 					"protection": "public",
 					"type": "const @property ushort()",
 					"name": "family",
@@ -9234,7 +9227,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 99,
+					"line": 100,
 					"protection": "public",
 					"type": "@property void(ushort val)",
 					"name": "family",
@@ -9242,7 +9235,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 103,
+					"line": 104,
 					"protection": "public",
 					"type": "const @property ushort()",
 					"name": "port",
@@ -9250,7 +9243,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 112,
+					"line": 113,
 					"protection": "public",
 					"type": "@property void(ushort val)",
 					"name": "port",
@@ -9258,7 +9251,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 123,
+					"line": 124,
 					"protection": "public",
 					"type": "inout @property inout(sockaddr)*()",
 					"name": "sockAddr",
@@ -9266,7 +9259,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 127,
+					"line": 128,
 					"protection": "public",
 					"type": "const @property int()",
 					"name": "sockAddrLen",
@@ -9274,14 +9267,14 @@
 				},
 				{
 					"kind": "function",
-					"line": 135,
+					"line": 136,
 					"protection": "public",
 					"type": "inout @property inout(sockaddr_in)*()",
 					"name": "sockAddrInet4"
 				},
 				{
 					"kind": "function",
-					"line": 136,
+					"line": 137,
 					"protection": "public",
 					"type": "inout @property inout(sockaddr_in6)*()",
 					"name": "sockAddrInet6"
@@ -9292,12 +9285,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 143,
+			"line": 144,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 145,
+					"line": 146,
 					"protection": "public",
 					"type": "@property void(bool enabled)",
 					"name": "tcpNoDelay",
@@ -9305,7 +9298,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 147,
+					"line": 148,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "tcpNoDelay",
@@ -9313,7 +9306,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 150,
+					"line": 151,
 					"protection": "public",
 					"type": "@property void(Duration duration)",
 					"name": "readTimeout",
@@ -9321,7 +9314,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 153,
+					"line": 154,
 					"protection": "public",
 					"type": "const @property Duration()",
 					"name": "readTimeout",
@@ -9329,7 +9322,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 156,
+					"line": 157,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "connected",
@@ -9337,7 +9330,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 159,
+					"line": 160,
 					"protection": "public",
 					"type": "const @property string()",
 					"name": "peerAddress",
@@ -9345,7 +9338,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 162,
+					"line": 163,
 					"protection": "public",
 					"type": "void()",
 					"name": "close",
@@ -9353,7 +9346,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 165,
+					"line": 166,
 					"protection": "public",
 					"type": "bool(Duration timeout)",
 					"name": "waitForData",
@@ -9369,12 +9362,12 @@
 		},
 		{
 			"kind": "interface",
-			"line": 172,
+			"line": 173,
 			"protection": "public",
 			"members": [
 				{
 					"kind": "function",
-					"line": 175,
+					"line": 176,
 					"protection": "public",
 					"type": "const @property string()",
 					"name": "bindAddress",
@@ -9382,7 +9375,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 179,
+					"line": 180,
 					"protection": "public",
 					"type": "const @property bool()",
 					"name": "canBroadcast",
@@ -9390,7 +9383,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 181,
+					"line": 182,
 					"protection": "public",
 					"type": "@property void(bool val)",
 					"name": "canBroadcast",
@@ -9398,7 +9391,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 188,
+					"line": 189,
 					"protection": "public",
 					"type": "void(string host, ushort port)",
 					"name": "connect",
@@ -9406,7 +9399,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 195,
+					"line": 196,
 					"protection": "public",
 					"type": "void(const(ubyte[]) data, const(NetworkAddress*) peer_address = null)",
 					"name": "send",
@@ -9414,7 +9407,7 @@
 				},
 				{
 					"kind": "function",
-					"line": 201,
+					"line": 202,
 					"protection": "public",
 					"type": "ubyte[](ubyte[] buf = null, NetworkAddress* peer_address = null)",
 					"name": "recv",
