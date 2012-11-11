@@ -144,7 +144,7 @@ block body
 				|}
 			.caption Simple app.d file with minimal routing
 
-		p The 'views' sub folder is automatically searched for templates instanciated with <a href="api/vibe.http.server/render"><code class="prettyprint">render()</code></a>. The two templates in the example structure might look like this:
+		p The 'views' sub folder is automatically searched for templates instantiated with <a href="api/vibe.http.server/render"><code class="prettyprint">render()</code></a>. The two templates in the example structure might look like this:
 
 		code
 			pre !\!! 5
@@ -245,7 +245,7 @@ block body
 			p The
 				code
 					a(href="/api/http.router/UrlRouter") UrlRouter
-				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wildcards. Any matched variable will be available as an entry in the HttpRequest.params dictionary.
+				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the HttpRequest.params dictionary.
 			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
 				span.dclass UrlRouter
 				| class (e.g. .get() or .post()). The following example will route all GET requests matching the path scheme "/users/*" to the
@@ -504,7 +504,7 @@ block body
 					code.prettyprint.lang-d Bson
 				| struct.
 
-			p For an comprehensive documentation of mongo's operations see the
+			p For an comprehensive documentation of MongoDB's operations see the
 				a.extern(href="http://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
 				|. The
 				a(href="api/vibe.db.mongo.mongo/") API reference
@@ -534,7 +534,7 @@ block body
 			
 			p A rudimentary client for the structured storage server
 				a.extern(href="http://redis.io", target="_blank") Redis
-				| is included in Vibe. Commands and operations on redis data types are implemented as instance methods of the client. The methods are named after their corresponding redis command documented in the
+				| is included in Vibe. Commands and operations on Redis data types are implemented as instance methods of the client. The methods are named after their corresponding Redis command documented in the
 				a.extern(href="http://redis.io/commands") command reference
 				|.
 
@@ -672,7 +672,7 @@ block body
 
 			p For server applications it may be desirable to start the application as root so that it can listen on privileged ports or open system log files for writing. After these setup tasks, such applications impose a security risk because a hole in the application that allows to somehow execute commands on the server will give the attacker full access to the system. For this reason vibe supports privilege lowering, where the user id and group id of the process are changed to an unprivileged user after the setup process, right before the event loop is started.
 			
-			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "uid" and "gid" have to be set to the the id of the unpriviledged user/group.
+			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "uid" and "gid" have to be set to the the id of the unprivileged user/group.
 			
 			pre.code
 				|{

@@ -47,7 +47,7 @@ block body
 			a#apt-repository
 			h3 APT repository
 			
-			p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
+			p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a Debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
 			
 			p
 				a.extern(href="https://code.google.com/p/d-apt/wiki/APT_Repository", target="_blank") APT repository wiki page

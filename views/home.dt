@@ -71,7 +71,7 @@ block plainbody
 						p All about the project's motivation, goals and the creators
 					li.nav-download
 						a(href="download") Download
-						p Get the latest release and accompaning material
+						p Get the latest release and accompanying material
 					li.nav-blog
 						a(href="blog/") Blog
 						p Follow the development of vibe.d and stay up to date with news and events

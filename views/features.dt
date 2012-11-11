@@ -141,7 +141,7 @@ block body
 			
 			p Vibe.d is written in the
 				a.extern(href="http://dlang.org", target="_blank") D Programming Language
-				|. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to beeing fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
+				|. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to being fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
 
 			p Some notable features are listed here, but there are a lot of additional things that would be beyond the scope of this text. See the
 				a.extern(href="http://dlang.org/comparison.html", target="_blank") D feature page
@@ -152,7 +152,7 @@ block body
 				dd
 					p The meta-programming system in D is extremely powerful. Templates (comparable to C++ templates) support variadic parameters, as well as string and alias parameters - a feature which enables very comfortable compile-time interfaces.
 
-					p The ultimate power is given by the possiblity to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
+					p The ultimate power is given by the possibility to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
 
 					p These features together with the possibility to read files at compile time have enabled the powerful
 						a(href="#diet-templates") Diet template parser
@@ -169,7 +169,7 @@ block body
 				
 				dt Closures and lambdas
 				dd
-					p A feature also known from some scripting amd functional languages, but also C# and a few others are clusures and lambdas. They allow to specify callback functions in a very compact and readably way.
+					p A feature also known from some scripting and functional languages, but also C# and a few others are closures and lambdas. They allow to specify callback functions in a very compact and readably way.
 				
 				dt Properties
 				dd

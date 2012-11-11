@@ -35,4 +35,4 @@ block body
 		
 		p The github project page contains an
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues", target="_blank") issue tracker
-			|. This is the right place to post any issues that come up and also for feature or enhancement requests. However, anything that seems like it might cause a longer discussion sould better go to the newsgroup/web forum, which works much better for discussions.
+			|. This is the right place to post any issues that come up and also for feature or enhancement requests. However, anything that seems like it might cause a longer discussion should better go to the newsgroup/web forum, which works much better for discussions.

@@ -149,7 +149,7 @@ block body
 			a#plain-text
 			h3 Plain text
 			
-			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting prefromatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
+			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting preformatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
 			
 			code
 				pre !\!! 5
@@ -216,7 +216,7 @@ block body
 			a#statements
 			h3 Statements
 			
-			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statments such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
+			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 			
 			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
 			
