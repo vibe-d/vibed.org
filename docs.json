@@ -4276,7 +4276,7 @@
 					"kind": "function",
 					"line": 126,
 					"protection": "public",
-					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1745;\r\n , __ctmp1745).this(null))",
+					"type": "Reply(string collection_name, QueryFlags flags, int nskip, int nret, Bson query, Bson returnFieldSelector = (Bson __ctmp1747;\r\n , __ctmp1747).this(null))",
 					"name": "query"
 				},
 				{
@@ -9479,6 +9479,108 @@
 	],
 	"name": "vibe.templ.utils",
 	"comment": "\n\tUtility functions for dealing with templates.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n\tAuthors: Sönke Ludwig\n"
+},
+{
+	"kind": "module",
+	"file": "..\\source\\vibe\\core\\mutex.d",
+	"members": [
+		{
+			"kind": "enum",
+			"line": 13,
+			"protection": "public",
+			"base": "int",
+			"members": [
+				{
+					"kind": "enum member",
+					"line": 14,
+					"protection": "public",
+					"name": "Lock"
+				},
+				{
+					"kind": "enum member",
+					"line": 15,
+					"protection": "public",
+					"name": "Try"
+				},
+				{
+					"kind": "enum member",
+					"line": 16,
+					"protection": "public",
+					"name": "Defer"
+				}
+			],
+			"name": "LockMode"
+		},
+		{
+			"kind": "struct",
+			"line": 22,
+			"protection": "public",
+			"members": [
+				{
+					"kind": "constructor",
+					"line": 31,
+					"protection": "public",
+					"type": "ref ScopedLock(Mutex mutex, LockMode mode = cast(LockMode)0)",
+					"name": "this"
+				},
+				{
+					"kind": "function",
+					"line": 52,
+					"protection": "public",
+					"type": "const @property bool()",
+					"name": "locked"
+				},
+				{
+					"kind": "function",
+					"line": 54,
+					"protection": "public",
+					"type": "bool()",
+					"name": "tryLock"
+				},
+				{
+					"kind": "function",
+					"line": 60,
+					"protection": "public",
+					"type": "void()",
+					"name": "lock"
+				},
+				{
+					"kind": "function",
+					"line": 66,
+					"protection": "public",
+					"type": "void()",
+					"name": "unlock"
+				},
+				{
+					"kind": "function",
+					"line": 22,
+					"protection": "public",
+					"type": "const void(ref const(ScopedLock) p)",
+					"name": "__cpctor"
+				},
+				{
+					"kind": "function",
+					"line": 22,
+					"protection": "public",
+					"type": "ref ScopedLock(ScopedLock p)",
+					"name": "opAssign"
+				}
+			],
+			"name": "ScopedLock",
+			"comment": " RAII lock for the Mutex class.\n"
+		},
+		{
+			"kind": "class",
+			"line": 77,
+			"protection": "public",
+			"base": "Object",
+			"members": [],
+			"name": "Mutex",
+			"comment": " Mutex implementation for fibers.\n\n\tNote that this mutex is suitable only for synchronizing different fibers. If you need inter\n\tthread synchronization, go for core.sync.mutex instead.\n"
+		}
+	],
+	"name": "vibe.core.mutex",
+	"comment": "\n\tMutex locking functionality.\n\n\tCopyright: © 2012 RejectedSoftware e.K.\n\tAuthors: Leonid Kramer\n\tLicense: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.\n"
 },
 {
 	"kind": "module",
