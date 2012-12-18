@@ -15,8 +15,7 @@ block navigation
 block body
 
 	section
-		a#web-forums
-		h2 Web forums
+		h2#web-forums Web forums
 		
 		p The
 			a.extern(href="http://news.rejectedsoftware.com/", target="_blank") web forum
@@ -24,14 +23,12 @@ block body
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
 
 	section
-		a#newsgroup
-		h2 Newsgroup server
+		h2#newsgroup Newsgroup server
 			
 		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://news.rejectedsoftware.com:119/rejectedsoftware.vibed/">news.rejectedsoftware.com:119</a>.
 
 	section
-		a#issue-tracker
-		h2 Github issue tracker
+		h2#issue-tracker Github issue tracker
 		
 		p The github project page contains an
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues", target="_blank") issue tracker

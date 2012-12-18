@@ -21,8 +21,7 @@ block navigation
 block body
 
 	section
-		a#release-version
-		h2 Current release version
+		h2#release-version Current release version
 			
 		p This is the current official release version. Note that although this release is
 			| considered to be reasonable stable, it is still considered beta quality. If you
@@ -32,8 +31,7 @@ block body
 			| issues as fast as possible.
 		
 		section
-			a#zip-package
-			h3 ZIP package
+			h3#zip-package ZIP package
 			
 			p The ZIP package is suitable for all supported operating systems. Simply extract and install according to the
 				a(href="docs#installation") install instructions.
@@ -44,8 +42,7 @@ block body
 				a.download(href="download?file=vibed-0.7.9.zip") Download Current Beta Release (0.7.9)
 
 		section
-			a#apt-repository
-			h3 APT repository
+			h3#apt-repository APT repository
 			
 			p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a Debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
 			
@@ -57,8 +54,7 @@ block body
 			pre $ apt-get install vibe
 
 		section
-			a#aur-package
-			h3 AUR package
+			h3#aur-package AUR package
 			
 			p The
 				a(href="http://aur.archlinux.org/") Arch User Repository
@@ -69,8 +65,7 @@ block body
 				| the package. Please test and vote if you are running Arch Linux.
 
 	section	
-		a#development-snapshot
-		h2 Latest development version
+		h2#development-snapshot Latest development version
 
 		p You can download the latest development version directly from git. Note that this
 			| version, while containing the latest and greatest features, can also be especially

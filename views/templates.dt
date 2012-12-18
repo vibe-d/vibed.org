@@ -52,8 +52,7 @@ block navigation
 block body
 
 	section
-		a#introduction
-		h2 Introduction
+		h2#introduction Introduction
 			
 		p(style="color: red") Work-in-progress
 		p(style="color: red") Please use the
@@ -69,8 +68,7 @@ block body
 			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
 			
 	section
-		a#basic-structure
-		h2 Basic structure
+		h2#basic-structure Basic structure
 		
 		:markdown
 			The general structure uses indentation to manage nesting of HTML tags, similar to what Python does. The indentation style of a document is enforced to be consistent and can either be tabs or any number of spaces. The indentation style is inferred from the first line that is indented. Note that indentation levels may never be skipped, so that the first indented line must always be indented by exactly one tab stop.
@@ -87,12 +85,10 @@ block body
 			.caption Example: A minimal HTML page
 			
 	section
-		a#content-elements
-		h2 Content elements
+		h2#content-elements Content elements
 		
 		section
-			a#html-elements
-			h3 HTML elements
+			h3#html-elements HTML elements
 			
 			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as &lt;br&gt; or &lt;link&gt; are recognized and output accordingly. The tag name can also be completely omitted, in which case a &lt;div&gt; is assumed.
 			
@@ -146,8 +142,7 @@ block body
 				.caption Example: HTML output for the example
 				
 		section
-			a#plain-text
-			h3 Plain text
+			h3#plain-text Plain text
 			
 			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting preformatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
 			
@@ -197,24 +192,20 @@ block body
 				.caption Example: HTML output for the example
 
 		section
-			a#comments
-			h3 Comments
+			h3#comments Comments
 
 			p(style="color:red") TODO
 
 	section
-		a#embedded-code
-		h2 Embedded D source code
+		h2#embedded-code Embedded D source code
 		
 		section
-			a#procedural-content
-			h3 Procedural content
+			h3#procedural-content Procedural content
 			
 			p(style="color:red") TODO
 			
 		section
-			a#statements
-			h3 Statements
+			h3#statements Statements
 			
 			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 			
@@ -264,30 +255,25 @@ block body
 				.caption Example: HTML output for the example
 
 		section
-			a#string-interpolations
-			h3 String interpolations
+			h3#string-interpolations String interpolations
 		
 			p(style="color:red") TODO
 
 	section
-		a#components
-		h2 Component templates
+		h2#components Component templates
 
 		section
-			a#extensions
-			h2 Blocks and Extensions
+			h2#blocks Blocks and Extensions
 			
 			p(style="color:red") TODO
 		
 		section
-			a#includes
-			h2 Includes
+			h2#includes Includes
 			
 			p(style="color:red") TODO
 
 		section
-			a#functions
-			h2 Functions
+			h2#functions Functions
 
 			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
 			
@@ -337,8 +323,7 @@ block body
 				.caption Example: HTML output for the example
 
 	section
-		a#filters
-		h2 Filters
+		h2#filters Filters
 		
 		p(style="color:red") TODO
 
@@ -382,8 +367,7 @@ block body
 			.caption Example: HTML output for the example
 
 	section
-		a#grammar
-		h2 Grammar
+		h2#grammar Grammar
 		
 		p The following listing shows the language grammar for a single line of a Diet template. Note that the grammar has been derived manually from the source code and may not be 100% accurate.
 		

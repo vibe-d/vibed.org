@@ -15,16 +15,14 @@ block navigation
 block body
 
 	section
-		a#external-projects
-		h2 The VPM registry
+		h2#external-projects The VPM registry
 
 		p The 
 			a(href="http://registry.vibed.org/") VPM registry
 			| (VPM for vibe package manager) provides a central place for publishing vibe.d projects and extension libraries. All packages registered there can be used by simply adding a corresponding entry into the package.json file of a vibe.d project. So if you are searching for advanced functionality or if you have a project which you'd like to make available, this is the right place.
 
 	section
-		a#helping
-		h2 Help vibe.d's development
+		h2#helping Help vibe.d's development
 		
 		p You can help with vibe's development in several ways. The easiest way is by filing bug reports or by voting for new features on the
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
@@ -33,8 +31,7 @@ block body
 		p Finally, you can clone the GIT repository and start hacking directly on vibe's code base.
 
 	section	
-		a#hacking-vibe
-		h2 Hacking on vibe.d
+		h2#hacking-vibe Hacking on vibe.d
 		
 		p To start developing vibe.d, fork the repository using the "Fork" button on the github repository:
 		p

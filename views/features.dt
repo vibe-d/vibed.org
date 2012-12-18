@@ -39,13 +39,11 @@ block body
 
 
 	section
-		a#simplicity
-		h2 Simplicity
+		h2#simplicity Simplicity
 
 
 		section
-			a#fibers
-			h3 Fiber based pseudo-blocking programming model
+			h3#fibers Fiber based pseudo-blocking programming model
 
 			p The key idea behind vibe was to take the fast
 				a(href="#aio") asynchronous I/O
@@ -64,22 +62,19 @@ block body
 			p This cooperative pseudo-threading is used to completely hide the asynchronous event based operation of the core system. It also blends seamlessly with the built-in support for multi-threading; to the user of the framework there is no visible difference between a fiber and a thread.
 
 		section		
-			a#compact-api
-			h3 Compact API
+			h3#compact-api Compact API
 
 			p There is a strong focus on a short and simple API. Common tasks are kept as short and high level as possible, while still allowing fine grained control if needed. By using some of D's advanced features, typical vibe.d based programs reach a level of conciseness that usually only scripting languages such as Ruby can offer.
 		
 		section
-			a#zero-downtime
-			h3 Zero-downtime changes
+			h3#zero-downtime Zero-downtime changes
 			
 			p (Work-in-progress) An
 				a(href="#load-balancing")
 				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seamless and low-risk changes on live-systems.
 
 		section
-			a#exception-based
-			h3 Exception based error handling
+			h3#exception-based Exception based error handling
 			
 			p Usually, exception handling usually is restricted to local error handlers in event-based environments - it is impossible to wrap a sequence of events into a try-catch block. vibe.d on the other hand has full support for exception handling.
 			
@@ -90,36 +85,30 @@ block body
 			p Exceptions have the extremely useful feature that you can barely ignore them. As such, it is much more difficult to introduce subtle bugs and security holes by unintentionally ignoring error conditions. Any uncaught exceptions will automatically generate an error page and log all useful information in case of HTTP services.
 
 	section		
-		a#productivity
-		h2 Productivity
+		h2#productivity Productivity
 
 		section	
-			a#web-framework
-			h3 Full integrated web framework
+			h3#web-framework Full integrated web framework
 			
 			p The vibe.d library contains a complete set of tools needed for website and web service development. In addition to a HTTP server with support for all common HTTP 1.1 features static file serving, an efficient template system, WebSockets, sessions and other features are already integrated.
 			
 			p Surrounding features include a markdown filter, MongoDB and Redis drivers, cryptography, natural JSON and BSON support and a simple SMTP client.
 
 		section
-			a#native-db
-			h3 Native database drivers
+			h3#native-db Native database drivers
 			
 			p Currently, the core library contains built-in support for MongoDB and Redis databases. These provide a default for fast and flexible data storage. Additional drivers are easy to port to vibe.d because of the blocking API - basically the only thing that has to be done is to replace the socket calls (send(), recv(), connect() etc.) with the corresponding vibe functions.
 
 		section
-			a#raw-sockets
-			h3 Raw TCP and File handling
+			h3#raw-sockets Raw TCP and File handling
 
 			p Raw TCP and file access is of course supported by the framework to support custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
 
 	section
-		a#performance
-		h2 Performance
+		h2#performance Performance
 
 		section		
-			a#aio
-			h3 Asynchronous I/O operations
+			h3#aio Asynchronous I/O operations
 			
 			p Instead of using classic blocking I/O together with multi-threading for doing parallel network and file operations, all operations are using asynchronous operating system APIs.
 				a.extern(href="http://libevent.org/", target="_blank") libevent
@@ -136,8 +125,7 @@ block body
 				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading while retaining the performance characteristics of asynchronous I/O.
 		
 		section
-			a#native-code
-			h3 Native machine code
+			h3#native-code Native machine code
 			
 			p Vibe.d is written in the
 				a.extern(href="http://dlang.org", target="_blank") D Programming Language
@@ -195,8 +183,7 @@ block body
 						| need to specify an explicit type, you will discover that there is not much
 						| to miss.
 		section
-			a#diet-templates
-			h3 Compile-time "Diet" templates
+			h3#diet-templates Compile-time "Diet" templates
 
 			p vibe.d has built-in support for HTML templates based on the
 				a.extern(href="http://jade-lang.com/", target="_blank") jade
@@ -209,8 +196,7 @@ block body
 			p At the same time you can program in the same language as for the rest of the application, which makes for a very consistent development experience.
 
 		section		
-			a#load-balancing
-			h3 Integrated load balancing
+			h3#load-balancing Integrated load balancing
 
 			p The installation package contains a load balancer application that can almost seamlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
 
