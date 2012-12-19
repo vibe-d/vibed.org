@@ -10,6 +10,8 @@ block navigation
 		li
 			a(href="#newsgroup") Newsgroup server
 		li
+			a(href="#wiki") Wiki
+		li
 			a(href="#issue-tracker") Issue tracker
 
 block body
@@ -26,6 +28,13 @@ block body
 		h2#newsgroup Newsgroup server
 			
 		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://news.rejectedsoftware.com:119/rejectedsoftware.vibed/">news.rejectedsoftware.com:119</a>.
+
+	section
+		h2#wiki Wiki
+
+		p The
+			a.extern(href="https://github.com/rejectedsoftware/vibe.d/wiki") public wiki
+			| is located on the github project page. It's content is still very limited, but anyone can quickly contribute interesting links or knowledge there.
 
 	section
 		h2#issue-tracker Github issue tracker
