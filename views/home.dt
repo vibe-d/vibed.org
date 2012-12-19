@@ -2,6 +2,7 @@ extends layout
 
 block title
 	- string title = "";
+	meta(name="description", content="Powerful asynchronous I/O and web framework for D, providing a fiber based blocking programming model and an efficient API. Comes with database support for MongoDB, Redis and is extensible using a package management system.")
 
 block plainbody
 	h1(style="display: none;") vibe.d
