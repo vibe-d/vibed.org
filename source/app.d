@@ -79,12 +79,13 @@ static this()
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
 	auto docsettings = new GeneratorSettings;
-	docsettings.navPackageTree = true;
-	registerApiDocs(router, m_rootPackage, "/api", docsettings);
+	docsettings.navigationType = NavigationType.ModuleTree;
+	docsettings.siteUrl = Url("http://vibed.org/api");
+	registerApiDocs(router, m_rootPackage, docsettings);
 
 	auto blogsettings = new VibeLogSettings;
 	blogsettings.configName = "vibe.d";
-	blogsettings.basePath = "/blog/";
+	blogsettings.siteUrl = Url("http://vibed.org/blog/");
 	blogsettings.textFilters ~= &prettifyFilter;
 	registerVibeLog(blogsettings, router);
 
