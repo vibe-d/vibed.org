@@ -78,10 +78,9 @@ static this()
 	router.get("/templates/", staticRedirect("/templates/diet"));
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
-	auto docsettings = new GeneratorSettings;
-	docsettings.navigationType = NavigationType.ModuleTree;
-	docsettings.siteUrl = Url("http://vibed.org/api");
-	registerApiDocs(router, m_rootPackage, docsettings);
+	auto fsettings = new HttpFileServerSettings;
+	fsettings.maxAge = 0;
+	router.get("*", serveStaticFiles("./public/", fsettings));
 
 	auto blogsettings = new VibeLogSettings;
 	blogsettings.configName = "vibe.d";
@@ -89,7 +88,10 @@ static this()
 	blogsettings.textFilters ~= &prettifyFilter;
 	registerVibeLog(blogsettings, router);
 
-	router.get("*", serveStaticFiles("./public/"));
-	
+	auto docsettings = new GeneratorSettings;
+	docsettings.navigationType = NavigationType.ModuleTree;
+	docsettings.siteUrl = Url("http://vibed.org/api");
+	registerApiDocs(router, m_rootPackage, docsettings);
+
 	listenHttp(settings, router);
 }
