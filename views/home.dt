@@ -64,7 +64,7 @@ block plainbody
 		.clear
 	#container
 		#navigation
-			h2= "Jump to…"
+			h2 Jump to…
 			nav#global-nav
 				ul
 					li.nav-about
