@@ -126,10 +126,10 @@ block body
 				|
 				|void index(HttpServerRequest req, HttpServerResponse res)
 				|{
-				|	//res.render!("index.dt"); // requires dmd >= 2.060
-				|	res.renderCompat!("index.dt",
-				|		HttpServerRequest, "req")
-				|		(Variant(req));
+				|	res.renderCompat!("index.dt", HttpServerRequest, "req")(req);
+				|
+				|	// not recommended alternative, may cause memory corruption due to a DMD bug
+				|	//res.render!("index.dt", req);
 				|}
 				|
 				|static this()
@@ -175,7 +175,7 @@ block body
 			pre {
 				|	"name": "appname",
 				|	"description": "My fabulous new app",
-				|	"copyright": "Copyright (c) 1984 Me.",
+				|	"copyright": "Copyright (C) 2000 Me. All rights reserved.",
 				|	"homepage": "http://appname.org",
 				|	"authors": [
 				|		"Hans Wurst"
@@ -222,7 +222,7 @@ block body
 								|	res.renderCompat!("error.dt",
 								|		HttpServerRequest, "req",
 								|		HttpServerErrorInfo, "error")
-								|		(Variant(req), Variant(error));
+								|		(req, error);
 								|}
 								|
 								|static this()
@@ -343,7 +343,7 @@ block body
 				|	res.renderCompat!("error.dl",
 				|		HttpServerRequest, "req",
 				|		HttpServerErrorInfo, "error")
-				|		(Variant(req), Variant(error));
+				|		(req, error);
 				|}
 				|
 				|static this()
