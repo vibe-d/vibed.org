@@ -68,15 +68,17 @@ block body
 		
 		p On Windows, add the 'bin' directory to the PATH by going to Advanced System Settings/Advanced/Environment Variables and entering the path into either the user PATH variable or the system wide version.
 		
-		p For Mac, Linux and other *NIXes, there is a setup script that creates the symlink and adds an unprivileged 'vibe' user to allow for
+		p For *NIXes, there are setup scripts that create the symlink and add an unprivileged 'www-vibe' user to allow for
 			a(href="#privilege-lowering") privilege lowering
-			| on server systems. Depending on the operating system, run setup-linux.sh or setup-mac.sh from the directory where the files have been extracted:
+			| on server systems. Depending on the operating system, run the appropriate setup script from directory where the files have been extracted:
 			code
 				pre $ ./setup-linux.sh
-			code
-				pre $ ./setup-mac.sh
+					| or
+					|$ ./setup-mac.sh
+					| or
+					|$ ./setup-freebsd.sh
 				
-		p On Mac and Linux you may need to install some additional dependencies. See the
+		p On non-Windows systems you may need to install some additional dependencies. See the
 			a(href="https://github.com/rejectedsoftware/vibe.d#vibed") github page
 			| for more information.
 		
@@ -652,11 +654,11 @@ block body
 
 			p For server applications it may be desirable to start the application as root so that it can listen on privileged ports or open system log files for writing. After these setup tasks, such applications impose a security risk because a hole in the application that allows to somehow execute commands on the server will give the attacker full access to the system. For this reason vibe supports privilege lowering, where the user id and group id of the process are changed to an unprivileged user after the setup process, right before the event loop is started.
 			
-			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "uid" and "gid" have to be set to the the id of the unprivileged user/group.
+			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "user" and "group" have to be set to the the name or numeric ID of the unprivileged user/group.
 			
 			pre.code
 				|{
-				|	"uid": 1000,
-				|	"gid": 1000
+				|	"user": "www-data",
+				|	"group": "www-data"
 				|}
 			.caption Example vibe.conf file
