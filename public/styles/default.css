@@ -64,7 +64,7 @@ nav#global-nav li {
 }
 
 #maincontent h3 {
-	font-size: 14pt;
+	font-size: 12pt;
 	line-height: 18pt;
 	/*color: black;*/
 	margin-top: 18pt;
@@ -72,8 +72,8 @@ nav#global-nav li {
 }
 
 #maincontent h4 {
-	font-size: 12pt;
-	line-height: 18pt;
+	font-size: 11pt;
+	line-height: 12pt;
 	/*color: black;*/
 	/*margin-top: 18pt;*/
 	margin-bottom: 6pt;
