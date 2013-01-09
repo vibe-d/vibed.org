@@ -29,8 +29,8 @@ html(lang="en-US")
 			#header
 				#logo-line
 					a(href="http://vibed.org/")
-						img#logo(src="#{req.rootDir}images/logo.png", alt='')
-						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta')
+						img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
+						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
 					a#download(href="#{req.rootDir}download")
 						.downloadArrow
 						strong Download
