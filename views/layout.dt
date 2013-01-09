@@ -6,7 +6,7 @@ html(lang="en-US")
 
 		link(rel="stylesheet", href="#{req.rootDir}styles/common.css", type="text/css")
 		- if( title.length )
-			title vibe.d: #{title}
+			title #{title} - vibe.d
 			link(rel="stylesheet", href="#{req.rootDir}styles/default.css", type="text/css")
 			link(rel="stylesheet", href="#{req.rootDir}styles/vibelog.css", type="text/css")
 		- else
