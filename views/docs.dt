@@ -46,7 +46,7 @@ block navigation
 			a(href="#advanced") Advanced topics
 			ul
 				li
-					a(href="#vpm-publishing") Publishing on the VPM registry
+					a(href="#dub-publishing") Publishing on the DUB registry
 				li
 					a(href="#custom-main") Custom main function
 				li
@@ -591,13 +591,13 @@ block body
 		h2#advanced Advanced topics
 		
 		section
-			h3#vpm-publishing Publishing on the VPM registry
+			h3#dub-publishing Publishing on the DUB registry
 			
 			p The
-				a.extern(href="http://registry.vibed.org/", target="_blank") VPM registry
-				| contains packages that extend vibe's core functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the package.json file is present.
+				a.extern(href="http://registry.vibed.org/", target="_blank") DUB registry
+				| contains packages that use the same package management as vibe.d. Many of them extend and supplement vibe.d's functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the project's package.json file is present.
 			
-			p If you have written an extension library yourself, you can register it in the VPM registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which lies in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github. 
+			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which has to lie in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github. See <a href="http://registry.vibed.org/publish">http://registry.vibed.org/publish</a> for more information.
 				
 			pre.code {
 				|	"name": "vibelog",
@@ -609,7 +609,7 @@ block body
 				|	"dependencies": {
 				|	}
 				|}
-			.caption Example: A package.json file suitable for registration as a VPM package.
+			.caption Example: A package.json file suitable for registration as a DUB package.
 				
 			p You can then register your project on
 				a.extern(href="http://registry.vibed.org/", target="_blank") registry.vibed.org
@@ -623,7 +623,7 @@ block body
 				|		"vibelog": ">=0.0.1"
 				|	}
 				|}
-			.caption Example: Corresponding dependency to use the VPM package.
+			.caption Example: Corresponding dependency to use the published DUB package.
 		
 		section
 			h3#custom-main Custom main function
