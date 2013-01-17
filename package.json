@@ -1,8 +1,9 @@
 {
 	"name": "vibed.org",
-	"version": "1.0.0",
+	"description": "The official vibe.d website.",
 	"dependencies": {
-		"vibelog": "~master",
-		"ddox": "~master"
+		"vibe-d": "~master",
+		"ddox": "~master",
+		"vibelog": "~master"
 	}
 }
