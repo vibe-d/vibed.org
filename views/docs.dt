@@ -503,18 +503,18 @@ block body
 			code
 				pre.code.prettyprint.lang-d import vibe.d;
 					|
-					|MongoDB db;
+					|MongoClient client;
 					|
 					|void test()
 					|{
-					|	auto coll = db["test.collection"];
+					|	auto coll = client.getCollection("test.collection");
 					|	foreach( doc; coll.find(["name": "Peter"]) )
 					|		logInfo("Found entry: %s", cast(Json)doc);
 					|}
 					|
 					|static this()
 					|{
-					|	db = connectMongoDB("127.0.0.1");
+					|	client = connectMongoDB("127.0.0.1");
 					|}
 				.caption Example: Finding entries in a MongoDB
 
