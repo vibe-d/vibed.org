@@ -79,7 +79,7 @@ static this()
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
 	auto fsettings = new HttpFileServerSettings;
-	fsettings.maxAge = 0;
+	fsettings.maxAge = 0.seconds();
 	router.get("*", serveStaticFiles("./public/", fsettings));
 
 	auto blogsettings = new VibeLogSettings;
