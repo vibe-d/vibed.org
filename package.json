@@ -1,5 +1,5 @@
 {
-	"name": "vibed.org",
+	"name": "vibed-org",
 	"description": "The official vibe.d website.",
 	"dependencies": {
 		"vibe-d": "~master",
