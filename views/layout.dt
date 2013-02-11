@@ -34,7 +34,7 @@ html(lang="en-US")
 					a#download(href="#{req.rootDir}download")
 						.downloadArrow
 						strong Download
-						#download-version 0.7.11 beta
+						#download-version 0.7.12 beta
 
 			block plainbody
 
