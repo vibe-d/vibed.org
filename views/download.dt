@@ -10,6 +10,8 @@ block navigation
 			
 			ul
 				li
+					a(href="#using-dub") Usage via DUB
+				li
 					a(href="#zip-package") ZIP package
 				li
 					a(href="#apt-repository") APT repository
@@ -19,6 +21,13 @@ block navigation
 			a(href="#development-snapshot") Development snapshot
 
 block body
+
+	section
+		h2#using-dub Usage via DUB
+
+		p The recommended way to use vibe.d is now to use <a href="https://github.com/rejectedsoftware/dub/">DUB</a> to make vibe.d available to your projects.
+
+		p Simply add "vibe-d" as a dependency to your project and DUB will automatically download the latest version (upgrading can be done by running <code>dub upgrade</code>). See the <a href="docs#first-steps">first steps</a> for more details.
 
 	section
 		h2#release-version Current release version

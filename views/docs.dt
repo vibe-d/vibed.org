@@ -59,6 +59,8 @@ block navigation
 block body
 	section
 		h2#installation Installation
+
+		p(style="color:#F40") Note: this section describes the manual installation process of vibe.d. The recommended way, however, is to use <a hreF="http://github.com/rejectedsoftware/dub/">DUB</a> instead and simply add vibe.d as a dependency to your project.
 		
 		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
 			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
@@ -94,12 +96,14 @@ block body
 	section
 		h2#first-steps First steps
 
+		p(style="color:red") Note: this section assumes that you have installed <a href="https://github.com/rejectedsoftware/dub/">DUB</a>. If you have directly installed vibe.d instead, simply replace all invocations of "dub" with "vibe".
+
 		p The easiest way to get started is to run the following command from your projects directory:
 
 		code
 			pre
 				|$ cd /path/to/my/projects
-				|$ vibe init &lt;project-name&gt;
+				|$ dub init &lt;project-name&gt;
 
 		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>package.json</code> file if you want to publish your project.
 
@@ -119,7 +123,7 @@ block body
 				|		index.dt
 			.caption Example structure of a web application project
 
-		p The 'app.d' file could look similar to this one:
+		p For a simple web application, the 'app.d' file could look similar to this one:
 		
 		code
 			pre.code.prettyprint.lang-d import vibe.d;
@@ -132,7 +136,7 @@ block body
 				|	//res.render!("index.dt", req);
 				|}
 				|
-				|static this()
+				|shared static this()
 				|{
 				|	auto router = new UrlRouter;
 				|	router.get("/", &index);
@@ -163,13 +167,9 @@ block body
 				|	p Hello, World!
 			.caption Example index.dt
 
-		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the
-			a(href="templates/diet")Diet template documentation
-			|.
+		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
-		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the
-			a(href="http://registry.vibed.org/") public extension registry
-			|.
+		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://registry.vibed.org/">public extension registry</a>.
 		
 		code
 			pre {
@@ -181,6 +181,7 @@ block body
 				|		"Hans Wurst"
 				|	],
 				|	"dependencies": {
+				|		"vibe-d": ">=0.7.12"
 				|	}
 				|}
 			.caption Example package.json
@@ -188,7 +189,7 @@ block body
 		p Once you have the project in place, simply run vibe from the project's root directory and it will get all dependencies, compile the application, and run it:
 			code
 				pre $ cd path/to/project
-					|$ vibe
+					|$ dub
 					|Checking dependencies in 'path/to/project'
 					|Listening on 0.0.0.0 port 8080 succeeded
 					|Listening on :: port 8080 succeeded
@@ -225,7 +226,7 @@ block body
 								|		(req, error);
 								|}
 								|
-								|static this()
+								|shared static this()
 								|{
 								|	auto settings = new HttpServerSettings;
 								|	settings.errorPageHandler = toDelegate(&errorPage);
@@ -263,7 +264,7 @@ block body
 					|	res.redirect("/users/"~req.post["user"]);
 					|}
 					|
-					|static this()
+					|shared static this()
 					|{
 					|	auto router = new UrlRouter;
 					|	router.get("/users/:user", &userInfo);
@@ -346,7 +347,7 @@ block body
 				|		(req, error);
 				|}
 				|
-				|static this()
+				|shared static this()
 				|{
 				|	auto settings = new HttpServerSettings;
 				|	settings.errorPageHandler = toDelegate(&error);
@@ -380,7 +381,7 @@ block body
 					|	return user == "admin" && password == "secret";
 					|}
 					|
-					|static this()
+					|shared static this()
 					|{
 					|	auto router = new UrlRouter;
 					|	// the following routes are accessible without authentication:
@@ -444,7 +445,7 @@ block body
 					|		res.redirect("/");
 					|}
 					|
-					|static this()
+					|shared static this()
 					|{
 					|	auto router = new UrlRouter;
 					|	router.get("/", staticTemplate!"index.dl");
@@ -512,7 +513,7 @@ block body
 					|		logInfo("Found entry: %s", cast(Json)doc);
 					|}
 					|
-					|static this()
+					|shared static this()
 					|{
 					|	client = connectMongoDB("127.0.0.1");
 					|}
@@ -548,7 +549,7 @@ block body
 				
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
-				|static this()
+				|shared static this()
 				|{
 				|	listenTcp(7, (conn){ conn.write(conn) });
 				|}
@@ -559,7 +560,7 @@ block body
 				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
-				|static this()
+				|shared static this()
 				|{
 				|	listenTcp(7, conn => conn.write(conn), "127.0.0.1");
 				|}
@@ -581,7 +582,7 @@ block body
 				|.
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
-				|static this()
+				|shared static this()
 				|{
 				|	auto conn = connectTcp("time-b.timefreq.bldrdoc.gov", 13);
 				|	logInfo("The time is: %s", cast(string)conn.readAll());
