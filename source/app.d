@@ -1,18 +1,11 @@
 import vibe.d;
 
-import vibelog.vibelog;
-
-import ddox.ddox;
-import ddox.entities;
-import ddox.htmlserver;
-import ddox.htmlgenerator;
-import ddox.jsonparser;
 import std.algorithm;
 import std.array;
 import std.datetime;
 
+version(Have_vibelog) import vibelog.vibelog;
 
-Package m_rootPackage;
 
 void download(HttpServerRequest req, HttpServerResponse res)
 {
@@ -30,18 +23,29 @@ void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo er
 		(Variant(req), Variant(error));
 }
 
-void updateDocs()
+version(Have_ddox)
 {
-	try { 
-		import std.file;
-		string text = readText("docs.json");
-		auto json = parseJson(text);
-		auto settings = new DdoxSettings;
-		settings.declSort = SortMode.Name;
-		m_rootPackage = parseJsonDocs(json, settings);
-	} catch( Exception e ){
-		logError("Error loading docs: %s", e.toString());
-		throw e;
+	import ddox.ddox;
+	import ddox.entities;
+	import ddox.htmlserver;
+	import ddox.htmlgenerator;
+	import ddox.jsonparser;
+
+	Package m_rootPackage;
+
+	void updateDocs()
+	{
+		try { 
+			import std.file;
+			string text = readText("docs.json");
+			auto json = parseJson(text);
+			auto settings = new DdoxSettings;
+			settings.declSort = SortMode.Name;
+			m_rootPackage = parseJsonDocs(json, settings);
+		} catch( Exception e ){
+			logError("Error loading docs: %s", e.toString());
+			throw e;
+		}
 	}
 }
 
@@ -54,8 +58,6 @@ static this()
 {
 	setLogLevel(LogLevel.None);
 	setLogFile("log.txt", LogLevel.Info);
-
-	updateDocs();
 
 	auto settings = new HttpServerSettings;
 	settings.hostName = "vibed.org";
@@ -82,16 +84,23 @@ static this()
 	fsettings.maxAge = 0.seconds();
 	router.get("*", serveStaticFiles("./public/", fsettings));
 
-	auto blogsettings = new VibeLogSettings;
-	blogsettings.configName = "vibe.d";
-	blogsettings.siteUrl = Url("http://vibed.org/blog/");
-	blogsettings.textFilters ~= &prettifyFilter;
-	registerVibeLog(blogsettings, router);
+	version(Have_vibelog)
+	{
+		auto blogsettings = new VibeLogSettings;
+		blogsettings.configName = "vibe.d";
+		blogsettings.siteUrl = Url("http://vibed.org/blog/");
+		blogsettings.textFilters ~= &prettifyFilter;
+		registerVibeLog(blogsettings, router);
+	}
 
-	auto docsettings = new GeneratorSettings;
-	docsettings.navigationType = NavigationType.ModuleTree;
-	docsettings.siteUrl = Url("http://vibed.org/api");
-	registerApiDocs(router, m_rootPackage, docsettings);
+	version(Have_ddox)
+	{
+		updateDocs();
+		auto docsettings = new GeneratorSettings;
+		docsettings.navigationType = NavigationType.ModuleTree;
+		docsettings.siteUrl = Url("http://vibed.org/api");
+		registerApiDocs(router, m_rootPackage, docsettings);
+	}
 
 	listenHttp(settings, router);
 }
