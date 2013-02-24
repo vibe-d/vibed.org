@@ -6,6 +6,7 @@ import std.datetime;
 
 version(Have_vibelog) import vibelog.vibelog;
 
+string s_latestVersion = "0.7.11";
 
 void download(HttpServerRequest req, HttpServerResponse res)
 {
@@ -54,6 +55,24 @@ string prettifyFilter(string html)
 	return html.replace("<code><pre>", "<code><pre class=\"prettyprint\">");
 }
 
+void updateDownloads()
+{
+	import std.path;
+	auto lver = s_latestVersion.split(".").map!(v => v.to!int())().array();
+
+	foreach(de; iterateDirectory("public/files")){
+		auto basename = stripExtension(de.name);
+		auto parts = basename.split("-");
+		if( parts.length != 2 || parts[0] != "vibed" )
+			continue;
+		auto ver = parts[1].split(".").map!(v => v.to!int())().array();
+		if( ver > lver ){
+			lver = ver;
+			s_latestVersion = parts[1];
+		}
+	}
+}
+
 static this()
 {
 	setLogLevel(LogLevel.None);
@@ -67,6 +86,7 @@ static this()
 	
 	auto router = new UrlRouter;
 	
+	router.get("*", (req, res){ req.params["latestRelease"] = s_latestVersion; });
 	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
@@ -103,4 +123,7 @@ static this()
 	}
 
 	listenHttp(settings, router);
+
+	updateDownloads();
+	setTimer(10.seconds(), {updateDownloads();}, true);
 }

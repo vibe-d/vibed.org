@@ -34,7 +34,7 @@ html(lang="en-US")
 					a#download(href="#{req.rootDir}download")
 						.downloadArrow
 						strong Download
-						#download-version 0.7.12 beta
+						#download-version #{req.params["latestRelease"]} beta
 
 			block plainbody
 
