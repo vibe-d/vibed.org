@@ -629,24 +629,23 @@ block body
 		section
 			h3#custom-main Custom main function
 			
-			p When writing a client application, maybe something like <a href="http://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own main() function. To be able to do this, you just have to import "vibe.vibe" instead of "vibe.d". This will tell the compiler to not use the main() function that vibe.d provides.
+			p When writing a client application, maybe something like <a href="http://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own main() function. To be able to do this, you just have to <strike>import "vibe.vibe" instead of "vibe.d"</strike> add "VibeCustomMain" to the "versions" field in your package.json file. This will tell the compiler to not use the main() function that vibe.d provides.
 				
 			pre.code.prettyprint.lang-d import vibe.vibe;
 				|
 				|int main(string[] args)
 				|{
 				|	processCommandLineArgs(args);
-				|	return start();
+				|	return runEventLoop();
 				|}
 			.caption Example: Simple custom main function that runs an event loop.
 			
 			pre.code.prettyprint.lang-d import vibe.vibe;
 				|
-				|int main()
+				|void main()
 				|{
 				|	auto f = openFile("test.html", FileMode.CreateTrunc);
 				|	f.write(download("http://google.com/"));
-				|	return 0;
 				|}
 			.caption Example: Client application that downloads a document
 		
