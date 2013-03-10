@@ -22,7 +22,10 @@ block body
 		p The
 			a.extern(href="http://news.rejectedsoftware.com/", target="_blank") web forum
 			| is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
+		
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
+
+		p For Russian speakers, there is also a <a class="extern" target="_blank" href="http://dlang.ru/forum/ForumTopics/List/13/1">vibe.d forum</a> on <a class="extern" target="_blank" href="http://dlang.ru">dlang.ru</a>.
 
 	section
 		h2#newsgroup Newsgroup server
