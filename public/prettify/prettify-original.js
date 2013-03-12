@@ -81,6 +81,7 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
       "cast," +
       "export,foreach,foreach_reverse," +
       "import,interface,module,null,assert," +
+      "shared,__gshared,package,pure," +
       "template,typeid," +
 	  "byte,ubyte,ushort,uint,ulong"];
   var JAVA_KEYWORDS = [COMMON_KEYWORDS,
