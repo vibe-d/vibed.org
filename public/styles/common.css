@@ -58,6 +58,9 @@ b {
 	font-weight: bold;
 }
 
+em { font-style: italic; }
+strong { font-weight: bold; }
+
 a:link {
 	color: inherit;
 	text-decoration:none;
