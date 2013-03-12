@@ -6,7 +6,7 @@ import std.datetime;
 
 version(Have_vibelog) import vibelog.vibelog;
 
-string s_latestVersion = "0.7.11";
+string s_latestVersion = "0.7.13";
 
 void download(HttpServerRequest req, HttpServerResponse res)
 {
@@ -96,6 +96,7 @@ static this()
 	router.get("/features",  staticTemplate!"features.dt");
 	router.get("/docs",      staticTemplate!"docs.dt");
 	router.get("/developer", staticTemplate!"developer.dt");
+	router.get("/style-guide", staticTemplate!"styleguide.dt");
 	router.get("/templates", staticRedirect("/templates/"));
 	router.get("/templates/", staticRedirect("/templates/diet"));
 	router.get("/templates/diet", staticTemplate!"templates.dt");

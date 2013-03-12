@@ -44,3 +44,5 @@ block body
 			| and
 			a(href="http://help.github.com/send-pull-requests/") "Send pull requests"
 			| on github for more details.
+
+		p When making contributions, please follow the <a href="style-guide">style guide</a>.
