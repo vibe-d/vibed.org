@@ -20,7 +20,7 @@ block body
 		h2#web-forums Web forums
 		
 		p The
-			a.extern(href="http://news.rejectedsoftware.com/", target="_blank") web forum
+			a.extern(href="http://forum.rejectedsoftware.com/", target="_blank") web forum
 			| is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
 		
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
@@ -30,7 +30,7 @@ block body
 	section
 		h2#newsgroup Newsgroup server
 			
-		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://news.rejectedsoftware.com:119/rejectedsoftware.vibed/">news.rejectedsoftware.com:119</a>.
+		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://forum.rejectedsoftware.com:119/rejectedsoftware.vibed/">forum.rejectedsoftware.com:119</a>.
 
 	section
 		h2#wiki Wiki

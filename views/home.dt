@@ -81,7 +81,7 @@ block plainbody
 						p View a list of all features explaining how they work and what makes them special
 					li.nav-community
 						a(href="community") Community
-						p Places to <a href="http://news.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://news.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
+						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
 					li.nav-docs
 						a(href="docs") Documentation
 						p Development documentation including the full <a href="/api/">API reference</a>
