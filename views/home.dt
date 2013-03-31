@@ -92,18 +92,18 @@ block plainbody
 			h2 Example of a simple HTTP server
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
-				|void handleRequest(HttpServerRequest req,
-				|                   HttpServerResponse res)
+				|void handleRequest(HTTPServerRequest req,
+				|                   HTTPServerResponse res)
 				|{
 				|	res.writeBody("Hello, World!", "text/plain");
 				|}
 				|
 				|shared static this()
 				|{
-				|	auto settings = new HttpServerSettings;
+				|	auto settings = new HTTPServerSettings;
 				|	settings.port = 8080;
 				|
-				|	listenHttp(settings, &amp;handleRequest);
+				|	listenHTTP(settings, &amp;handleRequest);
 				|}
 		#example-echo-server
 			h2 Example of an echo server
@@ -111,6 +111,6 @@ block plainbody
 				|
 				|shared static this()
 				|{
-				|	listenTcp(7, (conn){ conn.write(conn); });
+				|	listenTCP(7, (conn) { conn.write(conn); });
 				|}
 		.clear

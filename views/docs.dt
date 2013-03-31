@@ -60,7 +60,7 @@ block body
 	section
 		h2#installation Installation
 
-		p(style="color:#F40") Note: this section describes the manual installation process of vibe.d. The recommended way, however, is to use <a hreF="http://github.com/rejectedsoftware/dub/">DUB</a> instead and simply add vibe.d as a dependency to your project.
+		p(style="color:#F40") Note: this section describes the manual installation process of vibe.d. The recommended way, however, is to use <a hreF="http://github.com/rejectedsoftware/dub/">DUB</a> instead and simply add "vibe-d" as a dependency to your project.
 		
 		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
 			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
@@ -96,7 +96,7 @@ block body
 	section
 		h2#first-steps First steps
 
-		p(style="color:red") Note: this section assumes that you have installed <a href="https://github.com/rejectedsoftware/dub/">DUB</a>. If you have directly installed vibe.d instead, simply replace all invocations of "dub" with "vibe".
+		p(style="color:#F40") Note: this section assumes that you have installed <a href="https://github.com/rejectedsoftware/dub/">DUB</a>. If you have directly installed vibe.d instead, simply invoke "vibe" instead of "dub" on the command line.
 
 		p The easiest way to get started is to run the following command from your projects directory:
 
@@ -128,9 +128,9 @@ block body
 		code
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
-				|void index(HttpServerRequest req, HttpServerResponse res)
+				|void index(HTTPServerRequest req, HTTPServerResponse res)
 				|{
-				|	res.renderCompat!("index.dt", HttpServerRequest, "req")(req);
+				|	res.renderCompat!("index.dt", HTTPServerRequest, "req")(req);
 				|
 				|	// not recommended alternative, may cause memory corruption due to a DMD bug
 				|	//res.render!("index.dt", req);
@@ -138,13 +138,13 @@ block body
 				|
 				|shared static this()
 				|{
-				|	auto router = new UrlRouter;
+				|	auto router = new URLRouter;
 				|	router.get("/", &index);
 				|
-				|	auto settings = new HttpServerSettings;
+				|	auto settings = new HTTPServerSettings;
 				|	settings.port = 8080;
 				|
-				|	listenHttp(settings, router);
+				|	listenHTTP(settings, router);
 				|}
 			.caption Simple app.d file with minimal routing
 
@@ -169,7 +169,7 @@ block body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
-		p Finally, you can add a package.json file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://registry.vibed.org/">public extension registry</a>.
+		p Finally, you can add a "package.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://registry.vibed.org/">public extension registry</a>.
 		
 		code
 			pre {
@@ -203,70 +203,79 @@ block body
 
 			p The HTTP server supports a number of configuration options to customize its behavior. By default, the server will listen on all local network adapters on port 80 and will perform complete request parsing. The following list gives an overview of the most common settings:
 				dl.feat
-					dt port
+					dt
+						a(href="api/vibe.http.server/HTTPServerSettings.port")
+							code.prettyprint port
 					dd The port on which the HTTP server shall listen
 					
-					dt bindAddresses
+					dt
+						a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses")
+							code.prettyprint bindAddresses
 					dd A list of all interfaces on which the server shall listen. IPv4 and IPv6 addresses, as well as domain names are supported.
 
-					dt options
-					dd Controls optional features of the web server. Certain options can be disabled to increase speed or to decrease memory usage. By default, the following options are enabled: 	ParseURL, ParseQueryString, ParseFormBody, ParseJsonBody, ParseMultiPartBody, ParseCookies. Enabled options are ORed together.
+					dt
+						a(href="api/vibe.http.server/HTTPServerSettings.options")
+							code.prettyprint options
+					dd Controls optional features of the web server. Certain options can be disabled to increase speed or to decrease memory usage. By default, the following options are enabled: parseURL, parseQueryString, parseFormBody, parseJsonBody, parseMultiPartBody, parseCookies. Enabled options are ORed together.
 
-					dt errorPageHandler
+					dt
+						a(href="api/vibe.http.server/HTTPServerSettings.errorPageHandler")
+							code.prettyprint errorPageHandler
 					dd Provides a way to customize error pages. For example:
 						code
-							pre.code.prettyprint.lang-d void errorPage(HttpServerRequest req,
-								|               HttpServerResponse res,
-								|               HttpServerErrorInfo error)
+							pre.code.prettyprint.lang-d void errorPage(HTTPServerRequest req,
+								|               HTTPServerResponse res,
+								|               HTTPServerErrorInfo error)
 								|{
 								|	//res.render!("error.dt", req, error); // still affected by a compiler bug
 								|	res.renderCompat!("error.dt",
-								|		HttpServerRequest, "req",
-								|		HttpServerErrorInfo, "error")
+								|		HTTPServerRequest, "req",
+								|		HTTPServerErrorInfo, "error")
 								|		(req, error);
 								|}
 								|
 								|shared static this()
 								|{
-								|	auto settings = new HttpServerSettings;
+								|	auto settings = new HTTPServerSettings;
 								|	settings.errorPageHandler = toDelegate(&errorPage);
 								|	// ...
 								|}
 						| Inside of the error.dt template, the variables req, code and msg are available in this example.
 
-					dt sslCertFile, sslKeyFile
-					dd If OpenSSL compatible key and certificate files are given, the server will operate as an HTTPS server. You should probably also set the port to 443 in this case.
+					dt
+						a(href="api/vibe.http.server/HTTPServerSettings.sslContext")
+							code.prettyprint sslContext
+					dd Lets the server operate as an HTTPS server. You should probably also set the port to 443 in case this field is set.
 
 		section
 			h3#http-routing Routing
 
 			p The
-				code
-					a(href="/api/http.router/UrlRouter") UrlRouter
-				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the HttpRequest.params dictionary.
+				a(href="api/vibe.http.router/URLRouter")
+					code.prettyprint URLRouter
+				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the <a href="api/vibe.http.server/HTTPServerRequest.params"><code class="prettyprint">params</code></a> dictionary.
 			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
-				span.dclass UrlRouter
-				| class (e.g. .get() or .post()). The following example will route all GET requests matching the path scheme "/users/*" to the
-				span.dfunction userinfo
-				| handler and serve all other GET requests using the files in the public folder.
+				a(href="api/vibe.http.router/URLRouter")
+					code.prettyprint URLRouter
+				| class (e.g. <a href="api/vibe.http.router/HTTPRouter.get"><code class="prettyprint">get()</code></a> or <a href="api/vibe.http.router/HTTPRouter.post"><code class="prettyprint">post()</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder.
 
 			code
 				pre.code.prettyprint.lang-d import vibe.d;
 					|
-					|void userInfo(HttpServerRequest req, HttpServerResponse res)
+					|void userInfo(HTTPServerRequest req, HTTPServerResponse res)
 					|{
 					|	auto username = req.params["user"];
 					|	render!("userinfo.jd", username)(res);
 					|}
 					|
-					|void addUser(HttpServerRequest req, HttpServerResponse res)
+					|void addUser(HTTPServerRequest req, HTTPServerResponse res)
 					|{
 					|	res.redirect("/users/"~req.post["user"]);
 					|}
 					|
 					|shared static this()
 					|{
-					|	auto router = new UrlRouter;
+					|	auto router = new URLRouter;
 					|	router.get("/users/:user", &userInfo);
 					|	router.post("/adduser", &addUser);
 					|	router.get("*", serveStaticFiles("./public/"));
@@ -278,7 +287,7 @@ block body
 					|		.post("/adduser", &addUser);
 					|		.get("*", serveStaticFiles("./public/"));
 					|
-					|	listenHttp(new HttpServerSettings, router);
+					|	listenHTTP(new HTTPServerSettings, router);
 					|}
 				.caption Example: GET/POST routing and static file serving
 
@@ -290,9 +299,11 @@ block body
 				| templates. They provide a concise way to dynamically generate the HTML code of the final web pages. D expressions and statements can be embedded and the full vibe API is available within templates.
 
 			p Templates should reside somewhere inside the 'views' folder of a project. They are then rendered using the
-				span.dfunction render
+				a(href="api/vibe.http.server/render")
+					code.prettyprint render
 				| function, which takes the template file name as the first template argument, followed by a list of variables that should be available to the template. Finally, it takes a
-				span.dclass HttpServerResponse
+				a(href="api/vibe.http.server/HTTPServerResponse")
+					code.prettyprint HTTPServerResponse
 				| to render into.
 
 			p The following example shows a number of features of the template parser. A full reference of the template syntax is found on the
@@ -328,34 +339,34 @@ block body
 			
 			ul
 				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
-					a(href="api/vibe.http.server/HttpStatusException")
-						code.prettyprint.lang-d HttpStatusException
+					a(href="api/vibe.http.common/HTTPStatusException")
+						code.prettyprint.lang-d HTTPStatusException
 					|, the status code can be customized.
 				li The request handler does not write a response. In this case the server automatically returns a 404 "Not Found" error.
 			
 			p The
-				a(href="api/vibe.http.server/HttpServerSettings")
-					code.prettyprint.lang-d HttpServerSettings
+				a(href="api/vibe.http.server/HTTPServerSettings")
+					code.prettyprint.lang-d HTTPServerSettings
 				| can be used to provide a custom error page handler. If one is provided, it is called for any of the two conditions and must render an error page to the response object. If no handler is given, a simple plain-text error page is generated.			
 
 			pre.code.prettyprint.lang-d import vibe.d
-				|void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)
+				|void error(HTTPServerRequest req, HTTPServerResponse res, HTTPServerErrorInfo error)
 				|{
 				|	res.renderCompat!("error.dl",
-				|		HttpServerRequest, "req",
-				|		HttpServerErrorInfo, "error")
+				|		HTTPServerRequest, "req",
+				|		HTTPServerErrorInfo, "error")
 				|		(req, error);
 				|}
 				|
 				|shared static this()
 				|{
-				|	auto settings = new HttpServerSettings;
+				|	auto settings = new HTTPServerSettings;
 				|	settings.errorPageHandler = toDelegate(&error);
 				|
-				|	auto router = new UrlRouter;
+				|	auto router = new URLRouter;
 				|	// ...
 				|
-				|	listenHttp(settings, router);
+				|	listenHTTP(settings, router);
 				|}
 
 			.caption Example: A typical setup for an error page handler
@@ -365,12 +376,12 @@ block body
 			h3#http-authentication Authentication
 			
 			p Currently, the only built-in authentication method is HTTP-Basic-Auth. HTTP-Digest-Auth will follow later and higher level mechanisms such as OAuth will be provided using extension libraries.
-			p The recommended practice for plugging authentication into a web application is to use the fall-through feature of the UrlRouter. If the user is properly authenticated, the
+			p The recommended practice for plugging authentication into a web application is to use the fall-through feature of the <a hreF="api/vibe.http.router/URLRouter"><code class="prettyprint">URLRouter</code></a>. If the user is properly authenticated, the
 				a(href="api/vibe.http.auth.basic_auth/performBasicAuth")
 					code.prettyprint.lang-d performBasicAuth
-				| function will not do anything and the UrlRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a
-				a(href="api/vibe.http.server/HttpStatusException")
-					code.prettyprint.lang-d HttpStatusException
+				| function will not do anything and the URLRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a
+				a(href="api/vibe.http.common/HTTPStatusException")
+					code.prettyprint.lang-d HTTPStatusException
 				| exception which generates a 403 error page so that the user is prompted with a password dialog on the browser side. The routing stops in this case.
 			
 			code
@@ -383,7 +394,7 @@ block body
 					|
 					|shared static this()
 					|{
-					|	auto router = new UrlRouter;
+					|	auto router = new URLRouter;
 					|	// the following routes are accessible without authentication:
 					|	router.get("/", staticTemplate!"index.dl");
 					|	router.get("/about", staticTemplate!"about.dl");
@@ -404,16 +415,17 @@ block body
 			h3#http-sessions Sessions
 			
 			p Cookie based HTTP sessions are supported directly by the HTTP server. To be able to use them, you first have to set a
-				code.prettyprint.lang-d SessionStore
+				a(href="api/vibe.http.session/SessionStore")
+					code.prettyprint.lang-d SessionStore
 				| in the
-				a(href="api/vibe.http.server/HttpServerSettings")
-					code.prettyprint.lang-d HttpServerSettings
+				a(href="api/vibe.http.server/HTTPServerSettings")
+					code.prettyprint.lang-d HTTPServerSettings
 				|. Sessions are then established by calling
-				a(href="api/vibe.http.server/HttpServerResponse.startSession")
-					code.prettyprint.lang-d HttpServerResponse.startSession
+				a(href="api/vibe.http.server/HTTPServerResponse.startSession")
+					code.prettyprint.lang-d HTTPServerResponse.startSession
 				| and stopped using
-				a(href="api/vibe.http.server/HttpServerResponse.terminateSession")
-					code.prettyprint.lang-d HttpServerResponse.terminateSession
+				a(href="api/vibe.http.server/HTTPServerResponse.terminateSession")
+					code.prettyprint.lang-d HTTPServerResponse.terminateSession
 				|. The returned
 				a(href="api/vibe.http.session/Session")
 					code.prettyprint.lang-d Session
@@ -422,7 +434,7 @@ block body
 			code
 				pre.prettyprint.lang-d import vibe.d;
 					|
-					|void login(HttpServerRequest req, HttpServerResponse res)
+					|void login(HTTPServerRequest req, HTTPServerResponse res)
 					|{
 					|	// todo: verify user/password here
 					|
@@ -432,13 +444,13 @@ block body
 					|	res.redirect("/home");
 					|}
 					|
-					|void logout(HttpServerRequest req, HttpServerResponse res)
+					|void logout(HTTPServerRequest req, HTTPServerResponse res)
 					|{
 					|	res.terminateSession();
 					|	res.redirect("/");
 					|}
 					|
-					|void checkLogin(HttpServerRequest req, HttpServerResponse res)
+					|void checkLogin(HTTPServerRequest req, HTTPServerResponse res)
 					|{
 					|	// force a redirect to / for unauthenticated users
 					|	if( req.session is null )
@@ -447,7 +459,7 @@ block body
 					|
 					|shared static this()
 					|{
-					|	auto router = new UrlRouter;
+					|	auto router = new URLRouter;
 					|	router.get("/", staticTemplate!"index.dl");
 					|	router.post("/login", &login);
 					|	router.post("/logout", &logout);
@@ -455,7 +467,7 @@ block body
 					|	router.any("*", &checkLogin);
 					|	router.get("/home", staticTemplate!"home.dl");
 					|
-					|	auto settings = new HttpServerSettings;
+					|	auto settings = new HTTPServerSettings;
 					|	settings.sessionStore = new MemorySessionStore;
 					|	// ...
 					|}
@@ -465,7 +477,7 @@ block body
 		section
 			h3#http-client-requests Client requests
 			
-			p Client request are done using the <a href="api/vibe.http.client/requestHttp"><code class="prettyprint">requestHttp()</code></a> function.
+			p Client request are done using the <a href="api/vibe.http.client/requestHTTP"><code class="prettyprint">requestHTTP()</code></a> function.
 
 			code
 				pre.prettyprint.lang-d
@@ -473,10 +485,14 @@ block body
 					|
 					|void main()
 					|{
-					|	auto res = requestHttp("http://google.com", (req){
-					|			/* could e.g. add headers here before sending*/
-					|		});
-					|	logInfo("Response: %s", res.bodyReader.readAllUtf8());
+					|	auto res = requestHTTP("http://google.com",
+					|			(scope req) {
+					|				/* could e.g. add headers here before sending*/
+					|			},
+					|			(scope res) {
+					|				logInfo("Response: %s", res.bodyReader.readAllUTF8());
+					|			}
+					|		);
 					|}
 				.caption Example: Performing a simple HTTP request
 
@@ -491,14 +507,14 @@ block body
 			p A native
 				a.extern(href="http://www.mongodb.org/", target="_blank") MongoDB
 				| driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the
-				a(href="api/vibe.data.bson#Bson")
+				a(href="api/vibe.data.bson/Bson")
 					code.prettyprint.lang-d Bson
 				| struct.
 
 			p For an comprehensive documentation of MongoDB's operations see the
 				a.extern(href="http://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
 				|. The
-				a(href="api/vibe.db.mongo.mongo/") API reference
+				a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference
 				| contains the documentation for the driver.
 
 			code
@@ -509,7 +525,7 @@ block body
 					|void test()
 					|{
 					|	auto coll = client.getCollection("test.collection");
-					|	foreach( doc; coll.find(["name": "Peter"]) )
+					|	foreach (doc; coll.find(["name": "Peter"]))
 					|		logInfo("Found entry: %s", cast(Json)doc);
 					|}
 					|
@@ -532,10 +548,10 @@ block body
 		h2#raw-tcp Raw TCP
 		
 		p Low level TCP connections are handled using the
-			a(href="api/vibe.core.net/TcpConnection")
-				code.prettyprint.lang-d TcpConnection
+			a(href="api/vibe.core.net/TCPConnection")
+				code.prettyprint.lang-d TCPConnection
 			| class, which implements the
-			a(href="api/vibe.stream.stream/Stream")
+			a(href="api/vibe.core.stream/Stream")
 				code.prettyprint.lang-d Stream
 			| interface. Connections can be established by either listening on a specific port for incoming connections or by actively connecting to a remote server.
 
@@ -543,26 +559,26 @@ block body
 			h3#tcp-server Server
 			
 			p Listening for TCP connections is done using the
-				a(href="api/vibe.core.net/listenTcp")
-					code.prettyprint.lang-d listenTcp
+				a(href="api/vibe.core.net/listenTCP")
+					code.prettyprint.lang-d listenTCP
 				| function. An implementation of a very simple echo server could look like this:
 				
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
 				|shared static this()
 				|{
-				|	listenTcp(7, (conn){ conn.write(conn) });
+				|	listenTCP(7, (conn){ conn.write(conn) });
 				|}
 
 			p Calling 
-				a(href="api/vibe.core.net/listenTcp")
-					code.prettyprint.lang-d listenTcp
+				a(href="api/vibe.core.net/listenTCP")
+					code.prettyprint.lang-d listenTCP
 				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
 				|shared static this()
 				|{
-				|	listenTcp(7, conn => conn.write(conn), "127.0.0.1");
+				|	listenTCP(7, conn => conn.write(conn), "127.0.0.1");
 				|}
 				
 			p The address can be given as an IP address string (IPv4 or IPv6 format), as an
@@ -575,8 +591,8 @@ block body
 			h3#tcp-client Client
 			
 			p Connecting to a TCP server is done with the
-				a(href="api/vibe.core.net/connectTcp")
-					code.prettyprint.lang-d connectTcp
+				a(href="api/vibe.core.net/connectTCP")
+					code.prettyprint.lang-d connectTCP
 				| function. The following example gets the current time using the
 				a.extern(href="http://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
 				|.
@@ -584,7 +600,7 @@ block body
 				|
 				|shared static this()
 				|{
-				|	auto conn = connectTcp("time-b.timefreq.bldrdoc.gov", 13);
+				|	auto conn = connectTCP("time-b.timefreq.bldrdoc.gov", 13);
 				|	logInfo("The time is: %s", cast(string)conn.readAll());
 				|}
 
@@ -616,7 +632,7 @@ block body
 				a.extern(href="http://registry.vibed.org/", target="_blank") registry.vibed.org
 				| and as soon as you then add a new
 				a.extern(href="http://learn.github.com/p/tagging.html", target="_blank") git tag
-				| with the name matching the current version prefixed with 'v' (v0.0.1 for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
+				| with the name matching the current version prefixed with "v" ("v0.0.1" for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
 				
 			pre.code {
 				|	...
