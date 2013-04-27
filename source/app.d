@@ -13,7 +13,7 @@ void download(HttpServerRequest req, HttpServerResponse res)
 	if( auto pf = "file" in req.query ){
 		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/" ~ *pf);
 		else res.redirect("http://vibed.org/files/" ~ *pf);
-	} else res.renderCompat!("download.dt", HttpServerRequest, "req")(Variant(req));
+	} else res.renderCompat!("download.dt", HttpServerRequest, "req")(req);
 }
 
 void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)
@@ -21,7 +21,7 @@ void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo er
 	res.renderCompat!("error.dt",
 		HttpServerRequest, "req",
 		HttpServerErrorInfo, "error")
-		(Variant(req), Variant(error));
+		(req, error);
 }
 
 version(Have_ddox)
