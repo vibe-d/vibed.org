@@ -14,7 +14,7 @@ html(lang="en-US")
 			link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
 
 		link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
-		link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")		
+		link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
 		link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
 		
 		meta(name="viewport", content="width = device-width, user-scalable = no, maximum-scale = 1.0")

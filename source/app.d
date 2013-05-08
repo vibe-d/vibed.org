@@ -40,9 +40,9 @@ version(Have_ddox)
 			import std.file;
 			string text = readText("docs.json");
 			auto json = parseJson(text);
+			m_rootPackage = parseJsonDocs(json);
 			auto settings = new DdoxSettings;
-			settings.declSort = SortMode.Name;
-			m_rootPackage = parseJsonDocs(json, settings);
+			processDocs(m_rootPackage, settings);
 		} catch( Exception e ){
 			logError("Error loading docs: %s", e.toString());
 			throw e;
