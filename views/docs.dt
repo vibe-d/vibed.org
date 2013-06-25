@@ -58,45 +58,9 @@ block navigation
 
 block body
 	section
-		h2#installation Installation
-
-		p(style="color:#F40") Note: this section describes the manual installation process of vibe.d. The recommended way, however, is to use <a hreF="http://github.com/rejectedsoftware/dub/">DUB</a> instead and simply add "vibe-d" as a dependency to your project.
-		
-		p On Debian and Debian based systems such as Ubuntu, you can install an APT repository that will allow you to stay up-to-date including all dependencies automatically. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d#installation-on-linux-debianubuntu-using-apt") github page
-			| for instructions.
-
-		p On all other systems, the installation currently is a simple manual process. You just have to extract the downloaded archive and make the vibe script callable from anywhere.
-		
-		p On Windows, add the 'bin' directory to the PATH by going to Advanced System Settings/Advanced/Environment Variables and entering the path into either the user PATH variable or the system wide version.
-		
-		p For *NIXes, there are setup scripts that create the symlink and add an unprivileged 'www-vibe' user to allow for
-			a(href="#privilege-lowering") privilege lowering
-			| on server systems. Depending on the operating system, run the appropriate setup script from directory where the files have been extracted:
-			code
-				pre $ ./setup-linux.sh
-					| or
-					|$ ./setup-mac.sh
-					| or
-					|$ ./setup-freebsd.sh
-				
-		p On non-Windows systems you may need to install some additional dependencies. See the
-			a(href="https://github.com/rejectedsoftware/vibe.d#vibed") github page
-			| for more information.
-		
-		p After the installation, you can run any vibe.d application by typing 'vibe' from inside the application's root directory. You can try this by starting one of the exammples:
-			code
-				pre $ cd examples/http_server
-					|$ vibe
-					|Checking dependencies in 'C:\\Users\\sludwig\\Develop\\vibe.d\\examples\\http_server'
-					|Listening on 0.0.0.0 port 8080 succeeded
-					|Listening on :: port 8080 succeeded
-					|Running event loop...
-
-	section
 		h2#first-steps First steps
 
-		p(style="color:#F40") Note: this section assumes that you have installed <a href="https://github.com/rejectedsoftware/dub/">DUB</a>. If you have directly installed vibe.d instead, simply invoke "vibe" instead of "dub" on the command line.
+		p First, install the <a href="https://github.com/rejectedsoftware/dub/">DUB</a> package manager to let it handle downloading and building of vibe.d and derived applications. Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (e.g. libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Please take a look at vibe.d's <a href="https://github.com/rejectedsoftware/vibe.d/blob/master/package.json">package.json</a> to determine how to build on a certain platform.
 
 		p The easiest way to get started is to run the following command from your projects directory:
 

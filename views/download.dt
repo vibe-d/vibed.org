@@ -25,7 +25,7 @@ block body
 	section
 		h2#using-dub Usage via DUB
 
-		p The recommended way to use vibe.d is now to use <a href="https://github.com/rejectedsoftware/dub/">DUB</a> to make vibe.d available to your projects.
+		p The recommended way to use vibe.d is to use <a href="https://github.com/rejectedsoftware/dub/">DUB</a>.
 
 		p Simply add "vibe-d" as a dependency to your project and DUB will automatically download the latest version (upgrading can be done by running <code>dub upgrade</code>). See the <a href="docs#first-steps">first steps</a> for more details.
 
@@ -42,10 +42,9 @@ block body
 		section
 			h3#zip-package ZIP package
 			
-			p The ZIP package is suitable for all supported operating systems. Simply extract and install according to the
-				a(href="docs#installation") install instructions.
+			p The ZIP package is suitable for all supported operating systems. Simply extract and either use as a DUB package (using "dub add-local") or perform a manual build if desired (see <a href="docs#first-steps">first steps</a> for some details).
 				
-			p If you are running a Debian or Arch based Linux distribution, you can use the packages below to benefit from an automated install process.
+			p If you are running a Debian or Arch based Linux distribution, you can use the packages below to benefit from an automated install process. However, please note that this way of installing vibe.d has factually been superseded by using DUB, as noted above.
 
 			p
 				a.download(href='download?file=vibed-#{req.params["latestRelease"]}.zip') Download Current Beta Release (#{req.params["latestRelease"]})
@@ -91,3 +90,4 @@ block body
 		
 		p Alternatively, you can also
 			pre $ git clone git://github.com/rejectedsoftware/vibe.d.git
+			| or add a <code>"vibe-d": "~master"</code> dependency to your project's DUB package.json file.
