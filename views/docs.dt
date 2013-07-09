@@ -133,7 +133,7 @@ block body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
-		p Finally, you can add a "package.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://registry.vibed.org/">public extension registry</a>.
+		p Finally, you can add a "package.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
 		
 		code
 			pre {
@@ -575,10 +575,10 @@ block body
 			h3#dub-publishing Publishing on the DUB registry
 			
 			p The
-				a.extern(href="http://registry.vibed.org/", target="_blank") DUB registry
+				a.extern(href="http://code.dlang.org/", target="_blank") DUB registry
 				| contains packages that use the same package management as vibe.d. Many of them extend and supplement vibe.d's functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the project's package.json file is present.
 			
-			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which has to lie in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github. See <a href="http://registry.vibed.org/publish">http://registry.vibed.org/publish</a> for more information.
+			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which has to lie in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted on github. See <a href="http://registry.vibed.org/publish">http://core.dlang.org/publish</a> for more information.
 				
 			pre.code {
 				|	"name": "vibelog",
@@ -593,7 +593,7 @@ block body
 			.caption Example: A package.json file suitable for registration as a DUB package.
 				
 			p You can then register your project on
-				a.extern(href="http://registry.vibed.org/", target="_blank") registry.vibed.org
+				a.extern(href="http://code.dlang.org/", target="_blank") registry.vibed.org
 				| and as soon as you then add a new
 				a.extern(href="http://learn.github.com/p/tagging.html", target="_blank") git tag
 				| with the name matching the current version prefixed with "v" ("v0.0.1" for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
