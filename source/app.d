@@ -8,19 +8,19 @@ version(Have_vibelog) import vibelog.vibelog;
 
 string s_latestVersion = "0.7.13";
 
-void download(HttpServerRequest req, HttpServerResponse res)
+void download(HTTPServerRequest req, HTTPServerResponse res)
 {
 	if( auto pf = "file" in req.query ){
 		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/" ~ *pf);
 		else res.redirect("http://vibed.org/files/" ~ *pf);
-	} else res.renderCompat!("download.dt", HttpServerRequest, "req")(req);
+	} else res.renderCompat!("download.dt", HTTPServerRequest, "req")(req);
 }
 
-void error(HttpServerRequest req, HttpServerResponse res, HttpServerErrorInfo error)
+void error(HTTPServerRequest req, HTTPServerResponse res, HTTPServerErrorInfo error)
 {
 	res.renderCompat!("error.dt",
-		HttpServerRequest, "req",
-		HttpServerErrorInfo, "error")
+		HTTPServerRequest, "req",
+		HTTPServerErrorInfo, "error")
 		(req, error);
 }
 
@@ -75,16 +75,16 @@ void updateDownloads()
 
 static this()
 {
-	setLogLevel(LogLevel.None);
-	setLogFile("log.txt", LogLevel.Info);
+	setLogLevel(LogLevel.none);
+	setLogFile("log.txt", LogLevel.info);
 
-	auto settings = new HttpServerSettings;
+	auto settings = new HTTPServerSettings;
 	settings.hostName = "vibed.org";
 	settings.port = 8003;
 	settings.bindAddresses = ["127.0.0.1"];
 	settings.errorPageHandler = toDelegate(&error);
 	
-	auto router = new UrlRouter;
+	auto router = new URLRouter;
 	
 	router.get("*", (req, res){ req.params["latestRelease"] = s_latestVersion; });
 	router.get("/",          staticTemplate!"home.dt");
@@ -101,7 +101,7 @@ static this()
 	router.get("/templates/", staticRedirect("/templates/diet"));
 	router.get("/templates/diet", staticTemplate!"templates.dt");
 
-	auto fsettings = new HttpFileServerSettings;
+	auto fsettings = new HTTPFileServerSettings;
 	fsettings.maxAge = 0.seconds();
 	router.get("*", serveStaticFiles("./public/", fsettings));
 
@@ -109,7 +109,7 @@ static this()
 	{
 		auto blogsettings = new VibeLogSettings;
 		blogsettings.configName = "vibe.d";
-		blogsettings.siteUrl = Url("http://vibed.org/blog/");
+		blogsettings.siteUrl = URL("http://vibed.org/blog/");
 		blogsettings.textFilters ~= &prettifyFilter;
 		registerVibeLog(blogsettings, router);
 	}
@@ -119,11 +119,11 @@ static this()
 		updateDocs();
 		auto docsettings = new GeneratorSettings;
 		docsettings.navigationType = NavigationType.ModuleTree;
-		docsettings.siteUrl = Url("http://vibed.org/api");
+		docsettings.siteUrl = URL("http://vibed.org/api");
 		registerApiDocs(router, m_rootPackage, docsettings);
 	}
 
-	listenHttp(settings, router);
+	listenHTTP(settings, router);
 
 	updateDownloads();
 	setTimer(10.seconds(), {updateDownloads();}, true);
