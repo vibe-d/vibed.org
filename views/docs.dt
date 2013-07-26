@@ -234,6 +234,7 @@ block body
 					|
 					|void addUser(HTTPServerRequest req, HTTPServerResponse res)
 					|{
+					|	enforceHTTP("user" in req.post, HTTPStatus.badRequest, "Missing user field.");
 					|	res.redirect("/users/"~req.post["user"]);
 					|}
 					|
@@ -400,6 +401,9 @@ block body
 					|
 					|void login(HTTPServerRequest req, HTTPServerResponse res)
 					|{
+					|	enforceHTTP("username" in req.form && "password" in req.form,
+					|		HTTPStatus.badRequest, "Missing username/password field.");
+					|
 					|	// todo: verify user/password here
 					|
 					|	auto session = res.startSession();
