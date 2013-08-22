@@ -18,17 +18,24 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Global settings                                                            */
 /******************************************************************************/
 
-@font-face {
+/*@font-face {
   font-family: 'Gentium Basic';
   font-style: italic;
   font-weight: bold;
   src: local('Gentium Basic Bold Italic'), local('GentiumBasic-BoldItalic'), url('../fonts/gentiumbasic700i.woff') format('woff');
+}*/
+
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Serif'), local('DroidSerif'), url('../fonts/droidserif400r.woff') format('woff');
 }
 
 h1, h2, h3, h4 {
-	font-family: 'Gentium Basic', sans-serif;
-	font-weight: bold;
-	font-style: italic;
+	font-family: 'Droid Serif', serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 body {
