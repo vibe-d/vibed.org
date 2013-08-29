@@ -96,7 +96,8 @@ block body
 				|{
 				|	res.renderCompat!("index.dt", HTTPServerRequest, "req")(req);
 				|
-				|	// not recommended alternative, may cause memory corruption due to a DMD bug
+				|	// prettier alternative, not recommended for DMD < 2.064 due
+				|   // to DMD bugs 2962/10086/10857
 				|	//res.render!("index.dt", req);
 				|}
 				|
@@ -191,7 +192,9 @@ block body
 								|               HTTPServerResponse res,
 								|               HTTPServerErrorInfo error)
 								|{
-								|	//res.render!("error.dt", req, error); // still affected by a compiler bug
+								|	// NOTE: render!() is affected by DMD bugs 2962/10086/10857 - do not use
+								|	//       on DMD < 2.064
+								|	//res.render!("error.dt", req, error);
 								|	res.renderCompat!("error.dt",
 								|		HTTPServerRequest, "req",
 								|		HTTPServerErrorInfo, "error")
