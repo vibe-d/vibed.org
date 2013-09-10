@@ -50,18 +50,6 @@ block body
 				a.download(href='download?file=vibed-#{req.params["latestRelease"]}.zip') Download Current Beta Release (#{req.params["latestRelease"]})
 
 		section
-			h3#apt-repository APT repository
-			
-			p For anyone using a Debian based Linux distribution, Jordi Sayol maintains a Debian repository for a number of D related packages including vibe.d and DMD. You can add the repository by following the instructions on the wiki.
-			
-			p
-				a.extern(href="https://code.google.com/p/d-apt/wiki/APT_Repository", target="_blank") APT repository wiki page
-			
-			p You can then install vibe.d including all dependencies using:
-			
-			pre $ apt-get install vibe
-
-		section
 			h3#aur-package AUR package
 			
 			p The
