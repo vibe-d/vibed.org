@@ -51,13 +51,13 @@ block body
 
 			p First and foremost, it often becomes tedious and confusing to write sequences of code (e.g. performing multiple consecutive database queries). Each step will introduce a new callback with a new scope, error callbacks often have to be handled separately. Especially the latter is a reason why it is tempting to just perform lax error handling.
 
-			p Another consequence of asynchronous callbacks is that there is no meaningful call stack. Not only can this make debugging more difficult, but features such as exceptions cannot be used efficiently in such an environment.
+			p Another consequence of asynchronous callbacks is that there is no meaningful call stack. Not only can this make debugging more difficult, but features such as exceptions cannot be used effectively in such an environment.
 
 			p The approach of vibe.d is to use asynchronous I/O under the hood, but at the same time make it seem as if all operations were synchronous and blocking, just like ordinary I/O.
 
-			p What makes this possible is D's support for so called fibers (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special <code>yield()</code> function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called <code>yield()</code>. This way fibers can be multiplexed together, running quasi-parallel and using each threads capacity as much as possible.
+			p What makes this possible is D's support for so called <a class="extern" href="http://dlang.org/phobos/core_thread.html#.Fiber" target="_blank">fibers</a> (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special <code>yield()</code> function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called <code>yield()</code>. This way fibers can be multiplexed together, running quasi-parallel and using each threads capacity as much as possible.
 
-			p Using these tools, the event based nature of AIO is completely hidden from the user of the library. It also blends seamlessly with the built-in support for multi-threading; to the user of the toolkit there is usually no visible difference between a fiber and a thread.
+			p Using these tools, the event based nature of AIO is completely hidden from the user of the library. It also blends seamlessly with the built-in support for multi-threading. All concurrent operation are done using so called <a href="api/vibe.core.core/runTask">tasks</a>. Every task runs inside of a single fiber and is multiplexed together with other tasks that run at the same time. To the user of the toolkit there is usually no visible difference between a task and a thread.
 
 			p Having said all that, vibe.d <em>can</em> also be used without any fibers and no event loop if it has to, resembling the standard blocking I/O model.
 
@@ -92,9 +92,9 @@ block body
 			img.rightFlow(src="images/feature_web.png")
 			h3#web-framework Full integrated web framework
 			
-			p The vibe.d library contains a complete set of tools needed for website and web service development. In addition to a HTTP server with support for all common HTTP 1.1 features static file serving, an efficient template system, WebSockets, sessions and other features are already integrated.
-			
-			p Surrounding features include a markdown filter, MongoDB and Redis drivers, cryptography, natural JSON and BSON support and a simple SMTP client.
+			p The vibe.d library contains a complete set of tools needed for website and web service development. In addition to a HTTP 1.0/1.1 server, static file serving, an efficient template system, WebSockets, sessions and other features are already integrated. Surrounding features include a markdown filter, MongoDB and Redis drivers, cryptography, natural JSON and BSON support and a simple SMTP client.
+
+			p There are also means to automatically generate JSON/REST or HTML form based interface from D classes, removing a lot of work and potential for bugs due to avoiding boilerplate code. The REST interface generator supports generation of both, the server and the client end, and as such can be used as a convenient RPC mechanism.
 
 		section.clear
 			h3#native-db Native database drivers
@@ -132,33 +132,30 @@ block body
 			h3#native-code Natively compiled code
 			img.rightFlow(src="images/feature_native.png")
 			
-			p Vibe.d is written in the <a class="extern" href="http://dlang.org" target="_blank">D Programming Language</a>. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to being fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
+			p Vibe.d is written in the <a class="extern" href="http://dlang.org" target="_blank">D Programming Language</a>. D is a C-style language that compiles down to native machine code with minimal runtime overhead. In addition to being fast, D offers a number of features that allow additional performance improvements and especially code readability, safety and usability improvements compared to other languages such as C++.
 
-			p Some notable features are listed here, but there are a lot of additional things that would be beyond the scope of this text. See the
+			p Some notable features are listed here, but there are a lot of additional things which would be beyond the scope of this text. See the
 				a.extern(href="http://dlang.org/comparison.html", target="_blank") D feature page
-				| for an overview.
+				| or the <a class="extern" href="http://ddili.org/ders/d.en/index.html" target="_blank">Programming in D</a> online book for a more general overview.
 			
 			dl.feat
 				dt Templates, mixins and compile-time functions
 				dd
 					p The meta-programming system in D is extremely powerful. Templates (comparable to C++ templates) support variadic parameters, as well as string and alias parameters - a feature which enables very comfortable compile-time interfaces.
 
-					p The ultimate power is given by the possibility to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
+					p The ultimate power is given by the possibility to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's <code>eval()</code> function, just that the result is statically compiled to machine code (and without the runtime security implications of <code>eval()</code>).
 
-					p These features together with the possibility to read files at compile time have enabled the powerful <a href="#diet-templates">Diet template parser</a>.
+					p These features together with the possibility to read files at compile time have enabled the powerful <a href="#diet-templates">Diet template</a> parser.
 
 				dt Garbage collection
 				dd
-					p The D runtime offers built-in garbage collection which enables some interesting
-						| possibilities, apart from the obvious advantage of no need for manual
-						| memory management and the associated risk of memory leaks and dangerous
-						| dangling references.
-					p Most notably, it allows to work with immutable strings and objects which can be
-						| safely referenced and passed between threads.
+					p The D runtime offers built-in garbage collection, which enables some interesting possibilities, apart from the obvious advantage of no need for manual memory management and the associated risk of memory leaks and dangerous dangling references.
+					
+					p Most notably, it allows to work with immutable data, such as strings or objects, which can be safely referenced and passed between threads without any synchronization overhead. When passing data between threads, it is statically enforced that the data is safe to be referenced from multiple threads. This avoids a whole class of diffucult to reproduce and track down bugs common in multi-threaded code of many other languages.
 				
 				dt Closures and lambdas
 				dd
-					p A feature also known from some scripting and functional languages, but also C# and a few others are closures and lambdas. They allow to specify callback functions in a very compact and readably way.
+					p A feature also known from some scripting and functional languages, but also C# and a few others are closures and lambdas. They allow to specify callback functions in a very compact and readably way. In turn they tend to have a strong influence on the API design, as they can make computationally efficient or safe APIs bearable to use.
 				
 				dt Properties
 				dd
@@ -170,19 +167,19 @@ block body
 
 				dt Arrays and slices
 				dd
-					p Arrays in support native slicing with a very natural syntax. Together with the garbage collector they enable extremely fast string parser implementations which are safe (bounds checking) and easy to read at the same time.
+					p Arrays support native slicing with a very natural syntax. Together with the garbage collector they enable extremely fast string parser implementations which are safe (bounds checking) and easy to read at the same time.
 				
 				dt Concise and readable syntax
 				dd
-					p The syntax in general is very clean and to the point - especially compared to its relative C++. But it doesn't need to fear modern scripting languages such as Ruby and Python in this regard either. Apart from the occasional need to specify an explicit type, you will discover that there is not much to miss and that development using D is highly efficient.
+					p The syntax in general is very clean and to the point - especially compared to its relative C++. But it doesn't need to fear modern scripting languages such as Ruby and Python in this regard either. Apart from the occasional need to specify an explicit type (types can be inferred using <code>auto</code>), you will discover that there is not much to miss and that development using D is highly efficient.
 
 		section
 			h3#diet-templates Compile-time "Diet" templates
 			img.leftFlow(src="images/feature_diet.png")
 
-			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript for jade).
+			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript in case of jade).
 
-			p In vibe.d, however, templates can contain embedded D code. The templates are read and parsed while the application is compiled and optimized D code is generated for them. This means that the runtime overhead for those templates is non-existent - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has even started.
+			p In vibe.d, however, templates can contain embedded D code. The templates are read and parsed while the application is being compiled and optimized D code is generated for them. This means that the runtime overhead for those templates is non-existent - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has even started.
 
 			p At the same time you can program in the same language as for the rest of the application, which makes for a very consistent development experience.
 
