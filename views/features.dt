@@ -29,7 +29,7 @@ block navigation
 				li
 					a(href="#aio") Asynchronous I/O
 				li
-					a(href="#native-code") Native machine code
+					a(href="#native-code") Natively compiled code
 				li
 					a(href="#diet-templates") Diet templates
 				li
@@ -45,23 +45,24 @@ block body
 		section
 			h3#fibers Fiber based pseudo-blocking programming model
 
-			p The key idea behind vibe was to take the fast
-				a(href="#aio") asynchronous I/O
-				| model and make it comfortable to program. Other frameworks such as
-				a.extern(href="http://nodejs.org/", target="_blank") node.js
-				| expose the asynchronous interface using callback functions. While this is a workable approach, it has several drawbacks.
+			img.leftFlow(src="images/feature_fibers.png")
 
-			p First and foremost, it often becomes tedious and confusing to write sequences of code (e.g. performing multiple database queries). Each step will introduce a new callback with a new scope, error callbacks often have to be handled separately. Especially the latter is a reason why it is tempting to just perform lax error handling.
+			p The key idea behind vibe.d was to take the fast and resource friendly <a href="#aio">asynchronous I/O</a> model (AIO) and make it comfortable to use. Some other frameworks or toolkits such as <a class="extern" href="http://nodejs.org/" target="_blank">node.js</a> directly expose the event based interface of AIO using callback functions. While this is a workable approach, it has several drawbacks.
+
+			p First and foremost, it often becomes tedious and confusing to write sequences of code (e.g. performing multiple consecutive database queries). Each step will introduce a new callback with a new scope, error callbacks often have to be handled separately. Especially the latter is a reason why it is tempting to just perform lax error handling.
 
 			p Another consequence of asynchronous callbacks is that there is no meaningful call stack. Not only can this make debugging more difficult, but features such as exceptions cannot be used efficiently in such an environment.
 
-			p The approach of vibe is to use asynchronous I/O under the hood but at the same time make it seem as if everything is running in its own thread and as if all operations were blocking and synchronous.
+			p The approach of vibe.d is to use asynchronous I/O under the hood, but at the same time make it seem as if all operations were synchronous and blocking, just like ordinary I/O.
 
-			p What makes this possible is D's support for so called fibers (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special yield() function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called yield().
+			p What makes this possible is D's support for so called fibers (also often called co-routines). Fibers behave a lot like threads, just that they are are actually all running in the same thread. As soon as a running fiber calls a special <code>yield()</code> function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called <code>yield()</code>. This way fibers can be multiplexed together, running quasi-parallel and using each threads capacity as much as possible.
 
-			p This cooperative pseudo-threading is used to completely hide the asynchronous event based operation of the core system. It also blends seamlessly with the built-in support for multi-threading; to the user of the framework there is no visible difference between a fiber and a thread.
+			p Using these tools, the event based nature of AIO is completely hidden from the user of the library. It also blends seamlessly with the built-in support for multi-threading; to the user of the toolkit there is usually no visible difference between a fiber and a thread.
+
+			p Having said all that, vibe.d <em>can</em> also be used without any fibers and no event loop if it has to, resembling the standard blocking I/O model.
 
 		section		
+			img.rightFlow(src="images/feature_api.png")
 			h3#compact-api Compact API
 
 			p There is a strong focus on a short and simple API. Common tasks are kept as short and high level as possible, while still allowing fine grained control if needed. By using some of D's advanced features, typical vibe.d based programs reach a level of conciseness that usually only scripting languages such as Ruby can offer.
@@ -69,7 +70,7 @@ block body
 		section
 			h3#zero-downtime Zero-downtime changes
 			
-			p (Work-in-progress) An
+			p <span style="color: #fa4">[work-in-progress]</span> An
 				a(href="#load-balancing")
 				| integrated load balancer is able to dynamically compile, run and test new processes before switching them live after the code has been modified. This allows for seamless and low-risk changes on live-systems.
 
@@ -88,27 +89,32 @@ block body
 		h2#productivity Productivity
 
 		section	
+			img.rightFlow(src="images/feature_web.png")
 			h3#web-framework Full integrated web framework
 			
 			p The vibe.d library contains a complete set of tools needed for website and web service development. In addition to a HTTP server with support for all common HTTP 1.1 features static file serving, an efficient template system, WebSockets, sessions and other features are already integrated.
 			
 			p Surrounding features include a markdown filter, MongoDB and Redis drivers, cryptography, natural JSON and BSON support and a simple SMTP client.
 
-		section
+		section.clear
 			h3#native-db Native database drivers
+			img.leftFlow(src="images/feature_db.png")
 			
-			p Currently, the core library contains built-in support for MongoDB and Redis databases. These provide a default for fast and flexible data storage. Additional drivers are easy to port to vibe.d because of the blocking API - basically the only thing that has to be done is to replace the socket calls (send(), recv(), connect() etc.) with the corresponding vibe functions.
+			p The core library contains built-in support for <a href="docs#mongo">MongoDB</a> and <a href="docs#redis">Redis</a> databases. These drivers provide a default for fast and flexible data storage. More database drivers are available in the <a href="http://code.dlang.org/">DUB package registry</a>, for example a vibe.d compatible <a href="https://github.com/rejectedsoftware/mysql-native">MySQL</a> driver.
 
-		section
+			p Making existing drivers compatible is easy to do thanks to the blocking nature of vibe.d's API. The only thing that has to be done in most cases is to replace the socket calls (<code>send()</code>, <code>recv()</code>, <code>connect()</code> etc.) with the corresponding vibe.d functions. A <a href="blog/posts/writing-native-db-drivers">blog post</a> gives an overview of what needs to be done using the MySQL driver as an example.
+
+		section.clear
 			h3#raw-sockets Raw TCP and File handling
 
-			p Raw TCP and file access is of course supported by the framework to support custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
+			p Raw TCP and file access is of course supported by the toolkit to support custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
 
 	section
 		h2#performance Performance
 
 		section		
 			h3#aio Asynchronous I/O operations
+			img.leftFlow(src="images/feature_event.png")
 			
 			p Instead of using classic blocking I/O together with multi-threading for doing parallel network and file operations, all operations are using asynchronous operating system APIs.
 				a.extern(href="http://libevent.org/", target="_blank") libevent
@@ -125,11 +131,10 @@ block body
 				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading while retaining the performance characteristics of asynchronous I/O.
 		
 		section
-			h3#native-code Native machine code
+			h3#native-code Natively compiled code
+			img.rightFlow(src="images/feature_native.png")
 			
-			p Vibe.d is written in the
-				a.extern(href="http://dlang.org", target="_blank") D Programming Language
-				|. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to being fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
+			p Vibe.d is written in the <a class="extern" href="http://dlang.org" target="_blank">D Programming Language</a>. D is a C-style language that compiles down to native machine code with minimal  runtime overhead. In addition to being fast, D offers a number of features that allow additional performance improvements and especially code readability and  usability improvements compared to other languages such as C++.
 
 			p Some notable features are listed here, but there are a lot of additional things that would be beyond the scope of this text. See the
 				a.extern(href="http://dlang.org/comparison.html", target="_blank") D feature page
@@ -142,9 +147,7 @@ block body
 
 					p The ultimate power is given by the possibility to execute ordinary functions at compile time, as well as the ability to compile a string given at compile time as D code. This functionality is similar to JavaScript's eval() function, just that the result is statically compiled to machine code.
 
-					p These features together with the possibility to read files at compile time have enabled the powerful
-						a(href="#diet-templates") Diet template parser
-						|.
+					p These features together with the possibility to read files at compile time have enabled the powerful <a href="#diet-templates">Diet template parser</a>.
 
 				dt Garbage collection
 				dd
@@ -165,40 +168,30 @@ block body
 
 				dt Module system
 				dd
-					p D's module system is similar to the one used in Java. Among other encodes the dependencies between different modules (D files) in a semantically clear way. Using this information, it becomes possible to build whole applications just by specifying the root file (app.d) on the command line. The dependencies are then found recursively.
-
-					p This feature mitigates the need for a dedicated build system like make, which is often needed for statically compiled languages. It reduces the development overhead for small projects considerably.
+					p D's module system is similar to the one used in Java. Among other things it encodes the dependencies between different modules (D files) in a semantically clear way. Using this information, it becomes possible to build whole applications just by specifying the root file (app.d) on the command line. The dependencies can be found recursively. The <a href="http://dlang.org/rdmd.html">rdmd</a> build tool included with the D compiler, which is supported by the <a href="https://github.com/rejectedsoftware/dub">DUB package manager</a>, works this way.
 
 				dt Arrays and slices
 				dd
-					p Arrays in support native slicing with a very natural syntax. Together with the
-						| garbage collector they enable extremely fast string parser implementations
-						| which are safe (bounds checking) and easy to read at the same time.
+					p Arrays in support native slicing with a very natural syntax. Together with the garbage collector they enable extremely fast string parser implementations which are safe (bounds checking) and easy to read at the same time.
 				
-				dt Concise syntax
+				dt Concise and readable syntax
 				dd
-					p The syntax in general is very clean and to the point - especially compared to 
-						| it's "sibling" C++. But it doesn't need to fear modern scripting languages
-						| such as Ruby and Python in this regard either. Apart from the occasional
-						| need to specify an explicit type, you will discover that there is not much
-						| to miss.
+					p The syntax in general is very clean and to the point - especially compared to its relative C++. But it doesn't need to fear modern scripting languages such as Ruby and Python in this regard either. Apart from the occasional need to specify an explicit type, you will discover that there is not much to miss and that development using D is highly efficient.
+
 		section
 			h3#diet-templates Compile-time "Diet" templates
+			img.leftFlow(src="images/feature_diet.png")
 
-			p vibe.d has built-in support for HTML templates based on the
-				a.extern(href="http://jade-lang.com/", target="_blank") jade
-				| template syntax known from node.js which in turn is based on
-				a.extern(href="http://haml-lang.com/", target="_blank") Haml
-				|. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript for jade).
+			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript for jade).
 
-			p In vibe, however, templates can contain embedded D code. The templates are read and parsed while the application is compiled and optimized D code is generated for them. This means that the runtime overhead for templates is zero in vibe - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has started.
+			p In vibe.d, however, templates can contain embedded D code. The templates are read and parsed while the application is compiled and optimized D code is generated for them. This means that the runtime overhead for those templates is non-existent - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has even started.
 
 			p At the same time you can program in the same language as for the rest of the application, which makes for a very consistent development experience.
 
 		section		
 			h3#load-balancing Integrated load balancing
 
-			p The installation package contains a load balancer application that can almost seamlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
+			p <span style="color: #fa4">[work-in-progress]</span> The installation package contains a load balancer application that can almost seamlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.
 
 			p When the sources for the application have been changed, the load balancer can automatically compile and run the modified application and seamlessly switch to it. The old application is shut down as soon as there are no more clients connected.
 

@@ -19,7 +19,7 @@ block navigation
 				li
 					a(href="#http-routing") Routing
 				li
-					a(href="#http-templates") Templates
+					a(href="#html-templates") Templates
 				li
 					a(href="#http-error-pages") Error pages
 				li
@@ -134,7 +134,7 @@ block body
 				|	p Hello, World!
 			.caption Example index.dt
 
-		p This structure makes use of the blocks/extensions feature of the <a href="#http-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
+		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
 		p Finally, you can add a "package.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
 		
@@ -262,7 +262,7 @@ block body
 				.caption Example: GET/POST routing and static file serving
 
 		section
-			h3#http-templates Diet templates
+			h3#html-templates Diet templates
 
 			p Vibe supports HTML templates with a syntax mostly compatible to
 				a.extern(href="http://jade-lang.com/", target="_blank") jade
