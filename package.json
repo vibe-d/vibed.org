@@ -1,6 +1,8 @@
 {
 	"name": "vibed-org",
 	"description": "The official vibe.d website.",
+	"license": "AGPL-3.0",
+	"copyright": "Copyright © 2012-2013 rejectedsoftware e.K.",
 	"dependencies": {
 		"vibe-d": "~master",
 		"ddox": "~master",
