@@ -458,14 +458,14 @@ block body
 					|
 					|void main()
 					|{
-					|	auto res = requestHTTP("http://google.com",
-					|			(scope req) {
-					|				/* could e.g. add headers here before sending*/
-					|			},
-					|			(scope res) {
-					|				logInfo("Response: %s", res.bodyReader.readAllUTF8());
-					|			}
-					|		);
+					|	requestHTTP("http://google.com",
+					|		(scope req) {
+					|			/* could e.g. add headers here before sending*/
+					|		},
+					|		(scope res) {
+					|			logInfo("Response: %s", res.bodyReader.readAllUTF8());
+					|		}
+					|	);
 					|}
 				.caption Example: Performing a simple HTTP request
 
