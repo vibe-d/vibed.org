@@ -7,18 +7,20 @@ block navigation
 	ul
 		li
 			a(href="#introduction") Introduction
-			
+
 		li
 			a(href="#basic-structure") Basic structure
-			
+
 		li
 			a(href="#basic-structure") Content elements
-			
+
 			ul
 				li
-					a(href="#html-elements") HTML elements 
+					a(href="#html-elements") HTML elements
 				li
 					a(href="#plain-text") Plain text
+				li
+					a(href="#whitespace-removal") Whitespace removal
 				li
 					a(href="#comments") Comments
 		li
@@ -42,10 +44,10 @@ block navigation
 					a(href="#includes") Includes
 				li
 					a(href="#functions") Functions
-			
+
 		li
 			a(href="#filters") Filters
-		
+
 		li
 			a(href="#grammar") Grammar
 
@@ -53,28 +55,28 @@ block body
 
 	section
 		h2#introduction Introduction
-			
+
 		p(style="color: red") Work-in-progress
 		p(style="color: red") Please use the
 			a(href="https://github.com/visionmedia/jade") Jade documentation
 			| for any section that is not filled with content, Diet templates are kept as compatible as possible to Jade templates.
 
 		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster than static pages on disk, because they are just written directly from RAM to the HTTP connection.
-		
+
 		p The syntax equals that of
 			a(href="http://jade-lang.org") Jade
 			| templates with the exception of some of the advanced syntax features. Since there is no official syntax reference written yet, you can use the
 			a(href="https://github.com/visionmedia/jade") Jade documentation
 			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
-			
+
 	section
 		h2#basic-structure Basic structure
-		
+
 		:markdown
 			The general structure uses indentation to manage nesting of HTML tags, similar to what Python does. The indentation style of a document is enforced to be consistent and can either be tabs or any number of spaces. The indentation style is inferred from the first line that is indented. Note that indentation levels may never be skipped, so that the first indented line must always be indented by exactly one tab stop.
-			
+
 			Right now, it is necessary to begin the document with an HTML 5 header. This restriction will be removed in the future.
-			
+
 		code
 			pre !\!! 5
 				|html
@@ -83,23 +85,23 @@ block body
 				|	body
 				|		h1 Hello World
 			.caption Example: A minimal HTML page
-			
+
 	section
 		h2#content-elements Content elements
-		
+
 		section
 			h3#html-elements HTML elements
-			
+
 			p The most basic elements are HTML tags. Every element that does not have a special meaning and begins with a letter and contains only letters, numbers, colons, dashes or underscores is treated as an HTML tag. Tags with no content such as &lt;br&gt; or &lt;link&gt; are recognized and output accordingly. The tag name can also be completely omitted, in which case a &lt;div&gt; is assumed.
-			
+
 			p After each tag, an id, multiple class names, and a list of attributes can follow. Ids are prefixed with '#' and class names with '.'. The attribute list is a comma separated list or key/value pairs delimited by clamps. The string value of an attribute can contain
 				a(href="#string-interpolations") string interpolations
 				|.
-			
+
 			p The rest of the line contains the nodes text contents. By default, the text is output HTML encoded and can contain
 				a(href="#string-interpolations") string interpolations
 				|. If the text is prefixed with '=', it is interpreted as a D expression. The outcome of this expression is converted to a string and HTML encoded. Prefixing with '!=' will output the bare string without HTML encoding.
-			
+
 			code
 				pre !\!! 5
 					|html
@@ -140,12 +142,12 @@ block body
 							</body>
 						</html>
 				.caption Example: HTML output for the example
-				
+
 		section
 			h3#plain-text Plain text
-			
+
 			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting preformatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
-			
+
 			code
 				pre !\!! 5
 					|html
@@ -192,25 +194,49 @@ block body
 				.caption Example: HTML output for the example
 
 		section
+			h3#whitespace-removal Whitespace removal
+
+			p &gt; and &lt; give you more control over the whitespace near a tag. &gt; will remove all whitespace surrounding a tag, while &lt; will remove all whitespace immediately within a tag. You can think of them as alligators eating the whitespace: &gt; faces out of the tag and eats the whitespace on the outside, and &lt; faces into the tag and eats the whitespace on the inside. They're placed at the end of a tag definition, after class, id, and attribute declarations but before =.
+
+			code
+				pre div
+					|	span(style="color:blue") [
+					|	span(style="color:red")&gt; red
+					|	span(style="color:blue") ]
+					|div
+					|	div&gt;&lt;
+					|		img
+				.caption Example: using whitespace removal
+
+			code
+				pre.prettyprint.lang-html
+					:htmlescape
+						<div>
+							<span style="color:blue">[</span><span style="color:red">red</span><span style="color:blue">]</span>
+						</div>
+						<div><div><img/></div></div>
+				.caption Example: HTML output for the example
+
+		section
 			h3#comments Comments
 
 			p(style="color:red") TODO
 
 	section
 		h2#embedded-code Embedded D source code
-		
+
 		section
 			h3#procedural-content Procedural content
-			
+
 			p(style="color:red") TODO
-			
+
 		section
 			h3#statements Statements
-			
+
 			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
-			
+
 			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
-			
+
 			code
 				pre !\!! 5
 					|html
@@ -256,7 +282,7 @@ block body
 
 		section
 			h3#string-interpolations String interpolations
-		
+
 			p(style="color:red") TODO
 
 	section
@@ -264,19 +290,19 @@ block body
 
 		section
 			h2#blocks Blocks and Extensions
-			
+
 			p(style="color:red") TODO
-		
+
 		section
 			h2#includes Includes
-			
+
 			p(style="color:red") TODO
 
 		section
 			h2#functions Functions
 
 			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
-			
+
 			code
 				pre
 					|- void css(string file)
@@ -324,7 +350,7 @@ block body
 
 	section
 		h2#filters Filters
-		
+
 		p(style="color:red") TODO
 
 		p Standard filters:
@@ -368,9 +394,9 @@ block body
 
 	section
 		h2#grammar Grammar
-		
+
 		p The following listing shows the language grammar for a single line of a Diet template. Note that the grammar has been derived manually from the source code and may not be 100% accurate.
-		
+
 		code
 			pre
 				|content_line : indent (html_node | text_node | comment_node | special_node)
