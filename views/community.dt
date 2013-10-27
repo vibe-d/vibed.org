@@ -25,7 +25,7 @@ block body
 		
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
 
-		p For Russian speakers, there is also a <a class="extern" target="_blank" href="http://dlang.ru/forum/ForumTopics/List/13/1">vibe.d forum</a> on <a class="extern" target="_blank" href="http://dlang.ru">dlang.ru</a>.
+		p For Russian speakers, there is also a vibe.d section on the <a class="extern" target="_blank" href="http://dlang.ru/forum/">dlang.ru forums</a>.
 
 	section
 		h2#newsgroup Newsgroup server
