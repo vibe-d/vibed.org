@@ -69,15 +69,14 @@ block body
 		code
 			pre
 				|$ cd /path/to/my/projects
-				|$ dub init &lt;project-name&gt;
+				|$ dub init &lt;project-name&gt; vibe.d
 
-		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>package.json</code> file if you want to publish your project.
+		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>package.json</code> file and properly fill in all fields, including a "license" field, if you want to publish your project.
 
 		p The recommended structure for a project is about as follows:
 
 		code
 			pre appname/
-				|	package.json
 				|	source/
 				|		app.d
 				|	public/
@@ -87,6 +86,7 @@ block body
 				|	views/
 				|		layout.dt
 				|		index.dt
+				|	package.json
 			.caption Example structure of a web application project
 
 		p For a simple web application, the 'app.d' file could look similar to this one:
@@ -96,11 +96,11 @@ block body
 				|
 				|void index(HTTPServerRequest req, HTTPServerResponse res)
 				|{
-				|	res.renderCompat!("index.dt", HTTPServerRequest, "req")(req);
+				|	res.render!("index.dt", req);
 				|
-				|	// prettier alternative, not recommended for DMD < 2.064 due
-				|   // to DMD bugs 2962/10086/10857
-				|	//res.render!("index.dt", req);
+				|	// Use the compatibility version for DMD < 2.064 as render()
+				|   // suffers from DMD bugs 2962/10086/10857
+				|	//res.renderCompat!("index.dt", HTTPServerRequest, "req")(req);
 				|}
 				|
 				|shared static this()
@@ -143,6 +143,7 @@ block body
 				|	"name": "appname",
 				|	"description": "My fabulous new app",
 				|	"copyright": "Copyright (C) 2000 Me. All rights reserved.",
+				|	"license": "AGPL-3.0",
 				|	"homepage": "http://appname.org",
 				|	"authors": [
 				|		"Hans Wurst"
