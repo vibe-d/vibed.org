@@ -19,8 +19,6 @@ block body
 
 		p Vibe.d and it's <a href="https://github.com/rejectedsoftware/">sister projects</a> are all distributed in the form of DUB packages. DUB is a package and build manager for D projects. The <a href="http://code.dlang.org/">DUB registry</a> provides a central place for publishing D applications and libraries. All packages registered there can be used by simply adding a corresponding entry into the package.json file of a project. So if you are searching for advanced functionality or if you have a project which you'd like to make available, this is the right place.
 
-		p Note that the <code>bin/vibe</code> script that is distributed along with vibe.d is a predecessor to <a href="https://github.com/rejectedsoftware/dub">DUB</a> and will be removed somewhere mid-2013. However, because it has slightly different semantics in some cases, it is still kept for a while for backwards compatibility.
-
 	section
 		h2#helping Help vibe.d's development
 		
