@@ -73,7 +73,7 @@ void updateDownloads()
 	}
 }
 
-static this()
+shared static this()
 {
 	setLogLevel(LogLevel.none);
 	setLogFile("log.txt", LogLevel.info);
