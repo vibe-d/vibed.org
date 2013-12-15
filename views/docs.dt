@@ -164,51 +164,52 @@ block body
 			h3#http-server-config Server configuration
 
 			p The HTTP server supports a number of configuration options to customize its behavior. By default, the server will listen on all local network adapters on port 80 and will perform complete request parsing. The following list gives an overview of the most common settings:
-				dl.feat
-					dt
-						a(href="api/vibe.http.server/HTTPServerSettings.port")
-							code.prettyprint port
-					dd The port on which the HTTP server shall listen
-					
-					dt
-						a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses")
-							code.prettyprint bindAddresses
-					dd A list of all interfaces on which the server shall listen. IPv4 and IPv6 addresses, as well as domain names are supported.
+			
+			dl.feat
+				dt
+					a(href="api/vibe.http.server/HTTPServerSettings.port")
+						code.prettyprint port
+				dd The port on which the HTTP server shall listen
+				
+				dt
+					a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses")
+						code.prettyprint bindAddresses
+				dd A list of all interfaces on which the server shall listen. IPv4 and IPv6 addresses, as well as domain names are supported.
 
-					dt
-						a(href="api/vibe.http.server/HTTPServerSettings.options")
-							code.prettyprint options
-					dd Controls optional features of the web server. Certain options can be disabled to increase speed or to decrease memory usage. By default, the following options are enabled: parseURL, parseQueryString, parseFormBody, parseJsonBody, parseMultiPartBody, parseCookies. Enabled options are ORed together.
+				dt
+					a(href="api/vibe.http.server/HTTPServerSettings.options")
+						code.prettyprint options
+				dd Controls optional features of the web server. Certain options can be disabled to increase speed or to decrease memory usage. By default, the following options are enabled: parseURL, parseQueryString, parseFormBody, parseJsonBody, parseMultiPartBody, parseCookies. Enabled options are ORed together.
 
-					dt
-						a(href="api/vibe.http.server/HTTPServerSettings.errorPageHandler")
-							code.prettyprint errorPageHandler
-					dd Provides a way to customize error pages. For example:
-						pre.code.prettyprint.lang-d void errorPage(HTTPServerRequest req,
-							|               HTTPServerResponse res,
-							|               HTTPServerErrorInfo error)
-							|{
-							|	res.render!("error.dt", req, error);
-							|
-							|	// NOTE: On DMD &lt; 2.064 use renderCompat instead:
-							|	//res.renderCompat!("error.dt",
-							|	//	HTTPServerRequest, "req",
-							|	//	HTTPServerErrorInfo, "error")
-							|	//	(req, error);
-							|}
-							|
-							|shared static this()
-							|{
-							|	auto settings = new HTTPServerSettings;
-							|	settings.errorPageHandler = toDelegate(&amp;errorPage);
-							|	// ...
-							|}
-						| Inside of the error.dt template, the variables req, code and msg are available in this example.
+				dt
+					a(href="api/vibe.http.server/HTTPServerSettings.errorPageHandler")
+						code.prettyprint errorPageHandler
+				dd Provides a way to customize error pages. For example:
+					pre.code.prettyprint.lang-d void errorPage(HTTPServerRequest req,
+						|               HTTPServerResponse res,
+						|               HTTPServerErrorInfo error)
+						|{
+						|	res.render!("error.dt", req, error);
+						|
+						|	// NOTE: On DMD &lt; 2.064 use renderCompat instead:
+						|	//res.renderCompat!("error.dt",
+						|	//	HTTPServerRequest, "req",
+						|	//	HTTPServerErrorInfo, "error")
+						|	//	(req, error);
+						|}
+						|
+						|shared static this()
+						|{
+						|	auto settings = new HTTPServerSettings;
+						|	settings.errorPageHandler = toDelegate(&amp;errorPage);
+						|	// ...
+						|}
+					| Inside of the error.dt template, the variables req, code and msg are available in this example.
 
-					dt
-						a(href="api/vibe.http.server/HTTPServerSettings.sslContext")
-							code.prettyprint sslContext
-					dd Lets the server operate as an HTTPS server. You should probably also set the port to 443 in case this field is set.
+				dt
+					a(href="api/vibe.http.server/HTTPServerSettings.sslContext")
+						code.prettyprint sslContext
+				dd Lets the server operate as an HTTPS server. You should probably also set the port to 443 in case this field is set.
 
 		section
 			h3#http-routing Routing
