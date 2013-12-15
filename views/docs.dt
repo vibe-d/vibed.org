@@ -42,6 +42,8 @@ block navigation
 					a(href="#tcp-server") Server
 				li
 					a(href="#tcp-client") Client
+		li
+			a(href="#raw-udp") Raw UDP
 		li.separator
 			a(href="#advanced") Advanced topics
 			ul
@@ -576,6 +578,50 @@ block body
 				|	auto conn = connectTCP("time-b.timefreq.bldrdoc.gov", 13);
 				|	logInfo("The time is: %s", cast(string)conn.readAll());
 				|}
+
+
+	section
+		h2#raw-udp Raw UDP
+		
+		p In addition to stream based TCP connections, packet based UDP communication is also supported. To open a UDP socket, use the
+			a(href="api/vibe.core.net/listenUDP")
+				code.prettyprint.lang-d listenUDP
+			| function with the appropriate port. It will return a
+			a(href="api/vibe.core.net/UDPConnection")
+				code.prettyprint.lang-d UDPConnection
+			| instance, which can then be used to send and receive individual packets.
+
+		pre.core.prettyprint.lang-d
+			|import vibe.appmain;
+			|import vibe.core.core;
+			|import vibe.core.log;
+			|import vibe.core.net;
+			|
+			|import core.time;
+			|
+			|
+			|shared static this()
+			|{
+			|	runTask({
+			|		auto udp_listener = listenUDP(1234);
+			|		while (true) {
+			|			auto pack = udp_listener.recv();
+			|			logInfo("Got packet: %s", cast(string)pack);
+			|		}
+			|	});
+			|	
+			|	runTask({
+			|		auto udp_sender = listenUDP(0);
+			|		udp_sender.connect("127.0.0.1", 1234);
+			|		while (true) {
+			|			sleep(dur!"msecs"(500));
+			|			logInfo("Sending packet...");
+			|			udp_sender.send(cast(ubyte[])"Hello, World!");
+			|		}
+			|	});
+			|}
+		.caption Example: Simple UDP based communication on localhost
+
 
 	section
 		h2#advanced Advanced topics
