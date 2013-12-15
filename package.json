@@ -7,5 +7,6 @@
 		"vibe-d": "~master",
 		"ddox": "~master",
 		"vibelog": "~master"
-	}
+	},
+	"versions": ["VibeDefaultMain"]
 }
