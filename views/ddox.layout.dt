@@ -8,8 +8,25 @@ block title
 	script(type="text/javascript", src="#{req.rootDir}scripts/ddox.js")
 
 block navigation
+	include ddox.inc.symbol-search
+
 	include ddox.inc.module-tree
 	:javascript setupDdox();
+
+	#api-version-selector
+		ul
+			- assert(req.path.startsWith("/api"));
+			- auto eidx = std.string.indexOf(req.path[4 .. $], "/");
+			- assert(eidx >= 0);
+			- auto cur = req.path[min(5, 4+eidx) .. 4+eidx];
+			- auto subpath = req.path[4+eidx .. $];
+			- foreach (ver; req.params["docsVersions"].split(";"))
+				li(class='#{ver == cur ? "selected" : ""}')
+					- if (ver.length)
+						a(href='#{req.rootDir}api-#{ver}#{subpath}')= ver
+					- else
+						a(href='#{req.rootDir}api#{subpath}') current
+
 
 block body
 	block ddox.description

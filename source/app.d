@@ -32,21 +32,36 @@ version(Have_ddox)
 	import ddox.htmlgenerator;
 	import ddox.jsonparser;
 
-	Package m_rootPackage;
+	Package[string] m_rootPackage;
+	string s_docsVersions;
 
 	void updateDocs()
 	{
-		try { 
-			import std.file;
-			string text = readText("docs.json");
-			auto json = parseJson(text);
-			m_rootPackage = parseJsonDocs(json);
-			auto settings = new DdoxSettings;
-			processDocs(m_rootPackage, settings);
-		} catch( Exception e ){
-			logError("Error loading docs: %s", e.toString());
-			throw e;
+		import std.file;
+		s_docsVersions = null;
+		string[] versions;
+		foreach (de; dirEntries(".", "docs*.json", SpanMode.shallow)) {
+			auto name = de.name;
+			if (name.startsWith("./") || name.startsWith(".\\")) name = name[2 .. $];
+			logInfo("DE %s", name);
+			assert(name.startsWith("docs") && name.endsWith(".json"));
+			auto ver = name[4 .. $-5];
+			if (ver.startsWith("-")) ver = ver[1 .. $];
+			try {
+				import std.file;
+				string text = readText(de.name);
+				auto json = parseJson(text);
+				auto pack = parseJsonDocs(json);
+				auto settings = new DdoxSettings;
+				processDocs(pack, settings);
+				m_rootPackage[ver] = pack;
+				if (ver.length) versions ~= ver;
+			} catch( Exception e ){
+				logError("Error loading docs: %s", e.toString());
+				throw e;
+			}
 		}
+		foreach_reverse (v; versions) s_docsVersions ~= ";" ~ v;
 	}
 }
 
@@ -75,7 +90,7 @@ void updateDownloads()
 
 shared static this()
 {
-	setLogLevel(LogLevel.none);
+	//setLogLevel(LogLevel.none);
 	setLogFile("log.txt", LogLevel.info);
 
 	auto settings = new HTTPServerSettings;
@@ -86,7 +101,10 @@ shared static this()
 	
 	auto router = new URLRouter;
 	
-	router.get("*", (req, res){ req.params["latestRelease"] = s_latestVersion; });
+	router.get("*", (req, res) {
+		req.params["latestRelease"] = s_latestVersion;
+		version(Have_ddox) req.params["docsVersions"] = s_docsVersions;
+	});
 	router.get("/",          staticTemplate!"home.dt");
 	router.get("/about",     staticTemplate!"about.dt");
 	router.get("/contact",   staticTemplate!"contact.dt");
@@ -120,7 +138,15 @@ shared static this()
 		auto docsettings = new GeneratorSettings;
 		docsettings.navigationType = NavigationType.ModuleTree;
 		docsettings.siteUrl = URL("http://vibed.org/api");
-		registerApiDocs(router, m_rootPackage, docsettings);
+		registerApiDocs(router, m_rootPackage[""], docsettings);
+		foreach (ver, pack; m_rootPackage) {
+			auto docsettings = new GeneratorSettings;
+			docsettings.navigationType = NavigationType.ModuleTree;
+			docsettings.siteUrl = URL("http://vibed.org/api");
+			if (!ver.length) docsettings.siteUrl = URL("http://vibed.org/api");
+			else docsettings.siteUrl = URL("http://vibed.org/api-"~ver);
+			registerApiDocs(router, pack, docsettings);
+		}
 	}
 
 	listenHTTP(settings, router);
