@@ -155,7 +155,7 @@ block body
 				
 				dt Closures and lambdas
 				dd
-					p A feature also known from some scripting and functional languages, but also C# and a few others are closures and lambdas. They allow to specify callback functions in a very compact and readably way. In turn they tend to have a strong influence on the API design, as they can make computationally efficient or safe APIs bearable to use.
+					p A feature also known from some scripting and functional languages, but also C# and a few others are closures and lambdas. They allow to specify callback functions in a very compact and readable way. In turn they tend to have a strong influence on the API design, as they can make computationally efficient or safe APIs actually bearable (or even pleasant) to use.
 				
 				dt Properties
 				dd
@@ -171,13 +171,13 @@ block body
 				
 				dt Concise and readable syntax
 				dd
-					p The syntax in general is very clean and to the point - especially compared to its relative C++. But it doesn't need to fear modern scripting languages such as Ruby and Python in this regard either. Apart from the occasional need to specify an explicit type (types can be inferred using <code>auto</code>), you will discover that there is not much to miss and that development using D is highly efficient.
+					p The syntax in general is very clean and to the point - especially compared to its perhaps closest relative, C++. But it doesn't need to fear modern scripting languages such as Ruby and Python in this regard either. Apart from the occasional need to specify an explicit type (types can be inferred using <code>auto</code>), you will discover that there is not much to miss and that development using D is highly efficient.
 
 		section
 			h3#diet-templates Compile-time "Diet" templates
 			img.leftFlow(src="images/feature_diet.png")
 
-			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates have all syntax overhead that is inherent to HTML's tag based notation removed and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript in case of jade).
+			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates remove all the syntax overhead that is inherent to HTML's tag based notation and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript in case of jade).
 
 			p In vibe.d, however, templates can contain embedded D code. The templates are read and parsed while the application is being compiled and optimized D code is generated for them. This means that the runtime overhead for those templates is non-existent - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has even started.
 
