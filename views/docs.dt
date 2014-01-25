@@ -238,7 +238,10 @@ block body
 				|}
 				|
 				|shared static this()
-				|{
+				|{	
+				|	auto fsettings = new HTTPFileServerSettings;
+ 				|	fsettings.serverPathPrefix = "/static";
+				|	
 				|	auto router = new URLRouter;
 				|	router.get("/users/:user", &amp;userInfo);
 				|	router.post("/adduser", &amp;addUser);
