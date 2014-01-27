@@ -159,7 +159,7 @@ block body
 					tr
 						td	
 							:markdown
-								The naming scheme of global variables depends on their shared state. Their __basic naming scheme is pascalCase__. Global thread-local variables get a `g_` prefix. Variables with a `shared` or `__gshared` storage class get a `gs_` prefix.
+								The naming scheme of global variables depends on their shared state. Their __basic naming scheme is pascalCase__. Global thread-local variables get a `g_` prefix. Variables with a `shared` or `__gshared` storage class get a `gs_` prefix. Public variables may drop the prefix, but properties should be preferred in this case.
 
 						td
 							p The semantic prefix makes it possible to immediately distinguish the scope of different variables, as well as their need for synchronization. Encountering use of a shared variable with no synchronization/atomic operation in place can be directly spotted.
@@ -168,6 +168,7 @@ block body
 					|private int g_moduleLevelVariable;
 					|package int g_packageLevelVariable;
 					|public int g_publicVariable;
+					|public int publicVariable; // possible, but @property recommended
 					|shared int gs_globalSharedVariable;
 					|__gshared int gs_globalSharedVariable2;
 
