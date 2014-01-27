@@ -221,7 +221,7 @@ block body
 			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
 				a(href="api/vibe.http.router/URLRouter")
 					code.prettyprint URLRouter
-				| class (e.g. <a href="api/vibe.http.router/HTTPRouter.get"><code class="prettyprint">get()</code></a> or <a href="api/vibe.http.router/HTTPRouter.post"><code class="prettyprint">post()</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder.
+				| class (e.g. <a href="api/vibe.http.router/HTTPRouter.get"><code class="prettyprint">get()</code></a> or <a href="api/vibe.http.router/HTTPRouter.post"><code class="prettyprint">post()</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder, see <a href="api/vibe.http.fileserver/serveStaticFiles"><code class="prettyprint.lang-d">serveStaticFiles</code></a>.
 
 			pre.code.prettyprint.lang-d import vibe.d;
 				|
