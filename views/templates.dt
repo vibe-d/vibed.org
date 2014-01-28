@@ -233,9 +233,9 @@ block body
 		section
 			h3#statements Statements
 
-			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
+			| D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 
-			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
+			| Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
 
 			code
 				pre !\!! 5
@@ -298,17 +298,34 @@ block body
 
 			p(style="color:red") WIP
 			
-			p With includes it is possible to embed one template in another
+			| With includes it is possible to embed one template in another.
 			
+			| The included template gets pasted at the position of the include-keyword. 
+
+			| The Indention of the include-postion will propagate, to the included template.
+
 			code
 				pre
 					| // main.dt
 					|!\!! 5
 					|html
-					|	include header
+					|	head
+					|		title includeExample
 					|	body
-					|	h2 
-				.captoion include-example WIP
+					|		h2  the following content is not in this file ...
+					|		include otherfile
+				.caption Example: main.dt 
+			code
+				pre
+					| // otherfile.dt	
+					|h3 ... But In the other file and this
+					|include yetanotherfile
+				.caption Example: included otherfile.dt	 
+			code
+				pre
+					| // yetanotherfile.dt
+					|h4 in yet anotherfile
+				.caption Example: included yetanotherfile.dt
 
 		section
 			h2#functions Functions
@@ -423,7 +440,7 @@ block body
 				|                 OPT_WS ')'
 				|text_node    : '|' node_content
 				|comment_node : '//' text | '//-' text | '//if' text
-				|special_node : code_node | block_node
+				|special_node : code_node | block_node | include_node
 				|code_node    : '-' text
 				|block_node   : 'block ' text
 				|include_node : 'include ' text

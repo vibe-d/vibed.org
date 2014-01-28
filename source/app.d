@@ -6,7 +6,7 @@ import std.datetime;
 
 version(Have_vibelog) import vibelog.vibelog;
 
-string s_latestVersion = "0.7.13";
+string s_latestVersion = "0.7.18";
 
 void download(HTTPServerRequest req, HTTPServerResponse res)
 {
