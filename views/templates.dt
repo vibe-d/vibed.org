@@ -296,7 +296,19 @@ block body
 		section
 			h2#includes Includes
 
-			p(style="color:red") TODO
+			p(style="color:red") WIP
+			
+			p With includes it is possible to embed one template in another
+			
+			code
+				pre
+					| // main.dt
+					|!\!! 5
+					|html
+					|	include header
+					|	body
+					|	h2 
+				.captoion include-example WIP
 
 		section
 			h2#functions Functions
