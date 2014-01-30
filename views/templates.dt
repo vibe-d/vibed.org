@@ -220,8 +220,23 @@ block body
 		section
 			h3#comments Comments
 
-			p(style="color:red") TODO
+			p(style="color:red") WIP
 
+			| Comments in diet-templates are like c99-"//" comments they show up in the result as HTML comments.
+			| If such behavior is not wanted use "//-". Thoose do not show up on the page
+
+			code
+				pre !\!! 5
+					|html 
+					|// I show up
+					| 	head
+					|		//-title there is no title
+					|	body
+					|		// You will see me too
+					| 		//- I am just visible in the template source
+				.caption Example: comments	 
+			p(style="color:red") TODO insert HTML
+			p(style="color:red") TODO #if
 	section
 		h2#embedded-code Embedded D source code
 
@@ -296,8 +311,6 @@ block body
 		section
 			h2#includes Includes
 
-			p(style="color:red") WIP
-			
 			| With includes it is possible to embed one template in another.
 			
 			| The included template gets pasted at the position of the include-keyword. 
@@ -327,6 +340,22 @@ block body
 					|h4 in yet anotherfile
 				.caption Example: included yetanotherfile.dt
 
+			code
+				pre.prettyprint.lang-html
+					:htmlescape
+						<!DOCTYPE html>
+						<html>
+							<head>
+								<title>includeExample</title>
+							</head>
+							<body>
+								<h2> the following content is not in this file ... </h2>
+								<h3> ... But In the other file and this </h3>
+								<h4> in yet another file </h4>
+							</body>
+						</html>
+				.caption Example: HTML output for the include-Example
+								 
 		section
 			h2#functions Functions
 
