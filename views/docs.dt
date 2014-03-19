@@ -53,6 +53,8 @@ block navigation
 					a(href="#custom-main") The main function
 				li
 					a(href="#privilege-lowering") Privilege lowering
+				li
+					a(href="#compile-time-configuration") Compile time configuration
 		li.separator
 			a(href="templates/diet") Diet Reference
 		li
@@ -694,3 +696,91 @@ block body
 				|	"group": "www-data"
 				|}
 			.caption Example vibe.conf file
+
+		section
+			h3#compile-time-configuration Compile time configuration
+
+			p There is a number of features that can be controlled via "versions". To defined a certain version, add the corresponding entry to the <code>"versions"</code> in your dub.json:
+			pre.code
+				|{
+				|	...
+				|	"versions": ["VibeManualMemoryManagement"],
+				|	...
+				|}
+			.caption Declaring a "version" in dub.json
+
+			table
+				tr
+					th Version constant
+					th Meaning
+
+				tr
+					td
+						code VibeCustomMain
+					td Tells vibe.d to not use its own predefined <code>main()</code> function. This is mutually exclusive to <code>VibeDefaultMain</code>.
+
+				tr
+					td
+						code VibeDefaultMain
+					td Tells vibe.d to use its own predefined <code>main()</code> function. This is mutually exclusive to <code>VibeCustomMain</code>.
+
+				tr
+					td
+						code VibeDisableCommandLineParsing
+					td Disables automatic parsing of command line options passed to the application, such as "--help" or "--verbose".
+
+				tr
+					td
+						code VibeManualMemoryManagement
+					td Performs a number of operations using manual memory management instead of the garbage collector, most notably in the HTTP server. This can lead to considerable performance improvements, but also makes certain operations unsafe and thus may open up the possibility for certain attacks. Especially any code needs to make sure to not escape any data (including <code>string</code> data) from <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a>.
+
+				tr
+					td
+						code VibeIdleCollect
+					td Perform manual garbage collection runs when the application is idle for more than two seconds.
+
+				tr
+					td
+						code VibePartialAutoExit
+					td Partial workaround for issue <a href="https://github.com/rejectedsoftware/vibe.d/issues/212">#212</a> - exits the event loop after no mode file and socket based events exist. Note that this will exit the event loop, even if other kinds of events, such as timers, are still active. It is currently recommended to use <a href="api/vibe.core.core/exitEventLoop"><code>exitEventLoop</code></a> instead.
+
+				tr
+					td
+						code VibeOldSerialization
+					td Forces the use of the old (pre 0.7.18) serialization code for JSON and BSON. This may be necessary under rare circumstances, where the new code has different semantics.
+
+				tr
+					td
+						code VibeJsonFieldNames
+					td Stores field names for JSON values for better error messages. This will use a few bytes of additional memory per <a href="api/vibe.data.json/Json"><code>Json</code></a> value.
+
+				tr
+					td
+						code JsonLineNumbers
+					td Stores line numbers for each JSON value parsed from a JSON string for improved error messages. This will store an additional <code>int</code> for each <a href="api/vibe.data.json/Json"><code>Json</code></a> value.
+
+				tr
+					td
+						code VibePragmaLib
+					td Uses a <code>pragma(lib)</code> to link against OpenSSL and libevent. This is only useful for building without DUB.
+
+				tr
+					td
+						code VibeLibevDriver
+					td Enables the libev based event driver (not fully functional). Do not use this version directly, but select the "libev" configuration in your dub.json instead.
+
+				tr
+					td
+						code VibeLibeventDriver
+					td Enables the libevent based event driver (currently the default). Do not use this version directly, but select the "libevent" configuration in your dub.json instead.
+
+				tr
+					td
+						code VibeWin32Driver
+					td Enables the Win32 based event driver (provides GUI message support on Windows). Do not use this version directly, but select the "win32" configuration in your dub.json instead.
+
+				tr
+					td
+						code VibeWinrtDriver
+					td Enables the WinRT based event driver (not yet implemented). Do not use this version directly, but select the "winrt" configuration in your dub.json instead.
+
