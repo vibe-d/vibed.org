@@ -72,7 +72,7 @@ block body
 			|$ cd /path/to/my/projects
 			|$ dub init &lt;project-name&gt; vibe.d
 
-		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>package.json</code> file and properly fill in all fields, including a "license" field, if you want to publish your project.
+		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>dub.json</code> file and properly fill in all fields, including a "license" field, if you want to publish your project.
 
 		p The recommended structure for a project is about as follows:
 
@@ -86,7 +86,7 @@ block body
 			|	views/
 			|		layout.dt
 			|		index.dt
-			|	package.json
+			|	dub.json
 		.caption Example structure of a web application project
 
 		p For a simple web application, the 'app.d' file could look similar to this one:
@@ -133,7 +133,7 @@ block body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
-		p Finally, you can add a "package.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
+		p Finally, you can add a "dub.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
 		
 		pre.code {
 			|	"name": "appname",
@@ -147,7 +147,7 @@ block body
 			|	},
 			|	"versions": ["VibeDefaultMain"]
 			|}
-		.caption Example package.json
+		.caption Example dub.json
 			
 		p Once you have the project in place, simply run vibe from the project's root directory and it will get all dependencies, compile the application, and run it:
 		pre $ cd path/to/project
@@ -618,9 +618,9 @@ block body
 			
 			p The
 				a.extern(href="http://code.dlang.org/", target="_blank") DUB registry
-				| contains packages that use the same package management as vibe.d. Many of them extend and supplement vibe.d's functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the project's package.json file is present.
+				| contains packages that use the same package management as vibe.d. Many of them extend and supplement vibe.d's functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the project's dub.json file is present.
 			
-			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper package.json, which has to reside in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted either on GitHub or on BitBucket. See <a href="http://registry.vibed.org/publish">http://core.dlang.org/publish</a> for more information.
+			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper dub.json, which has to reside in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted either on GitHub or on BitBucket. See <a href="http://registry.vibed.org/publish">http://core.dlang.org/publish</a> for more information.
 				
 			pre.code
 				|{
@@ -635,7 +635,7 @@ block body
 				|		"vibe-d": "~master"
 				|	}
 				|}
-			.caption Example: A package.json file suitable for registration as a DUB package.
+			.caption Example: A dub.json file suitable for registration as a DUB package.
 				
 			p You can then register your project on
 				a.extern(href="http://code.dlang.org/", target="_blank") registry.vibed.org
