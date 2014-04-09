@@ -64,6 +64,13 @@ a.inherited:after { content: url(../images/ddox/inherited.png); padding-left: 2p
 }
 nav#document-nav #symbolSearchResults li:before { content: ""; }
 
+#symbolSearch {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	width: 100%;
+}
+
 #symbolSearchResults {
 	list-style: none;
 	padding: 0;

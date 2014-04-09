@@ -21,6 +21,10 @@
 	margin-bottom: 40pt;
 }
 
+#vibelogContent .blogPost header {
+	margin-bottom: 9pt;
+}
+
 #vibelogContent .blogPostHeaderContent  {
 	display: table-row;
 }
