@@ -88,6 +88,21 @@ void updateDownloads()
 	}
 }
 
+void redirectDlangDocs(HTTPServerRequest req, HTTPServerResponse res)
+{
+	string path = "index.html";
+	static immutable prefixes = [
+		"/temp/d-programming-language.org/phobos/",
+		"/temp/dlang.org/library/"
+	];
+	foreach (p; prefixes)
+		if (req.path.startsWith(p)) {
+			path = req.path[p.length .. $];
+			break;
+		}
+	res.redirect("http://dlang.org/library/"~path, HTTPStatus.movedPermanently);
+}
+
 shared static this()
 {
 	//setLogLevel(LogLevel.none);
@@ -118,6 +133,8 @@ shared static this()
 	router.get("/templates", staticRedirect("/templates/"));
 	router.get("/templates/", staticRedirect("/templates/diet"));
 	router.get("/templates/diet", staticTemplate!"templates.dt");
+	router.get("/temp/d-programming-language.org/*", &redirectDlangDocs);
+	router.get("/temp/dlang.org/*", &redirectDlangDocs);
 
 	auto fsettings = new HTTPFileServerSettings;
 	fsettings.maxAge = 0.seconds();
