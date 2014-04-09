@@ -91,13 +91,8 @@ block plainbody
 						p Get involved with vibe's development
 		#example-http-server
 			h2 Example of a simple HTTP server
-			pre.code.prettyprint.lang-d import vibe.d;
-				|
-				|void handleRequest(HTTPServerRequest req,
-				|                   HTTPServerResponse res)
-				|{
-				|	res.writeBody("Hello, World!", "text/plain");
-				|}
+			pre.code.prettyprint.lang-d
+				|import vibe.d;
 				|
 				|shared static this()
 				|{
@@ -106,9 +101,16 @@ block plainbody
 				|
 				|	listenHTTP(settings, &amp;handleRequest);
 				|}
+				|
+				|void handleRequest(HTTPServerRequest req,
+				|                   HTTPServerResponse res)
+				|{
+				|	res.writeBody("Hello, World!", "text/plain");
+				|}
 		#example-echo-server
 			h2 Example of an echo server
-			pre.code.prettyprint.lang-d import vibe.d;
+			pre.code.prettyprint.lang-d
+				|import vibe.d;
 				|
 				|shared static this()
 				|{
