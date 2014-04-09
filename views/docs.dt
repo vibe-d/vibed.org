@@ -761,6 +761,11 @@ block body
 
 				tr
 					td
+						code VibeNoSSL
+					td Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.ssl</code> module will be dysfunctional.
+
+				tr
+					td
 						code VibePragmaLib
 					td Uses a <code>pragma(lib)</code> to link against OpenSSL and libevent. This is only useful for building without DUB.
 
