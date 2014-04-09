@@ -75,7 +75,7 @@ block plainbody
 						a(href="download") Download
 						p Get the latest release and accompanying material
 					li.nav-blog
-						a(href="blog/") Blog
+						a(href="blog/") News
 						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-features
 						a(href="features") Features
