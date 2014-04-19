@@ -145,7 +145,7 @@ block body
 			
 			p Instead of using classic blocking I/O together with multi-threading for doing parallel network and file operations, all operations are using asynchronous operating system APIs. By default, <a class="extern" href="http://libevent.org/" target="_blank">libevent</a> is used to access these APIs operating system independently.
 
-			p Using asynchronous I/O has several advantages, the main point being that the memory overhead is much lower. This is because only a single hardware thread is needed to handle an arbitrary number of concurrent operations. The thread typically rests waiting for events and is woken up by the operating system as soon as new data arrives, a new connection is established, or an error occurs. After each intiated blocking operation (e.g. writing data to a socket), the thread will go back to sleep and let the operating system execute the operation in the background.
+			p Using asynchronous I/O has several advantages, the main point being that the memory overhead is much lower. This is because only a single hardware thread is needed to handle an arbitrary number of concurrent operations. The thread typically rests waiting for events and is woken up by the operating system as soon as new data arrives, a new connection is established, or an error occurs. After each initiated blocking operation (e.g. writing data to a socket), the thread will go back to sleep and let the operating system execute the operation in the background.
 
 			p Another important aspect for speed is that, because there is only one or a few threads necessary, it is often possible to save a lot of expensive thread context switches. However, note that if the application has to do a lot of computations apart from the actual I/O operations, vibe.d has full support for
 				a(href="#multi-threading") multi-threading
@@ -153,7 +153,7 @@ block body
 
 			p Because using the asynchronous event based model is often more involved regarding the application implementation,
 				a(href="#fibers") fibers
-				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading, thus hiding the additonal complexities, while retaining the performance characteristics of asynchronous I/O.
+				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading, thus hiding the additional complexities, while retaining the performance characteristics of asynchronous I/O.
 		
 		section
 			h3#native-code Natively compiled code
@@ -178,7 +178,7 @@ block body
 				dd
 					p The D runtime offers built-in garbage collection, which enables some interesting possibilities, apart from the obvious advantage of no need for manual memory management and the associated risk of memory leaks and dangerous dangling references.
 					
-					p Most notably, it allows to work with immutable data, such as strings or objects, which can be safely referenced and passed between threads without any synchronization overhead. When passing data between threads, it is statically enforced that the data is safe to be referenced from multiple threads. This avoids a whole class of diffucult to reproduce and track down bugs common in multi-threaded code of many other languages.
+					p Most notably, it allows to work with immutable data, such as strings or objects, which can be safely referenced and passed between threads without any synchronization overhead. When passing data between threads, it is statically enforced that the data is safe to be referenced from multiple threads. This avoids a whole class of difficult to reproduce and track down bugs common in multi-threaded code of many other languages.
 				
 				dt Closures and lambdas
 				dd
