@@ -6,6 +6,8 @@ block title
 block navigation
 	ul
 		li
+			a(href="#description") What is vibe.d?
+		li
 			a(href="#motivation") Why vibe.d?
 		li
 			a(href="#who") Who makes vibe.d?
@@ -14,8 +16,14 @@ block navigation
 
 block body
 
-	section
-		a#motivation
+	section#description
+		h2 What is vibe.d?
+
+		p The foremost purpose of vibe.d is to provide a toolkit for doing asynchronous I/O in a familiar and natural procedural style. It combines the intuitive and efficient programming style of synchronous I/O with the scalability of asynchronous I/O.
+
+		p Apart from actual I/O operations, it provides all the usual primitives for general programming tasks, such as timers, message passing, synchronization primitives (mutexes and condition variables), pipes and more. Care has also been taken to make sure that it integrates well with the event loop for the user interface, so that it can be used to power GUI based applications, too.
+
+	section#motivation
 		h2 Why vibe.d?
 
 		p Web development has seen a huge innovative jump in the last years. Frameworks such as
@@ -25,32 +33,32 @@ block body
 			| and several other frameworks have changed the landscape of the CGI and PHP based 
 			| web considerably.
 
-		p New programming paradigms have emerged to make web apps managable to facilitate a 
+		p New programming paradigms have emerged to make web apps manageable to facilitate a 
 			| clean application design. Node.js was the first to succeed in bringing the
-			| performance of asynchronous I/O to the masses.
+			| performance of asynchronous I/O to the masses - albeit at the cost of a
+			| convoluted programming style using callbacks and with a dynamically typed
+			| language that relies heavily on unit tests to catch common programming errors.
 
 		p With vibe.d we are trying to bring the highest performance possible together with a
 			| programming interface that is as clean as possible. At the same time the choice of
 			a.extern(href="http://dlang.org/") D
 			| as the programming language leads to code that provides much less potential for errors
 			| thanks to it's comprehensive static type system. Still, D's clean syntax gives you
-			| the same lean programming experience as in dynamically typed scripting languages.
+			| nearly the same lean programming experience as in dynamically typed scripting languages.
 
-		p The combination is a very fast and practical system that provides a solid basis for many typical web applications and services, as well as non-web services. It still has some way to go to reach the comprehensiveness of some of the existing systems, though.
+		p The combination is a very fast and practical system that provides a solid basis for many typical web applications and services, as well as non-web services.
 
-	section 
-		a#who
+	section#who
 		h2 Who makes vibe.d?
 
-		p We are a small group of people that was tired of slow, bloated or inconvenient frameworks or languages for web application development. Node.js was a promising change with its speed and the rich set of extension libraries. However, the complete reliance on callbacks makes node.js code quite involved to read and write. And worse, error handling is far too easy to ignore. After realizing that fibers would be the ideal tool to keep the performance and memory benefits of evented I/O while getting back the simplicity of blocking I/O, the idea of vibe.d was born.
+		p We are a small group of people that was tired of slow, bloated or inconvenient frameworks or languages for web application development. Node.js was a promising change with its speed and the rich set of extension libraries. However, the complete reliance on callbacks makes node.js code quite involved to read and write. And worse, error handling is far too easy to ignore. After realizing that fibers would be the ideal tool to keep the performance and memory benefits of event based I/O while getting back the simplicity of blocking I/O, the idea of vibe.d was born.
 
-	section
-		a#license
+	section#license
 		h2 License
 
 		p vibe.d is licensed under the terms of the MIT public license:
 		
-		pre Copyright (c) 2012 rejectedsoftware e.K.
+		pre Copyright (c) 2012-2014, rejectedsoftware e.K.
 			|
 			|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 			|

@@ -47,18 +47,10 @@ block plainbody
 		#feat-rad.feat-block
 			h2 Productive
 			ul
-				li Full
-					em web application toolkit
-				li
-					em HTTPS/SSL
-					| support
-				li Native database drivers for
-					em MongoDB
-					| and
-					em Redis
-				li
-					em Raw TCP and File handling
-					| for building custom protocols
+				li Full <em>web application toolkit</em>, including <em>HTTPS</em> support
+				li Native database drivers for <em>MongoDB</em> and <em>Redis</em>
+				li Complete <em>concurrency toolkit</em> and support for <em>low level I/O operations</em>
+				li Support for <em>graphical user interfaces</em>
 				li
 					a(href="features#productivity") Read more…
 		.clear

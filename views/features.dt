@@ -22,7 +22,11 @@ block navigation
 				li
 					a(href="#native-db") Native database drivers
 				li
-					a(href="#raw-sockets") Raw TCP and file handling
+					a(href="#raw-sockets") Raw network and file handling
+				li
+					a(href="#concurrency") Generic concurrency tools
+				li
+					a(href="#ui-integration") Graphical user interface integration
 		li
 			a(href="#performance") Performance
 			ul
@@ -56,6 +60,8 @@ block body
 			p The approach of vibe.d is to use asynchronous I/O under the hood, but at the same time make it seem as if all operations were synchronous and blocking, just like ordinary I/O.
 
 			p What makes this possible is D's support for so called <a class="extern" href="http://dlang.org/phobos/core_thread.html#.Fiber" target="_blank">fibers</a> (also often called co-routines). Fibers behave a lot like threads, just that they are actually all running in the same thread. As soon as a running fiber calls a special <code>yield()</code> function, it returns control to the function that started the fiber. The fiber can then later be resumed at exactly the position and with the same state it had when it called <code>yield()</code>. This way fibers can be multiplexed together, running quasi-parallel and using each threads capacity as much as possible.
+
+			p All of this usually happens behind the curtain of the vibe.d API, so that everything <em>feels</em> like just working with normal threads and blocking operations. All blocking functions, such as <code>sleep()</code> or <code>read()</code> will yield execution whenever they need to wait for an event and let themselves resume when the event occurs.
 
 			p Using these tools, the event based nature of AIO is completely hidden from the user of the library. It also blends seamlessly with the built-in support for multi-threading. All concurrent operation are done using so called <a href="api/vibe.core.core/runTask">tasks</a>. Every task runs inside of a single fiber and is multiplexed together with other tasks that run at the same time. To the user of the toolkit there is usually no visible difference between a task and a thread.
 
@@ -105,9 +111,30 @@ block body
 			p Making existing drivers compatible is easy to do thanks to the blocking nature of vibe.d's API. The only thing that has to be done in most cases is to replace the socket calls (<code>send()</code>, <code>recv()</code>, <code>connect()</code> etc.) with the corresponding vibe.d functions. A <a href="blog/posts/writing-native-db-drivers">blog post</a> gives an overview of what needs to be done using the MySQL driver as an example.
 
 		section.clear
-			h3#raw-sockets Raw TCP and File handling
+			h3#raw-sockets Raw network and file handling
 
-			p Raw TCP and file access is of course supported by the toolkit to support custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
+			p Of course, raw TCP/UDP and file access is supported by the toolkit to enable custom protocols and file formats. I/O happens through a blocking stream interface that effectively hides the fact that the underlying operations are actually event based.
+
+		section
+			h3#concurrency Generic concurrency tools
+
+			p Apart from I/O operations, all the usual tools for generic programming tasks are supported:
+
+			ul
+				li <a href="api/vibe.core.core/sleep"><code>sleep()</code></a> pauses execution of the current tasks for a specific amount of time
+				li <a href="api/vibe.core.core/setTimer">Timers</a> enable asynchronous scheduling of callbacks
+				li <a href="api/vibe.core.sync/TaskMutex">Mutexes</a> and <a href="api/vibe.core.sync/TaskCondition">condition variables</a> allow for sharing data access between multiple threads without interfering with the event loop
+				li Support for <a href="api/vibe.core.concurrency/">message passing</a>
+				li <a href="api/vibe.stream.taskpipe/TaskPipe">Data pipes</a> for streaming data between tasks/threads
+
+		section
+			h3#ui-integration Graphical user interface integration
+
+			p Contrary to most other frameworks supporting asynchronous I/O, vibe.d fully integrates with the UI event loop, so that it can be used to power applications with a graphical user interface.
+
+			p For Windows, there is a native event driver implementation (enable with <a href="docs#compile-time-configuration"><code>VibeWin32Driver</code></a>) that makes use of the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684245(v=vs.85).aspx"><code>MsgWaitForMultipleObjectsEx</code></a> function to process window messages together with I/O or concurrency events. For systems running X11, it's possible to use <a href="api/vibe.core.core/createFileDescriptorEvent"><code>createFileDescriptorEvent</code></a> to listen on the display connection instead of using <code>XNextEvent</code>.
+
+
 
 	section
 		h2#performance Performance
