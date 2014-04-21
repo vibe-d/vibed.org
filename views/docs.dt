@@ -118,7 +118,7 @@ block body
 
 		p The 'views' sub folder is automatically searched for templates instantiated with <a href="api/vibe.http.server/render"><code class="prettyprint">render()</code></a>. The two templates in the example structure might look like this:
 
-		pre.code !\!! 5
+		pre.code doctype html
 			|html
 			|	head
 			|		title Example page
@@ -276,7 +276,7 @@ block body
 				a(href="templates/diet") Diet templates
 				| page.
 
-			pre.code !\!! 5
+			pre.code doctype html
 				|html
 				|	head
 				|		title My page: \#{pageTitle}

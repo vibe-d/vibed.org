@@ -77,14 +77,14 @@ block body
 
 			Right now, it is necessary to begin the document with an HTML 5 header. This restriction will be removed in the future.
 
-		code
-			pre !\!! 5
-				|html
-				|	head
-				|		title Hello, World
-				|	body
-				|		h1 Hello World
-			.caption Example: A minimal HTML page
+		pre.code.
+			doctype html
+			html
+				head
+					title Hello, World
+				body
+					h1 Hello World
+		.caption Example: A minimal HTML page
 
 	section
 		h2#content-elements Content elements
@@ -102,141 +102,139 @@ block body
 				a(href="#string-interpolations") string interpolations
 				|. If the text is prefixed with '=', it is interpreted as a D expression. The outcome of this expression is converted to a string and HTML encoded. Prefixing with '!=' will output the bare string without HTML encoding.
 
-			code
-				pre !\!! 5
-					|html
-					|	head
-					|		title This is the page title
-					|	body
-					|		#main This is a &amp;lt;div&amp;gt; with the id 'main'.
-					|			p#first This paragraph has the id 'first'.
-					|			p.second.red This paragraph has the classes 'second' and 'red' assigned.
-					|			p The following paragraph will have an '8' as its content:
-					|			p= 5+3
-					|			p It's also possible to output raw HTML from a D expression:
-					|			p!= "&lt;u&gt;Underlined text&lt;/u&gt;"
-					|			p(style="color:red") HTML attributes can be specified.
-					|			p#second.test(style="color:green") Id, classes and attributes can also be combined.
-				.caption Example: HTML tags using the various optional features
+			pre.code.
+				doctype html
+				html
+					head
+						title This is the page title
+					body
+						#main This is a &amp;lt;div&amp;gt; with the id 'main'.
+							p#first This paragraph has the id 'first'.
+							p.second.red This paragraph has the classes 'second' and 'red' assigned.
+							p The following paragraph will have an '8' as its content:
+							p= 5+3
+							p It's also possible to output raw HTML from a D expression:
+							p!= "&lt;u&gt;Underlined text&lt;/u&gt;"
+							p(style="color:red") HTML attributes can be specified.
+							p#second.test(style="color:green") Id, classes and attributes can also be combined.
+			.caption Example: HTML tags using the various optional features
 
-			code
-				pre.prettyprint.lang-html
-					:htmlescape
-						<!DOCTYPE html>
-						<html>
-							<head>
-								<title>This is the page title</title>
-							</head>
-							<body>
-								<div id="main">
-									This is a &lt;div&gt; with the id 'main'.
-									<p id="first">This paragraph has the id 'first'.</p>
-									<p class="second red">This paragraph has the classes 'second' and 'red' assigned.</p>
-									<p>The following paragraph will have an '8' as its content:</p>
-									<p>8</p>
-									<p>It's also possible to output raw HTML from a D expression:</p>
-									<p><u>Underlined text</u></p>
-									<p style="color:red">HTML attributes can be specified.</p>
-									<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
-								</div>
-							</body>
-						</html>
-				.caption Example: HTML output for the example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>This is the page title</title>
+						</head>
+						<body>
+							<div id="main">
+								This is a &lt;div&gt; with the id 'main'.
+								<p id="first">This paragraph has the id 'first'.</p>
+								<p class="second red">This paragraph has the classes 'second' and 'red' assigned.</p>
+								<p>The following paragraph will have an '8' as its content:</p>
+								<p>8</p>
+								<p>It's also possible to output raw HTML from a D expression:</p>
+								<p><u>Underlined text</u></p>
+								<p style="color:red">HTML attributes can be specified.</p>
+								<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
+							</div>
+						</body>
+					</html>
+			.caption Example: HTML output for the example
 
 		section
 			h3#plain-text Plain text
 
 			p There is a special plain text node for the cases where you want to split up text over multiple lines, for example because you are outputting preformatted text or because you want to mix text with html nodes. The tag is started with a pipe '|' and can be followed by '=' or '!=' just as HTML nodes. Consecutive text nodes are output as separate lines in the HTML output with their indentation removed.
 
-			code
-				pre !\!! 5
-					|html
-					|	head
-					|		title Plain text test
-					|	body
-					|		pre
-					|			|This is some multi-line
-					|			|     preformatted
-					|			|         text
-					|		p This is an example containing a
-					|			a(href="http://vibed.org/") link
-					|			| mixed with text.
-					|		p
-					|			|= "&lt;D&gt; expressions"
-					|			|!= "And raw &lt;u&gt;HTML&lt;/u&gt; output"
-					|			| are possible.
-				.caption Example: using text nodes to output multiple lines of text
+			pre.code.
+				doctype html
+				html
+					head
+						title Plain text test
+					body
+						pre
+							|This is some multi-line
+							|     preformatted
+							|         text
+						p This is an example containing a
+							a(href="http://vibed.org/") link
+							| mixed with text.
+						p
+							|= "&lt;D&gt; expressions"
+							|!= "And raw &lt;u&gt;HTML&lt;/u&gt; output"
+							| are possible.
+			.caption Example: using text nodes to output multiple lines of text
 
-			code
-				pre.prettyprint.lang-html
-					:htmlescape
-						<!DOCTYPE html>
-						<html>
-							<head>
-								<title>Plain text test</title>
-							</head>
-							<body>
-								<pre>This is some multi-line
-						     preformatted
-						         text</pre>
-								<p>
-									This is an example containing a
-									<a href="http://vibed.org/">link</a>
-									mixed with text.
-								</p>
-								<p>
-									&lt;D&gt; expressions
-									And raw <u>HTML</u> output
-									are possible.
-								</p>
-							</body>
-						</html>
-				.caption Example: HTML output for the example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>Plain text test</title>
+						</head>
+						<body>
+							<pre>This is some multi-line
+					     preformatted
+					         text</pre>
+							<p>
+								This is an example containing a
+								<a href="http://vibed.org/">link</a>
+								mixed with text.
+							</p>
+							<p>
+								&lt;D&gt; expressions
+								And raw <u>HTML</u> output
+								are possible.
+							</p>
+						</body>
+					</html>
+			.caption Example: HTML output for the example
 
 		section
 			h3#whitespace-removal Whitespace removal
 
 			p &gt; and &lt; give you more control over the whitespace near a tag. &gt; will remove all whitespace surrounding a tag, while &lt; will remove all whitespace immediately within a tag. You can think of them as alligators eating the whitespace: &gt; faces out of the tag and eats the whitespace on the outside, and &lt; faces into the tag and eats the whitespace on the inside. They're placed at the end of a tag definition, after class, id, and attribute declarations but before =.
 
-			code
-				pre div
-					|	span(style="color:blue") [
-					|	span(style="color:red")&gt; red
-					|	span(style="color:blue") ]
-					|div
-					|	div&gt;&lt;
-					|		img
-				.caption Example: using whitespace removal
+			pre.code.
+				div
+					span(style="color:blue") [
+					span(style="color:red")&gt; red
+					span(style="color:blue") ]
+				div
+					div&gt;&lt;
+						img
+			.caption Example: using whitespace removal
 
-			code
-				pre.prettyprint.lang-html
-					:htmlescape
-						<div>
-							<span style="color:blue">[</span><span style="color:red">red</span><span style="color:blue">]</span>
-						</div>
-						<div><div><img/></div></div>
-				.caption Example: HTML output for the example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<div>
+						<span style="color:blue">[</span><span style="color:red">red</span><span style="color:blue">]</span>
+					</div>
+					<div><div><img/></div></div>
+			.caption Example: HTML output for the example
 
 		section
 			h3#comments Comments
 
 			p(style="color:red") WIP
 
-			| Comments in diet-templates are like c99-"//" comments they show up in the result as HTML comments.
-			| If such behavior is not wanted use "//-". Thoose do not show up on the page
+			p Comments in diet-templates are like c99-"//" comments they show up in the result as HTML comments. If such behavior is not wanted use "//-". Thoose do not show up on the page
 
-			code
-				pre !\!! 5
-					|html 
-					|// I show up
-					| 	head
-					|		//-title there is no title
-					|	body
-					|		// You will see me too
-					| 		//- I am just visible in the template source
-				.caption Example: comments	 
+			pre.code.
+				doctype html
+				html 
+				// I show up
+					head
+						//-title there is no title
+					body
+						// You will see me too
+						//- I am just visible in the template source
+			.caption Example: comments
+
 			p(style="color:red") TODO insert HTML
 			p(style="color:red") TODO #if
+	
 	section
 		h2#embedded-code Embedded D source code
 
@@ -248,52 +246,52 @@ block body
 		section
 			h3#statements Statements
 
-			| D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
+			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 
-			| Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
+			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
 
-			code
-				pre !\!! 5
-					|html
-					|	head
-					|		title D statement test
-					|	body
-					|		- import std.algorithm : min;
-					|		p Four items ahead:
-					|		- foreach( i; 0 .. 4 )
-					|			- auto num = i+1;
-					|			p Item
-					|				b= num
-					|		p Prints 8:
-					|		p= min(10, 2*6, 8)
-				.caption Example: different possibilities to embed D code
+			pre.code.
+				doctype html
+				html
+					head
+						title D statement test
+					body
+						- import std.algorithm : min;
+						p Four items ahead:
+						- foreach( i; 0 .. 4 )
+							- auto num = i+1;
+							p Item
+								b= num
+						p Prints 8:
+						p= min(10, 2*6, 8)
+			.caption Example: different possibilities to embed D code
 
-				pre.prettyprint.lang-html
-					:htmlescape
-						<!DOCTYPE html>
-						<html>
-							<head>
-								<title>D statement test</title>
-							</head>
-							<body>
-								<p>Ten items ahead:</p>
-								<p>Item
-									<b>1</b>
-								</p>
-								<p>Item
-									<b>2</b>
-								</p>
-								<p>Item
-									<b>3</b>
-								</p>
-								<p>Item
-									<b>4</b>
-								</p>
-								<p>Prints 8:</p>
-								<p>8</p>
-							</body>
-						</html>
-				.caption Example: HTML output for the example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>D statement test</title>
+						</head>
+						<body>
+							<p>Ten items ahead:</p>
+							<p>Item
+								<b>1</b>
+							</p>
+							<p>Item
+								<b>2</b>
+							</p>
+							<p>Item
+								<b>3</b>
+							</p>
+							<p>Item
+								<b>4</b>
+							</p>
+							<p>Prints 8:</p>
+							<p>8</p>
+						</body>
+					</html>
+			.caption Example: HTML output for the example
 
 		section
 			h3#string-interpolations String interpolations
@@ -311,100 +309,92 @@ block body
 		section
 			h2#includes Includes
 
-			| With includes it is possible to embed one template in another.
+			p With includes it is possible to embed one template in another. The included template gets pasted at the position of the include-keyword. The Indention of the include-postion will propagate, to the included template.
+
+			pre.code.
+				// main.dt
+				doctype html
+				html
+					head
+						title includeExample
+					body
+						h2  the following content is not in this file ...
+						include otherfile
+			.caption Example: main.dt 
 			
-			| The included template gets pasted at the position of the include-keyword. 
+			pre.code.
+				// otherfile.dt	
+				h3 ... But In the other file and this
+				include yetanotherfile
+			.caption Example: included otherfile.dt	 
+			
+			pre.code.
+				// yetanotherfile.dt
+				h4 in yet anotherfile
+			.caption Example: included yetanotherfile.dt
 
-			| The Indention of the include-postion will propagate, to the included template.
-
-			code
-				pre
-					| // main.dt
-					|!\!! 5
-					|html
-					|	head
-					|		title includeExample
-					|	body
-					|		h2  the following content is not in this file ...
-					|		include otherfile
-				.caption Example: main.dt 
-			code
-				pre
-					| // otherfile.dt	
-					|h3 ... But In the other file and this
-					|include yetanotherfile
-				.caption Example: included otherfile.dt	 
-			code
-				pre
-					| // yetanotherfile.dt
-					|h4 in yet anotherfile
-				.caption Example: included yetanotherfile.dt
-
-			code
-				pre.prettyprint.lang-html
-					:htmlescape
-						<!DOCTYPE html>
-						<html>
-							<head>
-								<title>includeExample</title>
-							</head>
-							<body>
-								<h2> the following content is not in this file ... </h2>
-								<h3> ... But In the other file and this </h3>
-								<h4> in yet another file </h4>
-							</body>
-						</html>
-				.caption Example: HTML output for the include-Example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>includeExample</title>
+						</head>
+						<body>
+							<h2> the following content is not in this file ... </h2>
+							<h3> ... But In the other file and this </h3>
+							<h4> in yet another file </h4>
+						</body>
+					</html>
+			.caption Example: HTML output for the include-Example
 								 
 		section
 			h2#functions Functions
 
-			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called.
+			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called. This functionality is very similar to the "mixin" feature of Jade.
 
-			code
-				pre
-					|- void css(string file)
-					|	link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
-					|
-					|!\!! 5
-					|html
-					|	head
-					|		title Function test page
-					|		- css("common");
-					|		- css("home");
-					|	body
-					|		- foreach(c; ["red", "green", "blue"])
-					|			- void repeat(string c)
-					|				|\#{c}-\#{c}\#{c}
-					|			p
-					|				span(style='color: red;')
-					|					- repeat(c);
-					|				span(style='color: green;')
-					|					- repeat(c);
-				.caption Example: Using local functions to generate parametrized blocks
+			pre.code.
+				- void css(string file)
+					link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
+				
+				doctype html
+				html
+					head
+						title Function test page
+						- css("common");
+						- css("home");
+					body
+						- foreach(c; ["red", "green", "blue"])
+							- void repeat(string c)
+								|\#{c}-\#{c}\#{c}
+							p
+								span(style='color: red;')
+									- repeat(c);
+								span(style='color: green;')
+									- repeat(c);
+			.caption Example: Using local functions to generate parametrized blocks
 
-			code
-				pre.prettyprint.lang-html
-					:htmlescape
-						<!DOCTYPE html>
-						<html>
-							<head>
-								<title>Function test page</title>
-								<link rel="stylesheet" type="text/css" href="styles/common.css"/>
-								<link rel="stylesheet" type="text/css" href="styles/home.css"/>
-							</head>
-							<body>
-								<p>
-									<span style="color: red;">red-red-red</span>
-									<span style="color: green;">red-red-red</span>
-									<span style="color: red;">green-green-green</span>
-									<span style="color: green;">green-green-green</span>
-									<span style="color: red;">blue-blue-blue</span>
-									<span style="color: green;">blue-blue-blue</span>
-								</p>
-							</body>
-						</html>
-				.caption Example: HTML output for the example
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>Function test page</title>
+							<link rel="stylesheet" type="text/css" href="styles/common.css"/>
+							<link rel="stylesheet" type="text/css" href="styles/home.css"/>
+						</head>
+						<body>
+							<p>
+								<span style="color: red;">red-red-red</span>
+								<span style="color: green;">red-red-red</span>
+								<span style="color: red;">green-green-green</span>
+								<span style="color: green;">green-green-green</span>
+								<span style="color: red;">blue-blue-blue</span>
+								<span style="color: green;">blue-blue-blue</span>
+							</p>
+						</body>
+					</html>
+			.caption Example: HTML output for the example
 
 	section
 		h2#filters Filters
@@ -413,42 +403,40 @@ block body
 
 		p Standard filters:
 		ul
-			li :css
-			li :javascript
-			li :markdown
-			li :htmlescape
+			li <code>:css</code>
+			li <code>:javascript</code>
+			li <code>:markdown</code>
+			li <code>:htmlescape</code>
 
-		code
-			pre
-				|!\!! 5
-				|html
-				|	head
-				|		title Filter test page
-				|		:css
-				|			body { background-color: gray; }
-				|	body
-				|		:markdown
-				|			This is a test paragraph
-				|			in [markdown](http://daringfireball.net/projects/markdown/)
-				|			syntax.
-			.caption Example: Usage example for embedded filters
+		pre.code.
+			doctype html
+			html
+				head
+					title Filter test page
+					:css
+						body { background-color: gray; }
+				body
+					:markdown
+						This is a test paragraph
+						in [markdown](http://daringfireball.net/projects/markdown/)
+						syntax.
+		.caption Example: Usage example for embedded filters
 
-		code
-			pre.prettyprint.lang-html
-				:htmlescape
-					<!DOCTYPE html>
-					<html>
-						<head>
-							<title>Filter test page</title>
-							<style type="text/css"><!--
-								body { background-color: gray; }
-							--></style>
-						</head>
-						<body>
-					<p>This is a test paragraph in <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax.</p>
-						</body>
-					</html>
-			.caption Example: HTML output for the example
+		pre.code.prettyprint.lang-html
+			:htmlescape
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<title>Filter test page</title>
+						<style type="text/css"><!--
+							body { background-color: gray; }
+						--></style>
+					</head>
+					<body>
+				<p>This is a test paragraph in <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax.</p>
+					</body>
+				</html>
+		.caption Example: HTML output for the example
 
 	section
 		h2#grammar Grammar
