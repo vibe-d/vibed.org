@@ -66,7 +66,7 @@ block body
 
 		p First, install the <a href="https://github.com/rejectedsoftware/dub/">DUB package manager</a> to let it handle downloading and building of vibe.d and derived applications. On non-Windows systems, a number of additional dependencies needs to be installed. See the <a href="https://github.com/rejectedsoftware/vibe.d#installation">project description on GitHub</a> for details.
 
-		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Please take a look at <a href="https://github.com/rejectedsoftware/vibe.d/blob/master/package.json">vibe.d's package.json</a> to determine how to build on a certain platform.
+		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Please take a look at <a href="https://github.com/rejectedsoftware/vibe.d/blob/master/dub.json">vibe.d's dub.json</a> to determine how to build on a certain platform.
 
 		p The easiest way to get started is to run the following command from your projects directory:
 
