@@ -33,6 +33,8 @@ block navigation
 				li
 					a(href="#aio") Asynchronous I/O
 				li
+					a(href="#multi-threading") Multi-threading
+				li
 					a(href="#native-code") Natively compiled code
 				li
 					a(href="#diet-templates") Diet templates
@@ -155,6 +157,27 @@ block body
 				a(href="#fibers") fibers
 				| are used together with an event based scheduler to give the impression of classic blocking calls and multi-threading, thus hiding the additional complexities, while retaining the performance characteristics of asynchronous I/O.
 		
+		section
+			h3#multi-threading Multi-threading support
+
+			p While the performance is usually very good in a single-threaded application due to the use of <a href="#aio">asynchronous I/O</a> and <a href="#fibers">fibers</a>, there are applications that can greatly benefit from using multiple cores. vibe.d supports multiple ways to exploit this additional computational power, leaving the decision for the threading architecture to the application writer.
+
+			p Apart from allowing the use of low-level <a href="http://dlang.org/phobos/core_thread.html#.Thread">D threads</a>, a thread pool is provided, which is used for any task started with <a href="api/vibe.core.core/runWorkerTask"><code>runWorkerTask</code></a> instead of <a href="api/vibe.core.core/runTask"><code>runTask</code></a>. This is mainly useful for running computationally expensive operations, such as decoding images, alongside the normal program flow, but it can also be used for better performance of I/O heavy tasks in certain cases.
+
+			p The library is very flexible in the way that multi-threading can be employed and makes sure that no low-level race-conditions can occur, as long as no unsafe operations, such as <code>cast()</code>s or <code>__gshared</code> variables, are used. The following list shows some typical threading architectures:
+
+			dl.feat
+				dt Distributed processing of incoming connections
+				dd The HTTP server (as well as any other TCP based server) can be instructed to process incoming connections across the worker threads of the thread pool instead of in the main thread. For applications that don't need to share state across different connections in the process, this can increase the maximum number of requests per second linearly with the number of cores in the system. This feature is enabled using the <a href="api/vibe.http.server/HTTPServerOption.distribute"><code>HTTPServerOption.distribute</code></a> or <a href="api/vibe.core.net/TCPListenOptions.distribute"><code>TCPListenOptions.distribute</code></a> settings.
+
+				dt Using worker tasks for computations
+				dd Computationally expensive tasks can be off-loaded from the main thread by performing them with <a href="api/vibe.core.core/runWorkerTask"><code>runWorkerTask</code></a>. Any such task will be executed in the thread pool. This approach is useful whenever an application has such computationally expensive tasks to do, because it allows pure I/O tasks to stay unaffected by heavy computational load. Probably the most common example of such a task is image processing/decoding/encoding.
+
+				dt Using plain D threads
+				dd Normal D threads can also be used together with vibe.d. This is important when the threading primitives of the D standard library are used. Apart from the <a href="http://dlang.org/phobos/core_thread.html#.Thread">D core threads</a>, these are <a href="http://dlang.org/phobos/std_parallelism.html"><code>std.parallelism</code></a> and <a href="http://dlang.org/phobos/std_concurrency.html"><code>std.concurrency</code></a>. Note however, that parts of the D standard library shouldn't be mixed with vibe.d's I/O functions, because they block the event loop. Most notably, the message passing functions in <code>std.concurrency</code> are currently<a href="https://github.com/D-Programming-Language/phobos/pull/1910/">*</a> not compatible with vibe.d's event loop and should be replaced with the ones in <a href="api/vibe.core.concurrency/"><code>vibe.core.concurrency</code></a>.
+
+			p Note that vibe.d also includes experimental library based support of <a href="api/vibe.core.concurrency/makeIsolated">isolated</a> and <a href="api/vibe.core.concurrency/ScopedRef">scoped</a> references. These allow mutable data to be passed between threads without having to use mutexes or similar means to synchronize data access. This is especially useful when transferring the data used in worker tasks between the worker thread and the main thread.
+
 		section
 			h3#native-code Natively compiled code
 			img.rightFlow(src="images/feature_native.png")
