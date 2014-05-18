@@ -761,6 +761,11 @@ block body
 
 				tr
 					td
+						code VibeDebugCatchAll
+					td Enables catching of exceptions that derive from <code>Error</code>. This can be useful during application development to get useful error information while keeping the application running, but can generally be dangerous, because the application may be left in a bad state after an <code>Error</code> has been thrown.
+
+				tr
+					td
 						code VibeNoSSL
 					td Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.ssl</code> module will be dysfunctional.
 
