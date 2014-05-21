@@ -55,6 +55,8 @@ block navigation
 					a(href="#privilege-lowering") Privilege lowering
 				li
 					a(href="#compile-time-configuration") Compile time configuration
+				li
+					a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
 		li.separator
 			a(href="templates/diet") Diet Reference
 		li
@@ -794,3 +796,15 @@ block body
 						code VibeWinrtDriver
 					td Enables the WinRT based event driver (not yet implemented). Do not use this version directly, but select the "winrt" configuration in your dub.json instead.
 
+
+		section
+			h3#handling-segmentation-faults Handling segmentation-faults on Linux
+
+			p While access violations on Windows usually trigger an exception with a convenient stack trace, on other operating systems D applications just terminate and possibly cause a core dump file to be written. However, there is a module hidden in the D runtime that enables such a stack trace also on Linux. Simply run the following code at program initialization:
+
+			pre.code.
+				import etc.linux.memoryerror;
+				static if (is(typeof(registerMemoryErrorHandler)))
+					registerMemoryErrorHandler();
+
+			This currently works only on Linux x86 and x86-64.
