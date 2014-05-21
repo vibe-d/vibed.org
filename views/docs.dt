@@ -478,9 +478,9 @@ block body
 	section
 		h2#web Web framework
 
-		p On top of the low-level HTTP/HTML functionality, a high-level framework is layered for more rapid and less error prone web application development. This framework uses a class based declarative approach to avoid the boilerplate code that is usually needed otherwise. It exploits static typing as much as possible to avoid conversion errors, or errors accessing wrong runtime keys (such as a non-existent or mistyped form field).
+		p Based on the low-level HTTP/HTML foundation, the high-level web application framework allows for more rapid and less error prone web application development. It uses a class based declarative approach to avoid the boilerplate code that is usually needed otherwise. Static typing is exploited as much as possible to avoid conversion errors, or errors accessing wrong runtime keys (such as a non-existent or mistyped form field).
 
-		p This framework comes in two flavors, one for front end development, targeted at generating HTML pages and processing form requests, and one for REST based back end development, providing a transparent JSON/REST based RPC mechanism. Both of these components share the same basis and use the same approach to map class methods to routes of the <a href="api/vibe.http.router/URLRouter"><code>URLRouter</code></a>.
+		p The framework comes in two flavors, one for front end development, targeted at generating HTML pages and processing form requests, and one for REST based back end development, providing a transparent JSON/REST based RPC mechanism. Both of these components share the same basis and use the same approach to map class methods to routes of the <a href="api/vibe.http.router/URLRouter"><code>URLRouter</code></a>.
 
 		p For the usual case, both, the HTTP method and the matching path are inferred from the class method's name. In particular, the name is mapped to a certain HTTP method according to its prefix and the rest of the name is converted to a path name in a <a href="api/vibe.web.common/MethodStyle">configurable style</a>. On top of that, it is possible to use the <a href="api/vibe.web.common/path"><code>@path</code></a> and <a href="api/vibe.web.common/method"><code>@method</code></a> attributes to override these defaults.
 
@@ -518,7 +518,7 @@ block body
 				shared static this()
 				{
 					auto router = new URLRouter;
-					router.registerWebInterface(new WebInterface);
+					router.<a href="api/vibe.web.web/registerWebInterface">registerWebInterface</a>(new WebInterface);
 
 					auto settings = new HTTPServerSettings;
 					settings.port = 8080;
@@ -529,14 +529,14 @@ block body
 				class WebInterface {
 					private {
 						// stored in the session store
-						SessionVar!(bool, "authenticated") ms_authenticated;
+						<a href="api/vibe.web.web/SessionVar">SessionVar</a>!(bool, "authenticated") ms_authenticated;
 					}
 
 					// GET /
 					void index()
 					{
 						bool authenticated = ms_authenticated;
-						render!("index.dt", authenticated);
+						<a href="api/vibe.web.web/render">render</a>!("index.dt", authenticated);
 					}
 
 					// POST /login  (username and password are automatically read as form fields)
@@ -545,7 +545,7 @@ block body
 						enforceHTTP(username == "user" && password == "secret",
 							HTTPStatus.forbidden, "Invalid user name or password.");
 						ms_authenticated = true;
-						redirect("/");
+						<a href="api/vibe.web.web/redirect">redirect</a>("/");
 					}
 
 					// POST /logout
@@ -553,8 +553,8 @@ block body
 					void postLogout()
 					{
 						ms_authenticated = false;
-						terminateSession();
-						redirect("/");
+						<a href="api/vibe.web.web/terminateSession">terminateSession</a>();
+						<a href="api/vibe.web.web/redirect">redirect</a>("/");
 					}
 				}
 			.caption Example: source/app.d
@@ -590,14 +590,14 @@ block body
 
 				struct TranslationContext {
 					alias languages = TypeTuple!("en_US", "de_DE");
-					mixin translationModule!"example";
+					mixin <a href="api/vibe.web.i18n/translationModule">translationModule</a>!"example";
 				}
 
-				@translationContext!TranslationContext
+				<a href="api/vibe.web.i18n/translationContext">@translationContext</a>!TranslationContext
 				class WebInterface {
 					void index()
 					{
-						render!("index.dt");
+						<a href="api/vibe.web.web/render">render</a>!("index.dt");
 					}
 				}
 			.caption Example: source/app.d
@@ -672,7 +672,7 @@ block body
 				shared static this()
 				{
 					auto router = new URLRouter;
-					router.registerRestInterface(new MyAPIImplementation);
+					router.<a href="api/vibe.web.rest/registerRestInterface">registerRestInterface</a>(new MyAPIImplementation);
 
 					auto settings = new HTTPServerSettings;
 					settings.port = 8080;
@@ -680,7 +680,7 @@ block body
 
 					// create a client to talk to the API implementation over the REST interface
 					runTask({
-						auto client = new RestInterfaceClient!MyAPI("http://127.0.0.1:8080/");
+						auto client = new <a href="api/vibe.web.rest/RestInterfaceClient">RestInterfaceClient</a>!MyAPI("http://127.0.0.1:8080/");
 						auto weather = client.getWeather();
 						logInfo("Weather: %s, %s °C", weather.text, weather.temperature);
 						client.location = "Paris";
