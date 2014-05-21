@@ -29,6 +29,15 @@ block navigation
 				li
 					a(href="#http-client-requests") Client requests
 		li
+			a(href="#web") Web framework
+			ul
+				li
+					a(href="#web-interface-generator") Web interface generator
+				li
+					a(href="#web-localization") Localization
+				li
+					a(href="#rest-interface-generator") REST interface generator
+		li
 			a(href="#db-support") Database support
 			ul
 				li
@@ -464,6 +473,221 @@ block body
 			.caption Example: Performing a simple HTTP request
 
 			p A connection pool is used internally in conjunction with persistent HTTP connection to reduce the number of connection establishments.
+
+
+	section
+		h2#web Web framework
+
+		p On top of the low-level HTTP/HTML functionality, there high-level framework is layered for more rapid and less error prone web application development. This framework uses a class based declarative approach to avoid the boilerplate code that is usually needed otherwise. It exploits static typing as much as possible to avoid conversion errors, or errors accessing wrong runtime keys (such as a non-existent or mistyped form field).
+
+		p This framework comes in two flavors, one for front end development, targeted at generating HTML pages and processing form requests, and one for REST based back end development, providing a transparent JSON/REST based RPC mechanism. Both of these components share the same basis and use the same approach to map class methods to routes of the <a href="api/vibe.http.router/URLRouter"><code>URLRouter</code></a>.
+
+		p For the usual case, both, the HTTP method and the matching path are inferred from the class method's name. In particular, the name is mapped to a certain HTTP method according to its prefix and the rest of the name is converted to a path name in a <a href="api/vibe.web.common/MethodStyle">configurable style</a>. On top of that, it is possible to use the <a href="api/vibe.web.common/path"><code>@path</code></a> and <a href="api/vibe.web.common/method"><code>@method</code></a> attributes to override these defaults.
+
+		table
+			tr
+				th HTTP method
+				th Corresponding prefixes
+			tr
+				td GET
+				td <code>get</code>, <code>query</code>, getter <code>@property</code> methods, methods named <code>index</code>
+			tr
+				td POST
+				td <code>post</code>, <code>create</code>, <code>add</code>, no prefix
+			tr
+				td PUT
+				td <code>put</code>, <code>set</code>, setter <code>@property</code> methods
+			tr
+				td PATCH
+				td <code>patch</code>, <code>update</code>
+			tr
+				td DELETE
+				td <code>delete</code>, <code>erase</code>, <code>remove</code>
+
+
+		section
+			h3#web-interface-generator Web interface generator
+
+			p The front end web interface generator automatically maps incoming query or form fields to method parameters, performing the necessary conversions and validations automatically. On top of that, it offers several convenience functions for rendering Diet templates, handling sessions and performing redirects - without directly accessing the <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a> or <a href="api/vibe.http.server/HTTPServerResponse"><code>HTTPServerResponse</code></a> object. This enables a completely statically checked and clean code style in most cases.
+
+			pre.prettyprint.lang-d.
+				import vibe.http.router;
+				import vibe.http.server;
+				import vibe.web.web;
+
+				shared static this()
+				{
+					auto router = new URLRouter;
+					router.registerWebInterface(new WebInterface);
+
+					auto settings = new HTTPServerSettings;
+					settings.port = 8080;
+					settings.sessionStore = new MemorySessionStore;
+					listenHTTP(settings, router);
+				}
+
+				class WebInterface {
+					private {
+						// stored in the session store
+						SessionVar!(bool, "authenticated") ms_authenticated;
+					}
+
+					// GET /
+					void index()
+					{
+						bool authenticated = ms_authenticated;
+						render!("index.dt", authenticated);
+					}
+
+					// POST /login  (username and password are automatically read as form fields)
+					void postLogin(string username, string password)
+					{
+						enforceHTTP(username == "user" && password == "secret",
+							HTTPStatus.forbidden, "Invalid user name or password.");
+						ms_authenticated = true;
+						redirect("/");
+					}
+
+					// POST /logout
+					@method(HTTPMethod.POST) @path("logout")
+					void postLogout()
+					{
+						ms_authenticated = false;
+						terminateSession();
+						redirect("/");
+					}
+				}
+			.caption Example: source/app.d
+
+			pre.
+				doctype 5
+				html
+					head
+						title Welcome
+					body
+						h1 Welcome
+
+						- if (authenticated)
+							form(action="logout", method="POST")
+								button(type="submit") Log out
+						- else
+							h2 Log in
+							form(action="login", method="POST")
+								p User name:
+									input(type="text", name="username")
+								p Password:
+									input(type="password", name="password")
+								button(type="submit")
+			.caption Example: views/index.dt
+
+		section
+			h3#web-localization Localization
+
+			p Using <a href="http://www.gnu.org/software/gettext/">GNU gettext</a> compatible .po translation files, it's possible to localize Diet templates at compile time. This just requires putting the translation files with the naming scheme <code>&lt;name&gt;.&lt;language&gt;.po</code> into a path that is registered in the <code>"stringImportPaths"</code> field of the dub.json. <code>&lt;language&gt;</code> must be a language identifier of the form <code>en_US</code>.
+
+			pre.prettyprint.lang-d.
+				import vibe.web.web;
+
+				struct TranslationContext {
+					alias languages = TypeTuple!("en_US", "de_DE");
+					mixin translationModule!"example";
+				}
+
+				@translationContext!TranslationContext
+				class WebInterface {
+					void index()
+					{
+						render!("index.dt");
+					}
+				}
+			.caption Example: source/app.d
+
+			pre.
+				doctype 5
+				html
+					head
+						title& Welcome
+					body
+						h1& Welcome
+
+						p& home.welcome.text
+			.caption Example: views/index.dt
+
+			pre.
+				msgid "Welcome"
+				msgstr "Welcome"
+
+				msgid "home.welcome-text"
+				msgstr "Hello, this is a translation example."
+			.caption Example: translations/example.en_US.po
+
+			pre.
+				msgid "Welcome"
+				msgstr "Willkommen"
+
+				msgid "home.welcome-text"
+				msgstr "Hallo, dies ist ein Übersetzungs-Beispiel."
+			.caption Example: translations/example.de_DE.po
+
+
+		section
+			h3#rest-interface-generator REST interface generator
+
+			p Similar to the browser oriented web interface generator, there is a machine communication oriented JSON/REST based interface generator. Method parameters are mapped to JSON fields and get serialized according to the usual serialization rules. In addition to the interface generator, there is also a client generator, which automatically implements a class that emits the proper REST calls to access the REST interface.
+
+			pre.prettyprint.lang-d.
+				import vibe.core.core;
+				import vibe.core.log;
+				import vibe.http.router;
+				import vibe.http.server;
+				import vibe.web.rest;
+
+				struct Weather {
+					string text;
+					double temperature; // °C
+				}
+
+				interface MyAPI {
+					// GET /weather -> responds {"text": "...", "temperature": ...}
+					Weather getWeather();
+
+					// PUT /location -> accepts {"location": "..."}
+					@property void location(string location);
+
+					// GET /location -> responds "..."
+					@property string location();
+				}
+
+				class MyAPIImplementation : MyAPI {
+					private {
+						string m_location;
+					}
+
+					Weather getWeather() { return Weather("sunny", 25); }
+
+					@property void location(string location) { m_location = location; }
+					@property string location() { return m_location; }
+				}
+
+				shared static this()
+				{
+					auto router = new URLRouter;
+					router.registerRestInterface(new MyAPIImplementation);
+
+					auto settings = new HTTPServerSettings;
+					settings.port = 8080;
+					listenHTTP(settings, router);
+
+					// create a client to talk to the API implementation over the REST interface
+					runTask({
+						auto client = new RestInterfaceClient!MyAPI("http://127.0.0.1:8080/");
+						auto weather = client.getWeather();
+						logInfo("Weather: %s, %s °C", weather.text, weather.temperature);
+						client.location = "Paris";
+						logInfo("Location: %s", client.location);
+					});
+				}
+
 
 	section
 		h2#db-support Database support
