@@ -478,7 +478,7 @@ block body
 	section
 		h2#web Web framework
 
-		p On top of the low-level HTTP/HTML functionality, there high-level framework is layered for more rapid and less error prone web application development. This framework uses a class based declarative approach to avoid the boilerplate code that is usually needed otherwise. It exploits static typing as much as possible to avoid conversion errors, or errors accessing wrong runtime keys (such as a non-existent or mistyped form field).
+		p On top of the low-level HTTP/HTML functionality, a high-level framework is layered for more rapid and less error prone web application development. This framework uses a class based declarative approach to avoid the boilerplate code that is usually needed otherwise. It exploits static typing as much as possible to avoid conversion errors, or errors accessing wrong runtime keys (such as a non-existent or mistyped form field).
 
 		p This framework comes in two flavors, one for front end development, targeted at generating HTML pages and processing form requests, and one for REST based back end development, providing a transparent JSON/REST based RPC mechanism. Both of these components share the same basis and use the same approach to map class methods to routes of the <a href="api/vibe.http.router/URLRouter"><code>URLRouter</code></a>.
 
