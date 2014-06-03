@@ -161,7 +161,7 @@ block body
 				"homepage": "http://appname.org",
 				"authors": ["Hans Wurst"],
 				"dependencies": {
-					"vibe-d": ">=0.7.12"
+					"vibe-d": "~>0.7.20"
 				},
 				"versions": ["VibeDefaultMain"]
 			}
