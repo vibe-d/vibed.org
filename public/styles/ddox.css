@@ -69,6 +69,12 @@ td.typecol {
 }
 nav#document-nav #symbolSearchResults li:before { content: ""; }
 
+.license-info { border-top: 2px solid #444; }
+#maincontent .license-info th { background: none; color: #888; }
+#maincontent .license-info td { background: none; border-bottom: none; }
+#maincontent .license-info td p { color: #bbb; }
+.license-info p { margin: 0; }
+
 #symbolSearch {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
