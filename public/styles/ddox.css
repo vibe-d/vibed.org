@@ -57,6 +57,11 @@ a.private {
 }
 a.inherited:after { content: url(../images/ddox/inherited.png); padding-left: 2pt; }
 
+td.typecol {
+	max-width: 200pt;
+	overflow: auto;
+}
+
 #api-version-selector {
 	border-top: 1px solid #444;
 	margin-top: 9pt;
