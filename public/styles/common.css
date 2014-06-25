@@ -44,6 +44,10 @@ body {
 	font-size: 10pt;
 	line-height: 14pt;
 	color: #cccccc;
+
+	background-image: url(../images/back-top.png), url(../images/back.png);
+	background-repeat: repeat-x, repeat;
+	background-size: 120px 128px, 120px 120px;
 }
 
 .center-content {
