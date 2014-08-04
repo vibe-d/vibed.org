@@ -191,7 +191,7 @@ col.caption {
 	top: 27pt;
 }
 
-#download {
+#header a#download {
 	display: block;
 	position: absolute;
 	top: 18pt;
@@ -204,7 +204,7 @@ col.caption {
 }
 
 @media screen and (max-width: 600px) {
-	#download {
+	#header a#download {
 		display: none;
 	}
 }
