@@ -362,12 +362,12 @@ li.nav-developer { background-image: url(../images/ico_developer.png); }
 #footer {
 	clear: both;
 	padding: 10pt 0;
-	text-align: center;
 }
 
 #footer p, #footer a {
 	text-shadow:#000 0 -1px 0;
 	color: #eee;
+	text-align: center;
 }
 
 #vgrid-overlay {

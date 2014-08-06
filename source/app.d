@@ -30,7 +30,7 @@ version(Have_ddox)
 	import ddox.entities;
 	import ddox.htmlserver;
 	import ddox.htmlgenerator;
-	import ddox.jsonparser;
+	import ddox.parsers.jsonparser;
 
 	Package[string] m_rootPackage;
 	string s_docsVersions;
@@ -144,6 +144,7 @@ shared static this()
 	{
 		auto blogsettings = new VibeLogSettings;
 		blogsettings.configName = "vibe.d";
+		blogsettings.databaseHost = "127.0.0.1";
 		blogsettings.siteUrl = URL("http://vibed.org/blog/");
 		blogsettings.textFilters ~= &prettifyFilter;
 		registerVibeLog(blogsettings, router);
