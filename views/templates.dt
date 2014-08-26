@@ -115,7 +115,7 @@ block body
 							p= 5+3
 							p It's also possible to output raw HTML from a D expression:
 							p!= "&lt;u&gt;Underlined text&lt;/u&gt;"
-							p(style="color:red") HTML attributes can be specified.
+							p(style="color:red", title='Attribute example') HTML attributes can be specified.
 							p#second.test(style="color:green") Id, classes and attributes can also be combined.
 			.caption Example: HTML tags using the various optional features
 
@@ -135,7 +135,7 @@ block body
 								<p>8</p>
 								<p>It's also possible to output raw HTML from a D expression:</p>
 								<p><u>Underlined text</u></p>
-								<p style="color:red">HTML attributes can be specified.</p>
+								<p style="color:red" title="Attribute example">HTML attributes can be specified.</p>
 								<p id="second" class="test" style="color:green">Id, classes and attributes can also be combined.</p>
 							</div>
 						</body>
