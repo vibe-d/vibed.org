@@ -64,7 +64,7 @@ block body
 		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster than static pages on disk, because they are just written directly from RAM to the HTTP connection.
 
 		p The syntax equals that of
-			a(href="http://jade-lang.org") Jade
+			a(href="http://jade-lang.com") Jade
 			| templates with the exception of some of the advanced syntax features. Since there is no official syntax reference written yet, you can use the
 			a(href="https://github.com/visionmedia/jade") Jade documentation
 			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
