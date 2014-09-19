@@ -5,7 +5,7 @@
 	"copyright": "Copyright © 2012-2014 rejectedsoftware e.K.",
 	"dependencies": {
 		"vibe-d": "~>0.7.21-alpha.1",
-		"ddox": "~>0.9.18",
+		"ddox": "~>0.10.0",
 		"vibelog": "~>0.1.0"
 	},
 	"versions": ["VibeDefaultMain"]
