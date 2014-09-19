@@ -80,6 +80,7 @@
 }
 #features em {
 	font-weight: bold;
+	font-style: none;
 }
 
 #features b, #features a {
