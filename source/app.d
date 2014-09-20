@@ -18,10 +18,8 @@ void download(HTTPServerRequest req, HTTPServerResponse res)
 
 void error(HTTPServerRequest req, HTTPServerResponse res, HTTPServerErrorInfo error)
 {
-	res.renderCompat!("error.dt",
-		HTTPServerRequest, "req",
-		HTTPServerErrorInfo, "error")
-		(req, error);
+	req.params["latestRelease"] = s_latestVersion;
+	res.render!("error.dt", req, error);
 }
 
 version(Have_ddox)
