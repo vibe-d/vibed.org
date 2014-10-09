@@ -995,6 +995,11 @@ block body
 
 				tr
 					td
+						code VibeUseOldOpenSSL
+					td Disables the use of features introduced in OpenSSL 1.0.1 or later, most notably ECDH curve selection. Use this to link against old versions of the OpenSSL library.
+
+				tr
+					td
 						code VibePragmaLib
 					td Uses a <code>pragma(lib)</code> to link against OpenSSL and libevent. This is only useful for building without DUB.
 
