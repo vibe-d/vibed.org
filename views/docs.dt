@@ -249,13 +249,13 @@ block body
 				void userInfo(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 				{
 					auto username = req.params["user"];
-					<a href="api/vibe.http.server/render">render</a>!("userinfo.jd", username)(res);
+					<a href="api/vibe.http.server/render">render</a>!("userinfo.dt", username)(res);
 				}
 				
 				void addUser(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 				{
-					<a href="api/vibe.http.common/enforceHTTP">enforceHTTP</a>("user" in req.post, <a href="api/vibe.http.status/HTTPStatus.badRequest">HTTPStatus.badRequest</a>, "Missing user field.");
-					res.<a href="api/vibe.http.server/HTTPServerResponse.redirect">redirect</a>("/users/"~req.post["user"]);
+					<a href="api/vibe.http.common/enforceHTTP">enforceHTTP</a>("user" in req.form, <a href="api/vibe.http.status/HTTPStatus.badRequest">HTTPStatus.badRequest</a>, "Missing user field.");
+					res.<a href="api/vibe.http.server/HTTPServerResponse.redirect">redirect</a>("/users/"~req.form["user"]);
 				}
 				
 				shared static this()
@@ -269,7 +269,7 @@ block body
 					// use method chaining:
 					router
 						.get("/users/:user", &amp;userInfo)
-						.post("/adduser", &amp;addUser);
+						.post("/adduser", &amp;addUser)
 						.get("*", serveStaticFiles("./public/"));
 				
 					<a href="api/vibe.http.server/listenHTTP">listenHTTP</a>(new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>, router);
