@@ -13,7 +13,7 @@ void download(HTTPServerRequest req, HTTPServerResponse res)
 	if( auto pf = "file" in req.query ){
 		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/" ~ *pf);
 		else res.redirect("http://vibed.org/files/" ~ *pf);
-	} else res.renderCompat!("download.dt", HTTPServerRequest, "req")(req);
+	} else res.render!("download.dt", req);
 }
 
 void error(HTTPServerRequest req, HTTPServerResponse res, HTTPServerErrorInfo error)
