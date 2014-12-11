@@ -16,13 +16,13 @@ html(lang="en-US")
 		link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
 		link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
 		link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
-		
+
 		meta(name="viewport", content="width = device-width")
 		meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
 		meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
 
 		script(type="text/javascript", src="#{req.rootDir}prettify/prettify.js")/**/
-		
+
 	body(onload="prettyPrint()")
 
 		.center-content

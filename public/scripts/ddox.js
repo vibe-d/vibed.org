@@ -22,7 +22,7 @@ var lastSearchString = "";
 function performSymbolSearch(maxlen)
 {
 	if (maxlen === 'undefined') maxlen = 26;
-	
+
 	var searchstring = $("#symbolSearch").val().toLowerCase();
 
 	if (searchstring == lastSearchString) return;

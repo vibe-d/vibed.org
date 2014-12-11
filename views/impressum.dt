@@ -4,7 +4,7 @@ block title
 	- string title = "Impressum";
 
 block body
-	
+
 	h2 Angaben gemäß §5 TMG:
 	p
 		a(href="http://rejectedsoftware.com") rejectedsoftware e.K.

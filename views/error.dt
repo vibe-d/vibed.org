@@ -17,9 +17,9 @@ block body
 		p Sorry, the file '#{req.path}' that you are looking for does not exist. Please try again later, we will look into this as soon as possible.
 	-else
 		h1 HTTP error
-	
+
 		p Sorry, we got a #{error.code} error (#{error.message}) while processing this request. We will look into this as soon as possible.
-		
+
 		-if( error.debugMessage.length )
 			p Internal error information:
 				pre= error.debugMessage

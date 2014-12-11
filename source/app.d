@@ -111,9 +111,9 @@ shared static this()
 	settings.port = 8003;
 	settings.bindAddresses = ["127.0.0.1"];
 	settings.errorPageHandler = toDelegate(&error);
-	
+
 	auto router = new URLRouter;
-	
+
 	router.get("*", (req, res) {
 		req.params["latestRelease"] = s_latestVersion;
 		version(Have_ddox) req.params["docsVersions"] = s_docsVersions;
