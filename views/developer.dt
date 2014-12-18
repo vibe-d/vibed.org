@@ -9,7 +9,7 @@ block navigation
 			a(href="#dub-registry") The DUB registry
 		li
 			a(href="#helping") Help developing vibe.d
-		li	
+		li
 			a(href="#hacking-vibe") Hacking vibe.d
 
 block body
@@ -21,16 +21,16 @@ block body
 
 	section
 		h2#helping Help vibe.d's development
-		
+
 		p You can help with vibe's development in several ways. The easiest way is by filing bug reports or by voting for new features on the
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
 			|.
-		
+
 		p Finally, you can clone the GIT repository and start hacking directly on vibe's code base.
 
-	section	
+	section
 		h2#hacking-vibe Hacking on vibe.d
-		
+
 		p To start developing vibe.d, fork the repository using the "Fork" button on the github repository:
 		p
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d

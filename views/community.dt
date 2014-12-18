@@ -18,18 +18,18 @@ block body
 
 	section
 		h2#web-forums Web forums
-		
+
 		p The
 			a.extern(href="http://forum.rejectedsoftware.com/", target="_blank") web forum
 			| is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
-		
+
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
 
 		p For Russian speakers, there is also a vibe.d section on the <a class="extern" target="_blank" href="http://dlang.ru/forum/">dlang.ru forums</a>.
 
 	section
 		h2#newsgroup Newsgroup server
-			
+
 		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://forum.rejectedsoftware.com:119/rejectedsoftware.vibed/">forum.rejectedsoftware.com:119</a>.
 
 	section
@@ -41,7 +41,7 @@ block body
 
 	section
 		h2#issue-tracker Github issue tracker
-		
+
 		p The github project page contains an
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues", target="_blank") issue tracker
 			|. This is the right place to post any issues that come up and also for feature or enhancement requests. However, anything that seems like it might cause a longer discussion should better go to the newsgroup/web forum, which works much better for discussions.

@@ -223,7 +223,7 @@ block body
 
 			pre.code.
 				doctype html
-				html 
+				html
 				// I show up
 					head
 						//-title there is no title
@@ -234,7 +234,7 @@ block body
 
 			p(style="color:red") TODO insert HTML
 			p(style="color:red") TODO #if
-	
+
 	section
 		h2#embedded-code Embedded D source code
 
@@ -320,14 +320,14 @@ block body
 					body
 						h2  the following content is not in this file ...
 						include otherfile
-			.caption Example: main.dt 
-			
+			.caption Example: main.dt
+
 			pre.code.
-				// otherfile.dt	
+				// otherfile.dt
 				h3 ... But In the other file and this
 				include yetanotherfile
-			.caption Example: included otherfile.dt	 
-			
+			.caption Example: included otherfile.dt
+
 			pre.code.
 				// yetanotherfile.dt
 				h4 in yet anotherfile
@@ -347,7 +347,7 @@ block body
 						</body>
 					</html>
 			.caption Example: HTML output for the include-Example
-								 
+
 		section
 			h2#functions Functions
 
@@ -356,7 +356,7 @@ block body
 			pre.code.
 				- void css(string file)
 					link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
-				
+
 				doctype html
 				html
 					head

@@ -104,27 +104,27 @@ block body
 		.caption Example structure of a web application project
 
 		p For a simple web application, the 'app.d' file could look similar to this one:
-		
+
 		pre.code.prettyprint.lang-d.
 			import vibe.d;
-			
+
 			void index(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 			{
 				res.<a href="api/vibe.http.server/render">render</a>!("index.dt", req);
-			
+
 				// Use the compatibility version for DMD &lt; 2.064 as render()
 				// suffers from DMD bugs 2962/10086/10857
 				//res.<a href="api/vibe.http.server/renderCompat">renderCompat</a>!("index.dt", HTTPServerRequest, "req")(req);
 			}
-			
+
 			shared static this()
 			{
 				auto router = new <a href="api/vibe.http.router/URLRouter">URLRouter</a>;
 				router.get("/", &amp;index);
-			
+
 				auto settings = new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>;
 				settings.port = 8080;
-			
+
 				<a href="api/vibe.http.server/listenHTTP">listenHTTP</a>(settings, router);
 			}
 		.caption Simple app.d file with minimal routing
@@ -142,16 +142,16 @@ block body
 
 		pre.code.
 			extends layout
-			
+
 			block body
 				h1 Example page - Home
 				p Hello, World!
 		.caption Example index.dt
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">template</a> parser. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
-			
+
 		p Finally, you can add a "dub.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
-		
+
 		pre.code.prettyprint.lang-javascript.
 			{
 				"name": "appname",
@@ -166,7 +166,7 @@ block body
 				"versions": ["VibeDefaultMain"]
 			}
 		.caption Example dub.json
-			
+
 		p Once you have the project in place, simply run vibe from the project's root directory and it will get all dependencies, compile the application, and run it:
 		pre.
 			$ cd path/to/project
@@ -183,13 +183,13 @@ block body
 			h3#http-server-config Server configuration
 
 			p The HTTP server supports a number of configuration options to customize its behavior. By default, the server will listen on all local network adapters on port 80 and will perform complete request parsing. The following list gives an overview of the most common settings:
-			
+
 			dl.feat
 				dt
 					a(href="api/vibe.http.server/HTTPServerSettings.port")
 						code.prettyprint port
 				dd The port on which the HTTP server shall listen
-				
+
 				dt
 					a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses")
 						code.prettyprint bindAddresses
@@ -210,14 +210,14 @@ block body
 							<a href="api/vibe.http.server/HTTPServerErrorInfo">HTTPServerErrorInfo</a> error)
 						{
 							res.<a href="api/vibe.http.server/render">render</a>!("error.dt", req, error);
-						
+
 							// NOTE: On DMD &lt; 2.064 use renderCompat instead:
 							//res.<a href="api/vibe.http.server/renderCompat">renderCompat</a>!("error.dt",
 							//	HTTPServerRequest, "req",
 							//	HTTPServerErrorInfo, "error")
 							//	(req, error);
 						}
-						
+
 						shared static this()
 						{
 							auto settings = new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>;
@@ -245,33 +245,33 @@ block body
 
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				void userInfo(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 				{
 					auto username = req.params["user"];
 					<a href="api/vibe.http.server/render">render</a>!("userinfo.dt", username)(res);
 				}
-				
+
 				void addUser(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 				{
 					<a href="api/vibe.http.common/enforceHTTP">enforceHTTP</a>("user" in req.form, <a href="api/vibe.http.status/HTTPStatus.badRequest">HTTPStatus.badRequest</a>, "Missing user field.");
 					res.<a href="api/vibe.http.server/HTTPServerResponse.redirect">redirect</a>("/users/"~req.form["user"]);
 				}
-				
+
 				shared static this()
 				{
 					auto router = new <a href="api/vibe.http.router/URLRouter">URLRouter</a>;
 					router.get("/users/:user", &amp;userInfo);
 					router.post("/adduser", &amp;addUser);
 					router.get("*", serveStaticFiles("./public/"));
-				
+
 					// To reduce code redundancy, you can also
 					// use method chaining:
 					router
 						.get("/users/:user", &amp;userInfo)
 						.post("/adduser", &amp;addUser)
 						.get("*", serveStaticFiles("./public/"));
-				
+
 					<a href="api/vibe.http.server/listenHTTP">listenHTTP</a>(new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>, router);
 				}
 			.caption Example: GET/POST routing and static file serving
@@ -317,12 +317,12 @@ block body
 							inside the div #somediv
 			.caption Example: Template file with dynamic code inserts and several other template features
 
-				
+
 		section
 			h3#http-error-pages Error pages
-			
-			p There are thrww ways in which an error page is sent back to the client:
-			
+
+			p There are three ways in which an error page is sent back to the client:
+
 			ul
 				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
 					a(href="api/vibe.http.common/HTTPStatusException")
@@ -330,16 +330,16 @@ block body
 					|, the status code can be customized.
 				li The request handler does not write a response. In this case the server automatically returns a 404 "Not Found" error.
 				li The request handler manually sets an error status to <a href="api/vibe.http.common/HTTPResponse.statusCode">HTTPServerResponse.statusCode</a> and writes a body. In this case, the error page will be written exactly as specified.
-			
+
 			p The
 				a(href="api/vibe.http.server/HTTPServerSettings")
 					code.prettyprint.lang-d HTTPServerSettings
 				| can be used to provide a custom error page handler. If one is provided, it is called for any of the two conditions and must render an error page to the response object. If no handler is given, a simple plain-text error page is generated. See the <a href="#http-server-config">HTTP server configuration section</a> for an example.
 
-			
+
 		section
 			h3#http-authentication Authentication
-			
+
 			p Currently, the only built-in authentication method is HTTP-Basic-Auth. HTTP-Digest-Auth will follow later and higher level mechanisms such as OAuth will be provided using extension libraries.
 			p The recommended practice for plugging authentication into a web application is to use the fall-through feature of the <a hreF="api/vibe.http.router/URLRouter"><code class="prettyprint">URLRouter</code></a>. If the user is properly authenticated, the
 				a(href="api/vibe.http.auth.basic_auth/performBasicAuth")
@@ -348,37 +348,37 @@ block body
 				a(href="api/vibe.http.common/HTTPStatusException")
 					code.prettyprint.lang-d HTTPStatusException
 				| exception which generates a 403 error page so that the user is prompted with a password dialog on the browser side. The routing stops in this case.
-			
+
 			pre.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				bool checkPassword(string user, string password)
 				{
 					return user == "admin" && password == "secret";
 				}
-				
+
 				shared static this()
 				{
 					auto router = new URLRouter;
 					// the following routes are accessible without authentication:
 					router.get("/", staticTemplate!"index.dl");
 					router.get("/about", staticTemplate!"about.dl");
-				   
+
 					// now any request is matched and checked for authentication:
 					router.any("*", performBasicAuth("Site Realm", toDelegate(&amp;checkPassword)));
-				
+
 					// the following routes can only be reached if authenticated:
 					router.get("/profile", staticTemplate!"profile.dl");
 					router.get("/internal", staticTemplate!"internal.dl");
-				
+
 					// ...
 				}
 			.caption Example: Using HTTP-Basic-Auth to restrict access
-			
+
 
 		section
 			h3#http-sessions Sessions
-			
+
 			p Cookie based HTTP sessions are supported directly by the HTTP server. To be able to use them, you first have to set a
 				a(href="api/vibe.http.session/SessionStore")
 					code.prettyprint.lang-d SessionStore
@@ -395,36 +395,36 @@ block body
 				a(href="api/vibe.http.session/Session")
 					code.prettyprint.lang-d Session
 				| object behaves as a key value store taking strings as keys and values.
-			
+
 			pre.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				void login(HTTPServerRequest req, HTTPServerResponse res)
 				{
 					enforceHTTP("username" in req.form && "password" in req.form,
 						HTTPStatus.badRequest, "Missing username/password field.");
-				
+
 					// todo: verify user/password here
-				
+
 					auto session = res.startSession();
 					session["username"] = req.form["username"];
 					session["password"] = req.form["password"];
 					res.redirect("/home");
 				}
-				
+
 				void logout(HTTPServerRequest req, HTTPServerResponse res)
 				{
 					res.terminateSession();
 					res.redirect("/");
 				}
-				
+
 				void checkLogin(HTTPServerRequest req, HTTPServerResponse res)
 				{
 					// force a redirect to / for unauthenticated users
 					if( req.session is null )
 						res.redirect("/");
 				}
-				
+
 				shared static this()
 				{
 					auto router = new URLRouter;
@@ -434,7 +434,7 @@ block body
 					// restrict all following routes to authenticated users:
 					router.any("*", &amp;checkLogin);
 					router.get("/home", staticTemplate!"home.dl");
-				
+
 					auto settings = new HTTPServerSettings;
 					settings.sessionStore = new MemorySessionStore;
 					// ...
@@ -444,12 +444,12 @@ block body
 
 		section
 			h3#http-client-requests Client requests
-			
+
 			p Client request are done using the <a href="api/vibe.http.client/requestHTTP"><code class="prettyprint">requestHTTP()</code></a> function.
 
 			pre.prettyprint.lang-d.
 				import vibe.vibe
-				
+
 				void main()
 				{
 					requestHTTP("http://google.com",
@@ -701,25 +701,25 @@ block body
 
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				MongoClient client;
-				
+
 				void test()
 				{
 					auto coll = client.getCollection("test.collection");
 					foreach (doc; coll.find(["name": "Peter"]))
 						logInfo("Found entry: %s", doc.toJson());
 				}
-				
+
 				shared static this()
 				{
 					client = connectMongoDB("127.0.0.1");
 				}
 			.caption Example: Finding entries in a MongoDB
 
-		section		
+		section
 			h3#redis Redis
-			
+
 			p A rudimentary client for the structured storage server
 				a.extern(href="http://redis.io", target="_blank") Redis
 				| is included in Vibe. Commands and operations on Redis data types are implemented as instance methods of the client. The methods are named after their corresponding Redis command documented in the
@@ -728,7 +728,7 @@ block body
 
 	section
 		h2#raw-tcp Raw TCP
-		
+
 		p Low level TCP connections are handled using the
 			a(href="api/vibe.core.net/TCPConnection")
 				code.prettyprint.lang-d TCPConnection
@@ -739,41 +739,41 @@ block body
 
 		section
 			h3#tcp-server Server
-			
+
 			p Listening for TCP connections is done using the
 				a(href="api/vibe.core.net/listenTCP")
 					code.prettyprint.lang-d listenTCP
 				| function. An implementation of a very simple echo server could look like this:
-				
+
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				shared static this()
 				{
 					listenTCP(7, (conn){ conn.write(conn) });
 				}
 
-			p Calling 
+			p Calling
 				a(href="api/vibe.core.net/listenTCP")
 					code.prettyprint.lang-d listenTCP
 				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				shared static this()
 				{
 					listenTCP(7, conn => conn.write(conn), "127.0.0.1");
 				}
-				
+
 			p The address can be given as an IP address string (IPv4 or IPv6 format), as an
 				code.prettyprint.lang-d uint
 				| for numeric IPv4 addresses or as a
 				code.prettyprint.lang-d in6_addr
 				| for numeric IPv6 addresses.
-				
+
 		section
 			h3#tcp-client Client
-			
+
 			p Connecting to a TCP server is done with the
 				a(href="api/vibe.core.net/connectTCP")
 					code.prettyprint.lang-d connectTCP
@@ -782,7 +782,7 @@ block body
 				|.
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
-				
+
 				shared static this()
 				{
 					auto conn = connectTCP("time-b.timefreq.bldrdoc.gov", 13);
@@ -792,7 +792,7 @@ block body
 
 	section
 		h2#raw-udp Raw UDP
-		
+
 		p In addition to stream based TCP connections, packet based UDP communication is also supported. To open a UDP socket, use the
 			a(href="api/vibe.core.net/listenUDP")
 				code.prettyprint.lang-d listenUDP
@@ -806,10 +806,10 @@ block body
 			import vibe.core.core;
 			import vibe.core.log;
 			import vibe.core.net;
-			
+
 			import core.time;
-			
-			
+
+
 			shared static this()
 			{
 				runTask({
@@ -819,7 +819,7 @@ block body
 						logInfo("Got packet: %s", cast(string)pack);
 					}
 				});
-				
+
 				runTask({
 					auto udp_sender = listenUDP(0);
 					udp_sender.connect("127.0.0.1", 1234);
@@ -835,16 +835,16 @@ block body
 
 	section
 		h2#advanced Advanced topics
-		
+
 		section
 			h3#dub-publishing Publishing on the DUB registry
-			
+
 			p The
 				a.extern(href="http://code.dlang.org/", target="_blank") DUB registry
 				| contains packages that use the same package management as vibe.d. Many of them extend and supplement vibe.d's functionality. The packages are automatically downloaded if the corresponding entry in the "dependencies" section of the project's dub.json file is present.
-			
+
 			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper dub.json, which has to reside in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted either on GitHub or on BitBucket. See <a href="http://registry.vibed.org/publish">http://core.dlang.org/publish</a> for more information.
-				
+
 			pre.code.
 				{
 					"name": "vibelog",
@@ -859,13 +859,13 @@ block body
 					}
 				}
 			.caption Example: A dub.json file suitable for registration as a DUB package.
-				
+
 			p You can then register your project on
 				a.extern(href="http://code.dlang.org/", target="_blank") registry.vibed.org
 				| and as soon as you then add a new
 				a.extern(href="http://learn.github.com/p/tagging.html", target="_blank") git tag
 				| with the name matching the current version prefixed with "v" ("v0.0.1" for the example here), it should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry similar to the following to their project to make use of the library:
-				
+
 			pre.code.
 				{
 					...
@@ -874,19 +874,19 @@ block body
 					}
 				}
 			.caption Example: Corresponding dependency to use the published DUB package.
-		
+
 		section
 			h3#custom-main The main function
-			
+
 			p To simplify development of server-like applications which are command line based and run an event loop, vibe.d includes a default application entry point (<code>main()</code>). To use it, simply define the version <code>VibeDefaultMain</code> when building the project. To do this, simply add this entry to your package description file: <code>"versions": ["VibeDefaultMain"]</code>
 
 			p When writing a client application, maybe something like <a href="http://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control of how vibe is initialized or when the event loop is started. To support such usage scenarios, you can implement your own program entry function.
 
 			p(style="color: red") Note: Projects that have their own program entry point currently also need to define a <code>VibeCustomMain</code> version instead of <code>VibeDefaultMain</code>. This requirement will be lifted in a later version of vibe.d.
-				
+
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
-				
+
 				void main()
 				{
 					// returns false if a help screen has been requested and displayed (--help)
@@ -896,24 +896,24 @@ block body
 					runEventLoop();
 				}
 			.caption Example: Simple custom main function that runs an event loop.
-			
+
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
-				
+
 				void main()
 				{
 					auto f = openFile("test.html", FileMode.CreateTrunc);
 					f.write(download("http://google.com/"));
 				}
 			.caption Example: Client application that downloads a document
-		
+
 		section
 			h3#privilege-lowering Privilege lowering
 
 			p For server applications it may be desirable to start the application as root so that it can listen on privileged ports or open system log files for writing. After these setup tasks, such applications impose a security risk because a hole in the application that allows to somehow execute commands on the server will give the attacker full access to the system. For this reason vibe supports privilege lowering, where the user id and group id of the process are changed to an unprivileged user after the setup process, right before the event loop is started.
-			
+
 			p Privilege lowering can be configured in the configuration file /etc/vibe/vibe.conf (on Windows vibe.conf must be in the application's root directory instead). The two fields "user" and "group" have to be set to the the name or numeric ID of the unprivileged user/group.
-			
+
 			pre.code.
 				{
 					"user": "www-data",

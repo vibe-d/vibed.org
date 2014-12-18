@@ -72,7 +72,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Module and package names are always written __lower case__. This applies both, to the module declaration, and to the file/directory name. Names usually do not contain any non-alphanumeric characters. An exception to this is when a module name equals that of a D keyword such as `function` or `class`. In this case, an underscore is appended to the module name.
 
@@ -96,7 +96,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Type names are always written in __CamelCase__. Acronyms are written all-caps, except if they form a de-facto word that is pronouncible.
 
@@ -123,7 +123,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							All functions and methods follow a __pascalStyle__ naming scheme. They always begin with a __verb__.
 
@@ -157,7 +157,7 @@ block body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								The naming scheme of global variables depends on their shared state. Their __basic naming scheme is pascalCase__. Global thread-local variables get a `g_` prefix. Variables with a `shared` or `__gshared` storage class get a `gs_` prefix. Public variables may drop the prefix, but properties should be preferred in this case.
 
@@ -183,7 +183,7 @@ block body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								Parameters use __underscore_naming_convention__. They should have meaningful names without abbrevations, if practical. Remember that these will show up in the API documentation later on.
 
@@ -204,7 +204,7 @@ block body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								Local variable names should __stay short__ (use abbrevations) and contain __neither underscores, nor upper case letters__. The abbrevations must stay clear and one-letter variable names such as `i`, `j`, `k` should only be used as loop indices according to their nesting level.
 
@@ -275,7 +275,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							There are three kinds of brace placement styles used:
 
@@ -288,7 +288,7 @@ block body
 								- `enum`
 								- `private` and `protected` blocks
 								- control statements (`if`, `for`, `switch` etc.)
-							
+
 							3. Opening brace and closing brace at the end of the first line - the opening brace must be preceeded by a space character
 								- trivial function bodies
 								- trivial bodies of control structures
@@ -340,7 +340,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							In general, the inside of clamps tightly fits its contents. For function declarations and function calls, there is also no space before the opening clamp. Control statements have a single space before the opening clamp.
 
@@ -372,7 +372,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Binary operators are usually surrounded by spaces, except in cases where it enhances readability to leave them off. Unary operators are always directly preceeding or following their argument. The ".." range token is always surrounded by spaces.
 					td
@@ -400,7 +400,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							The general order of declaration is sorted by protection level: `public` &rarr; `protected` &rarr; `package` &rarr; `private`
 
@@ -419,7 +419,7 @@ block body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							The following order must be adhered to:
 
@@ -459,7 +459,7 @@ block body
 				th Rules
 				th Rationale
 			tr
-				td	
+				td
 					:markdown
 						__Basic indentation__ always uses __tab characters__ and no spaces. Indentation is always semantic, meaning that each nesting level gets exactly one tabulator of indentation. When braking up a statement or a declaration into multiple lines, indent all but the first line by one additional tab.
 
@@ -493,7 +493,7 @@ block body
 				th Rules
 				th Rationale
 			tr
-				td	
+				td
 					:markdown
 						Documentation comments come in three basic forms (see example). Usually the same style should be used throughout all documented members of an entity, but exceptions may be made in the benefit of readability. In general, very short documentation strings (e.g. for `enum` members) should use the single line style and all other documentation should use the block style. The special "ditto" comment must always be a single line of the form `/// ditto`.
 
@@ -526,7 +526,7 @@ block body
 			|			The result of doing something is returned.
 			|	*/
 			|	int doSomething(int param1, int param2);
-			|	
+			|
 			|	/// ditto
 			|	int doSomething();
 			|}
