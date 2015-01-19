@@ -321,7 +321,7 @@ block body
 		section
 			h3#http-error-pages Error pages
 			
-			p There are thrww ways in which an error page is sent back to the client:
+			p There are three ways in which an error page is sent back to the client:
 			
 			ul
 				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
