@@ -232,7 +232,19 @@ block body
 						//- I am just visible in the template source
 			.caption Example: comments
 
-			p(style="color:red") TODO insert HTML
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html><!-- I show up
+					-->
+					<html>
+						<head>
+						</head>
+						<body><!-- You will see me too
+						-->
+						</body>
+					</html>
+			.caption Example: HTML output for the example
+
 			p(style="color:red") TODO #if
 	
 	section
