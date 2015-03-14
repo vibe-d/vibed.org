@@ -378,7 +378,7 @@ block body
 					body
 						- foreach(c; ["red", "green", "blue"])
 							- void repeat(string c)
-								|\#{c}-\#{c}\#{c}
+								|\#{c}-\#{c}-\#{c}
 							p
 								span(style='color: red;')
 									- repeat(c);
