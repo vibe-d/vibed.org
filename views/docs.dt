@@ -448,7 +448,7 @@ block body
 			p Client request are done using the <a href="api/vibe.http.client/requestHTTP"><code class="prettyprint">requestHTTP()</code></a> function.
 
 			pre.prettyprint.lang-d.
-				import vibe.vibe
+				import vibe.vibe;
 				
 				void main()
 				{
