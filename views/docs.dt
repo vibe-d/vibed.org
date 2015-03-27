@@ -955,6 +955,11 @@ block body
 
 				tr
 					td
+						code VibeNoDefaultArgs
+					td Disables all default command line options, but keeps the command line argument module functional.
+
+				tr
+					td
 						code VibeManualMemoryManagement
 					td Performs a number of operations using manual memory management instead of the garbage collector, most notably in the HTTP server. This can lead to considerable performance improvements, but also makes certain operations unsafe and thus may open up the possibility for certain attacks. Especially any code needs to make sure to not escape any data (including <code>string</code> data) from <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a>.
 
