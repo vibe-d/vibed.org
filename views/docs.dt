@@ -414,7 +414,7 @@ block body
 				
 				void logout(HTTPServerRequest req, HTTPServerResponse res)
 				{
-					res.terminateSession();
+					if (res.session) res.terminateSession();
 					res.redirect("/");
 				}
 				
