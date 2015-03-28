@@ -421,7 +421,7 @@ block body
 				void checkLogin(HTTPServerRequest req, HTTPServerResponse res)
 				{
 					// force a redirect to / for unauthenticated users
-					if( req.session is null )
+					if (!req.session)
 						res.redirect("/");
 				}
 				
