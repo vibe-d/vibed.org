@@ -361,15 +361,15 @@ block body
 				{
 					auto router = new URLRouter;
 					// the following routes are accessible without authentication:
-					router.get("/", staticTemplate!"index.dl");
-					router.get("/about", staticTemplate!"about.dl");
+					router.get("/", staticTemplate!"index.dt");
+					router.get("/about", staticTemplate!"about.dt");
 				   
 					// now any request is matched and checked for authentication:
 					router.any("*", performBasicAuth("Site Realm", toDelegate(&amp;checkPassword)));
 				
 					// the following routes can only be reached if authenticated:
-					router.get("/profile", staticTemplate!"profile.dl");
-					router.get("/internal", staticTemplate!"internal.dl");
+					router.get("/profile", staticTemplate!"profile.dt");
+					router.get("/internal", staticTemplate!"internal.dt");
 				
 					// ...
 				}
@@ -407,8 +407,8 @@ block body
 					// todo: verify user/password here
 				
 					auto session = res.startSession();
-					session["username"] = req.form["username"];
-					session["password"] = req.form["password"];
+					session.set("username", req.form["username"]);
+					session.set("password", req.form["password"]);
 					res.redirect("/home");
 				}
 				
@@ -428,12 +428,12 @@ block body
 				shared static this()
 				{
 					auto router = new URLRouter;
-					router.get("/", staticTemplate!"index.dl");
+					router.get("/", staticTemplate!"index.dt");
 					router.post("/login", &amp;login);
 					router.post("/logout", &amp;logout);
 					// restrict all following routes to authenticated users:
 					router.any("*", &amp;checkLogin);
-					router.get("/home", staticTemplate!"home.dl");
+					router.get("/home", staticTemplate!"home.dt");
 				
 					auto settings = new HTTPServerSettings;
 					settings.sessionStore = new MemorySessionStore;
