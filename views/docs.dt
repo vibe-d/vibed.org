@@ -8,9 +8,9 @@ block navigation
 		li.separator
 			a(href="api/") API Reference
 		li
-			a(href="#installation") Installation
-		li
 			a(href="#first-steps") First steps
+		li
+			a(href="#examples") Example projects
 		li
 			a(href="#http") HTTP
 			ul
@@ -175,6 +175,14 @@ block body
 			Listening on 0.0.0.0 port 8080 succeeded
 			Listening on :: port 8080 succeeded
 			Running event loop...
+
+	section
+		h2#examples Example projects
+
+		p A library of example projects is maintained in the Git repository. Most things not covered in this document can be found there in the form of code:
+
+		p
+			a.extern(href="https://github.com/rejectedsoftware/vibe.d/tree/master/examples", target="_blank") Example projects
 
 	section
 		h2#http HTTP
