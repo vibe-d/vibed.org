@@ -1031,7 +1031,7 @@ block body
 
 			p While access violations on Windows usually trigger an exception with a convenient stack trace, on other operating systems D applications just terminate and possibly cause a core dump file to be written. However, there is a module hidden in the D runtime that enables such a stack trace also on Linux. Simply run the following code at program initialization:
 
-			pre.code.
+			pre.code.prettyprint.lang-d.
 				import etc.linux.memoryerror;
 				static if (is(typeof(registerMemoryErrorHandler)))
 					registerMemoryErrorHandler();
