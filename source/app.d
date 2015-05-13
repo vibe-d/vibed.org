@@ -68,7 +68,8 @@ version(Have_ddox)
 				throw e;
 			}
 		}
-		foreach_reverse (v; versions) s_docsVersions ~= ";" ~ v;
+		foreach_reverse (v; versions.sort!("a.length == 0 || a < b"))
+			s_docsVersions ~= ";" ~ v;
 	}
 }
 
