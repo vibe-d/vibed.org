@@ -6,7 +6,9 @@ import std.datetime;
 
 version(Have_vibelog) import vibelog.vibelog;
 
-string s_latestVersion = "0.7.18";
+string s_latestVersion = "0.7.23"; // updated at run time by searching for download files
+URLRouter s_router;
+
 
 void download(HTTPServerRequest req, HTTPServerResponse res)
 {
@@ -30,12 +32,13 @@ version(Have_ddox)
 	import ddox.htmlgenerator;
 	import ddox.parsers.jsonparser;
 
-	Package[string] m_rootPackage;
+	Package[string] s_rootPackage;
 	string s_docsVersions;
 
 	void updateDocs()
 	{
 		import std.file;
+
 		s_docsVersions = null;
 		string[] versions;
 		foreach (de; dirEntries(".", "docs*.json", SpanMode.shallow)) {
@@ -46,14 +49,20 @@ version(Have_ddox)
 			auto ver = name[4 .. $-5];
 			if (ver.startsWith("-")) ver = ver[1 .. $];
 			try {
-				import std.file;
-				string text = readText(de.name);
+				yield(); // let the server run in parallel
+				string text = readFileUTF8(de.name);
 				auto json = parseJson(text);
 				auto pack = parseJsonDocs(json);
 				auto settings = new DdoxSettings;
 				processDocs(pack, settings);
-				m_rootPackage[ver] = pack;
+				s_rootPackage[ver] = pack;
 				if (ver.length) versions ~= ver;
+
+				auto docsettings = new GeneratorSettings;
+				docsettings.navigationType = NavigationType.ModuleTree;
+				if (!ver.length) docsettings.siteUrl = URL("http://vibed.org/api");
+				else docsettings.siteUrl = URL("http://vibed.org/api-"~ver);
+				registerApiDocs(s_router, pack, docsettings);
 			} catch( Exception e ){
 				logError("Error loading docs: %s", e.toString());
 				throw e;
@@ -112,31 +121,33 @@ shared static this()
 	settings.bindAddresses = ["127.0.0.1"];
 	settings.errorPageHandler = toDelegate(&error);
 	
-	auto router = new URLRouter;
+	s_router = new URLRouter;
 	
-	router.get("*", (req, res) {
-		req.params["latestRelease"] = s_latestVersion;
-		version(Have_ddox) req.params["docsVersions"] = s_docsVersions;
-	});
-	router.get("/",          staticTemplate!"home.dt");
-	router.get("/about",     staticTemplate!"about.dt");
-	router.get("/contact",   staticTemplate!"contact.dt");
-	router.get("/community", staticTemplate!"community.dt");
-	router.get("/impressum", staticTemplate!"impressum.dt");
-	router.get("/download",  &download);
-	router.get("/features",  staticTemplate!"features.dt");
-	router.get("/docs",      staticTemplate!"docs.dt");
-	router.get("/developer", staticTemplate!"developer.dt");
-	router.get("/style-guide", staticTemplate!"styleguide.dt");
-	router.get("/templates", staticRedirect("/templates/"));
-	router.get("/templates/", staticRedirect("/templates/diet"));
-	router.get("/templates/diet", staticTemplate!"templates.dt");
-	router.get("/temp/d-programming-language.org/*", &redirectDlangDocs);
-	router.get("/temp/dlang.org/*", &redirectDlangDocs);
+	with (s_router) {
+		get("*", (req, res) {
+			req.params["latestRelease"] = s_latestVersion;
+			version(Have_ddox) req.params["docsVersions"] = s_docsVersions;
+		});
+		get("/",          staticTemplate!"home.dt");
+		get("/about",     staticTemplate!"about.dt");
+		get("/contact",   staticTemplate!"contact.dt");
+		get("/community", staticTemplate!"community.dt");
+		get("/impressum", staticTemplate!"impressum.dt");
+		get("/download",  &download);
+		get("/features",  staticTemplate!"features.dt");
+		get("/docs",      staticTemplate!"docs.dt");
+		get("/developer", staticTemplate!"developer.dt");
+		get("/style-guide", staticTemplate!"styleguide.dt");
+		get("/templates", staticRedirect("/templates/"));
+		get("/templates/", staticRedirect("/templates/diet"));
+		get("/templates/diet", staticTemplate!"templates.dt");
+		get("/temp/d-programming-language.org/*", &redirectDlangDocs);
+		get("/temp/dlang.org/*", &redirectDlangDocs);
+	}
 
 	auto fsettings = new HTTPFileServerSettings;
 	fsettings.maxAge = 0.seconds();
-	router.get("*", serveStaticFiles("./public/", fsettings));
+	s_router.get("*", serveStaticFiles("./public/", fsettings));
 
 	version(Have_vibelog)
 	{
@@ -145,27 +156,15 @@ shared static this()
 		blogsettings.databaseHost = "127.0.0.1";
 		blogsettings.siteUrl = URL("http://vibed.org/blog/");
 		blogsettings.textFilters ~= &prettifyFilter;
-		registerVibeLog(blogsettings, router);
+		registerVibeLog(blogsettings, s_router);
 	}
 
 	version(Have_ddox)
 	{
-		updateDocs();
-		auto docsettings = new GeneratorSettings;
-		docsettings.navigationType = NavigationType.ModuleTree;
-		docsettings.siteUrl = URL("http://vibed.org/api");
-		registerApiDocs(router, m_rootPackage[""], docsettings);
-		foreach (ver, pack; m_rootPackage) {
-			auto docsettings = new GeneratorSettings;
-			docsettings.navigationType = NavigationType.ModuleTree;
-			docsettings.siteUrl = URL("http://vibed.org/api");
-			if (!ver.length) docsettings.siteUrl = URL("http://vibed.org/api");
-			else docsettings.siteUrl = URL("http://vibed.org/api-"~ver);
-			registerApiDocs(router, pack, docsettings);
-		}
+		runTask(toDelegate(&updateDocs));
 	}
 
-	listenHTTP(settings, router);
+	listenHTTP(settings, s_router);
 
 	updateDownloads();
 	setTimer(10.seconds(), {updateDownloads();}, true);
