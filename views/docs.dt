@@ -111,10 +111,6 @@ block body
 			void index(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 			{
 				res.<a href="api/vibe.http.server/render">render</a>!("index.dt", req);
-			
-				// Use the compatibility version for DMD &lt; 2.064 as render()
-				// suffers from DMD bugs 2962/10086/10857
-				//res.<a href="api/vibe.http.server/renderCompat">renderCompat</a>!("index.dt", HTTPServerRequest, "req")(req);
 			}
 			
 			shared static this()
@@ -218,12 +214,6 @@ block body
 							<a href="api/vibe.http.server/HTTPServerErrorInfo">HTTPServerErrorInfo</a> error)
 						{
 							res.<a href="api/vibe.http.server/render">render</a>!("error.dt", req, error);
-						
-							// NOTE: On DMD &lt; 2.064 use renderCompat instead:
-							//res.<a href="api/vibe.http.server/renderCompat">renderCompat</a>!("error.dt",
-							//	HTTPServerRequest, "req",
-							//	HTTPServerErrorInfo, "error")
-							//	(req, error);
 						}
 						
 						shared static this()
