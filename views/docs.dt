@@ -628,7 +628,7 @@ block body
 		section
 			h3#rest-interface-generator REST interface generator
 
-			p Similar to the browser oriented web interface generator, there is a machine communication oriented JSON/REST based interface generator. Method parameters are mapped to JSON fields and get serialized according to the usual <a href="http://127.0.0.1:8003/api/vibe.data.serialization/">serialization rules</a>. In addition to the interface generator, there is also a client generator, which automatically implements a class that emits the proper REST calls to access the REST interface.
+			p Similar to the browser oriented web interface generator, there is a machine communication oriented JSON/REST based interface generator. Method parameters are mapped to JSON fields and get serialized according to the usual <a href="api/vibe.data.serialization/">serialization rules</a>. In addition to the interface generator, there is also a client generator, which automatically implements a class that emits the proper REST calls to access the REST interface.
 
 			pre.prettyprint.lang-d.
 				import vibe.core.core;
