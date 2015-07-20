@@ -10,6 +10,8 @@ block navigation
 		li
 			a(href="#newsgroup") Newsgroup server
 		li
+			a(href="#irc") IRC channel
+		li
 			a(href="#wiki") Wiki
 		li
 			a(href="#issue-tracker") Issue tracker
@@ -31,6 +33,11 @@ block body
 		h2#newsgroup Newsgroup server
 			
 		p The following newsgroup server has a vibe.d group for general discussion. For now, almost anything vibe.d related fits there, ranging from suggestions, help requests or related projects. The NNTP server is located at <a class="extern" href="nntp://forum.rejectedsoftware.com:119/rejectedsoftware.vibed/">forum.rejectedsoftware.com:119</a>.
+
+	section
+		h2#irc IRC channel
+
+		p Join the <code>#vibe.d</code> channel on <a href="http://freenode.net/">freenode.net</a>.
 
 	section
 		h2#wiki Wiki
