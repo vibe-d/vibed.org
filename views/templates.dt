@@ -232,7 +232,19 @@ block body
 						//- I am just visible in the template source
 			.caption Example: comments
 
-			p(style="color:red") TODO insert HTML
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html><!-- I show up
+					-->
+					<html>
+						<head>
+						</head>
+						<body><!-- You will see me too
+						-->
+						</body>
+					</html>
+			.caption Example: HTML output for the example
+
 			p(style="color:red") TODO #if
 	
 	section
@@ -249,6 +261,8 @@ block body
 			p D statements can be embedded into templates by prefixing a line with a dash '-'. The statement will be execute after everything before it has been output and before anything after it will be output. Block statements such as loops and if statements are possible, as well as import statements. Note that variable declarations and imports are only visible inside the parent node in which they occur.
 
 			p Please note that you should never use braces to nest D statements inside other D statements. These may give unexpected results. Instead simply indent the nested lines just as you would do with HTML tags and other nodes. Inside of a single line, however, using braces is allowed and will work as expected.
+
+			p If a tag is followed by an equal sign '=' then the plain text of the tag is a D expression. The value of this expression is placed in the output.
 
 			pre.code.
 				doctype html
@@ -274,7 +288,7 @@ block body
 							<title>D statement test</title>
 						</head>
 						<body>
-							<p>Ten items ahead:</p>
+							<p>Four items ahead:</p>
 							<p>Item
 								<b>1</b>
 							</p>
@@ -296,7 +310,46 @@ block body
 		section
 			h3#string-interpolations String interpolations
 
-			p(style="color:red") TODO
+			p With string interpolations you can output the value of an expression inside plain text or an attribute value. You only need to surround your expression with \#\{ and \}.
+
+			p The value of the expression is HTML escaped before it is printed into the output. If you need unescaped output then you have to use \!\{ instead of \#\{.
+
+			pre.code.
+				doctype html
+				html
+					head
+						title D string interpolations test
+					body
+						- import std.algorithm : min;
+						p Four items ahead:
+						- foreach( i; 0 .. 4 )
+							- auto num = i+1;
+							p Item \#\{ num \}
+						//- Unescaped output
+						p Prints 8: \!\{ min(10, 2*6, 8) }
+			.caption Example: string interpolations
+
+			pre.code.prettyprint.lang-html
+				:htmlescape
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title>D string interpolations test</title>
+						</head>
+						<body>
+							<p>Four items ahead:</p>
+							<p>Item 1
+							</p>
+							<p>Item 2
+							</p>
+							<p>Item 3
+							</p>
+							<p>Item 4
+							</p>
+							<p>Prints 8: 8</p>
+						</body>
+					</html>
+			.caption Example: HTML output for the string interpolations example
 
 	section
 		h2#components Component templates
@@ -366,7 +419,7 @@ block body
 					body
 						- foreach(c; ["red", "green", "blue"])
 							- void repeat(string c)
-								|\#{c}-\#{c}\#{c}
+								|\#{c}-\#{c}-\#{c}
 							p
 								span(style='color: red;')
 									- repeat(c);
