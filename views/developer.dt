@@ -6,18 +6,13 @@ block title
 block navigation
 	ul
 		li
-			a(href="#dub-registry") The DUB registry
-		li
 			a(href="#helping") Help developing vibe.d
 		li	
-			a(href="#hacking-vibe") Hacking vibe.d
+			a(href="#hacking-vibe") Hacking on vibe.d
+		li
+			a(href="#dub-registry") The DUB package registry
 
 block body
-
-	section
-		h2#dub-registry The DUB registry
-
-		p Vibe.d and it's <a href="https://github.com/rejectedsoftware/">sister projects</a> are all distributed in the form of DUB packages. DUB is a package and build manager for D projects. The <a href="http://code.dlang.org/">DUB registry</a> provides a central place for publishing D applications and libraries. All packages registered there can be used by simply adding a corresponding entry into the package.json file of a project. So if you are searching for advanced functionality or if you have a project which you'd like to make available, this is the right place.
 
 	section
 		h2#helping Help vibe.d's development
@@ -44,3 +39,8 @@ block body
 			| on github for more details.
 
 		p When making contributions, please follow the <a href="style-guide">style guide</a>.
+
+	section
+		h2#dub-registry The DUB package registry
+
+		p Vibe.d and it's <a href="https://github.com/rejectedsoftware/">sister projects</a> are all distributed in the form of DUB packages. DUB is the standard package and build manager for D projects. The <a href="http://code.dlang.org/">DUB registry</a> provides a central place for publishing D applications and libraries. All packages registered there can be used by simply adding a corresponding entry into the dub.json/dub.sdl file of a project. So if you are searching for advanced functionality or if you have a project which you'd like to make available, this is the right place.
