@@ -137,7 +137,8 @@ shared static this()
 		get("/download",  &download);
 		get("/features",  staticTemplate!"features.dt");
 		get("/docs",      staticTemplate!"docs.dt");
-		get("/developer", staticTemplate!"developer.dt");
+		get("/developer", staticRedirect("/get-involved"));
+		get("/get-involved", staticTemplate!"developer.dt");
 		get("/style-guide", staticTemplate!"styleguide.dt");
 		get("/templates", staticRedirect("/templates/"));
 		get("/templates/", staticRedirect("/templates/diet"));

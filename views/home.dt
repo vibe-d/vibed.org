@@ -60,27 +60,27 @@ block plainbody
 			h2 Jump to…
 			nav#global-nav
 				ul
-					li.nav-about
-						a(href="about") About
-						p All about the project's motivation, goals and the creators
-					li.nav-download
-						a(href="download") Download
-						p Get the latest release and accompanying material
-					li.nav-blog
-						a(href="blog/") News
-						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-features
 						a(href="features") Features
 						p View a list of all features explaining how they work and what makes them special
-					li.nav-community
-						a(href="community") Community
-						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
+					li.nav-blog
+						a(href="blog/") News
+						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-docs
 						a(href="docs") Documentation
 						p Development documentation including the full <a href="/api/">API reference</a>
+					li.nav-community
+						a(href="community") Community
+						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
 					li.nav-developer
-						a(href="developer") Development
-						p Get involved with vibe's development
+						a(href="get-involved") Get involved
+						p Help with vibe.d's development
+					li.nav-download
+						a(href="download") Download
+						p Get the latest release and accompanying material
+					li.nav-about
+						a(href="about") About
+						p All about the project's motivation, goals and the creators
 		#example-http-server
 			h2 Example of a simple HTTP server
 			pre.code.prettyprint.lang-d

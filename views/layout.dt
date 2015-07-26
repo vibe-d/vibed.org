@@ -43,7 +43,7 @@ html(lang="en-US")
 					#navigation
 						nav#global-nav
 							ul
-								- auto pages = ["Home", "", "Download", "download", "News", "blog", "Features", "features", "Documentation", "docs", "Community", "community", "Development", "developer", "About", "about"];
+								- auto pages = ["Home", "", "News", "blog", "Features", "features", "Documentation", "docs", "Community", "community", "Get involved", "get-involved", "Download", "download", "About", "about"];
 								- for( auto i = 0; i < pages.length; i += 2 )
 									li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
 										a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
