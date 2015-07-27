@@ -74,7 +74,7 @@ block plainbody
 						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
 					li.nav-developer
 						a(href="get-involved") Get involved
-						p Help with vibe.d's development
+						p Support vibe.d through bug reports, code contributions or donations
 					li.nav-download
 						a(href="download") Download
 						p Get the latest release and accompanying material
