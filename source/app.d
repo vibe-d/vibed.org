@@ -4,7 +4,9 @@ import std.algorithm;
 import std.array;
 import std.datetime;
 
-version(Have_vibelog) import vibelog.vibelog;
+version (Have_vibelog) {
+	import vibelog.web;
+}
 
 string s_latestVersion = "0.7.23"; // updated at run time by searching for download files
 URLRouter s_router;
@@ -155,10 +157,10 @@ shared static this()
 	{
 		auto blogsettings = new VibeLogSettings;
 		blogsettings.configName = "vibe.d";
-		blogsettings.databaseHost = "127.0.0.1";
-		blogsettings.siteUrl = URL("http://vibed.org/blog/");
+		blogsettings.databaseURL = "mongodb://127.0.0.1/vibelog";
+		blogsettings.siteURL = URL("http://vibed.org/blog/");
 		blogsettings.textFilters ~= &prettifyFilter;
-		registerVibeLog(blogsettings, s_router);
+		s_router.registerVibeLogWeb(new VibeLogController(blogsettings));
 	}
 
 	version(Have_ddox)
