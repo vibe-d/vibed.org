@@ -12,47 +12,34 @@ block plainbody
 			img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
 		p#slogan Asynchronous I/O that doesn’t get in your way, written in
 			a(href="http://dlang.org", target="_blank") D
+		#feat-rad.feat-block
+			h2 Productive
+			ul
+				li High-level declarative <em>REST</em> and <em>web application framework</em>
+				li Full <em>HTTP(S)</em> stack with client, server and proxy implementations
+				li Shipped with native database drivers for <em>MongoDB</em> and <em>Redis</em>
+				li Complete <em>concurrency toolkit</em> and support for <em>low level I/O operations</em>
+				li
+					a(href="features#productivity") Read more…
 		#feat-fast.feat-block
 			h2 Fast
 			ul
-				li
-					em Asynchronous I/O
-					| for maximum speed and minimum memory usage
-				li
-					em Compile-time "Diet" templates
-					| for unparalleled dynamic page speed
-				li Compiled to
-					em native machine code
-				li Integrated
-					em load-balancing*
+				li <em>Asynchronous I/O</em> for maximum speed and minimum memory usage
+				li <em>Compile-time "Diet" templates</em> for unparalleled dynamic page speed
+				li Compiled to <em>native machine code</em>
+				li <em>Multi-threading</em> and integrated <em>load-balancing*</em>
 				li
 					a(href='features#performance') Read more…
 		#feat-simple.feat-block
 			h2 Simple
 			ul
-				li
-					em Fiber based
-					| blocking programming model for concise and intuitive development
-				li
-					em Compact API
-					| with sensible default choices
-				li
-					em Zero-downtime changes*
-					| allowing safe development on live-systems
-				li
-					em Exception based
-					| error handling
+				li <em>Fiber based</em> blocking programming model for concise and intuitive development
+				li <em>Compact API</em> with sensible default choices
+				//-li <em>Zero-downtime changes*</em> allowing safe development on live-systems
+				li Full support for <em>exception based</em> error handling
+				li Simple access to third-party <em>extension libraries</em> using the DUB package system
 				li
 					a(href="features#simplicity") Read more…
-		#feat-rad.feat-block
-			h2 Productive
-			ul
-				li Full <em>web application toolkit</em>, including <em>HTTPS</em> support
-				li Native database drivers for <em>MongoDB</em> and <em>Redis</em>
-				li Complete <em>concurrency toolkit</em> and support for <em>low level I/O operations</em>
-				li Support for <em>graphical user interfaces</em>
-				li
-					a(href="features#productivity") Read more…
 		.clear
 
 	#container
