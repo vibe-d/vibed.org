@@ -75,11 +75,11 @@ nav#global-nav li {
 	font-size: 11pt;
 	line-height: 12pt;
 	/*color: black;*/
-	/*margin-top: 18pt;*/
+	margin-top: 18pt;
 	margin-bottom: 6pt;
 }
 
-#maincontent h3:first-child {
+#maincontent h3:first-child, #maincontent h4:first-child {
 	margin-top: 0pt;
 }
 
