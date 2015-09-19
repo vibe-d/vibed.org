@@ -61,6 +61,7 @@ nav#global-nav li {
 	line-height: 18pt;
 	color: white;
 	margin-bottom: 9pt;
+	margin-top: 18pt;
 }
 
 #maincontent h3 {
@@ -79,7 +80,7 @@ nav#global-nav li {
 	margin-bottom: 6pt;
 }
 
-#maincontent h3:first-child, #maincontent h4:first-child {
+#maincontent h2:first-child, #maincontent h3:first-child, #maincontent h4:first-child {
 	margin-top: 0pt;
 }
 
