@@ -79,6 +79,10 @@ nav#global-nav li {
 	margin-bottom: 6pt;
 }
 
+#maincontent h3:first-child {
+	margin-top: 0pt;
+}
+
 #maincontent p {
 	/*color: #333;*/
 	color: #ddd;

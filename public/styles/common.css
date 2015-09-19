@@ -32,7 +32,7 @@ table { border-collapse: collapse; border-spacing: 0; }
   src: local('Droid Serif'), local('DroidSerif'), url('../fonts/droidserif400r.woff') format('woff');
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
 	font-family: 'Droid Serif', serif;
 	font-weight: 400;
 	font-style: normal;
@@ -344,6 +344,10 @@ li.nav-get-involved { background-image: url(../images/ico_developer.png); }
 	font-style: normal;
 	font-size: 10pt;
 	line-height: 12pt;
+	color: white;
+}
+
+#container h4, #container h5, #container h6 {
 	color: white;
 }
 
