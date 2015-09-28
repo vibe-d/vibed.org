@@ -90,18 +90,23 @@
 }
 
 #news-section .blogPostDate {
-	display: inline-block;
-	font-size: 80%;
-	width: 8em;
-}
-
-#news-section .blogPostDate:after {
-	content: ":";
+	float: right;
 }
 
 #news-section h3 {
 	display: inline-block;
 }
+
+#news-section a {
+	color: white;
+	text-decoration:none;
+	border: none;
+}
+
+#news-section a:hover {
+	color: #ff8800;
+}
+
 
 #news-section .blogHeadlineList {
 	padding: 9pt;
