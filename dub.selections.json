@@ -1,16 +1,15 @@
 {
+	"fileVersion": 1,
 	"versions": {
-		"botan": "1.11.12",
-		"libasync": "0.7.5",
-		"ddox": "0.10.8",
-		"memutils": "0.4.1",
-		"openssl": "1.1.4+1.0.1g",
-		"vibe-d": "0.7.24-rc.1",
+		"ddox": "0.10.9+commit.1.gc7e0a49",
 		"libevent": "2.0.1+2.0.16",
-		"libhttp2": "0.2.3",
 		"libev": "5.0.0+4.04",
+		"libdparse": "0.2.1",
+		"openssl": "1.1.4+1.0.1g",
+		"memutils": "0.4.1",
+		"vibe-d": "0.7.26-alpha.1",
+		"libasync": "0.7.5",
 		"vibelog": "0.4.1",
-		"libdparse": "0.2.1"
-	},
-	"fileVersion": 1
+		"libhttp2": "0.2.5"
+	}
 }
