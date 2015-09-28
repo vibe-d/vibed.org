@@ -6,7 +6,7 @@
 	"dependencies": {
 		"vibe-d": "~>0.7.24-rc.1",
 		"ddox": "~>0.10.0",
-		"vibelog": "~>0.3.0"
+		"vibelog": "~>0.4.1"
 	},
 	"versions": ["VibeDefaultMain"]
 }
