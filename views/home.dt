@@ -50,9 +50,6 @@ block plainbody
 					li.nav-features
 						a(href="features") Features
 						p View a list of all features explaining how they work and what makes them special
-					li.nav-blog
-						a(href="blog/") News
-						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-docs
 						a(href="docs") Documentation
 						p Development documentation including the full <a href="/api/">API reference</a>
@@ -65,10 +62,19 @@ block plainbody
 					li.nav-download
 						a(href="download") Download
 						p Get the latest release and accompanying material
+					li.nav-blog
+						a(href="blog/") News
+						p Follow the development of vibe.d and stay up to date with news and events
 					li.nav-about
 						a(href="about") About
 						p All about the project's motivation, goals and the creators
-		#example-http-server
+		#news-section.content-block
+			h2 Latest news
+			include vibelog.inc.headlinelist
+			- VibelogHeadlineListConfig vcfg = {maxPosts: 6, footerLinks : false, showSummaries : false, headerLevel : 3};
+			- insertVibelogHeadlineList(vcfg);
+
+		#example-http-server.content-block
 			h2 Example of a simple HTTP server
 			pre.code.prettyprint.lang-d
 				|import vibe.d;
@@ -87,7 +93,7 @@ block plainbody
 				|	if (req.path == "/")
 				|		res.writeBody("Hello, World!", "text/plain");
 				|}
-		#example-echo-server
+		#example-echo-server.content-block
 			h2 Example of an echo server
 			pre.code.prettyprint.lang-d
 				|import vibe.d;

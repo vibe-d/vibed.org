@@ -6,11 +6,22 @@ import std.datetime;
 
 version (Have_vibelog) {
 	import vibelog.web;
+	VibeLogController s_vibelog;
 }
 
 string s_latestVersion = "0.7.23"; // updated at run time by searching for download files
 URLRouter s_router;
 
+void home(HTTPServerRequest req, HTTPServerResponse res)
+{
+	version (Have_vibelog) {
+		auto info = s_vibelog.getPostListInfo(0, 6);
+	} else {
+		struct Info {}
+		Info info;
+	}
+	res.render!("home.dt", req, info);
+}
 
 void download(HTTPServerRequest req, HTTPServerResponse res)
 {
@@ -131,13 +142,14 @@ shared static this()
 			req.params["latestRelease"] = s_latestVersion;
 			version(Have_ddox) req.params["docsVersions"] = s_docsVersions;
 		});
-		get("/",          staticTemplate!"home.dt");
+		get("/",          &home);
 		get("/about",     staticTemplate!"about.dt");
 		get("/contact",   staticTemplate!"contact.dt");
 		get("/community", staticTemplate!"community.dt");
 		get("/impressum", staticTemplate!"impressum.dt");
 		get("/download",  &download);
 		get("/features",  staticTemplate!"features.dt");
+		get("/tutorials",  staticTemplate!"tutorials.dt");
 		get("/docs",      staticTemplate!"docs.dt");
 		get("/developer", staticRedirect("/get-involved"));
 		get("/get-involved", staticTemplate!"developer.dt");
@@ -160,7 +172,8 @@ shared static this()
 		blogsettings.databaseURL = "mongodb://127.0.0.1/vibelog";
 		blogsettings.siteURL = URL("http://vibed.org/blog/");
 		blogsettings.textFilters ~= &prettifyFilter;
-		s_router.registerVibeLogWeb(new VibeLogController(blogsettings));
+		s_vibelog = new VibeLogController(blogsettings);
+		s_router.registerVibeLogWeb(s_vibelog);
 	}
 
 	version(Have_ddox)
