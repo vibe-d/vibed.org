@@ -83,7 +83,7 @@ block body
 
 		pre.code
 			|$ cd /path/to/my/projects
-			|$ dub init &lt;project-name&gt; vibe.d
+			|$ dub init &lt;project-name&gt; -t vibe.d
 
 		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>dub.json</code> file and properly fill in all fields, including a "license" field, if you want to publish your project.
 
