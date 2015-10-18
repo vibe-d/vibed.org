@@ -6,9 +6,11 @@ block title
 block navigation
 	ul
 		li
-			a(href="#reporting") Report bugs and feature requsts
-		li	
+			a(href="#reporting") Report bugs and feature requests
+		li
 			a(href="#hacking") Hacking on vibe.d
+		li
+			a(href="style-guide") Style guide
 		li
 			a(href="#donate") Donations
 		li
@@ -18,7 +20,7 @@ block body
 
 	section
 		h2#reporting Reporting bugs and feature requests
-		
+
 		p You can help with vibe.d's development by reporting bugs or feature requests on the
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
 			|. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
@@ -27,7 +29,7 @@ block body
 
 	section
 		h2#hacking Hacking on vibe.d
-		
+
 		p To start working on the vibe.d code base itself, fork the repository using the "Fork" button on the github repository:
 		p
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
