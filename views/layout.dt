@@ -20,8 +20,6 @@ html(lang="en-US")
 		meta(name="viewport", content="width = device-width")
 		meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
 		meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
-
-		script(type="text/javascript", src="#{req.rootDir}prettify/prettify.js")/**/
 		
 	body(onload="prettyPrint()")
 
@@ -66,3 +64,5 @@ html(lang="en-US")
 			p Copyright © 2012-2014 <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
 
 		#vgrid-overlay
+
+		script(type="text/javascript", src="#{req.rootDir}prettify/prettify.js")/**/

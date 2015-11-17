@@ -76,7 +76,26 @@ block plainbody
 
 		#example-http-server.content-block
 			h2 Example of a simple HTTP server
-			pre.code.prettyprint.lang-d
+			
+			pre.code
+				|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
+
+				|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
+				|</span><span class="pun">{</span><span class="pln">
+				|	</span><span class="kwd">auto</span><span class="pln"> settings </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HTTPServerSettings</span><span class="pun">;</span><span class="pln">
+				|	settings</span><span class="pun">.</span><span class="pln">port </span><span class="pun">=</span><span class="pln"> </span><span class="lit">8080</span><span class="pun">;</span><span class="pln">
+				|
+				|	listenHTTP</span><span class="pun">(</span><span class="pln">settings</span><span class="pun">,</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">handleRequest</span><span class="pun">);</span><span class="pln">
+				|</span><span class="pun">}</span><span class="pln">
+				|
+				|</span><span class="kwd">void</span><span class="pln"> handleRequest</span><span class="pun">(</span><span class="typ">HTTPServerRequest</span><span class="pln"> req</span><span class="pun">,</span><span class="pln">
+				|                   </span><span class="typ">HTTPServerResponse</span><span class="pln"> res</span><span class="pun">)</span><span class="pln">
+				|</span><span class="pun">{</span><span class="pln">
+				|	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">req</span><span class="pun">.</span><span class="pln">path </span><span class="pun">==</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">)</span><span class="pln">
+				|		res</span><span class="pun">.</span><span class="pln">writeBody</span><span class="pun">(</span><span class="str">"Hello, World!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"text/plain"</span><span class="pun">);</span><span class="pln">
+				|</span><span class="pun">}</span>
+
+			//- pre.code.prettyprint.lang-d
 				|import vibe.d;
 				|
 				|shared static this()
@@ -93,9 +112,19 @@ block plainbody
 				|	if (req.path == "/")
 				|		res.writeBody("Hello, World!", "text/plain");
 				|}
+
 		#example-echo-server.content-block
 			h2 Example of an echo server
-			pre.code.prettyprint.lang-d
+
+			pre.code
+				|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
+				|
+				|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
+				|</span><span class="pun">{</span><span class="pln">
+				|	listenTCP</span><span class="pun">(</span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">conn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> conn</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">conn</span><span class="pun">);</span><span class="pln"> </span><span class="pun">});</span><span class="pln">
+				|</span><span class="pun">}</span>
+
+			//- pre.code.prettyprint.lang-d
 				|import vibe.d;
 				|
 				|shared static this()
