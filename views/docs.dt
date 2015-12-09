@@ -968,8 +968,8 @@ block body
 
 				tr
 					td
-						code VibeCustomMain
-					td Tells vibe.d to not use its own predefined <code>main</code> function. This is mutually exclusive to <code>VibeDefaultMain</code>.
+						code <s>VibeCustomMain</s>
+					td <del>Tells vibe.d to not use its own predefined <code>main</code> function. This is mutually exclusive to <code>VibeDefaultMain</code>.</del> This is the default behavior since vibe.d 0.7.26.
 
 				tr
 					td

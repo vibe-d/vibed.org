@@ -1,7 +1,6 @@
 extends layout
 
 block title
-	- title = "";
 	meta(name="description", content="Powerful asynchronous I/O and web toolkit for D, providing a fiber based blocking programming model and an efficient API.")
 
 block plainbody
@@ -53,6 +52,9 @@ block plainbody
 					li.nav-docs
 						a(href="docs") Documentation
 						p Development documentation including the full <a href="/api/">API reference</a>
+					li.nav-tutorials
+						a(href="tutorials") Tutorials
+						p Quick overviews and step-by-step instructions
 					li.nav-community
 						a(href="community") Community
 						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general

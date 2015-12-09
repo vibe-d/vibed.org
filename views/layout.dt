@@ -1,70 +1,58 @@
-!!! 5
-html(lang="en-US")
-	block defs
-	head
-		- string title;
+extends bs.layout.leftnav
+
+block head
+	block title
+	- if (!title.length)
+		title vibe.d
+		link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
+	- else
+		title #{title} - vibe.d
+		link(rel="stylesheet", href="#{req.rootDir}styles/default.css", type="text/css")
+		link(rel="stylesheet", href="#{req.rootDir}styles/vibelog.css", type="text/css")
+
+	link(rel="stylesheet", href="#{req.rootDir}styles/common.css", type="text/css")
+	link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
+	link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
+	link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
 	
-		block title
+	meta(name="viewport", content="width = device-width")
+	meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
+	meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
 
-		link(rel="stylesheet", href="#{req.rootDir}styles/common.css", type="text/css")
-		- if( title.length )
-			title #{title} - vibe.d
-			link(rel="stylesheet", href="#{req.rootDir}styles/default.css", type="text/css")
-			link(rel="stylesheet", href="#{req.rootDir}styles/vibelog.css", type="text/css")
-		- else
-			title vibe.d
-			link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
+block bs.header
+	#logo-line
+		a(href="http://vibed.org/")
+			img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
+			img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
+		a#download(href="#{req.rootDir}download")
+			.downloadArrow
+			strong Download
+			#download-version #{req.params["latestRelease"]} beta
+block bs.nav
+	- if (title.length)
+		nav#global-nav
+			ul
+				- auto pages = ["Home", "", "News", "blog", "Features", "features", "Tutorials", "tutorials", "Documentation", "docs", "Community", "community", "Get involved", "get-involved", "Download", "download", "About", "about"];
+				- for( auto i = 0; i < pages.length; i += 2 )
+					li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
+						a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
 
-		link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
-		link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
-		link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
-		
-		meta(name="viewport", content="width = device-width")
-		meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
-		meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
-		
-	body(onload="prettyPrint()")
+		nav#document-nav
+			block navigation
 
-		.center-content
-			#header
-				#logo-line
-					a(href="http://vibed.org/")
-						img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
-						img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
-					a#download(href="#{req.rootDir}download")
-						.downloadArrow
-						strong Download
-						#download-version #{req.params["latestRelease"]} beta
+block bs.content
+	block plainbody
+	- if (title.length)
+		#maincontent
+			h1 #{title}
 
-			block plainbody
+			block body
 
-			- if( title.length )
-				#container
-					#navigation
-						nav#global-nav
-							ul
-								- auto pages = ["Home", "", "News", "blog", "Features", "features", "Documentation", "docs", "Community", "community", "Get involved", "get-involved", "Download", "download", "About", "about"];
-								- for( auto i = 0; i < pages.length; i += 2 )
-									li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
-										a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
-
-						nav#document-nav
-							block navigation
-					#maincontent
-						h1 #{title}
-
-						block body
-
-				.clear
-		#footer
-			p
-				a(href="#{req.rootDir}impressum") Impressum
-				| –
-				a(href="#{req.rootDir}about#license") License
-				| –
-				a(href="#{req.rootDir}contact") Contact
-			p Copyright © 2012-2014 <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
-
-		#vgrid-overlay
-
-		script(type="text/javascript", src="#{req.rootDir}prettify/prettify.js")/**/
+block bs.footer
+	p
+		a(href="#{req.rootDir}impressum") Impressum
+		| –
+		a(href="#{req.rootDir}about#license") License
+		| –
+		a(href="#{req.rootDir}contact") Contact
+	p Copyright © 2012-2014 <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
