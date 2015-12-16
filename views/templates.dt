@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Diet templates";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#introduction") Introduction
@@ -51,7 +51,7 @@ block navigation
 		li
 			a(href="#grammar") Grammar
 
-block body
+block vibed.body
 
 	section
 		h2#introduction Introduction

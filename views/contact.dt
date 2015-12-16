@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Contact";
 
-block body
+block vibed.body
 
 	p The primary way to get in touch is the
 		a(href="nntp://news.rejectedsoftware.com:119/") news group

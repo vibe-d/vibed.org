@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Get involved";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#reporting") Report bugs and feature requests
@@ -16,8 +16,7 @@ block navigation
 		li
 			a(href="#packages") Writing extension libraries
 
-block body
-
+block vibed.body
 	section
 		h2#reporting Reporting bugs and feature requests
 

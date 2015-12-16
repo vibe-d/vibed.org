@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "About";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#description") What is vibe.d?
@@ -14,8 +14,7 @@ block navigation
 		li
 			a(href="#license") License
 
-block body
-
+block vibed.body
 	section#description
 		h2 What is vibe.d?
 

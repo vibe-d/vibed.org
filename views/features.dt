@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Features";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#simplicity") Simplicity
@@ -41,9 +41,7 @@ block navigation
 				li
 					a(href="#load-balancing") Load balancing
 
-block body
-
-
+block vibed.body
 	section
 		h2#simplicity Simplicity
 

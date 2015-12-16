@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Download";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#release-version") Current release
@@ -20,8 +20,7 @@ block navigation
 		li
 			a(href="#development-snapshot") Development snapshot
 
-block body
-
+block vibed.body
 	section
 		h2#using-dub Usage via DUB
 

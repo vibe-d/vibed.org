@@ -3,7 +3,7 @@
 block title
 	- title = "Documentation";
 
-block navigation
+block vibed.navigation
 	ul
 		li.separator
 			a(href="api/") API Reference
@@ -71,7 +71,7 @@ block navigation
 		li
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
-block body
+block vibed.body
 	section
 		h2#first-steps First steps
 

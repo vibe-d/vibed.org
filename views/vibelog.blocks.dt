@@ -1,7 +1,7 @@
 extends layout
 
-block navigation
+block vibed.navigation
 	block vibelog-recent-list
 
 block body
-	block vibelog-content
+	block vibed.vibelog-content

@@ -38,15 +38,15 @@ block bs.nav
 						a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
 
 		nav#document-nav
-			block navigation
+			block vibed.navigation
 
 block bs.content
-	block plainbody
+	block vibed.plainbody
 	- if (title.length)
 		#maincontent
 			h1 #{title}
 
-			block body
+			block vibed.body
 
 block bs.footer
 	p

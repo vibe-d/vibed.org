@@ -3,14 +3,13 @@ extends layout
 block title
 	- title = "Error "~to!string(error.code);
 
-block navigation
+block vibed.navigation
 	-if( auto pref = "referrer" in req.headers )
 		ul
 			li
 				a(href="#{*pref}") Go back
 
-block body
-
+block vibed.body
 	-if( error.code == 404 )
 		h1 The file does not exist
 
