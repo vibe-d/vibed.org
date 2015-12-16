@@ -2,15 +2,10 @@ extends bs.layout.leftnav
 
 block head
 	block title
-	- if (!title.length)
-		title vibe.d
-		link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
-	- else
-		title #{title} - vibe.d
-		link(rel="stylesheet", href="#{req.rootDir}styles/default.css", type="text/css")
-		link(rel="stylesheet", href="#{req.rootDir}styles/vibelog.css", type="text/css")
-
+	title #{title} - vibe.d
+	link(rel="stylesheet", href="#{req.rootDir}styles/vibelog.css", type="text/css")
 	link(rel="stylesheet", href="#{req.rootDir}styles/common.css", type="text/css")
+	link(rel="stylesheet", href="#{req.rootDir}styles/default.css", type="text/css")
 	link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
 	link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
 	link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
@@ -20,25 +15,18 @@ block head
 	meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
 
 block bs.header
-	#logo-line
-		a(href="http://vibed.org/")
-			img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
-			img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
-		a#download(href="#{req.rootDir}download")
-			.downloadArrow
-			strong Download
-			#download-version #{req.params["latestRelease"]} beta
-block bs.nav
-	- if (title.length)
-		nav#global-nav
-			ul
-				- auto pages = ["Home", "", "News", "blog", "Features", "features", "Tutorials", "tutorials", "Documentation", "docs", "Community", "community", "Get involved", "get-involved", "Download", "download", "About", "about"];
-				- for( auto i = 0; i < pages.length; i += 2 )
-					li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
-						a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
+	include vibed.inc.header
 
-		nav#document-nav
-			block vibed.navigation
+block bs.nav
+	nav#global-nav
+		ul
+			- auto pages = ["Home", "", "News", "blog", "Features", "features", "Tutorials", "tutorials", "Documentation", "docs", "Community", "community", "Get involved", "get-involved", "Download", "download", "About", "about"];
+			- for( auto i = 0; i < pages.length; i += 2 )
+				li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
+					a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
+
+	nav#document-nav.bs-separator
+		block vibed.navigation
 
 block bs.content
 	block vibed.plainbody
@@ -49,10 +37,5 @@ block bs.content
 			block vibed.body
 
 block bs.footer
-	p
-		a(href="#{req.rootDir}impressum") Impressum
-		| –
-		a(href="#{req.rootDir}about#license") License
-		| –
-		a(href="#{req.rootDir}contact") Contact
-	p Copyright © 2012-2014 <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
+	include vibed.inc.footer
+

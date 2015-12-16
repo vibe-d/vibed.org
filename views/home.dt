@@ -1,4 +1,4 @@
-extends layout
+extends layout.home
 
 block title
 	meta(name="description", content="Powerful asynchronous I/O and web toolkit for D, providing a fiber based blocking programming model and an efficient API.")
@@ -6,12 +6,13 @@ block title
 block vibed.plainbody
 	h1(style="display: none;") vibe.d
 
-	#features
-		a#forkme(href="https://github.com/rejectedsoftware/vibe.d")
-			img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
-		p#slogan Asynchronous I/O that doesn’t get in your way, written in
-			a(href="http://dlang.org", target="_blank") D
-		#feat-rad.feat-block
+	a#forkme(href="https://github.com/rejectedsoftware/vibe.d")
+		img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
+	p#slogan Asynchronous I/O that doesn’t get in your way, written in
+		a(href="http://dlang.org", target="_blank") D
+
+	.bs-columns3
+		#feat-rad.feat-block.bs-col
 			h2 Productive
 			ul
 				li High-level declarative <em>REST</em> and <em>web application framework</em>
@@ -20,7 +21,7 @@ block vibed.plainbody
 				li Complete <em>concurrency toolkit</em> and support for <em>low level I/O operations</em>
 				li
 					a(href="features#productivity") Read more…
-		#feat-fast.feat-block
+		#feat-fast.feat-block.bs-col
 			h2 Fast
 			ul
 				li <em>Asynchronous I/O</em> for maximum speed and minimum memory usage
@@ -29,7 +30,7 @@ block vibed.plainbody
 				li <em>Multi-threading</em> and integrated <em>load-balancing*</em>
 				li
 					a(href='features#performance') Read more…
-		#feat-simple.feat-block
+		#feat-simple.feat-block.bs-col
 			h2 Simple
 			ul
 				li <em>Fiber based</em> blocking programming model for concise and intuitive development
@@ -39,100 +40,100 @@ block vibed.plainbody
 				li Simple access to third-party <em>extension libraries</em> using the DUB package system
 				li
 					a(href="features#simplicity") Read more…
-		.clear
-
-	#container
-		#navigation
+	.bs-columns3.bs-separator
+		nav#global-nav.bs-col
 			h2 Jump to…
-			nav#global-nav
-				ul
-					li.nav-features
-						a(href="features") Features
-						p View a list of all features explaining how they work and what makes them special
-					li.nav-docs
-						a(href="docs") Documentation
-						p Development documentation including the full <a href="/api/">API reference</a>
-					li.nav-tutorials
-						a(href="tutorials") Tutorials
-						p Quick overviews and step-by-step instructions
-					li.nav-community
-						a(href="community") Community
-						p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
-					li.nav-developer
-						a(href="get-involved") Get involved
-						p Support vibe.d through bug reports, code contributions or donations
-					li.nav-download
-						a(href="download") Download
-						p Get the latest release and accompanying material
-					li.nav-blog
-						a(href="blog/") News
-						p Follow the development of vibe.d and stay up to date with news and events
-					li.nav-about
-						a(href="about") About
-						p All about the project's motivation, goals and the creators
-		#news-section.content-block
+			ul.bs-global
+				li.nav-features
+					a(href="features") Features
+					p View a list of all features explaining how they work and what makes them special
+				li.nav-docs
+					a(href="docs") Documentation
+					p Development documentation including the full <a href="/api/">API reference</a>
+				li.nav-tutorials
+					a(href="tutorials") Tutorials
+					p Quick overviews and step-by-step instructions
+				li.nav-community
+					a(href="community") Community
+					p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
+				li.nav-developer
+					a(href="get-involved") Get involved
+					p Support vibe.d through bug reports, code contributions or donations
+				li.nav-download
+					a(href="download") Download
+					p Get the latest release and accompanying material
+				li.nav-blog
+					a(href="blog/") News
+					p Follow the development of vibe.d and stay up to date with news and events
+				li.nav-about
+					a(href="about") About
+					p All about the project's motivation, goals and the creators
+
+		#featured-section.bs-col
+			h2 Featured
+						
+		#news-section.bs-col
 			h2 Latest news
 			include vibelog.inc.headlinelist
 			- VibelogHeadlineListConfig vcfg = {maxPosts: 6, footerLinks : false, showSummaries : false, headerLevel : 3};
 			- insertVibelogHeadlineList(vcfg);
 
-		#example-http-server.content-block
-			h2 Example of a simple HTTP server
-			
-			pre.code
-				|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
+	section.bs-separator
+		h2 Example of a simple HTTP server
+		
+		pre.code
+			|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
 
-				|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
-				|</span><span class="pun">{</span><span class="pln">
-				|	</span><span class="kwd">auto</span><span class="pln"> settings </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HTTPServerSettings</span><span class="pun">;</span><span class="pln">
-				|	settings</span><span class="pun">.</span><span class="pln">port </span><span class="pun">=</span><span class="pln"> </span><span class="lit">8080</span><span class="pun">;</span><span class="pln">
-				|
-				|	listenHTTP</span><span class="pun">(</span><span class="pln">settings</span><span class="pun">,</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">handleRequest</span><span class="pun">);</span><span class="pln">
-				|</span><span class="pun">}</span><span class="pln">
-				|
-				|</span><span class="kwd">void</span><span class="pln"> handleRequest</span><span class="pun">(</span><span class="typ">HTTPServerRequest</span><span class="pln"> req</span><span class="pun">,</span><span class="pln">
-				|                   </span><span class="typ">HTTPServerResponse</span><span class="pln"> res</span><span class="pun">)</span><span class="pln">
-				|</span><span class="pun">{</span><span class="pln">
-				|	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">req</span><span class="pun">.</span><span class="pln">path </span><span class="pun">==</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">)</span><span class="pln">
-				|		res</span><span class="pun">.</span><span class="pln">writeBody</span><span class="pun">(</span><span class="str">"Hello, World!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"text/plain"</span><span class="pun">);</span><span class="pln">
-				|</span><span class="pun">}</span>
+			|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
+			|</span><span class="pun">{</span><span class="pln">
+			|	</span><span class="kwd">auto</span><span class="pln"> settings </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HTTPServerSettings</span><span class="pun">;</span><span class="pln">
+			|	settings</span><span class="pun">.</span><span class="pln">port </span><span class="pun">=</span><span class="pln"> </span><span class="lit">8080</span><span class="pun">;</span><span class="pln">
+			|
+			|	listenHTTP</span><span class="pun">(</span><span class="pln">settings</span><span class="pun">,</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">handleRequest</span><span class="pun">);</span><span class="pln">
+			|</span><span class="pun">}</span><span class="pln">
+			|
+			|</span><span class="kwd">void</span><span class="pln"> handleRequest</span><span class="pun">(</span><span class="typ">HTTPServerRequest</span><span class="pln"> req</span><span class="pun">,</span><span class="pln">
+			|                   </span><span class="typ">HTTPServerResponse</span><span class="pln"> res</span><span class="pun">)</span><span class="pln">
+			|</span><span class="pun">{</span><span class="pln">
+			|	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">req</span><span class="pun">.</span><span class="pln">path </span><span class="pun">==</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">)</span><span class="pln">
+			|		res</span><span class="pun">.</span><span class="pln">writeBody</span><span class="pun">(</span><span class="str">"Hello, World!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"text/plain"</span><span class="pun">);</span><span class="pln">
+			|</span><span class="pun">}</span>
 
-			//- pre.code.prettyprint.lang-d
-				|import vibe.d;
-				|
-				|shared static this()
-				|{
-				|	auto settings = new HTTPServerSettings;
-				|	settings.port = 8080;
-				|
-				|	listenHTTP(settings, &amp;handleRequest);
-				|}
-				|
-				|void handleRequest(HTTPServerRequest req,
-				|                   HTTPServerResponse res)
-				|{
-				|	if (req.path == "/")
-				|		res.writeBody("Hello, World!", "text/plain");
-				|}
+		//- pre.code.prettyprint.lang-d
+			|import vibe.d;
+			|
+			|shared static this()
+			|{
+			|	auto settings = new HTTPServerSettings;
+			|	settings.port = 8080;
+			|
+			|	listenHTTP(settings, &amp;handleRequest);
+			|}
+			|
+			|void handleRequest(HTTPServerRequest req,
+			|                   HTTPServerResponse res)
+			|{
+			|	if (req.path == "/")
+			|		res.writeBody("Hello, World!", "text/plain");
+			|}
 
-		#example-echo-server.content-block
-			h2 Example of an echo server
+	section.bs-separator
+		h2 Example of an echo server
 
-			pre.code
-				|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
-				|
-				|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
-				|</span><span class="pun">{</span><span class="pln">
-				|	listenTCP</span><span class="pun">(</span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">conn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> conn</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">conn</span><span class="pun">);</span><span class="pln"> </span><span class="pun">});</span><span class="pln">
-				|</span><span class="pun">}</span>
+		pre.code
+			|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
+			|
+			|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
+			|</span><span class="pun">{</span><span class="pln">
+			|	listenTCP</span><span class="pun">(</span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">conn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> conn</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">conn</span><span class="pun">);</span><span class="pln"> </span><span class="pun">});</span><span class="pln">
+			|</span><span class="pun">}</span>
 
-			//- pre.code.prettyprint.lang-d
-				|import vibe.d;
-				|
-				|shared static this()
-				|{
-				|	listenTCP(7, (conn) { conn.write(conn); });
-				|}
-		.clear
+		//- pre.code.prettyprint.lang-d
+			|import vibe.d;
+			|
+			|shared static this()
+			|{
+			|	listenTCP(7, (conn) { conn.write(conn); });
+			|}
 
-		p * Still work-in-progress, implemented by the <a target="_blank" class="extern" hreF="https://github.com/rejectedsoftware/vibedist">vibedist</a> project.
+	p * Still work-in-progress, implemented by the <a target="_blank" class="extern" hreF="https://github.com/rejectedsoftware/vibedist">vibedist</a> project.

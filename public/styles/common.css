@@ -1,1 +1,42 @@
-﻿
+﻿#logo {
+	padding-top: 10pt;
+	padding-left: 15pt;
+}
+
+.dub-logo {
+	background-image: url(../images/dub-logo.png);
+	width: 56px;
+	height: 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.download-button .content {
+	padding: 0 6pt;
+	padding-top: 4pt;
+	font-size: 9pt;
+	line-height: 9pt;
+}
+
+.download-button large {
+	font-size: 16pt;
+	line-height: 16pt;
+}
+
+nav#global-nav li {
+	background-repeat: no-repeat;
+	padding-left: 28px;
+	padding-top: 2pt;
+}
+
+
+li.nav-home { background-image: url(../images/ico_home.png); }
+li.nav-download { background-image: url(../images/ico_download.png); }
+li.nav-features { background-image: url(../images/ico_features.png); }
+li.nav-about { background-image: url(../images/ico_about.png); }
+li.nav-blog { background-image: url(../images/ico_blog.png); }
+li.nav-tutorials { background-image: url(../images/ico_tutorials.png); }
+li.nav-docs { background-image: url(../images/ico_docs.png); }
+li.nav-community { background-image: url(../images/ico_community.png); }
+li.nav-developer { background-image: url(../images/ico_developer.png); }
+li.nav-get-involved { background-image: url(../images/ico_developer.png); }

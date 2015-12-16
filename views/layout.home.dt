@@ -1,0 +1,24 @@
+extends bs.layout.embednav
+
+block head
+	block title
+	title vibe.d
+	link(rel="stylesheet", href="#{req.rootDir}styles/home.css", type="text/css")
+	link(rel="stylesheet", href="#{req.rootDir}styles/common.css", type="text/css")
+	link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
+	link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
+	link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
+	
+	meta(name="viewport", content="width = device-width")
+	meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
+	meta(name="keywords", lang="de", content="vibe framework, asynchron, ereignis-basiert, web framework, netzwerk-bibliothek")
+
+block bs.header
+	include vibed.inc.header
+
+block bs.content
+	block vibed.plainbody
+
+block bs.footer
+	include vibed.inc.footer
+
