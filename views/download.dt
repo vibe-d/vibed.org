@@ -25,7 +25,7 @@ block body
 	section
 		h2#using-dub Usage via DUB
 
-		p The recommended way to use vibe.d is to use <a href="https://github.com/rejectedsoftware/dub/">DUB</a>.
+		p The recommended way to use vibe.d is to use <a href="https://code.dlang.org/download">DUB</a>.
 
 		p Simply add "vibe-d" as a dependency to your project and DUB will automatically download the latest version (upgrading can be done by running <code>dub upgrade</code>). See the <a href="docs#first-steps">first steps</a> for more details.
 
