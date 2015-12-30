@@ -1,7 +1,7 @@
 extends layout
 
 block title
-	- string title = "Style guide";
+	- title = "Style guide";
 
 block navigation
 	ul

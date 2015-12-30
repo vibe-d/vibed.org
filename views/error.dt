@@ -1,7 +1,7 @@
 extends layout
 
 block title
-	- string title = "Error "~to!string(error.code);
+	- title = "Error "~to!string(error.code);
 
 block navigation
 	-if( auto pref = "referrer" in req.headers )
