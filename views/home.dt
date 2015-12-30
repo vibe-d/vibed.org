@@ -1,7 +1,7 @@
 extends layout
 
 block title
-	- string title = "";
+	- title = "";
 	meta(name="description", content="Powerful asynchronous I/O and web toolkit for D, providing a fiber based blocking programming model and an efficient API.")
 
 block plainbody

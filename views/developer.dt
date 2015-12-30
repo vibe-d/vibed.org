@@ -1,7 +1,7 @@
 extends layout
 
 block title
-	- string title = "Get involved";
+	- title = "Get involved";
 
 block navigation
 	ul

@@ -1,7 +1,7 @@
 extends layout
 
 block title
-	- string title = "About";
+	- title = "About";
 
 block navigation
 	ul
