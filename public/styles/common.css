@@ -1,6 +1,13 @@
-﻿#logo {
+﻿.copyright { float: right; color: #666; }
+.copyright a { color: #666; }
+
+#logo {
 	padding-top: 10pt;
 	padding-left: 15pt;
+}
+
+#title {
+	padding-bottom: 2pt;
 }
 
 .dub-logo {
@@ -29,6 +36,9 @@ nav#global-nav li {
 	padding-top: 2pt;
 }
 
+nav#document-nav li.active > a {
+	color: #d80;
+}
 
 li.nav-home { background-image: url(../images/ico_home.png); }
 li.nav-download { background-image: url(../images/ico_download.png); }

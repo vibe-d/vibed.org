@@ -136,4 +136,5 @@ block vibed.plainbody
 			|	listenTCP(7, (conn) { conn.write(conn); });
 			|}
 
-	p * Still work-in-progress, implemented by the <a target="_blank" class="extern" hreF="https://github.com/rejectedsoftware/vibedist">vibedist</a> project.
+	section
+		p * Still work-in-progress, implemented by the <a target="_blank" class="extern" hreF="https://github.com/rejectedsoftware/vibedist">vibedist</a> project.

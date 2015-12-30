@@ -4,10 +4,10 @@ block title
 	- title = "Documentation";
 
 block vibed.navigation
-	ul
-		li.separator
-			a(href="api/") API Reference
+	ul.bs-local
 		li
+			a(href="api/") API Reference
+		li.bs-separator
 			a(href="#first-steps") First steps
 		li
 			a(href="#examples") Example projects
@@ -53,7 +53,7 @@ block vibed.navigation
 					a(href="#tcp-client") Client
 		li
 			a(href="#raw-udp") Raw UDP
-		li.separator
+		li
 			a(href="#advanced") Advanced topics
 			ul
 				li
@@ -66,9 +66,9 @@ block vibed.navigation
 					a(href="#compile-time-configuration") Compile time configuration
 				li
 					a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
-		li.separator
+		li.bs-separator
 			a(href="templates/diet") Diet Reference
-		li
+		li.bs-separator
 			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
 block vibed.body
@@ -88,7 +88,7 @@ block vibed.body
 		p This will create a new directory with the given name and creates the basic directory structure that is recommended for vibe.d projects. Running it will start up an HTTP server on port 8080, serving a simple plain-text page. As the next step, you can go ahead and edit the <code>source/app.d</code> file. If you want to publish your project, you should also edit the <code>dub.json</code>/<code>dub.sdl</code> file and properly fill in all fields, including a "license" field.
 
 		p Once you have the project in place, simply run DUB from the project's root directory and it will get all dependencies, compile the application, and run it:
-		pre.
+		pre.code.
 			cd path/to/project
 			dub
 			<span class="com">Performing "debug" build using dmd for x86_64.
@@ -143,7 +143,7 @@ block vibed.body
 
 		p The 'views' sub folder is automatically searched for templates instantiated with <a href="api/vibe.http.server/render"><code class="prettyprint">render</code></a>. The two templates in the example structure might look like this:
 
-		pre.code.
+		pre.code.lang-diet.
 			doctype html
 			html
 				head
@@ -152,7 +152,7 @@ block vibed.body
 					block body
 		.caption Example layout.dt
 
-		pre.code.
+		pre.code.lang-diet.
 			extends layout
 			
 			block body
@@ -321,7 +321,7 @@ block vibed.body
 				a(href="templates/diet") Diet templates
 				| page.
 
-			pre.code.
+			pre.code.lang-diet.
 				doctype html
 				html
 					head
@@ -378,7 +378,7 @@ block vibed.body
 
 			p Note that it is generally recommended to make use of the <a href="#web">high level web framework</a> when developing web application front ends. See the <a href="https://github.com/rejectedsoftware/vibe.d/tree/master/examples/web">"web" example project</a> for a way to implement session based authentication in such a setting.
 			
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.d;
 				
 				bool checkPassword(string user, string password)
@@ -425,7 +425,7 @@ block vibed.body
 					code.prettyprint.lang-d Session
 				| object behaves as a key value store taking strings as keys and values.
 			
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.d;
 				
 				void login(HTTPServerRequest req, HTTPServerResponse res)
@@ -476,7 +476,7 @@ block vibed.body
 			
 			p Client request are done using the <a href="api/vibe.http.client/requestHTTP"><code class="prettyprint">requestHTTP</code></a> function.
 
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
 				
 				void main()
@@ -531,7 +531,7 @@ block vibed.body
 
 			p The front end web interface generator automatically maps incoming query or POST form fields to method parameters, performing the necessary conversion and validation automatically. On top of that, it offers several convenience functions for rendering Diet templates, handling sessions and performing redirects - without directly accessing the underlying <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a> or <a href="api/vibe.http.server/HTTPServerResponse"><code>HTTPServerResponse</code></a> object. This enables a completely statically checked and clean code style in most cases.
 
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.http.router;
 				import vibe.http.server;
 				import vibe.web.web;
@@ -580,7 +580,7 @@ block vibed.body
 				}
 			.caption Example: source/app.d
 
-			pre.
+			pre.code.lang-diet.
 				doctype 5
 				html
 					head
@@ -606,7 +606,7 @@ block vibed.body
 
 			p Using <a href="http://www.gnu.org/software/gettext/">GNU gettext</a> compatible .po translation files, it's possible to localize Diet templates at compile time. This just requires putting the translation files with the naming scheme <code>&lt;name&gt;.&lt;language&gt;.po</code> into a path that is registered in the <code>"stringImportPaths"</code> field of the dub.json. <code>&lt;language&gt;</code> must be a language identifier of the form <code>en_US</code>.
 
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.web.web;
 
 				struct TranslationContext {
@@ -623,7 +623,7 @@ block vibed.body
 				}
 			.caption Example: source/app.d
 
-			pre.
+			pre.code.lang-diet.
 				doctype 5
 				html
 					head
@@ -634,7 +634,7 @@ block vibed.body
 						p& home.welcome.text
 			.caption Example: views/index.dt
 
-			pre.
+			pre.code.
 				msgid "Welcome"
 				msgstr "Welcome"
 
@@ -642,7 +642,7 @@ block vibed.body
 				msgstr "Hello, this is a translation example."
 			.caption Example: translations/example.en_US.po
 
-			pre.
+			pre.code.
 				msgid "Welcome"
 				msgstr "Willkommen"
 
@@ -656,7 +656,7 @@ block vibed.body
 
 			p Similar to the browser oriented web interface generator, there is a machine communication oriented JSON/REST based interface generator. Method parameters are mapped to JSON fields and get serialized according to the usual <a href="api/vibe.data.serialization/">serialization rules</a>. In addition to the interface generator, there is also a client generator, which automatically implements a class that emits the proper REST calls to access the REST interface.
 
-			pre.prettyprint.lang-d.
+			pre.code.prettyprint.lang-d.
 				import vibe.core.core;
 				import vibe.core.log;
 				import vibe.http.router;
@@ -829,7 +829,7 @@ block vibed.body
 				code.prettyprint.lang-d UDPConnection
 			| instance, which can then be used to send and receive individual packets.
 
-		pre.core.prettyprint.lang-d.
+		pre.code.prettyprint.lang-d.
 			import vibe.appmain;
 			import vibe.core.core;
 			import vibe.core.log;

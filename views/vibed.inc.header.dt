@@ -1,7 +1,7 @@
 #logo-line
 	- auto latest = req.params["latestRelease"];
 	a(href="https://vibed.org/")
-		img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')
+		img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')>
 		img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
 	a(href="https://code.dlang.org/packages/vibe-d/#{latest}").download-button
 		.bs-hbtn.right.black

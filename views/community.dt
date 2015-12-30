@@ -4,7 +4,7 @@ block title
 	- title = "Community";
 
 block vibed.navigation
-	ul
+	ul.bs-local
 		li
 			a(href="#web-forums") Web forums
 		li

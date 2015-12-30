@@ -25,7 +25,7 @@ block bs.nav
 				li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
 					a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
 
-	nav#document-nav.bs-separator
+	nav#document-nav
 		block vibed.navigation
 
 block bs.content

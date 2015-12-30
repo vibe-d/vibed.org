@@ -4,7 +4,7 @@ block title
 	- title = "Download";
 
 block vibed.navigation
-	ul
+	ul.bs-local
 		li
 			a(href="#release-version") Current release
 			
