@@ -77,17 +77,33 @@ block body
 
 		p First, install the <a href="https://github.com/rejectedsoftware/dub/">DUB package manager</a> to let it handle downloading and building of vibe.d and derived applications. On non-Windows systems, a number of additional dependencies needs to be installed. See the <a href="https://github.com/rejectedsoftware/vibe.d#installation">project description on GitHub</a> for details.
 
-		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Please take a look at <a href="https://github.com/rejectedsoftware/vibe.d/blob/master/dub.json">vibe.d's dub.json</a> to determine how to build on a certain platform.
+		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Take a look at <a href="https://github.com/rejectedsoftware/vibe.d/blob/master/dub.json">vibe.d's dub.json</a> to determine how to build on a certain platform, or, alterntaively, run DUB with the <code>-v</code> switch to see the actual compiler command line.
 
 		p The easiest way to get started is to run the following command from your projects directory:
 
-		pre.code
-			|$ cd /path/to/my/projects
-			|$ dub init &lt;project-name&gt; -t vibe.d
+		pre.code.
+			cd /path/to/my/projects
+			dub init &lt;project-name&gt; -t vibe.d
 
-		p This will create a new directory with the given name and creates the basic directory structure that is recommended for a vibe.d project. You can then go ahead and edit the <code>source/app.d</code> file. You should also edit the <code>dub.json</code> file and properly fill in all fields, including a "license" field, if you want to publish your project.
+		p This will create a new directory with the given name and creates the basic directory structure that is recommended for vibe.d projects. Running it will start up an HTTP server on port 8080, serving a simple plain-text page. As the next step, you can go ahead and edit the <code>source/app.d</code> file. If you want to publish your project, you should also edit the <code>dub.json</code>/<code>dub.sdl</code> file and properly fill in all fields, including a "license" field.
 
-		p The recommended structure for a project is about as follows:
+		p Once you have the project in place, simply run DUB from the project's root directory and it will get all dependencies, compile the application, and run it:
+		pre.
+			cd path/to/project
+			dub
+			<span class="com">Performing "debug" build using dmd for x86_64.
+			vibe-d 0.7.26: target for configuration "libevent" is up to date.
+			vibedtest ~master: building configuration "application"...
+			Linking...
+			To force a rebuild of up-to-date targets, run again with --force.
+			Running ./vibedtest 
+			Listening for requests on http://::1:8080
+			Listening for requests on http://127.0.0.1:8080
+			Please open http://127.0.0.1:8080/ in your browser.</span>
+
+		h3 Recommended project structure
+
+		p The recommended directory structure for a project, which the "dub init" command establishes, is separated into three base folders:
 
 		pre.code.
 			appname/
@@ -146,7 +162,7 @@ block body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">Diet template</a> compiler. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 			
-		p Finally, you can add a "dub.json" file to let the vibe.d package manager automatically download and compile extension libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
+		p Finally, the "dub.json" lets the vibe.d package manager automatically download and compile dependency libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
 		
 		pre.code.prettyprint.lang-javascript.
 			{
@@ -162,17 +178,18 @@ block body
 				"versions": ["VibeDefaultMain"]
 			}
 		.caption Example dub.json
-			
-		p Once you have the project in place, simply run DUB from the project's root directory and it will get all dependencies, compile the application, and run it:
-		pre.
-			$ cd path/to/project
-			$ dub
-			Building vibe-d 0.7.23 configuration "libevent", build type debug.
-			Building vtest ~master configuration "application", build type debug.
-			Running ./vtest
-			Listening for HTTP requests on ::1:8080
-			Listening for HTTP requests on 127.0.0.1:8080
-			Running event loop...
+
+		p DUB also provides support for a new alternative syntax using <a target="_blank" class="extern" href="https://sdlang.org/">SDLang</a>, which supports comments and is considerably more compact. The filename to use is "dub.sdl" in this case:
+		pre.code.prettyprint.lang-javascript.
+			name "appname"
+			description "My fabulous new app"
+			copyright "Copyright (C) 2000 Me. All rights reserved."
+			license "AGPL-3.0"
+			homepage "http://appname.org"
+			authors "Hans Wurst"
+			dependency "vibe-d" version="~>0.7.23"
+			versions "VibeDefaultMain"
+		.caption Example dub.sdl
 
 	section
 		h2#examples Example projects
