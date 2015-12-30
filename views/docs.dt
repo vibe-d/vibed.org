@@ -178,16 +178,14 @@ block body
 		h2#examples Example projects
 
 		p A library of example projects is maintained in the Git repository. Most things not covered in this document can be found there in the form of code:
-
-		p
 			a.extern(href="https://github.com/rejectedsoftware/vibe.d/tree/master/examples", target="_blank") Example projects
 
-		p You can either download the <a href="https://github.com/rejectedsoftware/vibe.d/archive/master.zip">repository as a zip file</a>, or use GIT to get the examples:
+		p To run the examples locally, you can either download the <a href="https://github.com/rejectedsoftware/vibe.d/archive/master.zip">repository as a zip file</a>, or use GIT to get the examples:
 
 		pre.
 			git clone https://github.com/rejectedsoftware/vibe.d.git
 
-		p To run the "http_server" example:
+		p To run the "http_server" example, type:
 
 		pre.
 			dub run --root=vibe.d/examples/http_server
