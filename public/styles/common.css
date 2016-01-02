@@ -50,3 +50,6 @@ li.nav-docs { background-image: url(../images/ico_docs.png); }
 li.nav-community { background-image: url(../images/ico_community.png); }
 li.nav-developer { background-image: url(../images/ico_developer.png); }
 li.nav-get-involved { background-image: url(../images/ico_developer.png); }
+
+.leftFlow { float: left; margin-right: 6pt; }
+.rightFlow { float: right; margin-left: 6pt; }

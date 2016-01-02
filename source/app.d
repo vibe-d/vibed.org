@@ -87,8 +87,8 @@ version(Have_ddox)
 }
 
 string prettifyFilter(string html)
-{
-	return html.replace("<code><pre>", "<code><pre class=\"prettyprint\">");
+@safe {
+	return html.replace("<pre class=\"prettyprint\">", "<pre class=\"code prettyprint\">");
 }
 
 void updateDownloads()
@@ -171,7 +171,7 @@ shared static this()
 		blogsettings.configName = "vibe.d";
 		blogsettings.databaseURL = "mongodb://127.0.0.1/vibelog";
 		blogsettings.siteURL = URL("http://vibed.org/blog/");
-		blogsettings.textFilters ~= &prettifyFilter;
+		blogsettings.textFilters ~= toDelegate(&prettifyFilter);
 		blogsettings.showFullPostsInPostList = false;
 		blogsettings.maxRecentPosts = 100;
 		s_vibelog = new VibeLogController(blogsettings);

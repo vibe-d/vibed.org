@@ -3,18 +3,18 @@ extends layout
 block title
 	- title = "Tutorials";
 
-block navigation
-	ul
+block vibed.navigation
+	ul.bs-local
 		li
 			a(href="#general") General
 		li
 			a(href="#deployment") Deployment
 
-block body
+block vibed.body
 	section#general
 		h2 General
 
-		section
+		//-section
 			h3 An introduction to vibe.d: Writing a scalable chat service in D
 
 			p This tutorial gives an overview of modern web application (back end) development in D. Step by step, it will make you familiar with all the tools needed. The level of abstraction is kept pragmatic, without going into every detail of the language.

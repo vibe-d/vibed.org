@@ -9,6 +9,7 @@ block head
 	link(rel="stylesheet", href="#{req.rootDir}prettify/prettify.css", type="text/css")
 	link(rel="shortcut icon", href="#{req.rootDir}favicon.ico")
 	link(rel="alternate", type="application/rss+xml", title="RSS", href="#{req.rootDir}blog/feed/rss")
+	script(src="#{req.rootDir}prettify/prettify.js")
 	
 	meta(name="viewport", content="width = device-width")
 	meta(name="keywords", lang="en", content="vibe framework, asynchronous, event based, web framework, network library")
@@ -25,7 +26,7 @@ block bs.nav
 				li(class='nav-#{i > 0 ? pages[i+1] : "home"}')
 					a(class='#{pages[i] == title ? "active" : ""}', href="#{req.rootDir~pages[i+1]}")= pages[i]
 
-	nav#document-nav
+	nav#document-nav.bs-local
 		block vibed.navigation
 
 block bs.content
@@ -35,6 +36,8 @@ block bs.content
 			h1 #{title}
 
 			block vibed.body
+
+			script prettyPrint();
 
 block bs.footer
 	include vibed.inc.footer
