@@ -8,10 +8,11 @@
 		"dyaml": "0.5.2",
 		"openssl": "1.1.4+1.0.1g",
 		"stringex": "0.0.2",
-		"bootstrap": "~master",
+		"libdparse": "0.2.1",
 		"memutils": "0.4.3",
-		"vibe-d": "0.7.26",
+		"vibe-d": "0.7.27-alpha.2+commit.57.g3969f27",
 		"libasync": "0.7.5",
-		"vibelog": "0.5.0-alpha.1"
+		"vibelog": "0.5.0-alpha.1",
+		"rs-bootstrap": "1.0.0"
 	}
 }
