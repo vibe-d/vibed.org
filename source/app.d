@@ -156,6 +156,7 @@ shared static this()
 		get("/templates", staticRedirect("/templates/"));
 		get("/templates/", staticRedirect("/templates/diet"));
 		get("/templates/diet", staticTemplate!"templates.dt");
+		get("/tutorials", staticTemplate!"tutorials.dt");
 		get("/temp/d-programming-language.org/*", &redirectDlangDocs);
 		get("/temp/dlang.org/*", &redirectDlangDocs);
 	}
