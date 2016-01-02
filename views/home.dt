@@ -71,6 +71,16 @@ block vibed.plainbody
 
 		#featured-section.bs-col
 			h2 Featured
+
+			img(src="#{req.rootDir}images/d-web-development-book-200.png", width=104, height=128)
+
+			h3 D Web Development
+			h4 by Kai "redstar" Nacke
+
+			p This book gives a thorough introduction to web development in D, using vibe.d. While walking through the various topics, it always provides practical step-by-step examples and explains the underlying mechanisms.
+
+			p Will be available as e-book and print versions at <a href="https://www.packtpub.com/web-development/d-web-development">Packt Publishing</a>
+
 						
 		#news-section.bs-col
 			h2 Latest news
