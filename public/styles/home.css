@@ -45,3 +45,7 @@ nav#global-nav li a {
 .feat-block a:hover {
 	color: #c60;
 }
+
+.blogPostDate + h3 {
+	margin-top: 0;
+}

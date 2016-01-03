@@ -83,7 +83,7 @@ block vibed.plainbody
 
 						
 		#news-section.bs-col
-			h2 Latest news
+			h2 Latest News
 			include vibelog.inc.headlinelist
 			- VibelogHeadlineListConfig vcfg = {maxPosts: 6, footerLinks : false, showSummaries : false, headerLevel : 3};
 			- insertVibelogHeadlineList(vcfg);
@@ -93,7 +93,7 @@ block vibed.plainbody
 		
 		pre.code
 			|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
-
+			|
 			|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
 			|</span><span class="pun">{</span><span class="pln">
 			|	</span><span class="kwd">auto</span><span class="pln"> settings </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HTTPServerSettings</span><span class="pun">;</span><span class="pln">
