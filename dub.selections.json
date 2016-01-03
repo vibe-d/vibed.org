@@ -10,9 +10,9 @@
 		"stringex": "0.0.2",
 		"libdparse": "0.2.1",
 		"memutils": "0.4.3",
-		"vibe-d": "0.7.27-alpha.2+commit.57.g3969f27",
+		"vibe-d": "0.7.27-alpha.3",
+		"rs-bootstrap": "1.0.1",
 		"libasync": "0.7.5",
-		"vibelog": "0.5.0-alpha.1",
-		"rs-bootstrap": "1.0.0"
+		"vibelog": "0.5.0-alpha.1"
 	}
 }
