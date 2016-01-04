@@ -14,13 +14,13 @@ block vibed.body
 	section#general
 		h2 General
 
-		//-section
+		section
 			h3 An introduction to vibe.d: Writing a scalable chat service in D
 
 			p This tutorial gives an overview of modern web application (back end) development in D. Step by step, it will make you familiar with all the tools needed. The level of abstraction is kept pragmatic, without going into every detail of the language.
 
 			p
-				a(href="#") Read more
+				a(href="https://vibed.org/blog/posts/a-scalable-chat-room-service-in-d") Read more
 
 		section
 			h3 D Web Development
