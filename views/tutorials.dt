@@ -25,12 +25,20 @@ block vibed.body
 		section
 			h3 D Web Development
 
-			p
-				img(src="images/d-web-development-book.png")
-				| This book gives a thorough overview of most aspects of vibe.d. It is highly recommended if you want to get familiar with all corners and technical details.
+			img.leftFlow(src="images/d-web-development-book.png")
+			p This book gives a thorough overview of most aspects of vibe.d. Highly recommended if you want to get familiar with all corners and technical details!
 
-			p
+			p(style="clear: both")
 				a(href="https://www.packtpub.com/web-development/d-web-development") Pre-order at Packt Publishing
+
+		section
+			h3 Learning D - Chapter 10
+
+			img.leftFlow(src="images/book-learning-d.png")
+			p Chapter 10, "Taking D Online", of Michael Parker's "Learning D" book contains a detailed introduction to vibe.d of almost 50 pages. In this introduction, it interactively develops a movie database web application. If you want to get a complete picture of the possibilities of the language as well, this is a great choice.
+
+			p(style="clear: both")
+				a(href="https://www.packtpub.com/application-development/learning-d") Get it at Packt Publishing
 
 		section
 			h3 Dlang tutorial: Build tools and hello web
