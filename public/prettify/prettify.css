@@ -1,16 +1,22 @@
 /* Pretty printing styles. Used with prettify.js. */
 
 /* SPAN elements with the classes below are added by prettyprint. */
+
 .pln { color: #000 }  /* plain text */
-pre.code .pln { color: #fff; }
-pre.code .pun { color: #ddd; }
 
 @media screen {
-  .str { color: #ffe7b6 }  /* string content */
-  .kwd { color: #ffaa00 }  /* a keyword */
-  .com { color: #888 }  /* a comment */
-  .typ { color: #9ad452 }  /* a type name */
-  .lit { color: #ffe7b6 }  /* a literal value */
+	.str { color: #c90 }  /* string content */
+	.lit { color: #c90 }  /* a literal value */
+	.kwd { color: #e90 }  /* a keyword */
+	.com { color: #888 }  /* a comment */
+	.typ { color: #6c0 }  /* a type name */
+	
+	pre.code .pln { color: #fff; }
+	pre.code .pun { color: #ddd; }
+	pre.code .str { color: #ffe7b6 }  /* string content */
+	pre.code .kwd { color: #ffaa00 }  /* a keyword */
+	pre.code .typ { color: #9ad452 }  /* a type name */
+	pre.code .lit { color: #ffe7b6 }  /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
   .pun, .opn, .clo { color: #555 }
   .tag { color: #ffaa00 }  /* a markup tag name */
