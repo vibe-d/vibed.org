@@ -22,6 +22,9 @@ block vibed.body
 			p
 				a(href="https://vibed.org/blog/posts/a-scalable-chat-room-service-in-d") Read more
 
+			p There is also a similar tutorial by Charles Smith, using lower level APIs and without a database:
+				a(href="http://wiki.dlang.org/User:Csmith1991/Vibe.d_Documentation/websocket") WebSocket example
+
 		section
 			h3 D Web Development
 
