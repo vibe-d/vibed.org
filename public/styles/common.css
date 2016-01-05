@@ -53,3 +53,14 @@ li.nav-get-involved { background-image: url(../images/ico_developer.png); }
 
 .leftFlow { float: left; margin-right: 6pt; }
 .rightFlow { float: right; margin-left: 6pt; }
+
+
+@media screen and (max-width: 600px) {
+	#logo { max-height: 38pt;  padding-top: 8pt; }
+	#title { max-height: 32pt; padding-bottom: 1pt; }
+	body.bs-blue > header { height: 52pt; }
+}
+
+@media screen and (max-width: 450px) {
+	header .download-button { display: none; }
+}

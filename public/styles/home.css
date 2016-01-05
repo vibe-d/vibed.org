@@ -49,3 +49,7 @@ nav#global-nav li a {
 .blogPostDate + h3 {
 	margin-top: 0;
 }
+
+@media screen and (max-width: 750px) {
+	#forkme { display: none; }
+}
