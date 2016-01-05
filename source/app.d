@@ -183,6 +183,8 @@ shared static this()
 		runTask(toDelegate(&updateDocs));
 	}
 
+	s_router.rebuild(); // avoid delay on first request
+
 	listenHTTP(settings, s_router);
 
 	updateDownloads();
