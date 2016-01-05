@@ -13,28 +13,23 @@ ul.tree-view a.module {
 	padding: 0 4px;
 }
 
-#navigation ul.tree-view a.selected { margin-left: 13px; }
+nav ul.tree-view a.selected { margin-left: 13px; }
 
-#navigation ul.tree-view a.selected, #api-version-selector li.selected a {
-	background-color: #202830;
-	border: 1px solid #303840;
+nav ul.tree-view a.selected, #api-version-selector li.selected a {
+	background-color: #eeeef6;
+	border: 1px solid #e0e0f0;
+	padding: 0 3pt;
 }
 
-ul.tree-view {
-	padding: 0;
-	margin: 0;
-}
-
-ul.tree-view ul {
-	margin: 0;
-	padding: 0;
-	padding-left: 10pt;
-}
-
-ul.tree-view li {
+#bs-main nav.bs-local ul.tree-view {
 	list-style-type: none;
-	padding: 0;
+	list-style-image: none;
+	padding-left: 0;
 	margin-left: 0;
+}
+
+#bs-main nav.bs-local ul.tree-view li {
+	padding-left: 9pt;
 }
 
 a.protected {
@@ -63,16 +58,16 @@ td.typecol {
 }
 
 #api-version-selector {
-	border-top: 1px solid #444;
+	/*border-top: 1px solid #444;
 	margin-top: 9pt;
-	padding-top: 9pt;
+	padding-top: 9pt;*/
 }
 nav#document-nav #symbolSearchResults li:before { content: ""; }
 
-.license-info { border-top: 2px solid #444; }
-#maincontent .license-info th { background: none; color: #888; }
+.license-info { border-top: 2px solid #eee; width: 100%; margin-top: 20pt; }
+#maincontent .license-info th { background: none; color: #aaa; }
 #maincontent .license-info td { background: none; border-bottom: none; }
-#maincontent .license-info td p { color: #bbb; }
+#maincontent .license-info td p { color: #666; }
 .license-info p { margin: 0; }
 
 #symbolSearch {

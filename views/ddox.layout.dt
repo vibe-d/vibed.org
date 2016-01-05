@@ -10,10 +10,11 @@ block title
 block vibed.navigation
 	include ddox.inc.symbol-search
 
-	include ddox.inc.module-tree
+	.bs-separator
+		include ddox.inc.module-tree
 	:javascript setupDdox();
 
-	#api-version-selector
+	#api-version-selector.bs-separator
 		ul
 			- assert(req.path.startsWith("/api"));
 			- auto eidx = std.string.indexOf(req.path[4 .. $], "/");
