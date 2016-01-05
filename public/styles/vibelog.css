@@ -114,3 +114,9 @@
 #vibelogContent .checkbox { width: auto; }
 
 #vibelogContent td { vertical-align: top; }
+
+blockquote {
+	margin-left: 0;
+	padding-left: 9pt;
+	border-left: 2px solid #888;
+}
