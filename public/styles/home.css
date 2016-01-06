@@ -16,8 +16,13 @@ nav#global-nav li p {
 	color: #666;
 }
 
-nav#global-nav li a {
-	color: #333;
+nav#global-nav li a.title {
+	color: #dd9400;
+	font-weight: bold;
+}
+
+nav#global-nav li a.title:hover {
+	color: #000;
 }
 
 /******************************************************************************/
