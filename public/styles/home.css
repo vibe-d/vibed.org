@@ -17,7 +17,19 @@ nav#global-nav li p {
 }
 
 nav#global-nav li a {
-	color: #333;
+	color: #555;
+	text-decoration: underline;
+}
+
+nav#global-nav li a:hover {
+	color: #dd9400;
+	text-decoration: underline;
+}
+
+nav#global-nav li > a {
+	font-size: 10pt;
+	color: black;
+	text-decoration: none;
 }
 
 /******************************************************************************/
