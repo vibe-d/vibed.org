@@ -29768,7 +29768,7 @@
 					{
 						"name": "destroy",
 						"line": 194,
-						"comment": "Terminates the given sessiom.\n",
+						"comment": "Terminates the given session.\n",
 						"storageClass": [
 							"abstract"
 						],
