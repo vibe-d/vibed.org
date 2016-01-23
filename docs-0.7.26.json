@@ -30520,7 +30520,7 @@
 					{
 						"name": "destroy",
 						"line": 189,
-						"comment": "Terminates the given sessiom.\n",
+						"comment": "Terminates the given session.\n",
 						"storageClass": [
 							"abstract"
 						],

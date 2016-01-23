@@ -27907,7 +27907,7 @@
 							}
 						],
 						"name": "destroy",
-						"comment": "Terminates the given sessiom.\n"
+						"comment": "Terminates the given session.\n"
 					},
 					{
 						"kind": "function",
