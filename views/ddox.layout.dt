@@ -21,7 +21,7 @@ block navigation
 			- auto cur = req.path[min(5, 4+eidx) .. 4+eidx];
 			- auto subpath = req.path[4+eidx .. $];
 			- foreach (ver; req.params["docsVersions"].split(";"))
-				li(class='#{ver == cur ? "selected" : ""}')
+				li(class=(ver == cur ? "selected" : ""))
 					- if (ver.length)
 						a(href='#{req.rootDir}api-#{ver}#{subpath}')= ver
 					- else
