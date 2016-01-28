@@ -1,18 +1,21 @@
 {
 	"fileVersion": 1,
 	"versions": {
-		"ddox": "0.12.0",
+		"ddox": "0.12.1+commit.6.g9241489",
 		"libevent": "2.0.1+2.0.16",
 		"libev": "5.0.0+4.04",
 		"tinyendian": "0.1.2",
+		"libhttp2": "0.2.5",
 		"dyaml": "0.5.2",
 		"openssl": "1.1.4+1.0.1g",
 		"stringex": "0.0.2",
-		"libdparse": "0.2.1",
+		"experimental_allocator": "2.70.0-b1",
+		"libdparse": "0.4.2",
 		"memutils": "0.4.3",
-		"vibe-d": "0.7.27-alpha.2+commit.46.gcfe4154",
+		"vibe-d": "0.7.27-beta.1+commit.5.g73a17a8",
+		"hyphenate": "1.1.0",
 		"libasync": "0.7.5",
-		"vibelog": "0.5.0-alpha.1",
-		"libhttp2": "0.2.5"
+		"vibelog": "0.5.0-alpha.2+commit.5.g132b358",
+		"eventcore": "~master"
 	}
 }
