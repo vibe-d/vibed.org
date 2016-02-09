@@ -16,6 +16,6 @@
 		"hyphenate": "1.1.0",
 		"libasync": "0.7.5",
 		"vibelog": "0.5.0-alpha.2+commit.5.g132b358",
-		"eventcore": "~master"
+		"rs-bootstrap": "1.0.1",
 	}
 }

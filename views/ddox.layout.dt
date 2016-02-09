@@ -7,13 +7,14 @@ block title
 	script(type="text/javascript", src="#{req.rootDir}scripts/jquery.js")
 	script(type="text/javascript", src="#{req.rootDir}scripts/ddox.js")
 
-block navigation
+block vibed.navigation
 	include ddox.inc.symbol-search
 
-	include ddox.inc.module-tree
+	.bs-separator
+		include ddox.inc.module-tree
 	:javascript setupDdox();
 
-	#api-version-selector
+	#api-version-selector.bs-separator
 		ul
 			- assert(req.path.startsWith("/api"));
 			- auto eidx = std.string.indexOf(req.path[4 .. $], "/");
@@ -28,7 +29,7 @@ block navigation
 						a(href='#{req.rootDir}api#{subpath}') current
 
 
-block body
+block vibed.body
 	block ddox.description
 
 	block ddox.sections

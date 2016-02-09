@@ -1,0 +1,7 @@
+.copyright Copyright © 2012-2016 <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
+div
+	a(href="#{req.rootDir}impressum") Impressum
+	| –
+	a(href="#{req.rootDir}about#license") License
+	| –
+	a(href="#{req.rootDir}contact") Contact

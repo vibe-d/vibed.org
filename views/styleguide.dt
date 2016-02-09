@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Style guide";
 
-block navigation
+block vibed.navigation
 	ul
 		li
 			a(href="#naming-conventions") Naming conventions
@@ -51,7 +51,7 @@ block navigation
 			a(href="#doc-comments") Doc comments
 
 
-block body
+block vibed.body
 	:css
 		col.rules { width: 66%; }
 		col.rationale { width: 33%; }

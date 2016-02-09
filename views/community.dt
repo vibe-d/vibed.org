@@ -3,8 +3,8 @@ extends layout
 block title
 	- title = "Community";
 
-block navigation
-	ul
+block vibed.navigation
+	ul.bs-local
 		li
 			a(href="#web-forums") Web forums
 		li
@@ -16,8 +16,7 @@ block navigation
 		li
 			a(href="#issue-tracker") Issue tracker
 
-block body
-
+block vibed.body
 	section
 		h2#web-forums Web forums
 		

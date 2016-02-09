@@ -3,8 +3,8 @@ extends layout
 block title
 	- title = "Features";
 
-block navigation
-	ul
+block vibed.navigation
+	ul.bs-local
 		li
 			a(href="#simplicity") Simplicity
 			ul
@@ -13,7 +13,7 @@ block navigation
 				li
 					a(href="#compact-api") Compact API
 				li
-					a(href="#native-code") Zero-downtime changes
+					a(href="#zero-downtime") Zero-downtime changes
 		li
 			a(href="#productivity") Productivity
 			ul
@@ -41,9 +41,7 @@ block navigation
 				li
 					a(href="#load-balancing") Load balancing
 
-block body
-
-
+block vibed.body
 	section
 		h2#simplicity Simplicity
 

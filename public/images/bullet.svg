@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg stroke-width="0.501" stroke-linejoin="bevel" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="4.5pt" height="6.75pt" viewBox="0 0 4.5 6.75">
+ <g id="Document" fill="none" stroke="black" transform="scale(1 -1)">
+  <g id="Spread" transform="translate(0 -6.75)">
+   <g id="Layer 1">
+    <path d="M 0,5.837 L 0,0.914 C 0,0.41 0.41,0 0.914,0 L 3.587,0 C 4.091,0 4.501,0.41 4.501,0.914 L 4.501,5.837 C 4.501,6.341 4.091,6.751 3.587,6.751 L 0.914,6.751 C 0.41,6.751 0,6.341 0,5.837 Z" fill="#b2b2b2" stroke-width="0.5" stroke-linecap="round" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" stroke-miterlimit="79.8403193612775"/>
+   </g>
+  </g>
+ </g>
+</svg>

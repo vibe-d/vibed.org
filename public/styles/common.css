@@ -1,293 +1,33 @@
-﻿/* reset all attribute to canonical defaults */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1; }
-ol, ul { list-style: none; }
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-table { border-collapse: collapse; border-spacing: 0; }
+﻿.copyright { float: right; color: #666; }
+.copyright a { color: #666; }
 
-
-
-/******************************************************************************/
-/* Global settings                                                            */
-/******************************************************************************/
-
-/*@font-face {
-  font-family: 'Gentium Basic';
-  font-style: italic;
-  font-weight: bold;
-  src: local('Gentium Basic Bold Italic'), local('GentiumBasic-BoldItalic'), url('../fonts/gentiumbasic700i.woff') format('woff');
-}*/
-
-@font-face {
-  font-family: 'Droid Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Droid Serif'), local('DroidSerif'), url('../fonts/droidserif400r.woff') format('woff');
+#logo {
+	padding-top: 10pt;
+	padding-left: 15pt;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Droid Serif', serif;
-	font-weight: 400;
-	font-style: normal;
+#title {
+	padding-bottom: 2pt;
 }
 
-body {
-	background-color: #333333;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 10pt;
-	line-height: 14pt;
-	color: #cccccc;
-
-	background-image: url(../images/back-top.png), url(../images/back.png);
-	background-repeat: repeat-x, repeat;
-	background-size: 120px 128px, 120px 120px;
-}
-
-.center-content {
-	max-width: 750pt;
-	margin: 0 auto;
-	box-shadow: 0 0 30px 0px #333;
-}
-
-body {
-	background-color: #676767;
-}
-
-p {
-	margin-bottom: 6pt;
-}
-
-
-b {
-	font-weight: bold;
-}
-
-em { font-style: italic; }
-strong { font-weight: bold; }
-
-a:link {
-	color: inherit;
-	text-decoration:none;
-	border-bottom: 1px dotted #808080;
-}
-
-a:visited { color: inherit; }
-a:hover { color: #aa6600; }
-
-a.extern {
-	background-image: url(../images/extern-link.png);
+.dub-logo {
+	background-image: url(../images/dub-logo.png);
+	width: 56px;
+	height: 100%;
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	padding-left: 18px;
-}
-a.extern:hover {
-	background-image: url(../images/extern-link-hover.png);
 }
 
-a.download {
-	background-image: url(../images/download-link.png);
-	background-repeat: no-repeat;
-	padding-left: 18px;
-}
-a.download:hover {
-	background-image: url(../images/download-link-hover.png);
+.download-button .content {
+	padding: 0 6pt;
+	padding-top: 4pt;
+	font-size: 9pt;
+	line-height: 9pt;
 }
 
-pre, code {
-	font-family: 'Consolas', 'Courier New', monospace;
-	font-size: 10pt;
-	font-weight: bold;
-}
-
-pre {
-	line-height: 14pt;
-	background-color: #1a1a1a;
-	border: 1px solid #444;
-	color: white;
-	padding: 12pt;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-    -moz-tab-size: 4;
-    -o-tab-size:   4;
-    tab-size:      4;
-}
-
-.clear {
-	clear: both;
-}
-
-#header, #container, #footer {
-	padding: 0 18pt;
-}
-
-.caption {
-	margin-bottom: 9pt;
-	margin-left: 3pt;
-}
-
-li.separator {
-	margin-left: -12pt;
-	margin-right: -12pt;
-	padding-left: 12pt;
-	padding-bottom: 9pt;
-	margin-bottom: 9pt;
-	border-bottom: 1px solid #444;
-}
-
-col.caption {
-	margin: 0;
-	width: 180pt;
-}
-
-.leftFlow {
-	float: left;
-}
-
-.rightFlow {
-	float: right;
-}
-
-/******************************************************************************/
-/* Header                                                                     */
-/******************************************************************************/
-
-#header {
-	/*background-color: #cccccc;*/
-	/*background-color: #ddd8c9;*/
-	background-color: #7f9eb8;
-	background-image: -webkit-linear-gradient(top, #9dcadf, #657795);
-	background-image:    -moz-linear-gradient(top, #9dcadf, #657795);
-	background-image:     -ms-linear-gradient(top, #9dcadf, #657795);
-	background-image:      -o-linear-gradient(top, #9dcadf, #657795);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dcadf', endColorstr='#657795');
-	color: black;
-	height: 108px;
-	border-bottom: 1px solid #2b3e5d;
-	/*margin-left: 20pt;*/
-}
-
-#header-shadow {
-	top: 96pt;
-}
-
-#header #logo-line {
-	position: relative;
-}
-
-#header #logo {
-	position: absolute;
-	top: 9pt;
-}
-
-#header #title {
-	position: absolute;
-	left: 64pt;
-	top: 27pt;
-}
-
-#header a#download {
-	display: block;
-	position: absolute;
-	top: 18pt;
-	right: 0px;
-	width: 167px;
-	height: 55px;
-	background-image: url(../images/download-button.png);
-	border: none;
-	color: white;	
-}
-
-@media screen and (max-width: 600px) {
-	#header a#download {
-		display: none;
-	}
-}
-
-#download .downloadArrow {
-	position: absolute;
-	background-image: url(../images/downarrow.png);
-	top: 19px;
-	right: 14px;
-	width: 16px;
-	height: 18px;
-}
-
-#download strong {
-	display: block;
-	position: absolute;
-	left: 16px;
-	top: 10px;
-	width: 167px;
-	font-size: 18pt;
-	text-shadow: #000 0 -1px 0;
-}
-
-#download-version {
-	position: absolute;
-	top: 31px;
-	left: 16px;
-	width: 167px;
-	font-size: 10pt;
-	color: #dde;
-}
-
-
-/******************************************************************************/
-/* Navigation                                                                 */
-/******************************************************************************/
-
-#navigation nav {
-	padding: 12pt;
-	background-color: #1a1a1a;
-	border: 1px solid #444;
-}
-
-#navigation a {
-	color: white;
-	text-decoration:none;
-	border: none;
-}
-
-nav#global-nav a:hover {
-	color: #ff8800;
-}
-
-nav#global-nav h3 {
-	display: inline;
-	vertical-align: middle;
-}
-
-nav#global-nav img {
-	vertical-align: middle;
-}
-
-nav#global-nav li {
-	clear: both;
-}
-
-nav#global-nav p {
-}
-
-nav#document-nav li:before {
-	vertical-align: top;
-	font-size: 5pt;
-	content: "█";
-	color: #555;
-	margin-right: 1pt;
-}
-
-nav#document-nav li li:before {
-	content: "";
-}
-
-nav#document-nav a:hover {
-	color: #ff8800;
+.download-button large {
+	font-size: 16pt;
+	line-height: 16pt;
 }
 
 nav#global-nav li {
@@ -296,6 +36,9 @@ nav#global-nav li {
 	padding-top: 2pt;
 }
 
+nav#document-nav li.active > a {
+	color: #d80;
+}
 
 li.nav-home { background-image: url(../images/ico_home.png); }
 li.nav-download { background-image: url(../images/ico_download.png); }
@@ -308,81 +51,16 @@ li.nav-community { background-image: url(../images/ico_community.png); }
 li.nav-developer { background-image: url(../images/ico_developer.png); }
 li.nav-get-involved { background-image: url(../images/ico_developer.png); }
 
-/******************************************************************************/
-/* Container                                                                  */
-/******************************************************************************/
+.leftFlow { float: left; margin-right: 6pt; }
+.rightFlow { float: right; margin-left: 6pt; }
 
-#container {
-	background-color: #333333;
-	padding: 18pt;
-	border: 1px solid #222;
-	margin-top: -1px;
+
+@media screen and (max-width: 600px) {
+	#logo { max-height: 38pt;  padding-top: 8pt; }
+	#title { max-height: 32pt; padding-bottom: 1pt; }
+	body.bs-blue > header { height: 52pt; }
 }
 
-/* clearfix */
-#container:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
-
-#container h1, #container h2, #container h3, #container h4 {
-	text-shadow: #000 0 -1px 0;
-}
-
-#container h2 {
-	font-size: 12pt;
-	line-height: 18pt;
-	color: #cccccc;
-}
-
-#container h3 {
-	font-family: 'Arial', sans-serif;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 10pt;
-	line-height: 12pt;
-	color: white;
-}
-
-#container h4, #container h5, #container h6 {
-	color: white;
-}
-
-#container p {
-	color: #808080;
-	/*position: relative;*/
-}
-
-#container #contents {
-	padding: 9pt;
-}
-
-/******************************************************************************/
-/* Footer                                                                     */
-/******************************************************************************/
-
-#footer {
-	clear: both;
-	padding: 10pt 0;
-}
-
-#footer p, #footer a {
-	text-shadow:#000 0 -1px 0;
-	color: #eee;
-	text-align: center;
-}
-
-#vgrid-overlay {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: url(../images/vgrid.png) repeat;
-	display: none;
-	padding: 10px;
+@media screen and (max-width: 450px) {
+	header .download-button { display: none; }
 }

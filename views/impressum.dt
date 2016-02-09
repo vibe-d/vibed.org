@@ -3,7 +3,7 @@ extends layout
 block title
 	- title = "Impressum";
 
-block body
+block vibed.body
 	
 	h2 Angaben gemäß §5 TMG:
 	p

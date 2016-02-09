@@ -88,7 +88,7 @@ version(Have_ddox)
 
 string prettifyFilter(string html)
 @safe {
-	return html.replace("<code><pre>", "<code><pre class=\"prettyprint\">");
+	return html.replace("<pre class=\"prettyprint\">", "<pre class=\"code prettyprint\">");
 }
 
 void updateDownloads()
@@ -156,6 +156,7 @@ shared static this()
 		get("/templates", staticRedirect("/templates/"));
 		get("/templates/", staticRedirect("/templates/diet"));
 		get("/templates/diet", staticTemplate!"templates.dt");
+		get("/tutorials", staticTemplate!"tutorials.dt");
 		get("/temp/d-programming-language.org/*", &redirectDlangDocs);
 		get("/temp/dlang.org/*", &redirectDlangDocs);
 	}
@@ -181,6 +182,8 @@ shared static this()
 	{
 		runTask(toDelegate(&updateDocs));
 	}
+
+	s_router.rebuild(); // avoid delay on first request
 
 	listenHTTP(settings, s_router);
 

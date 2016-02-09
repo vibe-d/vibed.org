@@ -1,0 +1,91 @@
+extends layout
+
+block title
+	- title = "Tutorials";
+
+block vibed.navigation
+	ul.bs-local
+		li
+			a(href="#general") General
+		li
+			a(href="#deployment") Deployment
+
+block vibed.body
+	section#general
+		h2 General
+
+		section
+			h3 An introduction to vibe.d: Writing a scalable chat service in D
+
+			p This tutorial gives an overview of modern web application (back end) development in D. Step by step, it will make you familiar with all the tools needed. The level of abstraction is kept pragmatic, without going into every detail of the language.
+
+			p
+				a(href="https://vibed.org/blog/posts/a-scalable-chat-room-service-in-d") Read more
+
+			p There is also a similar tutorial by Charles Smith, using lower level APIs and without a database:
+				a(href="http://wiki.dlang.org/User:Csmith1991/Vibe.d_Documentation/websocket") WebSocket example
+
+		section
+			h3 D Web Development
+
+			img.leftFlow(src="images/d-web-development-book.png")
+			p This book gives a thorough overview of most aspects of vibe.d. Highly recommended if you want to get familiar with all corners and technical details!
+
+			p(style="clear: both")
+				a(href="https://www.packtpub.com/web-development/d-web-development") Pre-order at Packt Publishing
+
+		section
+			h3 Learning D - Chapter 10
+
+			img.leftFlow(src="images/book-learning-d.png")
+			p Chapter 10, "Taking D Online", of Michael Parker's "Learning D" book contains a detailed introduction to vibe.d of almost 50 pages. In this introduction, it interactively develops a movie database web application. If you want to get a complete picture of the possibilities of the language as well, this is a great choice.
+
+			p(style="clear: both")
+				a(href="https://www.packtpub.com/application-development/learning-d") Get it at Packt Publishing
+
+		section
+			h3 Dlang tutorial: Build tools and hello web
+
+			p This video tutorial goes through the basics of setting up a D environment up to running the first vibe.d based web application. There is also a number of follow-up tutorials that touch other aspects of the D language.
+
+			p
+				a(href="https://www.youtube.com/watch?v=8TV9ZZteYEU&index=1&list=PL-zvF7DyWePQad_E6Y9J9kbYvM7AjnBD1") View on YouTube
+
+		section
+			h3 A tutorial series
+
+			p Mihail Strasun (aka Dicebot) has written a series of articles that go through various aspects ranging from environment setup to creating RESTful services.
+
+			ul
+				li
+					a(href="http://dicebot-old.blogspot.de/2013/03/part-1-what-is-vibed-after-all.html") A brief overview of what vibe.d is and is trying to achieve
+				li
+					a(href="http://dicebot-old.blogspot.de/2013/04/part-4-functionality-overview.html") A walkthrough of the functionality contained in the vibe.d library
+					| (slightly outdated and most importantly misses the <a href="http://vibed.org/docs#web">web framework</a>!)
+				li
+					a(href="http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application.html") Server and development environment setup
+					| (the installation procedure is simplified nowadays by using <a href="http://code.dlang.org">DUB</a>)
+				li
+					a(href="http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application-app.html") Setting up a meaningful web app with user interaction
+				li
+					a(href="http://dicebot-old.blogspot.de/2013/04/part-5-vibehttprest-in-details.html") A quick introduction to the REST interface generator
+					| (nowadays found in the <a href=""><code>vibe.web.rest module</code></a>)
+
+		section
+			h3 Quick Start With D: Web Application
+
+			p Ilya Yaroshenko has written a general D introductory tutorial that contains a section about web application development with vibe.d
+
+			p
+				a(href="http://d.readthedocs.org/en/stable/examples.html#web-application") Read more
+
+	section#deployment
+		h2 Deployment
+
+		section
+			h3 4 Simple Steps to Run D Language in Azure Websites
+
+			p Goes through the steps necessary to deploy a vibe.d app to the Microsoft Azure cloud.
+
+			p
+				a(href="http://www.codestrokes.com/2015/09/deploying-d-to-azure-webapp/") Read more

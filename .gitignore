@@ -1,5 +1,6 @@
-/.dub
 /unidecode-yaml
 *.png~
-log.txt
-vibed-org
+.dub
+/log.txt
+/vibed-org
+/vibed-org.exe

@@ -1,22 +1,31 @@
 /* Pretty printing styles. Used with prettify.js. */
 
 /* SPAN elements with the classes below are added by prettyprint. */
-.pln { color: #ffffff }  /* plain text */
+
+.pln { color: #000 }  /* plain text */
 
 @media screen {
-  .str { color: #ffe7b6 }  /* string content */
-  .kwd { color: #ffaa00 }  /* a keyword */
-  .com { color: #888 }  /* a comment */
-  .typ { color: #9ad452 }  /* a type name */
-  .lit { color: #ffe7b6 }  /* a literal value */
+	.str { color: #c90 }  /* string content */
+	.lit { color: #c90 }  /* a literal value */
+	.kwd { color: #e90 }  /* a keyword */
+	.com { color: #888 }  /* a comment */
+	.typ { color: #6c0 }  /* a type name */
+	
+	pre.code .pln { color: #fff; }
+	pre.code .pun { color: #ddd; }
+	pre.code .str { color: #ffe7b6 }  /* string content */
+	pre.code .kwd { color: #ffaa00 }  /* a keyword */
+	pre.code .typ { color: #9ad452 }  /* a type name */
+	pre.code .lit { color: #ffe7b6 }  /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #ddd }
+  .pun, .opn, .clo { color: #555 }
   .tag { color: #ffaa00 }  /* a markup tag name */
   .atn { color: #9ad452 }  /* a markup attribute name */
   .atv { color: #ffe7b6 }  /* a markup attribute value */
   .dec, .var { color: #aaa }  /* a declaration; a variable name */
   .fun { color: red }  /* a function name */
 }
+
 
 /* Use higher contrast and text-weight for printable form. */
 @media print, projection {
@@ -29,11 +38,6 @@
   .tag { color: #006; font-weight: bold }
   .atn { color: #404 }
   .atv { color: #060 }
-}
-
-/* Put a border around prettyprinted code snippets. */
-pre.prettyprint {
-
 }
 
 /* Specify class=linenums on a pre to get line numbering */
