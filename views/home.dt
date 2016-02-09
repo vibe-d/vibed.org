@@ -79,7 +79,7 @@ block vibed.plainbody
 
 			p This book gives a thorough introduction to web development in D, using vibe.d. While walking through the various topics, it always provides practical step-by-step examples and explains the underlying mechanisms.
 
-			p Will be available as e-book and print versions at <a href="https://www.packtpub.com/web-development/d-web-development">Packt Publishing</a>
+			p Available as e-book and print versions at <a href="https://www.packtpub.com/web-development/d-web-development">Packt Publishing</a>
 
 						
 		#news-section.bs-col

@@ -32,7 +32,7 @@ block vibed.body
 			p This book gives a thorough overview of most aspects of vibe.d. Highly recommended if you want to get familiar with all corners and technical details!
 
 			p(style="clear: both")
-				a(href="https://www.packtpub.com/web-development/d-web-development") Pre-order at Packt Publishing
+				a(href="https://www.packtpub.com/web-development/d-web-development") Get it at Packt Publishing
 
 		section
 			h3 Learning D - Chapter 10
