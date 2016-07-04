@@ -16,8 +16,11 @@ block vibed.navigation
 
 	#api-version-selector.bs-separator
 		ul
+			- import std.string : indexOf;
+			- import std.algorithm.comparison : min;
+			
 			- assert(req.path.startsWith("/api"));
-			- auto eidx = std.string.indexOf(req.path[4 .. $], "/");
+			- auto eidx = indexOf(req.path[4 .. $], "/");
 			- assert(eidx >= 0);
 			- auto cur = req.path[min(5, 4+eidx) .. 4+eidx];
 			- auto subpath = req.path[4+eidx .. $];
