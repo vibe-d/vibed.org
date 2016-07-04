@@ -62,7 +62,8 @@ version(Have_ddox)
 			auto ver = name[4 .. $-5];
 			if (ver.startsWith("-")) ver = ver[1 .. $];
 			try {
-				yield(); // let the server run in parallel
+				static import vibe.core.core;
+				vibe.core.core.yield(); // let the server run in parallel
 				string text = readFileUTF8(de.name);
 				auto json = parseJson(text);
 				auto pack = parseJsonDocs(json);
