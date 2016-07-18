@@ -529,7 +529,9 @@ block vibed.body
 		section
 			h3#web-interface-generator Web interface generator
 
-			p The front end web interface generator automatically maps incoming query or POST form fields to method parameters, performing the necessary conversion and validation automatically. On top of that, it offers several convenience functions for rendering Diet templates, handling sessions and performing redirects - without directly accessing the underlying <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a> or <a href="api/vibe.http.server/HTTPServerResponse"><code>HTTPServerResponse</code></a> object. This enables a completely statically checked and clean code style in most cases.
+			p The front end web interface generator automatically maps incoming query or POST form fields to method parameters, performing the necessary conversion and validation automatically. On top of that, it offers several convenience functions for rendering Diet templates, handling sessions and performing redirects - without directly accessing the underlying <a href="api/vibe.http.server/HTTPServerRequest"><code class="typ">HTTPServerRequest</code></a> or <a href="api/vibe.http.server/HTTPServerResponse"><code class="typ">HTTPServerResponse</code></a> object. This enables a completely statically checked and clean code style in most cases.
+
+			p For those situations where more control is required, it is possible to simply declare parameters of type <code class="typ">HTTPServerRequest</code> or <code class="typ">HTTPServerResponse</code> to give a method full access. Note that this is in contrast to the REST interface generator covered below, which cannot give access to the request/response without losing the ability to generate the client side of the REST protocol. It does, however, provide a way to get around this, using the <a href="api/vibe.web.rest/before"><code>@before</code></a> attribute.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.http.router;
