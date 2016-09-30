@@ -173,7 +173,7 @@ block vibed.body
 				"homepage": "http://appname.org",
 				"authors": ["Hans Wurst"],
 				"dependencies": {
-					"vibe-d": "~>0.7.23"
+					"vibe-d": "~&gt;0.7.23"
 				},
 				"versions": ["VibeDefaultMain"]
 			}
@@ -187,7 +187,7 @@ block vibed.body
 			license "AGPL-3.0"
 			homepage "http://appname.org"
 			authors "Hans Wurst"
-			dependency "vibe-d" version="~>0.7.23"
+			dependency "vibe-d" version="~&gt;0.7.23"
 			versions "VibeDefaultMain"
 		.caption Example dub.sdl
 
@@ -383,7 +383,7 @@ block vibed.body
 				
 				bool checkPassword(string user, string password)
 				{
-					return user == "admin" && password == "secret";
+					return user == "admin" &amp;&amp; password == "secret";
 				}
 				
 				shared static this()
@@ -430,7 +430,7 @@ block vibed.body
 				
 				void login(HTTPServerRequest req, HTTPServerResponse res)
 				{
-					enforceHTTP("username" in req.form && "password" in req.form,
+					enforceHTTP("username" in req.form &amp;&amp; "password" in req.form,
 						HTTPStatus.badRequest, "Missing username/password field.");
 				
 					// todo: verify user/password here
@@ -565,7 +565,7 @@ block vibed.body
 					// POST /login (username and password are automatically read as form fields)
 					void postLogin(string username, string password)
 					{
-						enforceHTTP(username == "user" && password == "secret",
+						enforceHTTP(username == "user" &amp;&amp; password == "secret",
 							HTTPStatus.forbidden, "Invalid user name or password.");
 						ms_authenticated = true;
 						<a href="api/vibe.web.web/redirect">redirect</a>("/");
@@ -671,13 +671,13 @@ block vibed.body
 				}
 
 				interface MyAPI {
-					// GET /weather -> responds {"text": "...", "temperature": ...}
+					// GET /weather -&gt; responds {"text": "...", "temperature": ...}
 					Weather getWeather();
 
-					// PUT /location -> accepts {"location": "..."}
+					// PUT /location -&gt; accepts {"location": "..."}
 					@property void location(string location);
 
-					// GET /location -> responds "..."
+					// GET /location -&gt; responds "..."
 					@property string location();
 				}
 
@@ -796,7 +796,7 @@ block vibed.body
 				
 				shared static this()
 				{
-					listenTCP(7, conn => conn.write(conn), "127.0.0.1");
+					listenTCP(7, conn =&gt; conn.write(conn), "127.0.0.1");
 				}
 				
 			p The address can be given as either an IPv4 or an IPv6 address string.
@@ -885,7 +885,7 @@ block vibed.body
 						"Sönke Ludwig"
 					],
 					"dependencies": {
-						"vibe-d": "~>0.7.23"
+						"vibe-d": "~&gt;0.7.23"
 					}
 				}
 			.caption Example: A dub.json file suitable for registration as a DUB package.
@@ -900,7 +900,7 @@ block vibed.body
 				{
 					...
 					"dependencies": {
-						"vibelog": ">=0.0.1"
+						"vibelog": "&gt;=0.0.1"
 					}
 				}
 			.caption Example: Corresponding dependency to use the published DUB package.
