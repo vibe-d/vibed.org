@@ -5,6 +5,7 @@ license "AGPL-3.0"
 
 dependency "vibe-d" version="~>0.7.26"
 dependency "ddox" version="~>0.15.0"
+dependency "diet-ng" version="~>1.0"
 dependency "vibelog" version=">=0.5.0-alpha.1 <0.6.0"
 dependency "rs-bootstrap" version="~>1.0.0"
 

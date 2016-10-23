@@ -2,6 +2,7 @@
 	"fileVersion": 1,
 	"versions": {
 		"ddox": "0.15.15",
+		"diet-ng": "1.1.0",
 		"dyaml": "0.5.3",
 		"experimental_allocator": "2.70.0-b1",
 		"hyphenate": "1.1.1",
