@@ -6283,7 +6283,7 @@
 						"originalType": "void(ubyte priority = 0)",
 						"name": "lock",
 						"line": 178,
-						"comment": " Acquires a lock.\n\n\t\tOnce the limit of concurrent locks is reaced, this method will block\n\t\tuntil the number of locks drops below the limit.\n",
+						"comment": " Acquires a lock.\n\n\t\tOnce the limit of concurrent locks is reached, this method will block\n\t\tuntil the number of locks drops below the limit.\n",
 						"deco": "FhZv",
 						"parameters": [
 							{
@@ -6886,7 +6886,7 @@
 					{
 						"name": "wait",
 						"line": 664,
-						"comment": " Acquires ownership and waits until the emit count differs from the given one or until a timeout is reaced.\n\n\t\tThrows:\n\t\t\tMay throw an $(D InterruptException) if the task gets interrupted\n\t\t\tusing $(D Task.interrupt()).\n",
+						"comment": " Acquires ownership and waits until the emit count differs from the given one or until a timeout is reached.\n\n\t\tThrows:\n\t\t\tMay throw an $(D InterruptException) if the task gets interrupted\n\t\t\tusing $(D Task.interrupt()).\n",
 						"storageClass": [
 							"abstract"
 						],
