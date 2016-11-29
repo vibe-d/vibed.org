@@ -17,6 +17,8 @@ block vibed.navigation
 					a(href="#apt-repository") APT repository
 				li
 					a(href="#aur-package") AUR package
+				li
+					a(href="#dependencies") Dependencies
 		li
 			a(href="#development-snapshot") Development snapshot
 
@@ -78,3 +80,11 @@ block vibed.body
 		p Alternatively, you can also
 			pre $ git clone git://github.com/rejectedsoftware/vibe.d.git
 			| or add a <code>"vibe-d": "~master"</code> dependency to your project's DUB package.json file.
+			
+	section
+		h2#dependencies Dependencies
+		
+		p Vibe.d requires a.extern(href="http://libevent.org/" target="_blank")libevent
+		| installed. If your system lacks this it can be installed via aptitude using 
+		| apt-get install libevent-dev, or on other systems by following instructions on
+		| the libevent site.
