@@ -58,15 +58,15 @@ block vibed.body
 
 		p(style="color: red") Work-in-progress
 		p(style="color: red") Please use the
-			a(href="https://github.com/visionmedia/jade") Jade documentation
-			| for any section that is not filled with content, Diet templates are kept as compatible as possible to Jade templates.
+			a(href="https://github.com/pugjs/pug") Pug documentation
+			| for any section that is not filled with content, Diet templates are kept as compatible as possible to Pug templates.
 
 		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster than static pages on disk, because they are just written directly from RAM to the HTTP connection.
 
 		p The syntax equals that of
-			a(href="http://jade-lang.com") Jade
+			a(href="https://pugjs.org") Pug
 			| templates with the exception of some of the advanced syntax features. Since there is no official syntax reference written yet, you can use the
-			a(href="https://github.com/visionmedia/jade") Jade documentation
+			a(href="https://github.com/pugjs/pug") Pug documentation
 			| as a replacement. The main difference is that you write D expressions and statements instead of JavaScript.
 
 	section
@@ -404,7 +404,7 @@ block vibed.body
 		section
 			h2#functions Functions
 
-			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called. This functionality is very similar to the "mixin" feature of Jade.
+			p In any place where normal HTML tags are allowed, it is also possible to define functions in standard D syntax. All child tags will be output whenever the function is called. This functionality is very similar to the "mixin" feature of Pug.
 
 			pre.code.
 				- void css(string file)
