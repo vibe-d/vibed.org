@@ -223,7 +223,7 @@ block vibed.body
 			h3#diet-templates Compile-time "Diet" templates
 			img.leftFlow(src="images/feature_diet.png")
 
-			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="http://jade-lang.com/" target="_blank">jade</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates remove all the syntax overhead that is inherent to HTML's tag based notation and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript in case of jade).
+			p vibe.d has built-in support for <a href="docs#html-templates">Diet HTML templates</a> based on the <a class="extern" href="https://pugjs.org/" target="_blank">Pug</a> template syntax known from node.js which in turn is based on <a class="extern" href="http://haml-lang.com/" target="_blank">Haml</a>. These templates remove all the syntax overhead that is inherent to HTML's tag based notation and also allow the inline specification of dynamic elements. Typically, these elements are written in a dynamic scripting language (JavaScript in case of Pug).
 
 			p In vibe.d, however, templates can contain embedded D code. The templates are read and parsed while the application is being compiled and optimized D code is generated for them. This means that the runtime overhead for those templates is non-existent - there are no disk accesses, no parsing and there is no string copying involved because all of this has already been done before the application has even started.
 

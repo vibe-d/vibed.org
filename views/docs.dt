@@ -306,7 +306,7 @@ block vibed.body
 			h3#html-templates Diet templates
 
 			p Vibe.d supports HTML templates with a syntax mostly compatible to
-				a.extern(href="http://jade-lang.com/", target="_blank") jade
+				a.extern(href="https://pugjs.org", target="_blank") Pug
 				| templates. They provide a concise way to dynamically generate the HTML code of the final web pages. D expressions and statements can be embedded and the full vibe.d API is available within templates.
 
 			p Templates should reside somewhere inside the 'views' folder of a project. They are then rendered using the
