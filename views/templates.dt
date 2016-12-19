@@ -5,51 +5,28 @@ block title
 
 block vibed.navigation
 	ul
-		li
-			a(href="#introduction") Introduction
-
-		li
-			a(href="#basic-structure") Basic structure
-
-		li
-			a(href="#basic-structure") Content elements
-
+		li: a(href="#introduction") Introduction
+		li: a(href="#basic-structure") Basic structure
+		li: a(href="#basic-structure") Content elements
 			ul
-				li
-					a(href="#html-elements") HTML elements
-				li
-					a(href="#plain-text") Plain text
-				li
-					a(href="#whitespace-removal") Whitespace removal
-				li
-					a(href="#comments") Comments
+				li: a(href="#html-elements") HTML elements
+				li: a(href="#plain-text") Plain text
+				li: a(href="#whitespace-removal") Whitespace removal
+				li: a(href="#comments") Comments
 		li
 			a(href="#embedded-code") Embedded source code
-
 			ul
-				li
-					a(href="#procedural-content") Procedural content
-				li
-					a(href="#statements") Statements
-				li
-					a(href="#string-interpolations") String interpolations
-
+				li: a(href="#procedural-content") Procedural content
+				li: a(href="#statements") Statements
+				li: a(href="#string-interpolations") String interpolations
 		li
 			a(href="#components") Component templates
-
 			ul
-				li
-					a(href="#blocks") Blocks and Extensions
-				li
-					a(href="#includes") Includes
-				li
-					a(href="#functions") Functions
-
-		li
-			a(href="#filters") Filters
-
-		li
-			a(href="#grammar") Grammar
+				li: a(href="#blocks") Blocks and Extensions
+				li: a(href="#includes") Includes
+				li: a(href="#functions") Functions
+		li: a(href="#filters") Filters
+		li: a(href="#grammar") Grammar
 
 block vibed.body
 
@@ -456,10 +433,10 @@ block vibed.body
 
 		p Standard filters:
 		ul
-			li <code>:css</code>
-			li <code>:javascript</code>
-			li <code>:markdown</code>
-			li <code>:htmlescape</code>
+			li: code :css
+			li: code :javascript
+			li: code :markdown
+			li: code :htmlescape
 
 		pre.code.
 			doctype html

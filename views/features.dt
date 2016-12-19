@@ -8,38 +8,25 @@ block vibed.navigation
 		li
 			a(href="#simplicity") Simplicity
 			ul
-				li
-					a(href="#fibers") Fibers
-				li
-					a(href="#compact-api") Compact API
-				li
-					a(href="#zero-downtime") Zero-downtime changes
+				li: a(href="#fibers") Fibers
+				li: a(href="#compact-api") Compact API
+				li: a(href="#zero-downtime") Zero-downtime changes
 		li
 			a(href="#productivity") Productivity
 			ul
-				li
-					a(href="#web-framework") Full integrated web framework
-				li
-					a(href="#native-db") Native database drivers
-				li
-					a(href="#raw-sockets") Raw network and file handling
-				li
-					a(href="#concurrency") Generic concurrency tools
-				li
-					a(href="#ui-integration") Graphical user interface integration
+				li: a(href="#web-framework") Full integrated web framework
+				li: a(href="#native-db") Native database drivers
+				li: a(href="#raw-sockets") Raw network and file handling
+				li: a(href="#concurrency") Generic concurrency tools
+				li: a(href="#ui-integration") Graphical user interface integration
 		li
 			a(href="#performance") Performance
 			ul
-				li
-					a(href="#aio") Asynchronous I/O
-				li
-					a(href="#multi-threading") Multi-threading
-				li
-					a(href="#native-code") Natively compiled code
-				li
-					a(href="#diet-templates") Diet templates
-				li
-					a(href="#load-balancing") Load balancing
+				li: a(href="#aio") Asynchronous I/O
+				li: a(href="#multi-threading") Multi-threading
+				li: a(href="#native-code") Natively compiled code
+				li: a(href="#diet-templates") Diet templates
+				li: a(href="#load-balancing") Load balancing
 
 block vibed.body
 	section
@@ -229,7 +216,7 @@ block vibed.body
 
 			p At the same time you can program in the same language as for the rest of the application, which makes for a very consistent development experience.
 
-		section		
+		//-section
 			h3#load-balancing Integrated load balancing
 
 			p <span style="color: #fa4">[work-in-progress]</span> The installation package contains a load balancer application that can almost seamlessly scale your vibe server installations as needed. But apart from load balancing, it has a feature which is maybe even more interesting.

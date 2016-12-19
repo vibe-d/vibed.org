@@ -5,24 +5,17 @@ block title
 
 block vibed.navigation
 	ul.bs-local
-		li
-			a(href="#reporting") Report bugs and feature requests
-		li
-			a(href="#hacking") Hacking on vibe.d
-		li
-			a(href="style-guide") Style guide
-		li
-			a(href="#donate") Donations
-		li
-			a(href="#packages") Writing extension libraries
+		li: a(href="#reporting") Report bugs and feature requests
+		li: a(href="#hacking") Hacking on vibe.d
+		li: a(href="style-guide") Style guide
+		li: a(href="#donate") Donations
+		li: a(href="#packages") Writing extension libraries
 
 block vibed.body
 	section
 		h2#reporting Reporting bugs and feature requests
 
-		p You can help with vibe.d's development by reporting bugs or feature requests on the
-			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker
-			|. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
+		p You can help with vibe.d's development by reporting bugs or feature requests on the #[a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker]. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
 
 		p If you think that a question or request isn't appropriate for the bug tracker, you can also use the <a href="http://forum.rejectedsoftware.com">forums</a> instead.
 
@@ -30,16 +23,11 @@ block vibed.body
 		h2#hacking Hacking on vibe.d
 
 		p To start working on the vibe.d code base itself, fork the repository using the "Fork" button on the github repository:
-		p
-			a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
+		p: a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
 
 		p Then you can clone the repository to your local computer using
 		pre $ git clone http://github.com/&lt;your username&gt;/vibe.d.git
-		p Your commits can then be packed into a pull request to the main vibe.d repository. See
-			a(href="http://help.github.com/fork-a-repo/") "Fork a repository"
-			| and
-			a(href="http://help.github.com/send-pull-requests/") "Send pull requests"
-			| on github for more details.
+		p Your commits can then be packed into a pull request to the main vibe.d repository. See #[a(href="http://help.github.com/fork-a-repo/") "Fork a repository"] and #[a(href="http://help.github.com/send-pull-requests/") "Send pull requests"] on github for more details.
 
 		p When making contributions, please follow the <a href="style-guide">style guide</a> and try to keep your change sets small. This will greatly reduce the time that it takes to merge a pull request and also the time that each of the developers has to spend on the review process.
 

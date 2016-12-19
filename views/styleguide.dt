@@ -8,47 +8,30 @@ block vibed.navigation
 		li
 			a(href="#naming-conventions") Naming conventions
 			ul
-				li
-					a(href="#modules-and-packages") Modules and packages
-				li
-					a(href="#type-names") Type names
-				li
-					a(href="#functions-and-methods") Functions and methods
+				li: a(href="#modules-and-packages") Modules and packages
+				li: a(href="#type-names") Type names
+				li: a(href="#functions-and-methods") Functions and methods
 				li
 					a(href="#variables") Variables
 					ul
-						li
-							a(href="#global-variables") Global variables
-						li
-							a(href="#function-parameters") Function parameters
-						li
-							a(href="#local-variables") Local variables
-						li
-							a(href="#fields-and-properties") Fields and properties
+						li: a(href="#global-variables") Global variables
+						li: a(href="#function-parameters") Function parameters
+						li: a(href="#local-variables") Local variables
+						li: a(href="#fields-and-properties") Fields and properties
 		li
 			a(hreF="#punctuation") Punctiation
 			ul
-				li
-					a(href="#braces") Braces
-				li
-					a(href="#clamps") Clamps
-				li
-					a(href="#operators") Operators
+				li: a(href="#braces") Braces
+				li: a(href="#clamps") Clamps
+				li: a(href="#operators") Operators
 		li
 			a(href="#declaration-order") Order of declaration
 			ul
-				li
-					a(href="#module-level-order") Module level
-				li
-					a(href="#composite-level-order") Class/struct level
-				li
-					a(href="#function-level-order") Function level
-
-		li
-			a(href="#white-space") White space
-
-		li
-			a(href="#doc-comments") Doc comments
+				li: a(href="#module-level-order") Module level
+				li: a(href="#composite-level-order") Class/struct level
+				li: a(href="#function-level-order") Function level
+		li: a(href="#white-space") White space
+		li: a(href="#doc-comments") Doc comments
 
 
 block vibed.body
@@ -72,18 +55,17 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Module and package names are always written __lower case__. This applies both, to the module declaration, and to the file/directory name. Names usually do not contain any non-alphanumeric characters. An exception to this is when a module name equals that of a D keyword such as `function` or `class`. In this case, an underscore is appended to the module name.
 
 							A library or application should have all of its source code contained below its own, single root package.
 
-					td
-						p The naming conventions follows the D style conventions and putting everything in one root package avoids conflicting modules and allows to esily map a module to a certain library/application.
+					td: p The naming conventions follows the D style conventions and putting everything in one root package avoids conflicting modules and allows to esily map a module to a certain library/application.
 
-			pre.code.prettyprint.lang-d
-				|module mylib.system.process;
-				|module mylib.compiler.function_;
+			pre.code.prettyprint.lang-d.
+				module mylib.system.process;
+				module mylib.compiler.function_;
 
 		section#type-names
 			h3 Type names
@@ -101,16 +83,15 @@ block vibed.body
 							Type names are always written in __CamelCase__. Acronyms are written all-caps, except if they form a de-facto word that is pronouncible.
 
 							Types never have a prefix that characterizes their type family (e.g. interfaces do not have the common I-prefix).
-					td
-						p Follows the D/Phobos style conventions.
+					td: p Follows the D/Phobos style conventions.
 
-			pre.code.prettyprint.lang-d
-				|class Test {}
-				|class HTMLRenderer {} // HTML is an unpronouncible acronym
-				|class JsonProcessor {} // Json is a de-facto word
-				|struct MySimpleStruct {}
-				|interface MyInterface {} // not IMyInterface!
-				|alias int MyInteger;
+			pre.code.prettyprint.lang-d.
+				class Test {}
+				class HTMLRenderer {} // HTML is an unpronouncible acronym
+				class JsonProcessor {} // Json is a de-facto word
+				struct MySimpleStruct {}
+				interface MyInterface {} // not IMyInterface!
+				alias int MyInteger;
 
 		section#functions-and-methods
 			h3 Functions and methods
@@ -127,17 +108,16 @@ block vibed.body
 						:markdown
 							All functions and methods follow a __pascalStyle__ naming scheme. They always begin with a __verb__.
 
-					td
-						p Follows the D/Phobos style conventions.
+					td: p Follows the D/Phobos style conventions.
 
-			pre.code.prettyprint.lang-d
-				|int performSomething() {}
-				|
-				|struct MyStruct {
-				|	void computeMe() {}
-				|}
-				|
-				|void performTemplateComputation(T)(T arg) {}
+			pre.code.prettyprint.lang-d.
+				int performSomething() {}
+				
+				struct MyStruct {
+					void computeMe() {}
+				}
+				
+				void performTemplateComputation(T)(T arg) {}
 
 		section#variables
 			h3 Variables
@@ -161,16 +141,15 @@ block vibed.body
 							:markdown
 								The naming scheme of global variables depends on their shared state. Their __basic naming scheme is pascalCase__. Global thread-local variables get a `g_` prefix. Variables with a `shared` or `__gshared` storage class get a `gs_` prefix. Public variables may drop the prefix, but properties should be preferred in this case.
 
-						td
-							p The semantic prefix makes it possible to immediately distinguish the scope of different variables, as well as their need for synchronization. Encountering use of a shared variable with no synchronization/atomic operation in place can be directly spotted.
+						td: p The semantic prefix makes it possible to immediately distinguish the scope of different variables, as well as their need for synchronization. Encountering use of a shared variable with no synchronization/atomic operation in place can be directly spotted.
 
-				pre.code.prettyprint.lang-d
-					|private int g_moduleLevelVariable;
-					|package int g_packageLevelVariable;
-					|public int g_publicVariable;
-					|public int publicVariable; // possible, but @property recommended
-					|shared int gs_globalSharedVariable;
-					|__gshared int gs_globalSharedVariable2;
+				pre.code.prettyprint.lang-d.
+					private int g_moduleLevelVariable;
+					package int g_packageLevelVariable;
+					public int g_publicVariable;
+					public int publicVariable; // possible, but @property recommended
+					shared int gs_globalSharedVariable;
+					__gshared int gs_globalSharedVariable2;
 
 			section#function-parameters
 				h4 Function parameters
@@ -187,8 +166,7 @@ block vibed.body
 							:markdown
 								Parameters use __underscore_naming_convention__. They should have meaningful names without abbrevations, if practical. Remember that these will show up in the API documentation later on.
 
-						td
-							p The use of a lower-case naming convention enhances the visual separation of function name and signature and allows to distinguish local variables from fields or global variables immediately.
+						td: p The use of a lower-case naming convention enhances the visual separation of function name and signature and allows to distinguish local variables from fields or global variables immediately.
 
 				pre.code.prettyprint.lang-d
 					|void myFunction(int first_parameter, int second_parameter, int next) {}
@@ -208,18 +186,17 @@ block vibed.body
 							:markdown
 								Local variable names should __stay short__ (use abbrevations) and contain __neither underscores, nor upper case letters__. The abbrevations must stay clear and one-letter variable names such as `i`, `j`, `k` should only be used as loop indices according to their nesting level.
 
-						td
-							p Using this convention makes local variables distinguishable from parameters and public fields in most cases. Since local variables are expected to show up very frequently in the code, the short nature of their name helps to keep the code concise and readable.
+						td: p Using this convention makes local variables distinguishable from parameters and public fields in most cases. Since local variables are expected to show up very frequently in the code, the short nature of their name helps to keep the code concise and readable.
 
-				pre.code.prettyprint.lang-d
-					|void func()
-					|{
-					|	int idx = 0;
-					|	int maxvalue = 0;
-					|	char[] outbuf; // abbrevated to keep the name short
-					|	foreach (i; 0 .. 10)
-					|		maxvalue += i;
-					|}
+				pre.code.prettyprint.lang-d.
+					void func()
+					{
+						int idx = 0;
+						int maxvalue = 0;
+						char[] outbuf; // abbrevated to keep the name short
+						foreach (i; 0 .. 10)
+							maxvalue += i;
+					}
 
 
 			section#fields-and-properties
@@ -237,29 +214,28 @@ block vibed.body
 							:markdown
 								Struct/class variables and properties in general follow the __pascalCase__ naming convention. Private and protected class/struct member variables have an `m_` prefix. Public variables and properties have no prefix. Accessing public fields or properties must always use a a `this` prefix if the field is within the same object instance.
 
-						td
-							p The prefix makes member variables immediately recognizable as fields and this avoids the need to use `this.` as a prefix to distinguish them from other variables optically. Public fieds still require that prefix so they can be distinguished from parameters and local variables without searching the declaration.
+						td: p The prefix makes member variables immediately recognizable as fields and this avoids the need to use `this.` as a prefix to distinguish them from other variables optically. Public fieds still require that prefix so they can be distinguished from parameters and local variables without searching the declaration.
 
-				pre.code.prettyprint.lang-d
-					|class MyClass {
-					|	private {
-					|		int m_myField;
-					|	}
-					|
-					|	protected {
-					|		int m_myField2;
-					|	}
-					|
-					|	int somePublicField; // public fields have no prefix
-					|
-					|	@property int myField() const { return m_myField; }
-					|
-					|	void doSomething()
-					|	{
-					|		this.somePublicField = m_myField;
-					|		m_myField2 = this.myField;
-					|	}
-					|}
+				pre.code.prettyprint.lang-d.
+					class MyClass {
+						private {
+							int m_myField;
+						}
+					
+						protected {
+							int m_myField2;
+						}
+					
+						int somePublicField; // public fields have no prefix
+					
+						@property int myField() const { return m_myField; }
+					
+						void doSomething()
+						{
+							this.somePublicField = m_myField;
+							m_myField2 = this.myField;
+						}
+					}
 
 	section#punctuation
 		h2 Punctiation
@@ -294,40 +270,39 @@ block vibed.body
 								- trivial bodies of control structures
 
 							Consecutive control statements of the same logical chain are appended directly to the same line as the preceeding closing brace.
-					td
-						p Cases 2 and 3 are supposed to increase vertical conciseness in places where it usually benefits readability. Case 1 on the other hand sets apart the function signature from the body to improve the visual distinction of declaration and implementation when skimming over the source code.
+					td: p Cases 2 and 3 are supposed to increase vertical conciseness in places where it usually benefits readability. Case 1 on the other hand sets apart the function signature from the body to improve the visual distinction of declaration and implementation when skimming over the source code.
 
-			pre.code.prettyprint.lang-d
-				|private {
-				|	int s_globalCounter;
-				|}
-				|
-				|class C {
-				|	private {
-				|		int m_field;
-				|	}
-				|
-				|	@property int field() const { return m_field; }
-				|
-				|	void doSomething()
-				|	{
-				|		try {
-				|			foreach (i; 0 .. 10) {
-				|				// ...
-				|			}
-				|		} catch (Exception e) {
-				|			// ...
-				|		} finally {
-				|			// ...
-				|		}
-				|
-				|		if (1 == 2) {
-				|			// ...
-				|		} else {
-				|			// ...
-				|		}
-				|	}
-				|}
+			pre.code.prettyprint.lang-d.
+				private {
+					int s_globalCounter;
+				}
+				
+				class C {
+					private {
+						int m_field;
+					}
+				
+					@property int field() const { return m_field; }
+				
+					void doSomething()
+					{
+						try {
+							foreach (i; 0 .. 10) {
+								// ...
+							}
+						} catch (Exception e) {
+							// ...
+						} finally {
+							// ...
+						}
+				
+						if (1 == 2) {
+							// ...
+						} else {
+							// ...
+						}
+					}
+				}
 
 		section#clamps
 			h3 Clamps
@@ -344,22 +319,21 @@ block vibed.body
 						:markdown
 							In general, the inside of clamps tightly fits its contents. For function declarations and function calls, there is also no space before the opening clamp. Control statements have a single space before the opening clamp.
 
-					td
-						p Tight clamps make the code more concise and help grouping related content together visually. Since control statements often contain large expressions with logical operators inside, a space is added to visually separate the expression from the rest of the line, resulting in better visual cues about it.
+					td: p Tight clamps make the code more concise and help grouping related content together visually. Since control statements often contain large expressions with logical operators inside, a space is added to visually separate the expression from the rest of the line, resulting in better visual cues about it.
 
-			pre.code.prettyprint.lang-d
-				|int doSomething(int a, int b, int c)
-				|{
-				|   assert (b > 0); // maybe assert should be an exception?
-				|
-				|	if (a > 0) doSomething(a - b, a * (c + a), c);
-				|
-				|	switch (b) {
-				|		default: return b+c;
-				|		case 1: return 0;
-				|		case 2: return -1;
-				|	}
-				|}
+			pre.code.prettyprint.lang-d.
+				int doSomething(int a, int b, int c)
+				{
+				   assert (b &gt; 0); // maybe assert should be an exception?
+				
+					if (a &gt; 0) doSomething(a - b, a * (c + a), c);
+				
+					switch (b) {
+						default: return b+c;
+						case 1: return 0;
+						case 2: return -1;
+					}
+				}
 
 		section#operators
 			h3 Operators
@@ -377,12 +351,12 @@ block vibed.body
 							Binary operators are usually surrounded by spaces, except in cases where it enhances readability to leave them off. Unary operators are always directly preceeding or following their argument. The ".." range token is always surrounded by spaces.
 					td
 
-			pre.code.prettyprint.lang-d
-				|int count = 0;
-				|foreach (i; 0 .. 10) {
-				|	if (i / 2 > 3) doSomething(count++);
-				|	else doSomething(sum(array[i .. i+1]));
-				|}
+			pre.code.prettyprint.lang-d.
+				int count = 0;
+				foreach (i; 0 .. 10) {
+					if (i / 2 &gt; 3) doSomething(count++);
+					else doSomething(sum(array[i .. i+1]));
+				}
 
 	section#declaration-order
 		h2 Order of declaration
@@ -435,8 +409,7 @@ block vibed.body
 							10. private functions
 
 							Other combinations (e.g. `private` properties or `package` fields) are generally discouraged, but, if used, should be placed according to their protection attribute.
-					td
-						p This order results from the following goals:
+					td: p This order results from the following goals:
 
 						ul
 							li Group all fields together to provide a complete overview and reduce the chance to overlook a field.
@@ -467,19 +440,18 @@ block vibed.body
 
 						Function declarations are separated by one or two blank line and inside of functions a single blank line should be used to separate different functional/logical blocks (e.g. a loop from other statements).
 
-				td
-					p Intendation is probably the topic that is mostly argued about. The rule used here is pragmatic in that it allows different people to set different tab widths, but still guanrantees that manual alignment works correctly.
+				td: p Intendation is probably the topic that is mostly argued about. The rule used here is pragmatic in that it allows different people to set different tab widths, but still guanrantees that manual alignment works correctly.
 
-		pre.code.prettyprint.lang-d
-			|enum MyEnum {&darr;
-			|&rarr;   someMember,&middot;&middot;&middot;&middot;&middot;&middot;/// Aligned comment&darr;
-			|&rarr;   someOtherMember&middot;&middot;/// Another aligned comment&darr;
-			|}&darr;
-			|&darr;
-			|foreach (i; 0 .. 10) {&darr;
-			|&rarr;   makeSomethingThatCausesAnOverlongLine(i, i+1,&darr;
-			|&rarr;   &rarr;   i, i*2 + 10, "some param");&darr;
-			|}&darr;
+		pre.code.prettyprint.lang-d.
+			enum MyEnum {&darr;
+			&rarr;   someMember,&middot;&middot;&middot;&middot;&middot;&middot;/// Aligned comment&darr;
+			&rarr;   someOtherMember&middot;&middot;/// Another aligned comment&darr;
+			}&darr;
+			&darr;
+			foreach (i; 0 .. 10) {&darr;
+			&rarr;   makeSomethingThatCausesAnOverlongLine(i, i+1,&darr;
+			&rarr;   &rarr;   i, i*2 + 10, "some param");&darr;
+			}&darr;
 
 
 	section#doc-comments
@@ -499,34 +471,34 @@ block vibed.body
 
 						The module header must always contain the "Authors", "Copyright" and "License" sections, as given in the example.
 
-		pre.core.prettyprint.lang-d
-			|/**
-			|	This is the short description for the module.
-			|
-			|	This is the long description of the module that gives an introduction to the
-			|	module as a whole. This is optional.
-			|
-			|	Copyright: © 2013 RejectedSoftware e.K.
-			|	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
-			|	Authors: Some Name, Some Other Name
-			|*/
-			|module vibe.some.module;
-			|
-			|/**
-			|	This is a class.
-			|*/
-			|class Class {
-			|	/** This function does something.
-			|
-			|		Params:
-			|			param1 = Maybe this parameter has an effect
-			|			param2 = Maybe this one has also an effect
-			|
-			|		Returns:
-			|			The result of doing something is returned.
-			|	*/
-			|	int doSomething(int param1, int param2);
-			|	
-			|	/// ditto
-			|	int doSomething();
-			|}
+		pre.core.prettyprint.lang-d.
+			/**
+				This is the short description for the module.
+			
+				This is the long description of the module that gives an introduction to the
+				module as a whole. This is optional.
+			
+				Copyright: © 2013 RejectedSoftware e.K.
+				License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
+				Authors: Some Name, Some Other Name
+			*/
+			module vibe.some.module;
+			
+			/**
+				This is a class.
+			*/
+			class Class {
+				/** This function does something.
+			
+					Params:
+						param1 = Maybe this parameter has an effect
+						param2 = Maybe this one has also an effect
+			
+					Returns:
+						The result of doing something is returned.
+				*/
+				int doSomething(int param1, int param2);
+				
+				/// ditto
+				int doSomething();
+			}

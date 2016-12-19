@@ -6,8 +6,7 @@ block title
 block vibed.navigation
 	-if( auto pref = "referrer" in req.headers )
 		ul
-			li
-				a(href="#{*pref}") Go back
+			li: a(href="#{*pref}") Go back
 
 block vibed.body
 	-if( error.code == 404 )

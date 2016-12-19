@@ -5,24 +5,17 @@ block title
 
 block vibed.navigation
 	ul.bs-local
-		li
-			a(href="#web-forums") Web forums
-		li
-			a(href="#newsgroup") Newsgroup server
-		li
-			a(href="#irc") IRC channel
-		li
-			a(href="#wiki") Wiki
-		li
-			a(href="#issue-tracker") Issue tracker
+		li: a(href="#web-forums") Web forums
+		li: a(href="#newsgroup") Newsgroup server
+		li: a(href="#irc") IRC channel
+		li: a(href="#wiki") Wiki
+		li: a(href="#issue-tracker") Issue tracker
 
 block vibed.body
 	section
 		h2#web-forums Web forums
 		
-		p The
-			a.extern(href="http://forum.rejectedsoftware.com/", target="_blank") web forum
-			| is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
+		p The #[a.extern(href="http://forum.rejectedsoftware.com/", target="_blank") web forum] is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
 		
 		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
 
@@ -41,13 +34,9 @@ block vibed.body
 	section
 		h2#wiki Wiki
 
-		p The
-			a.extern(href="https://github.com/rejectedsoftware/vibe.d/wiki") public wiki
-			| is located on the github project page. It's content is still very limited, but anyone can quickly contribute interesting links or knowledge there.
+		p The #[a.extern(href="https://github.com/rejectedsoftware/vibe.d/wiki") public wiki] is located on the github project page. It's content is still very limited, but anyone can quickly contribute interesting links or knowledge there.
 
 	section
 		h2#issue-tracker Github issue tracker
 		
-		p The github project page contains an
-			a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues", target="_blank") issue tracker
-			|. This is the right place to post any issues that come up and also for feature or enhancement requests. However, anything that seems like it might cause a longer discussion should better go to the newsgroup/web forum, which works much better for discussions.
+		p The github project page contains an #[a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues", target="_blank") issue tracker]. This is the right place to post any issues that come up and also for feature or enhancement requests. However, anything that seems like it might cause a longer discussion should better go to the newsgroup/web forum, which works much better for discussions.

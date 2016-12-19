@@ -42,13 +42,10 @@ block vibed.body
 	table.license-info
 		tr
 			th Authors
-			td
-				block ddox.authors
+			td: block ddox.authors
 		tr
 			th Copyright
-			td
-				block ddox.copyright
+			td: block ddox.copyright
 		tr
 			th License
-			td
-				block ddox.license
+			td: block ddox.license
