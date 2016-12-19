@@ -14,62 +14,41 @@ block vibed.navigation
 		li
 			a(href="#http") HTTP
 			ul
-				li
-					a(href="#http-server-config") Server configuration
-				li
-					a(href="#http-routing") Routing
-				li
-					a(href="#html-templates") Templates
-				li
-					a(href="#http-error-pages") Error pages
-				li
-					a(href="#http-authentication") Authentication
-				li
-					a(href="#http-sessions") Sessions
-				li
-					a(href="#http-client-requests") Client requests
+				li: a(href="#http-server-config") Server configuration
+				li: a(href="#http-routing") Routing
+				li: a(href="#html-templates") Templates
+				li: a(href="#http-error-pages") Error pages
+				li: a(href="#http-authentication") Authentication
+				li: a(href="#http-sessions") Sessions
+				li: a(href="#http-client-requests") Client requests
 		li
 			a(href="#web") Web framework
 			ul
-				li
-					a(href="#web-interface-generator") Web interface generator
-				li
-					a(href="#web-localization") Localization
-				li
-					a(href="#rest-interface-generator") REST interface generator
+				li: a(href="#web-interface-generator") Web interface generator
+				li: a(href="#web-localization") Localization
+				li: a(href="#rest-interface-generator") REST interface generator
 		li
 			a(href="#db-support") Database support
 			ul
-				li
-					a(href="#mongo") MongoDB
-				li
-					a(href="#redis") Redis
+				li: a(href="#mongo") MongoDB
+				li: a(href="#redis") Redis
 		li
 			a(href="#raw-tcp") Raw TCP
 			ul
-				li
-					a(href="#tcp-server") Server
-				li
-					a(href="#tcp-client") Client
+				li: a(href="#tcp-server") Server
+				li: a(href="#tcp-client") Client
 		li
 			a(href="#raw-udp") Raw UDP
 		li
 			a(href="#advanced") Advanced topics
 			ul
-				li
-					a(href="#dub-publishing") Publishing on the DUB registry
-				li
-					a(href="#custom-main") The main function
-				li
-					a(href="#privilege-lowering") Privilege lowering
-				li
-					a(href="#compile-time-configuration") Compile time configuration
-				li
-					a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
-		li.bs-separator
-			a(href="templates/diet") Diet Reference
-		li.bs-separator
-			a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
+				li: a(href="#dub-publishing") Publishing on the DUB registry
+				li: a(href="#custom-main") The main function
+				li: a(href="#privilege-lowering") Privilege lowering
+				li: a(href="#compile-time-configuration") Compile time configuration
+				li: a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
+		li.bs-separator: a(href="templates/diet") Diet Reference
+		li.bs-separator: a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
 block vibed.body
 	section
@@ -217,24 +196,16 @@ block vibed.body
 			p The HTTP server supports a number of configuration options to customize its behavior. By default, the server will listen on all local network adapters on port 80 and will perform complete request parsing. The following list gives an overview of the most common settings:
 			
 			dl.feat
-				dt
-					a(href="api/vibe.http.server/HTTPServerSettings.port")
-						code.prettyprint port
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.port"): code.prettyprint port
 				dd The port on which the HTTP server shall listen
 				
-				dt
-					a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses")
-						code.prettyprint bindAddresses
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.bindAddresses"): code.prettyprint bindAddresses
 				dd A list of all interfaces on which the server shall listen. IPv4 and IPv6 addresses, as well as domain names are supported.
 
-				dt
-					a(href="api/vibe.http.server/HTTPServerSettings.options")
-						code.prettyprint options
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.options"): code.prettyprint options
 				dd Controls optional features of the web server. Certain options can be disabled to increase speed or to decrease memory usage. By default, the following options are enabled: parseURL, parseQueryString, parseFormBody, parseJsonBody, parseMultiPartBody, parseCookies. Enabled options are ORed together.
 
-				dt
-					a(href="api/vibe.http.server/HTTPServerSettings.errorPageHandler")
-						code.prettyprint errorPageHandler
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.errorPageHandler"): code.prettyprint errorPageHandler
 				dd Provides a way to customize error pages. For example:
 					pre.code.prettyprint.lang-d.
 						void errorPage(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req,
@@ -252,18 +223,13 @@ block vibed.body
 						}
 					| Inside of the error.dt template, the variables req, code and msg are available in this example.
 
-				dt
-					a(href="api/vibe.http.server/HTTPServerSettings.sslContext")
-						code.prettyprint sslContext
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.sslContext"): code.prettyprint sslContext
 				dd Lets the server operate as an HTTPS server. You should probably also set the port to 443 in case this field is set.
 
 		section
 			h3#http-routing Routing
 
-			p The
-				a(href="api/vibe.http.router/URLRouter")
-					code.prettyprint URLRouter
-				| class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the <a href="api/vibe.http.server/HTTPServerRequest.params"><code class="prettyprint">params</code></a> dictionary.
+			p The #[a(href="api/vibe.http.router/URLRouter") #[code.prettyprint URLRouter]] class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the <a href="api/vibe.http.server/HTTPServerRequest.params"><code class="prettyprint">params</code></a> dictionary.
 			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
 				a(href="api/vibe.http.router/URLRouter")
 					code.prettyprint URLRouter
@@ -969,48 +935,39 @@ block vibed.body
 					th Meaning
 
 				tr
-					td
-						code <s>VibeCustomMain</s>
+					td: code <s>VibeCustomMain</s>
 					td <del>Tells vibe.d to not use its own predefined <code>main</code> function. This is mutually exclusive to <code>VibeDefaultMain</code>.</del> This is the default behavior since vibe.d 0.7.26.
 
 				tr
-					td
-						code VibeDefaultMain
+					td: code VibeDefaultMain
 					td Tells vibe.d to use its own predefined <code>main</code> function. This is mutually exclusive to <code>VibeCustomMain</code>.
 
 				tr
-					td
-						code VibeDisableCommandLineParsing
+					td: code VibeDisableCommandLineParsing
 					td Disables automatic parsing of command line options passed to the application, such as "--help" or "--verbose".
 
 				tr
-					td
-						code VibeNoDefaultArgs
+					td: code VibeNoDefaultArgs
 					td Disables all default command line options, but keeps the command line argument module functional.
 
 				tr
-					td
-						code VibeManualMemoryManagement
+					td: code VibeManualMemoryManagement
 					td Performs a number of operations using manual memory management instead of the garbage collector, most notably in the HTTP server. This can lead to considerable performance improvements, but also makes certain operations unsafe and thus may open up the possibility for certain attacks. Especially any code needs to make sure to not escape any data (including <code>string</code> data) from <a href="api/vibe.http.server/HTTPServerRequest"><code>HTTPServerRequest</code></a>.
 
 				tr
-					td
-						code VibeIdleCollect
+					td: code VibeIdleCollect
 					td Perform manual garbage collection runs when the application is idle for more than two seconds.
 
 				tr
-					td
-						code VibePartialAutoExit
+					td: code VibePartialAutoExit
 					td Partial workaround for issue <a href="https://github.com/rejectedsoftware/vibe.d/issues/212">#212</a> - exits the event loop after no mode file and socket based events exist. Note that this will exit the event loop, even if other kinds of events, such as timers, are still active. It is currently recommended to explicitly use <a href="api/vibe.core.core/exitEventLoop"><code>exitEventLoop</code></a> instead.
 
 				tr
-					td
-						code VibeJsonFieldNames
+					td: code VibeJsonFieldNames
 					td Stores field names for JSON values for better error messages. This will use a few bytes of additional memory per <a href="api/vibe.data.json/Json"><code>Json</code></a> value.
 
 				tr
-					td
-						code JsonLineNumbers
+					td: code JsonLineNumbers
 					td Stores line numbers for each JSON value parsed from a JSON string for improved error messages. This will store an additional <code>int</code> for each <a href="api/vibe.data.json/Json"><code>Json</code></a> value.
 
 				tr
@@ -1018,43 +975,35 @@ block vibed.body
 					td Instructs #[a(href="api/diet.html/") Diet-NG] to output compact HTML (no extraneous white space) by default
 
 				tr
-					td
-						code VibeDebugCatchAll
+					td: code VibeDebugCatchAll
 					td Enables catching of exceptions that derive from <code>Error</code>. This can be useful during application development to get useful error information while keeping the application running, but can generally be dangerous, because the application may be left in a bad state after an <code>Error</code> has been thrown.
 
 				tr
-					td
-						code VibeNoSSL
+					td: code VibeNoSSL
 					td Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.ssl</code> module will be dysfunctional.
 
 				tr
-					td
-						code VibeUseOldOpenSSL
+					td: code VibeUseOldOpenSSL
 					td Disables the use of features introduced in OpenSSL 1.0.1 or later, most notably ECDH curve selection. Use this to link against old versions of the OpenSSL library.
 
 				tr
-					td
-						code VibePragmaLib
+					td: code VibePragmaLib
 					td Uses a <code>pragma(lib)</code> to link against OpenSSL and libevent. This is only useful for building without DUB.
 
 				tr
-					td
-						code VibeLibevDriver
+					td: code VibeLibevDriver
 					td Enables the libev based event driver (not fully functional). Do not use this version directly, but select the "libev" configuration in your dub.json instead.
 
 				tr
-					td
-						code VibeLibeventDriver
+					td: code VibeLibeventDriver
 					td Enables the libevent based event driver (currently the default). Do not use this version directly, but select the "libevent" configuration in your dub.json instead.
 
 				tr
-					td
-						code VibeWin32Driver
+					td: code VibeWin32Driver
 					td Enables the Win32 based event driver (provides GUI message support on Windows). Do not use this version directly, but select the "win32" configuration in your dub.json instead.
 
 				tr
-					td
-						code VibeWinrtDriver
+					td: code VibeWinrtDriver
 					td Enables the WinRT based event driver (not yet implemented). Do not use this version directly, but select the "winrt" configuration in your dub.json instead.
 
 
@@ -1068,4 +1017,4 @@ block vibed.body
 				static if (is(typeof(registerMemoryErrorHandler)))
 					registerMemoryErrorHandler();
 
-			This currently works only on Linux x86 and x86-64.
+			p This currently works only on Linux x86 and x86-64.
