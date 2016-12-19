@@ -6903,7 +6903,7 @@
 						"endchar": 2,
 						"name": "lock",
 						"line": 178,
-						"comment": " Acquires a lock.\n\n\t\tOnce the limit of concurrent locks is reaced, this method will block\n\t\tuntil the number of locks drops below the limit.\n",
+						"comment": " Acquires a lock.\n\n\t\tOnce the limit of concurrent locks is reached, this method will block\n\t\tuntil the number of locks drops below the limit.\n",
 						"deco": "FhZv",
 						"parameters": [
 							{
