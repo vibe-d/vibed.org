@@ -1014,6 +1014,10 @@ block vibed.body
 					td Stores line numbers for each JSON value parsed from a JSON string for improved error messages. This will store an additional <code>int</code> for each <a href="api/vibe.data.json/Json"><code>Json</code></a> value.
 
 				tr
+					td: code VibeOutputCompactHTML
+					td Instructs #[a(href="api/diet.html/") Diet-NG] to output compact HTML (no extraneous white space) by default
+
+				tr
 					td
 						code VibeDebugCatchAll
 					td Enables catching of exceptions that derive from <code>Error</code>. This can be useful during application development to get useful error information while keeping the application running, but can generally be dangerous, because the application may be left in a bad state after an <code>Error</code> has been thrown.
