@@ -14,6 +14,7 @@ block vibed.navigation
 				li: a(href="#apt-repository") APT repository
 				li: a(href="#aur-package") AUR package
 		li: a(href="#development-snapshot") Development snapshot
+		li: a(href="#dependencies") Dependencies
 
 block vibed.body
 	section
@@ -69,3 +70,18 @@ block vibed.body
 		p Alternatively, you can also
 		pre.code $ git clone git://github.com/rejectedsoftware/vibe.d.git
 		p or set the dependency version for "vibe-d" to "~master" in your DUB package recipe.
+
+	section
+		h2#dependencies Dependencies
+		
+		p.
+			Vibe.d by default requires #[a.extern(href="http://libevent.org/", target="_blank") libevent]
+			installed. On Debian based systems it can be installed using #[code apt-get install libevent-dev].
+			See the #[a(href="https://github.com/rejectedsoftware/vibe.d/#installation") repository readme]
+			for information on other operating systems and distributions.
+		p.
+			Alternatively, the "libasync" configuration of the #[code vibe-d] and #[code vibe-d:core]
+			packages provides a pure D solution that doesn't require any external dependencies. Also,
+			the 0.8.0 series have a "vibe-core" configuration that uses the new
+			#[a(href="https://github.com/vibe-d/vibe-core") vibe-core] package, which is also
+			implemented purely in D and thus requires no additional setup.
