@@ -1,0 +1,42 @@
+
+section.tutorial {
+	background: linear-gradient(to bottom, #f4f4f4 0%, #fff 100%);
+	border-top: 1px solid #e4e4e4;
+	padding: 0.01pt 12pt 24pt 12pt;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+section.tutorial .contents {
+	flex: 1 1 0px;
+}
+
+section.tutorial h3 {
+	margin-bottom: 12pt;
+	flex: 0 0 100%;
+}
+
+section.tutorial ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+section.tutorial li:before {
+  content: "▸ ";
+  color: #ccc;
+}
+
+section.tutorial img {
+	display: block;
+	margin-right: 12pt;
+	margin-bottom: 24pt;
+	/*lex-grow: 0;*/
+	flex: 0 0 auto;
+}
+
+section.tutorial span.date {
+	color: #888;
+	font-size: 66%;
+	margin-left: 6pt;
+	vertical-align: top;
+}
