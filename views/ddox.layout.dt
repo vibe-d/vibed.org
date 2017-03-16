@@ -8,11 +8,14 @@ block title
 	script(type="text/javascript", src="#{req.rootDir}scripts/ddox.js")
 
 block vibed.navigation
+	- import std.array : split;
+
+	include ddox.inc.utils
 	include ddox.inc.symbol-search
 
 	.bs-separator
 		include ddox.inc.module-tree
-	:javascript setupDdox();
+	script setupDdox();
 
 	#api-version-selector.bs-separator
 		ul
@@ -39,13 +42,14 @@ block vibed.body
 
 	block ddox.members
 
-	table.license-info
-		tr
-			th Authors
-			td: block ddox.authors
-		tr
-			th Copyright
-			td: block ddox.copyright
-		tr
-			th License
-			td: block ddox.license
+	footer
+		table.license-info
+			tr
+				th Authors
+				td: block ddox.authors
+			tr
+				th Copyright
+				td: block ddox.copyright
+			tr
+				th License
+				td: block ddox.license

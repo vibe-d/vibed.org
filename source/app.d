@@ -134,6 +134,7 @@ shared static this()
 	settings.hostName = "vibed.org";
 	settings.port = 8003;
 	settings.bindAddresses = ["127.0.0.1"];
+	settings.sessionStore = new MemorySessionStore;
 	settings.errorPageHandler = toDelegate(&error);
 	
 	s_router = new URLRouter;

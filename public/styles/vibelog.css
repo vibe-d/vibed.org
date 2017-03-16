@@ -6,13 +6,6 @@
 	display: none;
 }
 
-#vibelogContent .blogSinglePost h1 {
-	display: block;
-	text-align: left;
-	margin-bottom: 12pt;
-	color: white;
-}
-
 #vibelogContent h2 a {
 	border: none;
 	text-decoration: none;
