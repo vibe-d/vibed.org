@@ -448,16 +448,18 @@ block vibed.body
 				void main()
 				{
 					requestHTTP("http://google.com",
-						(scope req) {
+						(scope #[a(href="api/vibe.http.client/HTTPClientRequest") HTTPClientRequest] req) {
 							// could add headers here before sending,
 							// write a POST body, or do similar things.
 						},
-						(scope res) {
+						(scope #[a(href="api/vibe.http.client/HTTPClientResponse") HTTPClientResponse] res) {
 							logInfo("Response: %s", res.bodyReader.readAllUTF8());
 						}
 					);
 				}
 			.caption Example: Performing a simple HTTP request
+
+			p Note that you can leave off the explicit `HTTPClientRequest` and `HTTPClientResponse` parameter types. They will be inferred automatically by the compiler.
 
 			p A connection pool is used internally in conjunction with persistent HTTP connections (keep-alive) for maximum thoughput.
 
