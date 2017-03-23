@@ -61,6 +61,9 @@ a.private {
 }
 a.inherited:after { content: url(../images/ddox/inherited.png); padding-left: 2pt; }
 
+td { padding: 1.5pt 3pt; }
+td:first-child { padding-left: 0; }
+
 td.typecol {
 	max-width: 200pt;
 	overflow: auto;
@@ -69,6 +72,15 @@ td.typecol {
 nav.page-nav ul { list-style: none; padding-left: 0; }
 nav.page-nav li a { color: black; }
 nav.page-nav li:before { content: ""; padding-right: 3px; }
+
+.prototype {
+	margin: 1em 0;
+	border-left: 0.5em solid #eee;
+	padding-left: 0.5em;
+}
+
+.tableEntryAnnotation, .decoration { color: #888; }
+.tableEntryAnnotation { margin-left: 0.5em; }
 
 .license-info { border-top: 2px solid #eee; width: 100%; margin-top: 20pt; }
 .license-info { margin-top: 2em; color: #888; }
