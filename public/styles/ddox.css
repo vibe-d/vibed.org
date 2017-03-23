@@ -71,7 +71,7 @@ td.typecol {
 
 nav.page-nav ul { list-style: none; padding-left: 0; }
 nav.page-nav li a { color: black; }
-nav.page-nav li:before { content: ""; padding-right: 3px; }
+nav.page-nav li:before { content: "▼"; padding-right: 3px; }
 
 .prototype {
 	margin: 1em 0;
