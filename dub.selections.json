@@ -1,12 +1,12 @@
 {
 	"fileVersion": 1,
 	"versions": {
-		"antispam": "0.1.0",
-		"ddox": "0.15.18",
+		"antispam": "0.1.2",
+		"ddox": "0.16.0",
 		"diet-ng": "1.2.0",
-		"diskuto": "1.4.1",
+		"diskuto": "1.5.0",
 		"dyaml-dlang-tour": "0.5.5",
-		"eventcore": "0.8.8",
+		"eventcore": "0.8.10",
 		"fuzzydate": "1.0.0",
 		"hyphenate": "1.1.1",
 		"libasync": "0.8.3",
@@ -18,8 +18,8 @@
 		"stringex": "0.0.3",
 		"taggedalgebraic": "0.10.5+commit.1.ge4c5ec7",
 		"tinyendian": "0.1.2",
-		"vibe-core": "1.0.0-beta.4+commit.5.ge3f9d07",
-		"vibe-d": "0.8.0-beta.4",
-		"vibelog": "0.6.0-rc.2"
+		"vibe-core": "1.0.0-beta.5",
+		"vibe-d": "0.8.0-beta.5",
+		"vibelog": "0.6.0-rc.3"
 	}
 }
