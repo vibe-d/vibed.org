@@ -10,6 +10,10 @@
 	padding-bottom: 2pt;
 }
 
+.logo-title-link {
+	text-decoration: none;
+}
+
 .dub-logo {
 	background-image: url(../images/dub-logo.png);
 	width: 56px;
