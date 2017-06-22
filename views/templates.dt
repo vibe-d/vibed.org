@@ -33,10 +33,9 @@ block vibed.body
 	section
 		h2#introduction Introduction
 
-		p(style="color: red") Work-in-progress
-		p(style="color: red") Please use the
-			a(href="https://github.com/pugjs/pug") Pug documentation
-			| for any section that is not filled with content, Diet templates are kept as compatible as possible to Pug templates.
+		p(style="color: red") Note that the original implementation of Diet templates has been superseded by the #[a(href="https://github.com/rejectedsoftware/diet-ng/") DietNG package], which supports a number of additional features. An updated version of the specification is located in #[a(href="https://github.com/rejectedsoftware/diet-ng/blob/master/SPEC.md") SPEC.md] of the GitHub repository.
+
+		p(style="color: red") This document is work-in-progress - please use the #[a(href="https://github.com/pugjs/pug") Pug documentation] for any section that is not filled with content, Diet templates are kept as compatible as possible to Pug templates.
 
 		p Diet templates are HTML templates which are statically compiled down to native D code. Dynamic pages thus have almost no runtime overhead and are often even faster than static pages on disk, because they are just written directly from RAM to the HTTP connection.
 
