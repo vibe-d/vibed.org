@@ -271,21 +271,14 @@ block vibed.body
 		section
 			h3#html-templates Diet templates
 
-			p Vibe.d supports HTML templates with a syntax mostly compatible to
-				a.extern(href="https://pugjs.org", target="_blank") Pug
-				| templates. They provide a concise way to dynamically generate the HTML code of the final web pages. D expressions and statements can be embedded and the full vibe.d API is available within templates.
+			p.
+				Vibe.d supports HTML templates with a syntax mostly compatible to #[a.extern(href="https://pugjs.org", target="_blank") Pug] templates. They provide a concise way to dynamically generate the HTML code of the final web pages. D expressions and statements can be embedded and the full vibe.d API is available within templates.
 
-			p Templates should reside somewhere inside the 'views' folder of a project. They are then rendered using the
-				a(href="api/vibe.http.server/render")
-					code.prettyprint render
-				| function, which takes the template file name as the first template argument, followed by a list of variables that should be available to the template. Finally, it takes a
-				a(href="api/vibe.http.server/HTTPServerResponse")
-					code.prettyprint HTTPServerResponse
-				| to render into.
+			p.
+				Templates should reside somewhere inside the 'views' folder of a project. They are then rendered using the #[a(href="api/vibe.http.server/render") #[code.prettyprint render]] function, which takes the template file name as the first template argument, followed by a list of variables that should be available to the template. Finally, it takes a #[a(href="api/vibe.http.server/HTTPServerResponse") #[code.prettyprint HTTPServerResponse]] to render into.
 
-			p The following example shows a number of features of the Diet template compiler. A full reference of the template syntax is found on the
-				a(href="templates/diet") Diet templates
-				| page.
+			p.
+				The following example shows a number of features of the Diet template compiler. A full reference of the template syntax is found on the #[a(href="templates/diet") Diet templates] page.
 
 			pre.code.lang-diet.
 				doctype html
