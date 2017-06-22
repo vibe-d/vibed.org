@@ -89,60 +89,35 @@ block vibed.plainbody
 	section.bs-separator
 		h2 Example of a simple HTTP server
 		
-		pre.code
-			|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
-			|
-			|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
-			|</span><span class="pun">{</span><span class="pln">
-			|	</span><span class="kwd">auto</span><span class="pln"> settings </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HTTPServerSettings</span><span class="pun">;</span><span class="pln">
-			|	settings</span><span class="pun">.</span><span class="pln">port </span><span class="pun">=</span><span class="pln"> </span><span class="lit">8080</span><span class="pun">;</span><span class="pln">
-			|
-			|	listenHTTP</span><span class="pun">(</span><span class="pln">settings</span><span class="pun">,</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">handleRequest</span><span class="pun">);</span><span class="pln">
-			|</span><span class="pun">}</span><span class="pln">
-			|
-			|</span><span class="kwd">void</span><span class="pln"> handleRequest</span><span class="pun">(</span><span class="typ">HTTPServerRequest</span><span class="pln"> req</span><span class="pun">,</span><span class="pln">
-			|                   </span><span class="typ">HTTPServerResponse</span><span class="pln"> res</span><span class="pun">)</span><span class="pln">
-			|</span><span class="pun">{</span><span class="pln">
-			|	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">req</span><span class="pun">.</span><span class="pln">path </span><span class="pun">==</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">)</span><span class="pln">
-			|		res</span><span class="pun">.</span><span class="pln">writeBody</span><span class="pun">(</span><span class="str">"Hello, World!"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"text/plain"</span><span class="pun">);</span><span class="pln">
-			|</span><span class="pun">}</span>
-
-		//- pre.code.prettyprint.lang-d
-			|import vibe.d;
-			|
-			|shared static this()
-			|{
-			|	auto settings = new HTTPServerSettings;
-			|	settings.port = 8080;
-			|
-			|	listenHTTP(settings, &amp;handleRequest);
-			|}
-			|
-			|void handleRequest(HTTPServerRequest req,
-			|                   HTTPServerResponse res)
-			|{
-			|	if (req.path == "/")
-			|		res.writeBody("Hello, World!", "text/plain");
-			|}
+		pre.code.
+			#[span.kwd import]#[span.pln  vibe]#[span.pun .]#[span.pln vibe]#[span.pun ;]
+			
+			#[span.kwd void]#[span.pln  main]#[span.pun ()]
+			#[span.pun {]
+				#[span.kwd auto]#[span.pln  settings ]#[span.pun =]#[span.pln  ]#[span.kwd new]#[span.pln  ]#[span.typ HTTPServerSettings]#[span.pun ;]
+				#[span.pln settings]#[span.pun .]#[span.pln port ]#[span.pun =]#[span.pln  ]#[span.lit 8080]#[span.pun ;]
+			
+				#[span.pln listenHTTP]#[span.pun (]#[span.pln settings]#[span.pun ,]#[span.pln  ]#[span.pun &amp;]#[span.pln handleRequest]#[span.pun );]
+				#[span.pln runApplication]#[span.pun ();]
+			#[span.pun }]
+			
+			#[span.kwd void]#[span.pln  handleRequest]#[span.pun (]#[span.typ HTTPServerRequest]#[span.pln  req]#[span.pun ,] #[span.typ HTTPServerResponse]#[span.pln  res]#[span.pun )]
+			#[span.pun {]
+				#[span.kwd if]#[span.pln  ]#[span.pun (]#[span.pln req]#[span.pun .]#[span.pln path ]#[span.pun ==]#[span.pln  ]#[span.str "/"]#[span.pun )]
+					#[span.pln res]#[span.pun .]#[span.pln writeBody]#[span.pun (]#[span.str "Hello, World!"]#[span.pun );]
+			#[span.pun }]
 
 	section.bs-separator
 		h2 Example of an echo server
 
-		pre.code
-			|<span class="kwd">import</span><span class="pln"> vibe</span><span class="pun">.</span><span class="pln">d</span><span class="pun">;</span><span class="pln">
-			|
-			|</span><span class="kwd">shared</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">()</span><span class="pln">
-			|</span><span class="pun">{</span><span class="pln">
-			|	listenTCP</span><span class="pun">(</span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">conn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> conn</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">conn</span><span class="pun">);</span><span class="pln"> </span><span class="pun">});</span><span class="pln">
-			|</span><span class="pun">}</span>
-
-		//- pre.code.prettyprint.lang-d
-			|import vibe.d;
-			|
-			|shared static this()
-			|{
-			|	listenTCP(7, (conn) { conn.write(conn); });
-			|}
+		pre.code.
+			#[span.kwd import]#[span.pln  vibe]#[span.pun .]#[span.pln vibe]#[span.pun ;]
+			
+			#[span.kwd void]#[span.pln  main]#[span.pun ()]
+			#[span.pun {]
+				#[span.pln listenTCP]#[span.pun (]#[span.lit 7]#[span.pun ,]#[span.pln  ]#[span.pun (]#[span.pln conn]#[span.pun )]#[span.pln  ]#[span.pun {]#[span.pln  conn]#[span.pun .]#[span.pln write]#[span.pun (]#[span.pln conn]#[span.pun );]#[span.pln  ]#[span.pun });]
+				#[span.pln runApplication]#[span.pun ();]
+			#[span.pun }]
 
 	section
 		p * Still work-in-progress, implemented by the <a target="_blank" class="extern" hreF="https://github.com/rejectedsoftware/vibedist">vibedist</a> project.
