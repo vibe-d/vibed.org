@@ -1,11 +1,11 @@
 #logo-line
 	- auto latest = req.params["latestRelease"];
 	a.logo-title-link(href="https://vibed.org/")
-		img#logo(src="#{req.rootDir}images/logo.png", alt='vibe.d logo')>
-		img#title(src="#{req.rootDir}images/title.png", alt='vibe.d beta banner')
+		img#title(src="#{req.rootDir}images/title-new.png", width="262", height="97", alt='vibe.d beta banner')
 	a.download-button(href="https://code.dlang.org/packages/vibe-d/#{latest}")
 		.bs-hbtn.right.black
 			.content get <strong>vibe.d</strong><br><large>#{latest}</large>
 		.bs-hbtn.left.red>
 			.dub-logo
+	p#slogan Asynchronous I/O that doesn’t get in your way, written in #[a(href="http://dlang.org", target="_blank") D]
 

@@ -8,8 +8,6 @@ block vibed.plainbody
 
 	a#forkme(href="https://github.com/rejectedsoftware/vibe.d")
 		img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
-	p#slogan Asynchronous I/O that doesn’t get in your way, written in&#32;
-		a(href="http://dlang.org", target="_blank") D
 
 	.bs-columns3
 		#feat-rad.feat-block.bs-col

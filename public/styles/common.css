@@ -1,14 +1,20 @@
 ﻿.copyright { float: right; color: #666; }
 .copyright a { color: #666; }
 
-#logo {
-	padding-top: 10pt;
-	padding-left: 15pt;
+#title {
+	margin-left: 15pt;
+	margin-top: 8pt;
 }
 
-#title {
-	padding-bottom: 2pt;
+#slogan {
+	margin: 0;
+	margin-top: -2em;
+	margin-right: 15pt;
+	text-align: right;
+	color: #4c6c7d;
+	text-shadow: 0 1px #b0bccf;
 }
+#slogan a { color: inherit; }
 
 .logo-title-link {
 	text-decoration: none;
