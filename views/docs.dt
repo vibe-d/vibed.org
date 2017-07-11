@@ -15,6 +15,7 @@ block vibed.navigation
 			a(href="#http") HTTP
 			ul
 				li: a(href="#http-server-config") Server configuration
+				li: a(href="#http-https") HTTPS
 				li: a(href="#http-routing") Routing
 				li: a(href="#html-templates") Templates
 				li: a(href="#http-error-pages") Error pages
@@ -223,8 +224,43 @@ block vibed.body
 						}
 					| Inside of the error.dt template, the variables req, code and msg are available in this example.
 
-				dt: a(href="api/vibe.http.server/HTTPServerSettings.sslContext"): code.prettyprint sslContext
+				dt: a(href="api/vibe.http.server/HTTPServerSettings.tlsContext"): code.prettyprint tlsContext
 				dd Lets the server operate as an HTTPS server. You should probably also set the port to 443 in case this field is set.
+
+		section
+			h3#http-https HTTPS
+
+			p To serve HTTPS connections, the configuration simply needs to have a TLS context that has the appropriate certificate and private key files set:
+
+			pre.code.prettyprint.lang-d.
+				auto settings = new HTTPServerSettings;
+				settings.port = 443;
+				settings.bindAddresses = ["127.0.0.1"];
+				settings.tlsContext = createTLSContext(TLSContextKind.server);
+				settings.tlsContext.useCertificateChainFile("server-cert.pem");
+				settings.tlsContext.usePrivateKeyFile("server-key.pem");
+
+			h4 Selecting the TLS provider
+
+			p Two TLS providers are currently supported, OpenSSL and the D port of Botan. By default, OpenSSL is used to provide TLS/HTTPS functionality. To select a different provider, or to avoid compiling with TLS support enabled, the appropriate build configuration of the vibe-d:tls sub package needs to be selected:
+			pre.code.prettyprint.lang-sdl.
+				dependency "vibe-d:tls" version="*"
+				// use "notls" instead of "botan" to disable TLS support
+				subConfiguration "vibe-d:tls" "botan"
+
+			p When using a JSON based package recipe, the two lines have to be inserted as follows (the "&hellip;" are just placeholders for other possible directives):
+			pre.code.prettyprint.lang-json.
+				{
+					&hellip;
+					"dependencies": {
+						&hellip;
+						"vibe-d:tls": "*"
+					},
+					"subConfigurations": {
+						&hellip;
+						"vibe-d:tls": "botan"
+					}
+				}
 
 		section
 			h3#http-routing Routing
@@ -975,7 +1011,7 @@ block vibed.body
 
 				tr
 					td: code VibeNoSSL
-					td Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.ssl</code> module will be dysfunctional.
+					td Deprecated for 0.8.0 and up (See the #[a(href="#http-https") HTTPS section] instead): Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.tls</code> module will be dysfunctional.
 
 				tr
 					td: code VibeUseOldOpenSSL
