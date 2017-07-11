@@ -125,7 +125,7 @@ void redirectDlangDocs(HTTPServerRequest req, HTTPServerResponse res)
 	res.redirect("http://dlang.org/library/"~path, HTTPStatus.movedPermanently);
 }
 
-shared static this()
+void main()
 {
 	//setLogLevel(LogLevel.none);
 	setLogFile("log.txt", LogLevel.info);
@@ -191,4 +191,6 @@ shared static this()
 
 	updateDownloads();
 	setTimer(10.seconds(), {updateDownloads();}, true);
+
+	runApplication();
 }
