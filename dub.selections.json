@@ -4,15 +4,15 @@
 		"antispam": "0.1.2",
 		"botan": "1.12.9",
 		"botan-math": "1.0.3",
-		"ddox": "0.16.1",
-		"diet-ng": "1.2.1+commit.1.gede7481",
+		"ddox": "0.16.3",
+		"diet-ng": "1.4.0",
 		"diskuto": "1.5.1",
 		"dyaml-dlang-tour": "0.5.5",
-		"eventcore": "0.8.12",
+		"eventcore": "0.8.13",
 		"fuzzydate": "1.0.0",
 		"hyphenate": "1.1.1",
 		"libasync": "0.8.3",
-		"libdparse": "0.7.0",
+		"libdparse": "0.7.1-beta.9",
 		"libevent": "2.0.2+2.0.16",
 		"memutils": "0.4.9",
 		"openssl": "1.1.5+1.0.1g",
@@ -20,8 +20,8 @@
 		"stringex": "0.0.3",
 		"taggedalgebraic": "0.10.7",
 		"tinyendian": "0.1.2",
-		"vibe-core": "1.0.0+commit.1.g87296bb",
-		"vibe-d": "0.8.0+commit.83.gddbeb63",
-		"vibelog": "0.6.0-rc.4"
+		"vibe-core": "1.1.1+commit.6.g24f4e5f",
+		"vibe-d": "0.8.1-rc.2",
+		"vibelog": "0.6.0"
 	}
 }
