@@ -26,7 +26,7 @@ void home(HTTPServerRequest req, HTTPServerResponse res)
 void download(HTTPServerRequest req, HTTPServerResponse res)
 {
 	if( auto pf = "file" in req.query ){
-		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/rejectedsoftware/vibe.d/" ~ *pf);
+		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/vibe-d/vibe.d/" ~ *pf);
 		else res.redirect("http://vibed.org/files/" ~ *pf);
 	} else res.render!("download.dt", req);
 }
@@ -136,9 +136,9 @@ void main()
 	settings.bindAddresses = ["127.0.0.1"];
 	settings.sessionStore = new MemorySessionStore;
 	settings.errorPageHandler = toDelegate(&error);
-	
+
 	s_router = new URLRouter;
-	
+
 	with (s_router) {
 		get("*", (req, res) {
 			req.params["latestRelease"] = s_latestVersion;
