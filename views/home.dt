@@ -6,7 +6,7 @@ block title
 block vibed.plainbody
 	h1(style="display: none;") vibe.d
 
-	a#forkme(href="https://github.com/rejectedsoftware/vibe.d")
+	a#forkme(href="https://github.com/vibe-d/vibe.d")
 		img(src="images/github-banner.png",alt="fork vibe.d on github",style="position:absolute; top: 0; right: 0;")
 
 	.bs-columns3
@@ -53,7 +53,7 @@ block vibed.plainbody
 					p Quick overviews and step-by-step instructions
 				li.nav-community
 					a(href="community") Community
-					p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/rejectedsoftware/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
+					p Places to <a href="http://forum.rejectedsoftware.com/">get help</a>, <a href="https://github.com/vibe-d/vibe.d/issues">report bugs</a>, and <a href="http://forum.rejectedsoftware.com/groups/rejectedsoftware.vibed/">discuss vibe.d</a> in general
 				li.nav-developer
 					a(href="get-involved") Get involved
 					p Support vibe.d through bug reports, code contributions or donations
@@ -79,7 +79,7 @@ block vibed.plainbody
 
 			p Available as e-book and print versions at <a href="https://www.packtpub.com/web-development/d-web-development">Packt Publishing</a>
 
-						
+
 		#news-section.bs-col
 			h2 Latest News
 			include vibelog.inc.headlinelist
@@ -88,19 +88,19 @@ block vibed.plainbody
 
 	section.bs-separator
 		h2 Example of a simple HTTP server
-		
+
 		pre.code.
 			#[span.kwd import]#[span.pln  vibe]#[span.pun .]#[span.pln vibe]#[span.pun ;]
-			
+
 			#[span.kwd void]#[span.pln  main]#[span.pun ()]
 			#[span.pun {]
 				#[span.kwd auto]#[span.pln  settings ]#[span.pun =]#[span.pln  ]#[span.kwd new]#[span.pln  ]#[span.typ HTTPServerSettings]#[span.pun ;]
 				#[span.pln settings]#[span.pun .]#[span.pln port ]#[span.pun =]#[span.pln  ]#[span.lit 8080]#[span.pun ;]
-			
+
 				#[span.pln listenHTTP]#[span.pun (]#[span.pln settings]#[span.pun ,]#[span.pln  ]#[span.pun &amp;]#[span.pln handleRequest]#[span.pun );]
 				#[span.pln runApplication]#[span.pun ();]
 			#[span.pun }]
-			
+
 			#[span.kwd void]#[span.pln  handleRequest]#[span.pun (]#[span.typ HTTPServerRequest]#[span.pln  req]#[span.pun ,] #[span.typ HTTPServerResponse]#[span.pln  res]#[span.pun )]
 			#[span.pun {]
 				#[span.kwd if]#[span.pln  ]#[span.pun (]#[span.pln req]#[span.pun .]#[span.pln path ]#[span.pun ==]#[span.pln  ]#[span.str "/"]#[span.pun )]
@@ -112,7 +112,7 @@ block vibed.plainbody
 
 		pre.code.
 			#[span.kwd import]#[span.pln  vibe]#[span.pun .]#[span.pln vibe]#[span.pun ;]
-			
+
 			#[span.kwd void]#[span.pln  main]#[span.pun ()]
 			#[span.pun {]
 				#[span.pln listenTCP]#[span.pun (]#[span.lit 7]#[span.pun ,]#[span.pln  ]#[span.pun (]#[span.pln conn]#[span.pun )]#[span.pln  ]#[span.pun {]#[span.pln  conn]#[span.pun .]#[span.pln write]#[span.pun (]#[span.pln conn]#[span.pun );]#[span.pln  ]#[span.pun });]

@@ -15,7 +15,7 @@ block vibed.body
 	section
 		h2#reporting Reporting bugs and feature requests
 
-		p You can help with vibe.d's development by reporting bugs or feature requests on the #[a.extern(href="https://github.com/rejectedsoftware/vibe.d/issues") bug tracker]. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
+		p You can help with vibe.d's development by reporting bugs or feature requests on the #[a.extern(href="https://github.com/vibe-d/vibe.d/issues") bug tracker]. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
 
 		p If you think that a question or request isn't appropriate for the bug tracker, you can also use the <a href="http://forum.rejectedsoftware.com">forums</a> instead.
 
@@ -23,7 +23,7 @@ block vibed.body
 		h2#hacking Hacking on vibe.d
 
 		p To start working on the vibe.d code base itself, fork the repository using the "Fork" button on the github repository:
-		p: a.extern(href="https://github.com/rejectedsoftware/vibe.d") https://github.com/rejectedsoftware/vibe.d
+		p: a.extern(href="https://github.com/vibe-d/vibe.d") https://github.com/vibe-d/vibe.d
 
 		p Then you can clone the repository to your local computer using
 		pre $ git clone http://github.com/&lt;your username&gt;/vibe.d.git

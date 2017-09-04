@@ -49,7 +49,7 @@ block vibed.body
 			.contents
 				p A collection of examples for all aspects of vibe.d.
 
-				p: a(href="https://github.com/rejectedsoftware/vibe.d/tree/master/examples") Read more
+				p: a(href="https://github.com/vibe-d/vibe.d/tree/master/examples") Read more
 
 		section.tutorial
 			h3 Dlang tutorial: Build tools and hello web
@@ -74,7 +74,7 @@ block vibed.body
 						a(href="https://aberba.github.io/2016/form-upload-in-vibe-d/") Form upload
 						span.date Dec 6, 2016
 					li
-						a(href="https://aberba.github.io/2016/hello-world-app-with-the-vibe.d-web-framework/") Multiple file upload 
+						a(href="https://aberba.github.io/2016/hello-world-app-with-the-vibe.d-web-framework/") Multiple file upload
 						span.date Aug 20, 2016
 
 		section.tutorial
@@ -128,4 +128,4 @@ block vibed.body
 			.contents
 				p Presents a short configuration example for how to use Nginx as a reverse proxy in front of a vibe.d application.
 
-				p: a(href="https://github.com/rejectedsoftware/vibe.d/wiki/Setting-up-Nginx-as-a-reverse-proxy") Read more
+				p: a(href="https://github.com/vibe-d/vibe.d/wiki/Setting-up-Nginx-as-a-reverse-proxy") Read more
