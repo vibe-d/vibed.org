@@ -286,9 +286,9 @@ block vibed.body
 		section
 			h3#string-interpolations String interpolations
 
-			p With string interpolations you can output the value of an expression inside plain text or an attribute value. You only need to surround your expression with \#\{ and \}.
+			p With string interpolations you can output the value of an expression inside plain text or an attribute value. You only need to surround your expression with \#{ and }.
 
-			p The value of the expression is HTML escaped before it is printed into the output. If you need unescaped output then you have to use \!\{ instead of \#\{.
+			p The value of the expression is HTML escaped before it is printed into the output. If you need unescaped output then you have to use \!{ instead of \#{.
 
 			pre.code.
 				doctype html
@@ -300,9 +300,9 @@ block vibed.body
 						p Four items ahead:
 						- foreach( i; 0 .. 4 )
 							- auto num = i+1;
-							p Item \#\{ num \}
+							p Item \#{ num }
 						//- Unescaped output
-						p Prints 8: \!\{ min(10, 2*6, 8) }
+						p Prints 8: \!{ min(10, 2*6, 8) }
 			.caption Example: string interpolations
 
 			pre.code.prettyprint.lang-html
