@@ -1014,6 +1014,10 @@ block vibed.body
 					td Deprecated for 0.8.0 and up (See the #[a(href="#http-https") HTTPS section] instead): Does not use OpenSSL to provide TLS/SSL functionality. The <code>vibe.stream.tls</code> module will be dysfunctional.
 
 				tr
+					td: code VibeUseOpenSSL11
+					td Compiles the TLS module so that it is compatible with the 1.1.x branch of OpenSSL.
+
+				tr
 					td: code VibeUseOldOpenSSL
 					td Disables the use of features introduced in OpenSSL 1.0.1 or later, most notably ECDH curve selection. Use this to link against old versions of the OpenSSL library.
 
