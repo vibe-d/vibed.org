@@ -242,10 +242,9 @@ block vibed.body
 
 			h4 Selecting the TLS provider
 
-			p Two TLS providers are currently supported, OpenSSL and the D port of Botan. By default, OpenSSL is used to provide TLS/HTTPS functionality. To select a different provider, or to avoid compiling with TLS support enabled, the appropriate build configuration of the vibe-d:tls sub package needs to be selected:
+			p Two TLS providers are currently supported, OpenSSL and the D port of Botan. By default, OpenSSL 1.0.x is used to provide TLS/HTTPS functionality. To select a different provider, or to avoid compiling with TLS support enabled, the appropriate build configuration of the vibe-d:tls sub package needs to be selected:
 			pre.code.prettyprint.lang-sdl.
 				dependency "vibe-d:tls" version="*"
-				// use "notls" instead of "botan" to disable TLS support
 				subConfiguration "vibe-d:tls" "botan"
 
 			p When using a JSON based package recipe, the two lines have to be inserted as follows (the "&hellip;" are just placeholders for other possible directives):
@@ -261,6 +260,19 @@ block vibed.body
 						"vibe-d:tls": "botan"
 					}
 				}
+
+			p Available configurations:
+				dl
+					dt none
+					dd Don't compile with TLS support
+					dt openssl
+					dd OpenSSL 1.0.x (default)
+					dt openssl-1.1
+					dd OpenSSL 1.1.x
+					dt openssl-0.9
+					dd OpenSSL 0.9.8
+					dt botan
+					dd D port of Botan
 
 		section
 			h3#http-routing Routing
