@@ -25,9 +25,23 @@ void home(HTTPServerRequest req, HTTPServerResponse res)
 
 void download(HTTPServerRequest req, HTTPServerResponse res)
 {
-	if( auto pf = "file" in req.query ){
-		if( (*pf).startsWith("zipball") ) res.redirect("https://github.com/vibe-d/vibe.d/" ~ *pf);
-		else res.redirect("http://vibed.org/files/" ~ *pf);
+	enum zipball_prefix = "zipball/";
+
+	if (auto pf = "file" in req.query) {
+		auto path = InetPath(*pf).bySegment;
+
+		if (path.front.name == "zipball") {
+			path.popFront();
+			auto fname = path.front.name;
+			path.popFront();
+			if (!path.empty) return; // only accept paths of length 2
+			res.redirect("https://github.com/vibe-d/vibe.d/zipball/" ~ fname);
+		} else {
+			auto fname = path.front.name;
+			path.popFront();
+			if (!path.empty) return; // only accept paths of length 1
+			res.redirect("http://vibed.org/files/" ~ fname);
+		}
 	} else res.render!("download.dt", req);
 }
 
