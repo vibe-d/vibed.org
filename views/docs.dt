@@ -55,7 +55,7 @@ block vibed.body
 	section
 		h2#first-steps First steps
 
-		p First, install the <a href="https://github.com/vibe-d/dub/">DUB package manager</a> to let it handle downloading and building of vibe.d and derived applications. On non-Windows systems, a number of additional dependencies needs to be installed. See the <a href="https://github.com/vibe-d/vibe.d#installation">project description on GitHub</a> for details.
+		p First, install the <a href="https://github.com/dlang/dub">DUB package manager</a> to let it handle downloading and building of vibe.d and derived applications. On non-Windows systems, a number of additional dependencies needs to be installed. See the <a href="https://github.com/vibe-d/vibe.d#installation">project description on GitHub</a> for details.
 
 		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as libevent) and that a version identifier for the used driver is passed to the compiler (e.g. <code>-version=VibeLibeventDriver</code>). Take a look at <a href="https://github.com/vibe-d/vibe.d/blob/master/dub.sdl">vibe.d's dub.sdl</a> to determine how to build on a certain platform, or, alterntaively, run DUB with the <code>-v</code> switch to see the actual compiler command line.
 
