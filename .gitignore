@@ -4,3 +4,11 @@
 /log.txt
 /vibed-org
 /vibed-org.exe
+/public/diskuto*
+
+# bootstrap
+/public/styles/normalize.css
+/public/styles/bootstrap.css
+/public/scripts/bootstrap.js
+/public/fonts/OpenSans*
+/public/fonts/SourceCodePro*
