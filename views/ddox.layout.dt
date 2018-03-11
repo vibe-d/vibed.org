@@ -21,7 +21,8 @@ block vibed.navigation
 		ul
 			- import std.string : indexOf;
 			- import std.algorithm.comparison : min;
-			
+			- import std.algorithm.searching : startsWith;
+
 			- assert(req.path.startsWith("/api"));
 			- auto eidx = indexOf(req.path[4 .. $], "/");
 			- assert(eidx >= 0);
