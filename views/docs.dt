@@ -1051,7 +1051,7 @@ block vibed.body
 
 				tr
 					td: code: del VibeWinrtDriver
-					td: #[del Enables the WinRT based event driver (not yet implemented).] This driver has been removed
+					td #[del Enables the WinRT based event driver (not yet implemented).] This driver has been removed
 
 
 		section
