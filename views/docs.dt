@@ -263,15 +263,15 @@ block vibed.body
 
 			p Available configurations:
 				dl
-					dt none
+					dt: code "notls"
 					dd Don't compile with TLS support
-					dt openssl
+					dt: code "openssl"
 					dd OpenSSL 1.0.x (default)
-					dt openssl-1.1
+					dt: code "openssl-1.1"
 					dd OpenSSL 1.1.x
-					dt openssl-0.9
+					dt: code "openssl-0.9"
 					dd OpenSSL 0.9.8
-					dt botan
+					dt: code "botan"
 					dd D port of Botan
 
 		section
