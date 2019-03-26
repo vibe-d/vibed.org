@@ -296,7 +296,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/args.d",
+		"file": "../vibe-core/source/vibe/core/args.d",
 		"members": [
 			{
 				"constraint": "isOptionValue!T || is(T : E[], E) && isOptionValue!E",
@@ -445,7 +445,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/channel.d",
+		"file": "../vibe-core/source/vibe/core/channel.d",
 		"members": [
 			{
 				"parameters": [
@@ -720,7 +720,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/concurrency.d",
+		"file": "../vibe-core/source/vibe/core/concurrency.d",
 		"members": [
 			{
 				"kind": "import",
@@ -1444,7 +1444,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/connectionpool.d",
+		"file": "../vibe-core/source/vibe/core/connectionpool.d",
 		"members": [
 			{
 				"parameters": [
@@ -1664,7 +1664,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/core.d",
+		"file": "../vibe-core/source/vibe/core/core.d",
 		"members": [
 			{
 				"kind": "import",
@@ -2571,7 +2571,7 @@
 				"char": 6,
 				"name": "vibeVersionString",
 				"deco": "Aya",
-				"init": "\"1.6.1\"",
+				"init": "\"1.6.2\"",
 				"comment": "\tA version string representing the current vibe.d core version\n"
 			},
 			{
@@ -2834,7 +2834,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/file.d",
+		"file": "../vibe-core/source/vibe/core/file.d",
 		"members": [
 			{
 				"parameters": [
@@ -3531,12 +3531,24 @@
 						"storageClass": [
 							"@safe"
 						],
-						"line": 393,
+						"line": 389,
+						"kind": "variable",
+						"char": 7,
+						"name": "isFile",
+						"deco": "b",
+						"offset": 58,
+						"comment": "True if this is a file. On POSIX if both isFile and isDirectory are false it is a special file.\n"
+					},
+					{
+						"storageClass": [
+							"@safe"
+						],
+						"line": 396,
 						"kind": "variable",
 						"char": 7,
 						"name": "hidden",
 						"deco": "b",
-						"offset": 58,
+						"offset": 59,
 						"comment": " True if the file's hidden attribute is set.\n\n\t\tOn systems that don't support a hidden attribute, any file starting with\n\t\ta single dot will be treated as hidden.\n"
 					},
 					{
@@ -3558,13 +3570,13 @@
 				"name": "FileInfo"
 			},
 			{
-				"line": 399,
+				"line": 402,
 				"kind": "enum",
 				"char": 1,
 				"members": [
 					{
 						"kind": "enum member",
-						"line": 401,
+						"line": 404,
 						"char": 2,
 						"value": "0",
 						"comment": "The file is opened read-only.\n",
@@ -3572,7 +3584,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 403,
+						"line": 406,
 						"char": 2,
 						"value": "1",
 						"comment": "The file is opened for read-write random access.\n",
@@ -3580,7 +3592,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 405,
+						"line": 408,
 						"char": 2,
 						"value": "2",
 						"comment": "The file is truncated if it exists or created otherwise and then opened for read-write access.\n",
@@ -3588,7 +3600,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 407,
+						"line": 410,
 						"char": 2,
 						"value": "3",
 						"comment": "The file is opened for appending data to it and created if it does not exist.\n",
@@ -3601,74 +3613,74 @@
 			},
 			{
 				"kind": "struct",
-				"line": 413,
+				"line": 416,
 				"char": 1,
 				"members": [
 					{
-						"line": 446,
+						"line": 449,
 						"kind": "destructor",
 						"char": 2,
 						"name": "~this",
 						"deco": "FNfZv",
 						"endchar": 2,
-						"endline": 450
+						"endline": 453
 					},
 					{
-						"line": 452,
+						"line": 455,
 						"kind": "function",
 						"char": 16,
 						"name": "fd",
 						"deco": "FNdNfZi",
 						"endchar": 45,
-						"endline": 452
+						"endline": 455
 					},
 					{
-						"line": 455,
+						"line": 458,
 						"kind": "function",
 						"originalType": "const @property @safe NativePath()",
 						"char": 23,
 						"name": "path",
 						"deco": "xFNdNfZS4vibe4core4path__T11GenericPathTSQBhQBfQBd15PosixPathFormatZQBq",
 						"endchar": 55,
-						"endline": 455,
-						"comment": "The path of the file.\n"
-					},
-					{
-						"line": 458,
-						"kind": "function",
-						"char": 17,
-						"name": "isOpen",
-						"deco": "xFNdNfZb",
-						"endchar": 65,
 						"endline": 458,
-						"comment": "Determines if the file stream is still open\n"
-					},
-					{
-						"line": 459,
-						"kind": "function",
-						"char": 18,
-						"name": "size",
-						"deco": "xFNbNdNfZm",
-						"endchar": 58,
-						"endline": 459
-					},
-					{
-						"line": 460,
-						"kind": "function",
-						"char": 17,
-						"name": "readable",
-						"deco": "xFNbNdNfZb",
-						"endchar": 80,
-						"endline": 460
+						"comment": "The path of the file.\n"
 					},
 					{
 						"line": 461,
 						"kind": "function",
 						"char": 17,
+						"name": "isOpen",
+						"deco": "xFNdNfZb",
+						"endchar": 65,
+						"endline": 461,
+						"comment": "Determines if the file stream is still open\n"
+					},
+					{
+						"line": 462,
+						"kind": "function",
+						"char": 18,
+						"name": "size",
+						"deco": "xFNbNdNfZm",
+						"endchar": 58,
+						"endline": 462
+					},
+					{
+						"line": 463,
+						"kind": "function",
+						"char": 17,
+						"name": "readable",
+						"deco": "xFNbNdNfZb",
+						"endchar": 80,
+						"endline": 463
+					},
+					{
+						"line": 464,
+						"kind": "function",
+						"char": 17,
 						"name": "writable",
 						"deco": "xFNbNdNfZb",
 						"endchar": 78,
-						"endline": 461
+						"endline": 464
 					},
 					{
 						"constraint": "is(T == bool)",
@@ -3678,30 +3690,30 @@
 								"name": "T"
 							}
 						],
-						"line": 463,
+						"line": 466,
 						"kind": "template",
 						"char": 7,
 						"members": [
 							{
-								"line": 463,
+								"line": 466,
 								"kind": "function",
 								"char": 7,
 								"name": "opCast",
 								"type": "bool()",
 								"endchar": 72,
-								"endline": 463
+								"endline": 466
 							}
 						],
 						"name": "opCast"
 					},
 					{
-						"line": 465,
+						"line": 468,
 						"kind": "function",
 						"char": 7,
 						"name": "takeOwnershipOfFD",
 						"deco": "FNfZv",
 						"endchar": 2,
-						"endline": 468
+						"endline": 471
 					},
 					{
 						"parameters": [
@@ -3710,22 +3722,22 @@
 								"name": "offset"
 							}
 						],
-						"line": 470,
+						"line": 473,
 						"kind": "function",
 						"char": 7,
 						"name": "seek",
 						"deco": "FNfmZv",
 						"endchar": 2,
-						"endline": 473
+						"endline": 476
 					},
 					{
-						"line": 475,
+						"line": 478,
 						"kind": "function",
 						"char": 8,
 						"name": "tell",
 						"deco": "FNbNfZm",
 						"endchar": 41,
-						"endline": 475
+						"endline": 478
 					},
 					{
 						"parameters": [
@@ -3734,59 +3746,59 @@
 								"name": "size"
 							}
 						],
-						"line": 477,
+						"line": 480,
 						"kind": "function",
 						"char": 7,
 						"name": "truncate",
 						"deco": "FNfmZv",
 						"endchar": 2,
-						"endline": 484
+						"endline": 487
 					},
 					{
-						"line": 487,
+						"line": 490,
 						"kind": "function",
 						"char": 7,
 						"name": "close",
 						"deco": "FNfZv",
 						"endchar": 2,
-						"endline": 495,
+						"endline": 498,
 						"comment": "Closes the file handle.\n"
 					},
 					{
-						"line": 497,
+						"line": 500,
 						"kind": "function",
 						"char": 17,
 						"name": "empty",
 						"deco": "xFNdNfZb",
 						"endchar": 84,
-						"endline": 497
+						"endline": 500
 					},
 					{
-						"line": 498,
+						"line": 501,
 						"kind": "function",
 						"char": 18,
 						"name": "leastSize",
 						"deco": "xFNdNfZm",
 						"endchar": 88,
-						"endline": 498
+						"endline": 501
 					},
 					{
-						"line": 499,
+						"line": 502,
 						"kind": "function",
 						"char": 17,
 						"name": "dataAvailableForRead",
 						"deco": "FNdNfZb",
 						"endchar": 55,
-						"endline": 499
+						"endline": 502
 					},
 					{
-						"line": 501,
+						"line": 504,
 						"kind": "function",
 						"char": 17,
 						"name": "peek",
 						"deco": "FNfZAxh",
 						"endchar": 2,
-						"endline": 504
+						"endline": 507
 					},
 					{
 						"parameters": [
@@ -3799,14 +3811,14 @@
 								"name": "mode"
 							}
 						],
-						"line": 506,
+						"line": 509,
 						"kind": "function",
 						"originalType": "@safe size_t(ubyte[] dst, IOMode mode)",
 						"char": 9,
 						"name": "read",
 						"deco": "FNfAhE9eventcore6driver6IOModeZm",
 						"endchar": 2,
-						"endline": 515
+						"endline": 518
 					},
 					{
 						"parameters": [
@@ -3815,13 +3827,13 @@
 								"name": "dst"
 							}
 						],
-						"line": 517,
+						"line": 520,
 						"kind": "function",
 						"char": 7,
 						"name": "read",
 						"deco": "FNfAhZv",
 						"endchar": 2,
-						"endline": 521
+						"endline": 524
 					},
 					{
 						"parameters": [
@@ -3834,14 +3846,14 @@
 								"name": "mode"
 							}
 						],
-						"line": 523,
+						"line": 526,
 						"kind": "function",
 						"originalType": "@safe size_t(in ubyte[] bytes, IOMode mode)",
 						"char": 9,
 						"name": "write",
 						"deco": "FNfxAhE9eventcore6driver6IOModeZm",
 						"endchar": 2,
-						"endline": 533
+						"endline": 536
 					},
 					{
 						"parameters": [
@@ -3850,14 +3862,14 @@
 								"name": "bytes"
 							}
 						],
-						"line": 535,
+						"line": 538,
 						"kind": "function",
 						"originalType": "@safe void(in ubyte[] bytes)",
 						"char": 7,
 						"name": "write",
 						"deco": "FNfxAhZv",
 						"endchar": 2,
-						"endline": 538
+						"endline": 541
 					},
 					{
 						"parameters": [
@@ -3866,14 +3878,14 @@
 								"name": "bytes"
 							}
 						],
-						"line": 540,
+						"line": 543,
 						"kind": "function",
 						"originalType": "@safe void(in char[] bytes)",
 						"char": 7,
 						"name": "write",
 						"deco": "FNfxAaZv",
 						"endchar": 2,
-						"endline": 543
+						"endline": 546
 					},
 					{
 						"constraint": "isInputStream!InputStream",
@@ -3883,7 +3895,7 @@
 								"name": "InputStream"
 							}
 						],
-						"line": 545,
+						"line": 548,
 						"kind": "template",
 						"char": 7,
 						"members": [
@@ -3899,34 +3911,34 @@
 										"name": "nbytes"
 									}
 								],
-								"line": 545,
+								"line": 548,
 								"kind": "function",
 								"char": 7,
 								"name": "write",
 								"type": "void(InputStream stream, ulong nbytes = (ulong).max)",
 								"endchar": 2,
-								"endline": 549
+								"endline": 552
 							}
 						],
 						"name": "write"
 					},
 					{
-						"line": 551,
+						"line": 554,
 						"kind": "function",
 						"char": 7,
 						"name": "flush",
 						"deco": "FNfZv",
 						"endchar": 2,
-						"endline": 554
+						"endline": 557
 					},
 					{
-						"line": 556,
+						"line": 559,
 						"kind": "function",
 						"char": 7,
 						"name": "finalize",
 						"deco": "FNfZv",
 						"endchar": 2,
-						"endline": 559
+						"endline": 562
 					},
 					{
 						"parameters": [
@@ -3935,7 +3947,7 @@
 								"name": "p"
 							}
 						],
-						"line": 413,
+						"line": 416,
 						"kind": "generated function",
 						"char": 1,
 						"name": "opAssign",
@@ -3948,42 +3960,42 @@
 			{
 				"kind": "mixin",
 				"char": 1,
-				"line": 564,
+				"line": 567,
 				"name": "validateRandomAccessStream!(FileStream)"
 			},
 			{
 				"kind": "struct",
-				"line": 605,
+				"line": 608,
 				"char": 1,
 				"members": [
 					{
-						"line": 656,
+						"line": 659,
 						"kind": "destructor",
 						"char": 2,
 						"name": "~this",
 						"deco": "FNbNfZv",
 						"endchar": 2,
-						"endline": 660
+						"endline": 663
 					},
 					{
-						"line": 663,
+						"line": 666,
 						"kind": "function",
 						"originalType": "const nothrow @property @safe NativePath()",
 						"char": 23,
 						"name": "path",
 						"deco": "xFNbNdNfZS4vibe4core4path__T11GenericPathTSQBhQBfQBd15PosixPathFormatZQBq",
 						"endchar": 69,
-						"endline": 663,
+						"endline": 666,
 						"comment": "The path of the watched directory\n"
 					},
 					{
-						"line": 666,
+						"line": 669,
 						"kind": "function",
 						"char": 17,
 						"name": "recursive",
 						"deco": "xFNbNdNfZb",
 						"endchar": 73,
-						"endline": 666,
+						"endline": 669,
 						"comment": "Indicates if the directory is watched recursively\n"
 					},
 					{
@@ -4001,14 +4013,14 @@
 								"name": "timeout"
 							}
 						],
-						"line": 682,
+						"line": 685,
 						"kind": "function",
 						"originalType": "@safe bool(ref DirectoryChange[] dst, Duration timeout = Duration.max)",
 						"char": 7,
 						"name": "readChanges",
 						"deco": "FNfKAS4vibe4core4file15DirectoryChangeSQBc4time8DurationZb",
 						"endchar": 2,
-						"endline": 701,
+						"endline": 704,
 						"comment": " Fills the destination array with all changes that occurred since the last call.\n\n\t\tThe function will block until either directory changes have occurred or until the\n\t\ttimeout has elapsed. Specifying a negative duration will cause the function to\n\t\twait without a timeout.\n\n\t\tParams:\n\t\t\tdst = The destination array to which the changes will be appended\n\t\t\ttimeout = Optional timeout for the read operation. A value of\n\t\t\t\t`Duration.max` will wait indefinitely.\n\n\t\tReturns:\n\t\t\tIf the call completed successfully, true is returned.\n"
 					},
 					{
@@ -4018,7 +4030,7 @@
 								"name": "p"
 							}
 						],
-						"line": 605,
+						"line": 608,
 						"kind": "generated function",
 						"char": 1,
 						"name": "opAssign",
@@ -4029,13 +4041,13 @@
 				"name": "DirectoryWatcher"
 			},
 			{
-				"line": 707,
+				"line": 710,
 				"kind": "enum",
 				"char": 1,
 				"members": [
 					{
 						"kind": "enum member",
-						"line": 709,
+						"line": 712,
 						"char": 2,
 						"value": "0",
 						"comment": "A file or directory was added\n",
@@ -4043,7 +4055,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 711,
+						"line": 714,
 						"char": 2,
 						"value": "1",
 						"comment": "A file or directory was deleted\n",
@@ -4051,7 +4063,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 713,
+						"line": 716,
 						"char": 2,
 						"value": "2",
 						"comment": "A file or directory was modified\n",
@@ -4064,14 +4076,14 @@
 			},
 			{
 				"kind": "struct",
-				"line": 719,
+				"line": 722,
 				"char": 1,
 				"members": [
 					{
 						"storageClass": [
 							"@safe"
 						],
-						"line": 721,
+						"line": 724,
 						"kind": "variable",
 						"char": 22,
 						"name": "type",
@@ -4083,7 +4095,7 @@
 						"storageClass": [
 							"@safe"
 						],
-						"line": 724,
+						"line": 727,
 						"kind": "variable",
 						"originalType": "NativePath",
 						"char": 13,
@@ -4102,7 +4114,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/internal/release.d",
+		"file": "../vibe-core/source/vibe/core/internal/release.d",
 		"members": [
 			{
 				"parameters": [
@@ -4148,7 +4160,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/log.d",
+		"file": "../vibe-core/source/vibe/core/log.d",
 		"members": [
 			{
 				"parameters": [
@@ -5907,7 +5919,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/net.d",
+		"file": "../vibe-core/source/vibe/core/net.d",
 		"members": [
 			{
 				"parameters": [
@@ -7516,7 +7528,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/path.d",
+		"file": "../vibe-core/source/vibe/core/path.d",
 		"members": [
 			{
 				"constraint": "isInstanceOf!(GenericPath, Path)",
@@ -9203,7 +9215,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/stream.d",
+		"file": "../vibe-core/source/vibe/core/stream.d",
 		"members": [
 			{
 				"kind": "import",
@@ -9991,7 +10003,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/sync.d",
+		"file": "../vibe-core/source/vibe/core/sync.d",
 		"members": [
 			{
 				"line": 34,
@@ -11450,7 +11462,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/task.d",
+		"file": "../vibe-core/source/vibe/core/task.d",
 		"members": [
 			{
 				"kind": "struct",
@@ -11521,27 +11533,27 @@
 						"name": "running",
 						"deco": "xFNbNdNeZb",
 						"endchar": 3,
-						"endline": 79,
+						"endline": 81,
 						"comment": " Determines if the task is still running or scheduled to be run.\n"
 					},
 					{
-						"line": 87,
+						"line": 89,
 						"kind": "function",
 						"char": 17,
 						"name": "tid",
 						"deco": "FNbNdNeZS3std11concurrency3Tid",
 						"endchar": 56,
-						"endline": 87,
+						"endline": 89,
 						"comment": " Gets the `Tid` associated with this task for use with\n\t\t\t`std.concurrency`.\n"
 					},
 					{
-						"line": 89,
+						"line": 91,
 						"kind": "function",
 						"char": 24,
 						"name": "tid",
 						"deco": "xFNbNdNeZxS3std11concurrency3Tid",
 						"endchar": 69,
-						"endline": 89,
+						"endline": 91,
 						"comment": "ditto\n"
 					},
 					{
@@ -11552,57 +11564,57 @@
 								"name": "T"
 							}
 						],
-						"line": 92,
+						"line": 94,
 						"kind": "template",
 						"char": 4,
 						"members": [
 							{
-								"line": 92,
+								"line": 94,
 								"kind": "function",
 								"char": 4,
 								"name": "opCast",
 								"type": "const nothrow @safe T()",
 								"endchar": 82,
-								"endline": 92
+								"endline": 94
 							}
 						],
 						"name": "opCast"
 					},
 					{
-						"line": 94,
+						"line": 96,
 						"kind": "function",
 						"char": 7,
 						"name": "join",
 						"deco": "FNeZv",
 						"endchar": 74,
-						"endline": 94
+						"endline": 96
 					},
 					{
-						"line": 95,
+						"line": 97,
 						"kind": "function",
 						"char": 7,
 						"name": "joinUninterruptible",
 						"deco": "FNbNeZv",
 						"endchar": 98,
-						"endline": 95
+						"endline": 97
 					},
 					{
-						"line": 96,
+						"line": 98,
 						"kind": "function",
 						"char": 7,
 						"name": "interrupt",
 						"deco": "FNbNeZv",
 						"endchar": 87,
-						"endline": 96
+						"endline": 98
 					},
 					{
-						"line": 98,
+						"line": 100,
 						"kind": "function",
 						"char": 9,
 						"name": "toString",
 						"deco": "xFNfZAya",
 						"endchar": 139,
-						"endline": 98
+						"endline": 100
 					},
 					{
 						"parameters": [
@@ -11611,7 +11623,7 @@
 								"name": "R"
 							}
 						],
-						"line": 100,
+						"line": 102,
 						"kind": "template",
 						"char": 7,
 						"members": [
@@ -11625,25 +11637,25 @@
 										"name": "dst"
 									}
 								],
-								"line": 100,
+								"line": 102,
 								"kind": "function",
 								"char": 7,
 								"name": "getDebugID",
 								"type": "void(ref R dst)",
 								"endchar": 2,
-								"endline": 117
+								"endline": 119
 							}
 						],
 						"name": "getDebugID"
 					},
 					{
-						"line": 118,
+						"line": 120,
 						"kind": "function",
 						"char": 9,
 						"name": "getDebugID",
 						"deco": "FNeZAya",
 						"endchar": 2,
-						"endline": 124
+						"endline": 126
 					},
 					{
 						"parameters": [
@@ -11655,14 +11667,14 @@
 								"name": "other"
 							}
 						],
-						"line": 126,
+						"line": 128,
 						"kind": "function",
 						"originalType": "const nothrow @safe bool(ref Task other)",
 						"char": 7,
 						"name": "opEquals",
 						"deco": "xFNbNfKxS4vibe4core4task4TaskZb",
 						"endchar": 130,
-						"endline": 126
+						"endline": 128
 					},
 					{
 						"parameters": [
@@ -11671,14 +11683,14 @@
 								"name": "other"
 							}
 						],
-						"line": 127,
+						"line": 129,
 						"kind": "function",
 						"originalType": "const nothrow @safe bool(in Task other)",
 						"char": 7,
 						"name": "opEquals",
 						"deco": "xFNbNfxS4vibe4core4task4TaskZb",
 						"endchar": 126,
-						"endline": 127
+						"endline": 129
 					}
 				],
 				"comment": " Represents a single task as started using vibe.core.runTask.\n\n\tNote that the Task type is considered weakly isolated and thus can be\n\tpassed between threads using vibe.core.concurrency.send or by passing\n\tit as a parameter to vibe.core.core.runWorkerTask.\n",
@@ -11691,7 +11703,7 @@
 						"name": "T"
 					}
 				],
-				"line": 167,
+				"line": 169,
 				"kind": "template",
 				"char": 1,
 				"members": [
@@ -11700,7 +11712,7 @@
 						"char": 1,
 						"members": [
 							{
-								"line": 170,
+								"line": 172,
 								"kind": "variable",
 								"char": 10,
 								"name": "m_offset",
@@ -11711,18 +11723,18 @@
 								"kind": "variable",
 								"type": "size_t",
 								"char": 10,
-								"line": 171,
+								"line": 173,
 								"name": "m_id"
 							},
 							{
 								"kind": "variable",
 								"type": "T",
 								"char": 5,
-								"line": 172,
+								"line": 174,
 								"name": "m_initValue"
 							},
 							{
-								"line": 173,
+								"line": 175,
 								"kind": "variable",
 								"char": 8,
 								"name": "m_hasInitValue",
@@ -11736,13 +11748,13 @@
 										"name": "init_val"
 									}
 								],
-								"line": 176,
+								"line": 178,
 								"kind": "constructor",
 								"char": 2,
 								"name": "this",
 								"type": "(T init_val)",
 								"endchar": 68,
-								"endline": 176
+								"endline": 178
 							},
 							{
 								"parameters": [
@@ -11751,25 +11763,25 @@
 										"name": "value"
 									}
 								],
-								"line": 180,
+								"line": 182,
 								"kind": "function",
 								"char": 7,
 								"name": "opAssign",
 								"type": "void(T value)",
 								"endchar": 49,
-								"endline": 180
+								"endline": 182
 							},
 							{
-								"line": 182,
+								"line": 184,
 								"kind": "function",
 								"char": 18,
 								"name": "storage",
 								"type": "@property ref @safe T()",
 								"endchar": 2,
-								"endline": 245
+								"endline": 247
 							}
 						],
-						"line": 167,
+						"line": 169,
 						"name": "TaskLocal"
 					}
 				],
@@ -11777,33 +11789,33 @@
 				"comment": "\tImplements a task local storage variable.\n\n\tTask local variables, similar to thread local variables, exist separately\n\tin each task. Consequently, they do not need any form of synchronization\n\twhen accessing them.\n\n\tNote, however, that each TaskLocal variable will increase the memory footprint\n\tof any task that uses task local storage. There is also an overhead to access\n\tTaskLocal variables, higher than for thread local variables, but generelly\n\tstill O(1) (since actual storage acquisition is done lazily the first access\n\tcan require a memory allocation with unknown computational costs).\n\n\tNotice:\n\t\tFiberLocal instances MUST be declared as static/global thread-local\n\t\tvariables. Defining them as a temporary/stack variable will cause\n\t\tcrashes or data corruption!\n\n\tExamples:\n\t\t---\n\t\tTaskLocal!string s_myString = \"world\";\n\n\t\tvoid taskFunc()\n\t\t{\n\t\t\tassert(s_myString == \"world\");\n\t\t\ts_myString = \"hello\";\n\t\t\tassert(s_myString == \"hello\");\n\t\t}\n\n\t\tshared static this()\n\t\t{\n\t\t\t// both tasks will get independent storage for s_myString\n\t\t\trunTask(&taskFunc);\n\t\t\trunTask(&taskFunc);\n\t\t}\n\t\t---\n"
 			},
 			{
-				"line": 253,
+				"line": 255,
 				"kind": "class",
 				"char": 1,
 				"base": "object.Exception",
 				"members": [
 					{
-						"line": 254,
+						"line": 256,
 						"kind": "constructor",
 						"originalType": "nothrow @safe ()",
 						"char": 2,
 						"name": "this",
 						"deco": "FNbNfZC4vibe4core4task18InterruptException",
 						"endchar": 2,
-						"endline": 257
+						"endline": 259
 					}
 				],
 				"name": "InterruptException",
 				"comment": " Exception that is thrown by Task.interrupt.\n"
 			},
 			{
-				"line": 263,
+				"line": 265,
 				"kind": "enum",
 				"char": 1,
 				"members": [
 					{
 						"kind": "enum member",
-						"line": 264,
+						"line": 266,
 						"char": 2,
 						"value": "0",
 						"comment": "Just about to invoke the fiber which starts execution\n",
@@ -11811,7 +11823,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 265,
+						"line": 267,
 						"char": 2,
 						"value": "1",
 						"comment": "After the fiber has returned for the first time (by yield or exit)\n",
@@ -11819,7 +11831,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 266,
+						"line": 268,
 						"char": 2,
 						"value": "2",
 						"comment": "Just about to start execution\n",
@@ -11827,7 +11839,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 267,
+						"line": 269,
 						"char": 2,
 						"value": "3",
 						"comment": "Temporarily paused\n",
@@ -11835,7 +11847,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 268,
+						"line": 270,
 						"char": 2,
 						"value": "4",
 						"comment": "Resumed from a prior yield\n",
@@ -11843,7 +11855,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 269,
+						"line": 271,
 						"char": 2,
 						"value": "5",
 						"comment": "Ended normally\n",
@@ -11851,7 +11863,7 @@
 					},
 					{
 						"kind": "enum member",
-						"line": 270,
+						"line": 272,
 						"char": 2,
 						"value": "6",
 						"comment": "Ended with an exception\n",
@@ -11867,7 +11879,7 @@
 				"char": 1,
 				"members": [
 					{
-						"line": 274,
+						"line": 276,
 						"kind": "variable",
 						"char": 7,
 						"name": "handle",
@@ -11875,7 +11887,7 @@
 						"offset": 0
 					},
 					{
-						"line": 275,
+						"line": 277,
 						"kind": "variable",
 						"char": 15,
 						"name": "functionPointer",
@@ -11883,28 +11895,28 @@
 						"offset": 16
 					}
 				],
-				"line": 273,
+				"line": 275,
 				"name": "TaskCreationInfo"
 			},
 			{
 				"kind": "alias",
 				"deco": "PFNbE4vibe4core4task9TaskEventSQBaQyQv4TaskZv",
 				"char": 1,
-				"line": 278,
+				"line": 280,
 				"name": "TaskEventCallback"
 			},
 			{
 				"kind": "alias",
 				"deco": "PFNbNfKS4vibe4core4task16TaskCreationInfoZv",
 				"char": 1,
-				"line": 279,
+				"line": 281,
 				"name": "TaskCreationCallback"
 			},
 			{
 				"storageClass": [
 					"enum"
 				],
-				"line": 286,
+				"line": 288,
 				"kind": "variable",
 				"char": 6,
 				"name": "maxTaskParameterSize",
@@ -11918,7 +11930,7 @@
 	},
 	{
 		"kind": "module",
-		"file": "../../.dub/packages/vibe-core-1.6.1/vibe-core/source/vibe/core/taskpool.d",
+		"file": "../vibe-core/source/vibe/core/taskpool.d",
 		"members": [
 			{
 				"kind": "class",
@@ -36675,7 +36687,7 @@
 						"char": 9,
 						"name": "serverString",
 						"deco": "Aya",
-						"init": "\"vibe.d/1.6.1\"",
+						"init": "\"vibe.d/1.6.2\"",
 						"offset": 144
 					},
 					{
