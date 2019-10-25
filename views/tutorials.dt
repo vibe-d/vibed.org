@@ -122,6 +122,7 @@ block vibed.body
 
 		section.tutorial
 			h3 Containerize Your D Server Application
+			img(src="images/tutorials/containerize-your-d-server-application.png", alt="Docker logo")
 			.contents
 				p This blog post by Kai Nacke explains the steps necessary to build an Ubuntu based Docker image of a vibe.d server application.
 
