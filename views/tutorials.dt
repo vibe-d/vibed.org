@@ -113,14 +113,19 @@ block vibed.body
 		h2 Deployment
 
 		section.tutorial
-			h3 4 Simple Steps to Run D Language in Azure Websites
-			img(src="images/tutorials/simple-steps-azure.png", alt="Azure logo")
+			h3 Deploy on Heroku
+			img(src="images/tutorials/deploy-on-heroku.png", alt="Heroku logo")
 			.contents
-				p Goes through the steps necessary to deploy a vibe.d app to the Microsoft Azure cloud.
+				p This short article is part of the DLang Tour and goes from zero to a running Heroku based web app
 
-				p Update: Appears that the domain has been sold
+				p: a(href="https://tour.dlang.org/tour/en/vibed/deploy-on-heroku") Read more
 
-				p: a(href="http://www.codestrokes.com/2015/09/deploying-d-to-azure-webapp/") Read more
+		section.tutorial
+			h3 Containerize Your D Server Application
+			.contents
+				p This blog post by Kai Nacke explains the steps necessary to build an Ubuntu based Docker image of a vibe.d server application.
+
+				p: a(href="https://dlang.org/blog/2019/03/14/containerize-your-d-server-application/") Read more
 
 		section.tutorial
 			h3 Setting up Nginx as a reverse proxy
@@ -129,3 +134,13 @@ block vibed.body
 				p Presents a short configuration example for how to use Nginx as a reverse proxy in front of a vibe.d application.
 
 				p: a(href="https://github.com/vibe-d/vibe.d/wiki/Setting-up-Nginx-as-a-reverse-proxy") Read more
+
+		section.tutorial
+			h3 4 Simple Steps to Run D Language in Azure Websites
+			img(src="images/tutorials/simple-steps-azure.png", alt="Azure logo")
+			.contents
+				p Goes through the steps necessary to deploy a vibe.d app to the Microsoft Azure cloud.
+
+				p Update: Appears that the domain has been sold; the link now points to web.archive.org
+
+				p: a(href="http://web.archive.org/web/20161005051730/http://www.codestrokes.com/2015/09/deploying-d-to-azure-webapp/") Read more
