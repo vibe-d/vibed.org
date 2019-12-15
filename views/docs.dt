@@ -109,7 +109,7 @@ block vibed.body
 				res.<a href="api/vibe.http.server/render">render</a>!("index.dt", req);
 			}
 
-			shared static this()
+			void main()
 			{
 				auto router = new <a href="api/vibe.http.router/URLRouter">URLRouter</a>;
 				router.get("/", &amp;index);
@@ -118,6 +118,8 @@ block vibed.body
 				settings.port = 8080;
 
 				<a href="api/vibe.http.server/listenHTTP">listenHTTP</a>(settings, router);
+
+				<a href="api/vibe.core.core/runApplication">runApplication</a>();
 			}
 		.caption Simple app.d file with minimal routing
 
@@ -216,7 +218,7 @@ block vibed.body
 							res.<a href="api/vibe.http.server/render">render</a>!("error.dt", req, error);
 						}
 
-						shared static this()
+						void main()
 						{
 							auto settings = new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>;
 							settings.<a href="api/vibe.http.server/HTTPServerSettings.errorPageHandler">errorPageHandler</a> = toDelegate(&amp;errorPage);
@@ -298,7 +300,7 @@ block vibed.body
 					res.<a href="api/vibe.http.server/HTTPServerResponse.redirect">redirect</a>("/users/"~req.form["user"]);
 				}
 
-				shared static this()
+				void main()
 				{
 					auto router = new <a href="api/vibe.http.router/URLRouter">URLRouter</a>;
 					router.get("/users/:user", &amp;userInfo);
@@ -313,6 +315,8 @@ block vibed.body
 						.get("*", serveStaticFiles("./public/"));
 
 					<a href="api/vibe.http.server/listenHTTP">listenHTTP</a>(new <a href="api/vibe.http.server/HTTPServerSettings">HTTPServerSettings</a>, router);
+
+					<a href="api/vibe.core.core/runApplication">runApplication</a>();
 				}
 			.caption Example: GET/POST routing and static file serving
 
@@ -393,7 +397,7 @@ block vibed.body
 					return user == "admin" &amp;&amp; password == "secret";
 				}
 
-				shared static this()
+				void main()
 				{
 					auto router = new URLRouter;
 					// the following two routes are accessible without authentication:
@@ -461,7 +465,7 @@ block vibed.body
 						res.redirect("/");
 				}
 
-				shared static this()
+				void main()
 				{
 					auto router = new URLRouter;
 					router.get("/", staticTemplate!"index.dt");
@@ -547,7 +551,7 @@ block vibed.body
 				import vibe.http.server;
 				import vibe.web.web;
 
-				shared static this()
+				void main()
 				{
 					auto router = new URLRouter;
 					router.<a href="api/vibe.web.web/registerWebInterface">registerWebInterface</a>(new WebInterface);
@@ -701,7 +705,7 @@ block vibed.body
 					@property string location() { return m_location; }
 				}
 
-				shared static this()
+				void main()
 				{
 					auto router = new URLRouter;
 					router.<a href="api/vibe.web.rest/registerRestInterface">registerRestInterface</a>(new MyAPIImplementation);
@@ -718,6 +722,8 @@ block vibed.body
 						client.location = "Paris";
 						logInfo("Location: %s", client.location);
 					});
+
+					runApplication();
 				}
 
 
@@ -743,18 +749,14 @@ block vibed.body
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
 
-				MongoClient client;
-
-				void test()
+				void main()
 				{
+					MongoClient client = connectMongoDB("127.0.0.1");
+
 					auto coll = client.getCollection("test.collection");
+
 					foreach (doc; coll.find(["name": "Peter"]))
 						logInfo("Found entry: %s", doc.toJson());
-				}
-
-				shared static this()
-				{
-					client = connectMongoDB("127.0.0.1");
 				}
 			.caption Example: Finding entries in a MongoDB
 
@@ -791,9 +793,10 @@ block vibed.body
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
 
-				shared static this()
+				void main()
 				{
-					listenTCP(7, (conn){ conn.write(conn) });
+					listenTCP(7, (conn) { conn.write(conn) });
+					runApplication();
 				}
 
 			p Calling
@@ -803,9 +806,10 @@ block vibed.body
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
 
-				shared static this()
+				void main()
 				{
 					listenTCP(7, conn =&gt; conn.write(conn), "127.0.0.1");
+					runApplication();
 				}
 
 			p The address can be given as either an IPv4 or an IPv6 address string.
@@ -822,7 +826,7 @@ block vibed.body
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
 
-				shared static this()
+				void main()
 				{
 					auto conn = connectTCP("time-c.nist.gov", 13);
 					logInfo("The time is: %s", conn.readAllUTF8());
@@ -849,7 +853,7 @@ block vibed.body
 			import core.time;
 
 
-			shared static this()
+			void main()
 			{
 				runTask({
 					auto udp_listener = listenUDP(1234);
@@ -868,6 +872,8 @@ block vibed.body
 						udp_sender.send(cast(ubyte[])"Hello, World!");
 					}
 				});
+
+				runApplication();
 			}
 		.caption Example: Simple UDP based communication on localhost
 
@@ -920,22 +926,17 @@ block vibed.body
 		section
 			h3#custom-main The main function
 
-			p To simplify development of server-like applications that are command line based and run an event loop, vibe.d includes a default application entry point (<code>main()</code>). To use it, define the version <code>VibeDefaultMain</code> when building the project. This can be done by simply adding the following entry to your package description file: <code>"versions": ["VibeDefaultMain"]</code>
+			p To simplify development of server-like applications that are command line based and run an event loop, vibe.d includes a default application entry point (<code>main()</code>). To use it, define the version <code>VibeDefaultMain</code> when building the project. This can be done by simply adding the following entry to your package description file: <code>"versions": ["VibeDefaultMain"]</code>. However, note that for new applications it is recommended to define a regular `main` function instead and call <a href="api/vibe.core.core/runApplication"><code>runApplication</code></a> to initialize and run the vibe.d event loop.
 
-			p When writing a pure command line client application, maybe something like <a href="https://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control over how the application gets initialized and at which point the event loop is started. To support such usage scenarios, you can implement your own program entry function instead.
-
-			p(style="color: red") Note: Projects that have their own program entry point currently, due to a transition process, also need to define a <code>VibeCustomMain</code> version instead of <code>VibeDefaultMain</code>. This requirement will be lifted in a later version of vibe.d.
+			p When writing a pure command line client application, maybe something like <a href="https://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. In this case, vibe.d will automatically run a temporary event loop as long as any blocking operation is in progress, so that no explicit <code>runApplication</code> or <code>runEventLoop</code> calls are necessary.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
 
 				void main()
 				{
-					// returns false if a help screen has been requested and displayed (--help)
-					if (!finalizeCommandLineOptions())
-						return;
-					lowerPrivileges();
-					runEventLoop();
+					// ... perform setup here ...
+					runApplication();
 				}
 			.caption Example: Simple custom main function that runs an event loop.
 
