@@ -102,7 +102,7 @@ block vibed.body
 		p For a simple web application, the 'app.d' file could look similar to this one:
 
 		pre.code.prettyprint.lang-d.
-			import vibe.d;
+			import vibe.vibe;
 
 			void index(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 			{
@@ -286,7 +286,7 @@ block vibed.body
 				| class (e.g. <a href="api/vibe.http.router/URLRouter.get"><code class="prettyprint">get</code></a> or <a href="api/vibe.http.router/URLRouter.post"><code class="prettyprint">post</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder, see <a href="api/vibe.http.fileserver/serveStaticFiles"><code class="prettyprint.lang-d">serveStaticFiles</code></a>.
 
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void userInfo(<a href="api/vibe.http.server/HTTPServerRequest">HTTPServerRequest</a> req, <a href="api/vibe.http.server/HTTPServerResponse">HTTPServerResponse</a> res)
 				{
@@ -390,7 +390,7 @@ block vibed.body
 			p Note that it is generally recommended to make use of the <a href="#web">high level web framework</a> when developing web application front ends. See the <a href="https://github.com/vibe-d/vibe.d/tree/master/examples/web">"web" example project</a> for a way to implement session based authentication in such a setting.
 
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				bool checkPassword(string user, string password)
 				{
@@ -437,7 +437,7 @@ block vibed.body
 				| object behaves as a key value store taking strings as keys and values.
 
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void login(HTTPServerRequest req, HTTPServerResponse res)
 				{
@@ -747,7 +747,7 @@ block vibed.body
 				| contains the documentation for the driver.
 
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void main()
 				{
@@ -791,7 +791,7 @@ block vibed.body
 				| function. An implementation of a very simple echo server could look like this:
 
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void main()
 				{
@@ -804,7 +804,7 @@ block vibed.body
 					code.prettyprint.lang-d listenTCP
 				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void main()
 				{
@@ -824,7 +824,7 @@ block vibed.body
 				a.extern(href="https://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
 				|.
 			pre.code.prettyprint.lang-d.
-				import vibe.d;
+				import vibe.vibe;
 
 				void main()
 				{
