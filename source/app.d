@@ -9,7 +9,7 @@ version (Have_vibelog) {
 	VibeLogController s_vibelog;
 }
 
-string s_latestVersion = "0.7.23"; // updated at run time by searching for download files
+string s_latestVersion = "0.8.6"; // updated at run time by searching for download files
 URLRouter s_router;
 
 void home(HTTPServerRequest req, HTTPServerResponse res)
@@ -40,7 +40,7 @@ void download(HTTPServerRequest req, HTTPServerResponse res)
 			auto fname = path.front.name;
 			path.popFront();
 			if (!path.empty) return; // only accept paths of length 1
-			res.redirect("http://vibed.org/files/" ~ fname);
+			res.redirect("https://vibed.org/files/" ~ fname);
 		}
 	} else res.render!("download.dt", req);
 }
@@ -88,8 +88,8 @@ version(Have_ddox)
 
 				auto docsettings = new GeneratorSettings;
 				docsettings.navigationType = NavigationType.ModuleTree;
-				if (!ver.length) docsettings.siteUrl = URL("http://vibed.org/api");
-				else docsettings.siteUrl = URL("http://vibed.org/api-"~ver);
+				if (!ver.length) docsettings.siteUrl = URL("https://vibed.org/api");
+				else docsettings.siteUrl = URL("https://vibed.org/api-"~ver);
 				registerApiDocs(s_router, pack, docsettings);
 			} catch( Exception e ){
 				logError("Error loading docs: %s", e.toString());
@@ -136,7 +136,7 @@ void redirectDlangDocs(HTTPServerRequest req, HTTPServerResponse res)
 			path = req.path[p.length .. $];
 			break;
 		}
-	res.redirect("http://dlang.org/library/"~path, HTTPStatus.movedPermanently);
+	res.redirect("https://dlang.org/library/"~path, HTTPStatus.movedPermanently);
 }
 
 void main()
@@ -186,7 +186,7 @@ void main()
 		auto blogsettings = new VibeLogSettings;
 		blogsettings.configName = "vibe.d";
 		blogsettings.databaseURL = "mongodb://127.0.0.1/vibelog";
-		blogsettings.siteURL = URL("http://vibed.org/blog/");
+		blogsettings.siteURL = URL("https://vibed.org/blog/");
 		blogsettings.textFilters ~= toDelegate(&prettifyFilter);
 		blogsettings.showFullPostsInPostList = false;
 		blogsettings.maxRecentPosts = 100;
