@@ -41,7 +41,7 @@ block vibed.body
 
 				p: a(href="https://vibed.org/blog/posts/a-scalable-chat-room-service-in-d") Read more
 
-				p There is also a similar tutorial by Charles Smith, using lower level APIs and without a database: #[a(href="http://wiki.dlang.org/User:Csmith1991/Vibe.d_Documentation/websocket") WebSocket example]
+				p There is also a similar tutorial by Charles Smith, using lower level APIs and without a database: #[a(href="https://wiki.dlang.org/User:Csmith1991/Vibe.d_Documentation/websocket") WebSocket example]
 
 		section.tutorial
 			h3 vibe.d's example projects
@@ -84,21 +84,21 @@ block vibed.body
 
 				ul
 					li
-						a(href="http://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/03/part-1-what-is-vibed-after-all.html") A brief overview of what vibe.d is and is trying to achieve
+						a(href="https://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/03/part-1-what-is-vibed-after-all.html") A brief overview of what vibe.d is and is trying to achieve
 						span.date Mar 13, 2013
 					li
-						a(href="http://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/04/part-4-functionality-overview.html") A walkthrough of the functionality contained in the vibe.d library
+						a(href="https://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/04/part-4-functionality-overview.html") A walkthrough of the functionality contained in the vibe.d library
 						| (slightly outdated and most importantly misses the <a href="http://vibed.org/docs#web">web framework</a>!)
 						span.date Apr 4, 2013
 					li
-						a(href="http://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application.html") Server and development environment setup
+						a(href="https://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application.html") Server and development environment setup
 						| (the installation procedure is simplified nowadays by using <a href="http://code.dlang.org">DUB</a>)
 						span.date Jul 4, 2013
 					li
-						a(href="http://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application-app.html") Setting up a meaningful web app with user interaction
+						a(href="https://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/07/setting-up-simple-vibed-application-app.html") Setting up a meaningful web app with user interaction
 						span.date Jul 4, 2013
 					li
-						a(href="http://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/04/part-5-vibehttprest-in-details.html") A quick introduction to the REST interface generator
+						a(href="https://web.archive.org/web/20160112110806/http://dicebot-old.blogspot.de/2013/04/part-5-vibehttprest-in-details.html") A quick introduction to the REST interface generator
 						| (nowadays found in the <a href=""><code>vibe.web.rest module</code></a>)
 						span.date Mar 4, 2013
 
@@ -107,7 +107,7 @@ block vibed.body
 			.contents
 				p Ilya Yaroshenko has written a general D introductory tutorial that contains a section about web application development with vibe.d
 
-				p: a(href="http://d.readthedocs.org/en/stable/examples.html#web-application") Read more
+				p: a(href="https://d.readthedocs.org/en/stable/examples.html#web-application") Read more
 
 	section#deployment
 		h2 Deployment
@@ -144,4 +144,4 @@ block vibed.body
 
 				p Update: Appears that the domain has been sold; the link now points to web.archive.org
 
-				p: a(href="http://web.archive.org/web/20161005051730/http://www.codestrokes.com/2015/09/deploying-d-to-azure-webapp/") Read more
+				p: a(href="https://web.archive.org/web/20161005051730/http://www.codestrokes.com/2015/09/deploying-d-to-azure-webapp/") Read more

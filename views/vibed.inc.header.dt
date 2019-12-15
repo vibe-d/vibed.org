@@ -7,5 +7,5 @@
 			.content get <strong>vibe.d</strong><br><large>#{latest}</large>
 		.bs-hbtn.left.red>
 			.dub-logo
-	p#slogan Asynchronous I/O that doesn’t get in your way, written in #[a(href="http://dlang.org", target="_blank") D]
+	p#slogan Asynchronous I/O that doesn’t get in your way, written in #[a(href="https://dlang.org", target="_blank") D]
 

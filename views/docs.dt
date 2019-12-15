@@ -49,7 +49,7 @@ block vibed.navigation
 				li: a(href="#compile-time-configuration") Compile time configuration
 				li: a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
 		li.bs-separator: a(href="templates/diet") Diet Reference
-		li.bs-separator: a.extern(href="http://dlang.org/phobos/index.html", target="_blank") D Library Reference
+		li.bs-separator: a.extern(href="https://dlang.org/phobos/index.html", target="_blank") D Library Reference
 
 block vibed.body
 	section
@@ -142,7 +142,7 @@ block vibed.body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">Diet template</a> compiler. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 
-		p Finally, the "dub.json" lets the vibe.d package manager automatically download and compile dependency libraries. This file will also provide the description that is needed to later put your own library into the <a href="http://code.dlang.org/">public extension registry</a>.
+		p Finally, the "dub.json" lets the vibe.d package manager automatically download and compile dependency libraries. This file will also provide the description that is needed to later put your own library into the <a href="https://code.dlang.org/">public extension registry</a>.
 
 		pre.code.prettyprint.lang-javascript.
 			{
@@ -615,7 +615,7 @@ block vibed.body
 		section
 			h3#web-localization Localization
 
-			p Using <a href="http://www.gnu.org/software/gettext/">GNU gettext</a> compatible .po translation files, it's possible to localize Diet templates at compile time. This just requires putting the translation files with the naming scheme <code>&lt;name&gt;.&lt;language&gt;.po</code> into a path that is registered in the <code>"stringImportPaths"</code> field of the dub.json. <code>&lt;language&gt;</code> must be a language identifier of the form <code>en_US</code>.
+			p Using <a href="https://www.gnu.org/software/gettext/">GNU gettext</a> compatible .po translation files, it's possible to localize Diet templates at compile time. This just requires putting the translation files with the naming scheme <code>&lt;name&gt;.&lt;language&gt;.po</code> into a path that is registered in the <code>"stringImportPaths"</code> field of the dub.json. <code>&lt;language&gt;</code> must be a language identifier of the form <code>en_US</code>.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.web.web;
@@ -728,14 +728,14 @@ block vibed.body
 			h3#mongo MongoDB
 
 			p A native
-				a.extern(href="http://www.mongodb.org/", target="_blank") MongoDB
+				a.extern(href="https://www.mongodb.org/", target="_blank") MongoDB
 				| driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the
 				a(href="api/vibe.data.bson/Bson")
 					code.prettyprint.lang-d Bson
 				| struct.
 
 			p For an comprehensive documentation of MongoDB's operations see the
-				a.extern(href="http://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
+				a.extern(href="https://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
 				|. The
 				a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference
 				| contains the documentation for the driver.
@@ -762,9 +762,9 @@ block vibed.body
 			h3#redis Redis
 
 			p A client for the structured storage server
-				a.extern(href="http://redis.io", target="_blank") Redis
+				a.extern(href="https://redis.io", target="_blank") Redis
 				| is included in vibe.d. Commands and operations on Redis data types are implemented as instance methods of the <a href="api/vibe.db.redis.redis/RedisClient">client</a> and of the <a href="api/vibe.db.redis.redis/RedisDatabase"><code>RedisDatabase</code></a> class. The methods are named after their corresponding Redis command documented in the
-				a.extern(href="http://redis.io/commands", target="_blank") command reference
+				a.extern(href="https://redis.io/commands", target="_blank") command reference
 				|.
 
 			p On top of the low level interface, two high level modules, <a href="api/vibe.db.redis.types/"><code>types</code></a> and <a href="api/vibe.db.redis.idioms/"><code>idioms</code></a> are available to solve common tasks in a more convenient and type safe way. In addition to that, a <a href="api/vibe.db.redis.sessionstore/RedisSessionStore">Redis based HTTP session store</a> is also included.
@@ -817,7 +817,7 @@ block vibed.body
 				a(href="api/vibe.core.net/connectTCP")
 					code.prettyprint.lang-d connectTCP
 				| function. The following example gets the current time using the
-				a.extern(href="http://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
+				a.extern(href="https://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
 				|.
 			pre.code.prettyprint.lang-d.
 				import vibe.d;
@@ -879,12 +879,12 @@ block vibed.body
 			h3#dub-publishing Publishing on the DUB registry
 
 			p.
-				The #[a.extern(href="http://code.dlang.org/", target="_blank") DUB registry] contains packages
+				The #[a.extern(href="https://code.dlang.org/", target="_blank") DUB registry] contains packages
 				that use the same package management as vibe.d. Many of them extend and supplement vibe.d's
 				functionality. The packages are automatically downloaded if the corresponding entry in the
 				"dependencies" section of the project's dub.json file is present.
 
-			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper dub.json, which has to reside in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted either on GitHub or on BitBucket. See <a href="http://code.dlang.org/publish">http://code.dlang.org/publish</a> for more information.
+			p If you have written an extension library yourself, you can register it in the DUB registry so others can easily make use of it. For this to work, you will first have to write a proper dub.json, which has to reside in the root directory of your project (the project should adhere to the structure mentioned in the <a href="#first-steps">first steps</a>). The project currently also has to be hosted either on GitHub or on BitBucket. See <a href="https://code.dlang.org/publish">https://code.dlang.org/publish</a> for more information.
 
 			pre.code.
 				{
@@ -902,8 +902,8 @@ block vibed.body
 			.caption Example: A dub.json file suitable for registration as a DUB package.
 
 			p.
-				You can then register your project on #[a.extern(href="http://code.dlang.org/", target="_blank") code.dlang.org]
-				and as soon as you then add a new #[a.extern(href="http://learn.github.com/p/tagging.html", target="_blank") git tag]
+				You can then register your project on #[a.extern(href="https://code.dlang.org/", target="_blank") code.dlang.org]
+				and as soon as you then add a new #[a.extern(href="https://learn.github.com/p/tagging.html", target="_blank") git tag]
 				with the name matching the current version prefixed with "v" ("v0.0.1" for the example here), it
 				should appear there. Note that the update can take up to 30 minutes. Anyone can then add an entry
 				similar to the following to their project to make use of the library:
@@ -922,7 +922,7 @@ block vibed.body
 
 			p To simplify development of server-like applications that are command line based and run an event loop, vibe.d includes a default application entry point (<code>main()</code>). To use it, define the version <code>VibeDefaultMain</code> when building the project. This can be done by simply adding the following entry to your package description file: <code>"versions": ["VibeDefaultMain"]</code>
 
-			p When writing a pure command line client application, maybe something like <a href="http://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control over how the application gets initialized and at which point the event loop is started. To support such usage scenarios, you can implement your own program entry function instead.
+			p When writing a pure command line client application, maybe something like <a href="https://www.gnu.org/software/wget/">wget</a>, it may not be desirable to start an explicit event loop, but instead exit right after the work is done. Some applications might also need more control over how the application gets initialized and at which point the event loop is started. To support such usage scenarios, you can implement your own program entry function instead.
 
 			p(style="color: red") Note: Projects that have their own program entry point currently, due to a transition process, also need to define a <code>VibeCustomMain</code> version instead of <code>VibeDefaultMain</code>. This requirement will be lifted in a later version of vibe.d.
 

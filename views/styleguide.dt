@@ -39,7 +39,7 @@ block vibed.body
 		col.rules { width: 66%; }
 		col.rationale { width: 33%; }
 
-	p In general, this guide tries to follow the recommended <a class="extern" target="_blank" href="http://dlang.org/dstyle.html">D style</a> and Phobos conventions. However, there are a number of differences, such as comment style and brace placement inside of functions.
+	p In general, this guide tries to follow the recommended <a class="extern" target="_blank" href="https://dlang.org/dstyle.html">D style</a> and Phobos conventions. However, there are a number of differences, such as comment style and brace placement inside of functions.
 
 	section#naming-conventions
 		h2 Naming conventions
@@ -78,7 +78,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Type names are always written in __CamelCase__. Acronyms are written all-caps, except if they form a de-facto word that is pronouncible.
 
@@ -104,7 +104,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							All functions and methods follow a __pascalStyle__ naming scheme. They always begin with a __verb__.
 
@@ -112,11 +112,11 @@ block vibed.body
 
 			pre.code.prettyprint.lang-d.
 				int performSomething() {}
-				
+
 				struct MyStruct {
 					void computeMe() {}
 				}
-				
+
 				void performTemplateComputation(T)(T arg) {}
 
 		section#variables
@@ -137,7 +137,7 @@ block vibed.body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								The naming scheme of global variables depends on their shared state. Their __basic naming scheme is pascalCase__. Global thread-local variables get a `g_` prefix. Variables with a `shared` or `__gshared` storage class get a `gs_` prefix. Public variables may drop the prefix, but properties should be preferred in this case.
 
@@ -162,7 +162,7 @@ block vibed.body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								Parameters use __underscore_naming_convention__. They should have meaningful names without abbrevations, if practical. Remember that these will show up in the API documentation later on.
 
@@ -182,7 +182,7 @@ block vibed.body
 						th Rules
 						th Rationale
 					tr
-						td	
+						td
 							:markdown
 								Local variable names should __stay short__ (use abbrevations) and contain __neither underscores, nor upper case letters__. The abbrevations must stay clear and one-letter variable names such as `i`, `j`, `k` should only be used as loop indices according to their nesting level.
 
@@ -221,15 +221,15 @@ block vibed.body
 						private {
 							int m_myField;
 						}
-					
+
 						protected {
 							int m_myField2;
 						}
-					
+
 						int somePublicField; // public fields have no prefix
-					
+
 						@property int myField() const { return m_myField; }
-					
+
 						void doSomething()
 						{
 							this.somePublicField = m_myField;
@@ -251,7 +251,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							There are three kinds of brace placement styles used:
 
@@ -264,7 +264,7 @@ block vibed.body
 								- `enum`
 								- `private` and `protected` blocks
 								- control statements (`if`, `for`, `switch` etc.)
-							
+
 							3. Opening brace and closing brace at the end of the first line - the opening brace must be preceeded by a space character
 								- trivial function bodies
 								- trivial bodies of control structures
@@ -276,14 +276,14 @@ block vibed.body
 				private {
 					int s_globalCounter;
 				}
-				
+
 				class C {
 					private {
 						int m_field;
 					}
-				
+
 					@property int field() const { return m_field; }
-				
+
 					void doSomething()
 					{
 						try {
@@ -295,7 +295,7 @@ block vibed.body
 						} finally {
 							// ...
 						}
-				
+
 						if (1 == 2) {
 							// ...
 						} else {
@@ -315,7 +315,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							In general, the inside of clamps tightly fits its contents. For function declarations and function calls, there is also no space before the opening clamp. Control statements have a single space before the opening clamp.
 
@@ -325,9 +325,9 @@ block vibed.body
 				int doSomething(int a, int b, int c)
 				{
 				   assert (b &gt; 0); // maybe assert should be an exception?
-				
+
 					if (a &gt; 0) doSomething(a - b, a * (c + a), c);
-				
+
 					switch (b) {
 						default: return b+c;
 						case 1: return 0;
@@ -346,7 +346,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							Binary operators are usually surrounded by spaces, except in cases where it enhances readability to leave them off. Unary operators are always directly preceeding or following their argument. The ".." range token is always surrounded by spaces.
 					td
@@ -374,7 +374,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							The general order of declaration is sorted by protection level: `public` &rarr; `protected` &rarr; `package` &rarr; `private`
 
@@ -393,7 +393,7 @@ block vibed.body
 					th Rules
 					th Rationale
 				tr
-					td	
+					td
 						:markdown
 							The following order must be adhered to:
 
@@ -432,7 +432,7 @@ block vibed.body
 				th Rules
 				th Rationale
 			tr
-				td	
+				td
 					:markdown
 						__Basic indentation__ always uses __tab characters__ and no spaces. Indentation is always semantic, meaning that each nesting level gets exactly one tabulator of indentation. When braking up a statement or a declaration into multiple lines, indent all but the first line by one additional tab.
 
@@ -465,7 +465,7 @@ block vibed.body
 				th Rules
 				th Rationale
 			tr
-				td	
+				td
 					:markdown
 						Documentation comments come in three basic forms (see example). Usually the same style should be used throughout all documented members of an entity, but exceptions may be made in the benefit of readability. In general, very short documentation strings (e.g. for `enum` members) should use the single line style and all other documentation should use the block style. The special "ditto" comment must always be a single line of the form `/// ditto`.
 
@@ -474,31 +474,31 @@ block vibed.body
 		pre.core.prettyprint.lang-d.
 			/**
 				This is the short description for the module.
-			
+
 				This is the long description of the module that gives an introduction to the
 				module as a whole. This is optional.
-			
-				Copyright: © 2013 RejectedSoftware e.K.
+
+				Copyright: © 2020 Sönke Ludwig
 				License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 				Authors: Some Name, Some Other Name
 			*/
 			module vibe.some.module;
-			
+
 			/**
 				This is a class.
 			*/
 			class Class {
 				/** This function does something.
-			
+
 					Params:
 						param1 = Maybe this parameter has an effect
 						param2 = Maybe this one has also an effect
-			
+
 					Returns:
 						The result of doing something is returned.
 				*/
 				int doSomething(int param1, int param2);
-				
+
 				/// ditto
 				int doSomething();
 			}

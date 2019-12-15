@@ -6,11 +6,11 @@ block title
 block vibed.body
 
 	p The primary way to get in touch is the
-		a(href="nntp://news.rejectedsoftware.com:119/") news group
+		a(href="nntp://forum.rejectedsoftware.com:119/") news group
 		| or the
-		a(href="http://news.rejectedsoftware.com/") web forum
+		a(href="https://forum.rejectedsoftware.com/") web forum
 		|, which is a front end to the newsgroup.
-	
+
 	p If you need non-public contact, you can either use the
 		a(href="mailto:info@rejectedsoftware.com") central mailbox
 		| or contact us on our personal email accounts.

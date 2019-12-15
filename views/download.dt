@@ -29,7 +29,7 @@ block vibed.body
 
 		p This is the current official release version. Note that although this release is
 			| considered to be reasonable stable, it is still considered beta quality. If you
-			| stumble over any issue, please visit the #[a(href="http://github.com/vibe-d/vibe.d/issues") issue tracker]
+			| stumble over any issue, please visit the #[a(href="https://github.com/vibe-d/vibe.d/issues") issue tracker]
 			| and see if it is a known problem or add an entry for it. We will try to fix all
 			| issues as fast as possible.
 
@@ -46,9 +46,9 @@ block vibed.body
 		section
 			h3#aur-package AUR package
 
-			p The #[a(href="http://aur.archlinux.org/") Arch User Repository]
+			p The #[a(href="https://aur.archlinux.org/") Arch User Repository]
 				| contains a PKGBUILD for building a Packman package. To install, get the
-				| #[a.download(href="http://aur.archlinux.org/packages.php?ID=61679") tarball]
+				| #[a.download(href="https://aur.archlinux.org/packages.php?ID=61679") tarball]
 				| from the package page and then
 				| #[a(href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines#Installing_packages") build and install]
 				| the package. Please test and vote if you are running Arch Linux.
@@ -62,7 +62,7 @@ block vibed.body
 			| and if you need a certain feature that is not contained in the current release
 			| version.
 
-		p Note that you have to have the current #[a.extern(href="http://dlang.org/download.html", target="_blank") D compiler]
+		p Note that you have to have the current #[a.extern(href="https://dlang.org/download.html", target="_blank") D compiler]
 			| installed to run the development snapshot.
 
 		p: a.download(href="download?file=zipball/master") Download Development Snapshot
@@ -75,7 +75,7 @@ block vibed.body
 		h2#dependencies Dependencies
 
 		p.
-			Vibe.d by default requires #[a.extern(href="http://libevent.org/", target="_blank") libevent]
+			Vibe.d by default requires #[a.extern(href="https://libevent.org/", target="_blank") libevent]
 			installed. On Debian based systems it can be installed using #[code apt-get install libevent-dev].
 			See the #[a(href="https://github.com/vibe-d/vibe.d/#installation") repository readme]
 			for information on other operating systems and distributions.

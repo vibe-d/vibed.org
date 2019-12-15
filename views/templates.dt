@@ -134,7 +134,7 @@ block vibed.body
 							|     preformatted
 							|         text
 						p This is an example containing a
-							a(href="http://vibed.org/") link
+							a(href="https://vibed.org/") link
 							| mixed with text.
 						p
 							|= "&lt;D&gt; expressions"
@@ -155,7 +155,7 @@ block vibed.body
 					         text</pre>
 							<p>
 								This is an example containing a
-								<a href="http://vibed.org/">link</a>
+								<a href="https://vibed.org/">link</a>
 								mixed with text.
 							</p>
 							<p>
@@ -199,7 +199,7 @@ block vibed.body
 
 			pre.code.
 				doctype html
-				html 
+				html
 				// I show up
 					head
 						//-title there is no title
@@ -222,7 +222,7 @@ block vibed.body
 			.caption Example: HTML output for the example
 
 			p(style="color:red") TODO #if
-	
+
 	section
 		h2#embedded-code Embedded D source code
 
@@ -349,14 +349,14 @@ block vibed.body
 					body
 						h2  the following content is not in this file ...
 						include otherfile
-			.caption Example: main.dt 
-			
+			.caption Example: main.dt
+
 			pre.code.
-				// otherfile.dt	
+				// otherfile.dt
 				h3 ... But In the other file and this
 				include yetanotherfile
-			.caption Example: included otherfile.dt	 
-			
+			.caption Example: included otherfile.dt
+
 			pre.code.
 				// yetanotherfile.dt
 				h4 in yet anotherfile
@@ -376,7 +376,7 @@ block vibed.body
 						</body>
 					</html>
 			.caption Example: HTML output for the include-Example
-								 
+
 		section
 			h2#functions Functions
 
@@ -385,7 +385,7 @@ block vibed.body
 			pre.code.
 				- void css(string file)
 					link(rel= 'stylesheet', type='text/css', href='styles/\#{file}.css')
-				
+
 				doctype html
 				html
 					head
@@ -447,7 +447,7 @@ block vibed.body
 				body
 					:markdown
 						This is a test paragraph
-						in [markdown](http://daringfireball.net/projects/markdown/)
+						in [markdown](https://daringfireball.net/projects/markdown/)
 						syntax.
 		.caption Example: Usage example for embedded filters
 
@@ -462,7 +462,7 @@ block vibed.body
 						--></style>
 					</head>
 					<body>
-				<p>This is a test paragraph in <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax.</p>
+				<p>This is a test paragraph in <a href="https://daringfireball.net/projects/markdown/">markdown</a> syntax.</p>
 					</body>
 				</html>
 		.caption Example: HTML output for the example

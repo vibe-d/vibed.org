@@ -15,9 +15,9 @@ block vibed.body
 	section
 		h2#web-forums Web forums
 
-		p The #[a.extern(href="http://forum.rejectedsoftware.com/", target="_blank") web forum] is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
+		p The #[a.extern(href="https://forum.rejectedsoftware.com/", target="_blank") web forum] is a front end to the newsgroup server for those who do not want to use a newsreader or who cannot access it because of a firewall.
 
-		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="http://github.com/rejectedsoftware/vibenews">VibeNews</a>.
+		p The forum, as well as the NNTP server is based on <a class="extern" target="_blank" href="https://github.com/rejectedsoftware/vibenews">VibeNews</a>.
 
 		p For Russian speakers, there is also a vibe.d section on the <a class="extern" target="_blank" href="http://dlang.ru/forum/">dlang.ru forums</a>.
 
@@ -29,7 +29,7 @@ block vibed.body
 	section
 		h2#irc IRC channel
 
-		p Join the <code>#vibe.d</code> channel on <a href="http://freenode.net/">freenode.net</a>.
+		p Join the <code>#vibe.d</code> channel on <a href="https://freenode.net/">freenode.net</a>.
 
 	section
 		h2#wiki Wiki

@@ -17,7 +17,7 @@ block vibed.body
 
 		p You can help with vibe.d's development by reporting bugs or feature requests on the #[a.extern(href="https://github.com/vibe-d/vibe.d/issues") bug tracker]. Apart from obvious bugs or missing functionality, if you encounter difficulties during your first experiences with the library, for example due to missing documentation, bug reports can help us a lot to improve important parts that we usually don't notice anymore.
 
-		p If you think that a question or request isn't appropriate for the bug tracker, you can also use the <a href="http://forum.rejectedsoftware.com">forums</a> instead.
+		p If you think that a question or request isn't appropriate for the bug tracker, you can also use the <a href="https://forum.rejectedsoftware.com">forums</a> instead.
 
 	section
 		h2#hacking Hacking on vibe.d
@@ -26,8 +26,8 @@ block vibed.body
 		p: a.extern(href="https://github.com/vibe-d/vibe.d") https://github.com/vibe-d/vibe.d
 
 		p Then you can clone the repository to your local computer using
-		pre $ git clone http://github.com/&lt;your username&gt;/vibe.d.git
-		p Your commits can then be packed into a pull request to the main vibe.d repository. See #[a(href="http://help.github.com/fork-a-repo/") "Fork a repository"] and #[a(href="http://help.github.com/send-pull-requests/") "Send pull requests"] on github for more details.
+		pre $ git clone https://github.com/&lt;your username&gt;/vibe.d.git
+		p Your commits can then be packed into a pull request to the main vibe.d repository. See #[a(href="https://help.github.com/fork-a-repo/") "Fork a repository"] and #[a(href="https://help.github.com/send-pull-requests/") "Send pull requests"] on github for more details.
 
 		p When making contributions, please follow the <a href="style-guide">style guide</a> and try to keep your change sets small. This will greatly reduce the time that it takes to merge a pull request and also the time that each of the developers has to spend on the review process.
 
@@ -41,7 +41,7 @@ block vibed.body
 		p
 			form(action="https://flattr.com/submit/auto", method="get", target="_top")
 				input(type="hidden", name="user_id", value="rejectedsoftware")
-				input(type="hidden", name="url", value="http://vibed.org/")
+				input(type="hidden", name="url", value="https://vibed.org/")
 				input(type="image", src="https://button.flattr.com/flattr-badge-large.png", border="0", name="submit", alt="Flattr this")
 
 		p
@@ -57,6 +57,6 @@ block vibed.body
 
 		p Certain features that are useful for certain tasks may be out of the scope of the vibe.d project itself. If you want to contribute such code to the community anyway, you should consider making it available as an extension library.
 
-		p Vibe.d and it's <a href="https://github.com/rejectedsoftware/">sister projects</a> are all distributed in the form of DUB packages. DUB is the standard package and build manager for D projects. The <a href="http://code.dlang.org/">DUB registry</a> provides a central place for publishing D applications and libraries. All packages registered there can be used by simply adding a corresponding dependency specification into their package recipe file.
+		p Vibe.d and it's <a href="https://github.com/rejectedsoftware/">sister projects</a> are all distributed in the form of DUB packages. DUB is the standard package and build manager for D projects. The <a href="https://code.dlang.org/">DUB registry</a> provides a central place for publishing D applications and libraries. All packages registered there can be used by simply adding a corresponding dependency specification into their package recipe file.
 
-		p There is also a package category for <a href="http://code.dlang.org/?sort=updated&category=library.vibed">vibe.d</a> compatible libraries that can be used to conveniently find packages that are based on or compatible with vibe.d's I/O model. So when you submit your own package, be sure to add this category to make your library more visible.
+		p There is also a package category for <a href="https://code.dlang.org/?sort=updated&category=library.vibed">vibe.d</a> compatible libraries that can be used to conveniently find packages that are based on or compatible with vibe.d's I/O model. So when you submit your own package, be sure to add this category to make your library more visible.
