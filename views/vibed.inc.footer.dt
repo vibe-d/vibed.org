@@ -1,6 +1,6 @@
 - import std.datetime : Clock, UTC;
 - auto currentYear = Clock.currTime(UTC()).year;
-.copyright Copyright © 2012-#{currentYear} <a href="http://rejectedsoftware.com">rejectedsoftware e.K.</a>
+.copyright Copyright © 2012-#{currentYear} Sönke Ludwig
 div
 	a(href="#{req.rootDir}impressum") Impressum
 	|  –
