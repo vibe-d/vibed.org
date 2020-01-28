@@ -72,15 +72,34 @@ block vibed.body
 			cd path/to/project
 			dub
 			<span class="com">Performing "debug" build using dmd for x86_64.
-			vibe-d 0.7.26: target for configuration "libevent" is up to date.
-			vibedtest ~master: building configuration "application"...
+			Performing "debug" build using ldc2 for x86_64.
+			taggedalgebraic 0.11.8: target for configuration "library" is up to date.
+			eventcore 0.8.48: target for configuration "winapi" is up to date.
+			stdx-allocator 2.77.5: target for configuration "library" is up to date.
+			vibe-core 1.8.0: target for configuration "winapi" is up to date.
+			vibe-d:utils 0.8.6: target for configuration "library" is up to date.
+			vibe-d:data 0.8.6: target for configuration "library" is up to date.
+			mir-linux-kernel 1.0.1: target for configuration "library" is up to date.
+			vibe-d:crypto 0.8.6: target for configuration "library" is up to date.
+			diet-ng 1.6.0+commit.10.g6032ae1: target for configuration "library" is up to date.
+			vibe-d:stream 0.8.6: target for configuration "library" is up to date.
+			vibe-d:textfilter 0.8.6: target for configuration "library" is up to date.
+			vibe-d:inet 0.8.6: target for configuration "library" is up to date.
+			vibe-d:tls 0.8.6: target for configuration "openssl-mscoff" is up to date.
+			vibe-d:http 0.8.6: target for configuration "library" is up to date.
+			vibe-d:mail 0.8.6: target for configuration "library" is up to date.
+			vibe-d:mongodb 0.8.6: target for configuration "library" is up to date.
+			vibe-d:redis 0.8.6: target for configuration "library" is up to date.
+			vibe-d:web 0.8.6: target for configuration "library" is up to date.
+			vibe-d 0.8.6: target for configuration "vibe-core" is up to date.
+			vibe-test ~master: building configuration "application"...
 			Linking...
 			To force a rebuild of up-to-date targets, run again with --force.
-			Running ./vibedtest
-			Listening for requests on http://::1:8080
-			Listening for requests on http://127.0.0.1:8080
-			Please open http://127.0.0.1:8080/ in your browser.</span>
-
+			Copying files for vibe-d:tls...
+			Running .\vibe-test.exe
+			[main(----) INF] Listening for requests on http://[::1]:8080/
+			[main(----) INF] Listening for requests on http://127.0.0.1:8080/
+			[main(----) INF] Please open http://127.0.0.1:8080/ in your browser.</span>
 		h3 Recommended project structure
 
 		p The recommended directory structure for a project, which the "dub init" command establishes, is separated into three base folders:
@@ -144,8 +163,19 @@ block vibed.body
 
 		p This structure makes use of the blocks/extensions feature of the <a href="#html-templates">Diet template</a> compiler. For more advanced template features see the <a href="templates/diet">Diet template documentation</a>.
 
-		p Finally, the "dub.json" lets the vibe.d package manager automatically download and compile dependency libraries. This file will also provide the description that is needed to later put your own library into the <a href="https://code.dlang.org/">public extension registry</a>.
+		p Finally, the "dub.sdl" (<a target="_blank" class="extern" href="https://sdlang.org/">SDLang</a>) lets the vibe.d package manager automatically download and compile dependency libraries. This file will also provide the description that is needed to later put your own library into the <a href="https://code.dlang.org/">public extension registry</a>.
 
+		pre.code.prettyprint.lang-javascript.
+			name "appname"
+			description "My fabulous new app"
+			copyright "Copyright (C) 2000 Me. All rights reserved."
+			license "AGPL-3.0"
+			homepage "http://appname.org"
+			authors "Hans Wurst"
+			dependency "vibe-d" version="~&gt;0.8.6"
+		.caption Example dub.sdl
+
+		p DUB also provides support for the original JSON based syntax. The filename to use is "dub.json" in this case:
 		pre.code.prettyprint.lang-javascript.
 			{
 				"name": "appname",
@@ -155,23 +185,10 @@ block vibed.body
 				"homepage": "http://appname.org",
 				"authors": ["Hans Wurst"],
 				"dependencies": {
-					"vibe-d": "~&gt;0.7.23"
-				},
-				"versions": ["VibeDefaultMain"]
+					"vibe-d": "~&gt;0.8.6"
+				}
 			}
 		.caption Example dub.json
-
-		p DUB also provides support for a new alternative syntax using <a target="_blank" class="extern" href="https://sdlang.org/">SDLang</a>, which supports comments and is considerably more compact. The filename to use is "dub.sdl" in this case:
-		pre.code.prettyprint.lang-javascript.
-			name "appname"
-			description "My fabulous new app"
-			copyright "Copyright (C) 2000 Me. All rights reserved."
-			license "AGPL-3.0"
-			homepage "http://appname.org"
-			authors "Hans Wurst"
-			dependency "vibe-d" version="~&gt;0.7.23"
-			versions "VibeDefaultMain"
-		.caption Example dub.sdl
 
 	section
 		h2#examples Example projects
