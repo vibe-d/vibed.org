@@ -1,9 +1,14 @@
-ul.tree-view .package {
+ul.tree-view .package,
+ul.tree-view .module {
 	margin-left: -18px;
 	padding-left: 18px;
-	background-image: url(../images/ddox/package.png);
 	background-repeat: no-repeat;
-	background-position: left 2px;
+	background-position: 1px center;
+	background-size: 15px 15px;
+}
+
+ul.tree-view .package {
+	background-image: url(../images/ddox/package.png);
 	cursor: default;
 }
 
@@ -12,11 +17,11 @@ ul.tree-view .package:hover {
 }
 
 ul.tree-view .module {
-	padding-left: 18px;
 	background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(../images/ddox/module.png);
-	background-repeat: no-repeat, no-repeat;
-	background-position: left 1px, left 1px;
-	background-size: 18px 16px;
+}
+
+ul.tree-view .module > a {
+	display: block;
 }
 
 ul.tree-view .module.selected, ul.tree-view .package.selected { font-weight: bold; }
