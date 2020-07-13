@@ -68,13 +68,13 @@ block vibed.body
 
 				ul
 					li
-						a(href="https://aberba.github.io/2016/hello-world-app-with-the-vibe.d-web-framework/") Hello World app
+						a(href="https://aberba.com/2016/hello-world-app-with-the-vibe.d-web-framework/") Hello World app
 						span.date Feb 14, 2017
 					li
-						a(href="https://aberba.github.io/2016/form-upload-in-vibe-d/") Form upload
+						a(href="https://aberba.com/2016/form-upload-in-vibe-d/") Form upload
 						span.date Dec 6, 2016
 					li
-						a(href="https://aberba.github.io/2017/multiple-file-upload-in-vibe-d/") Multiple file upload
+						a(href="https://aberba.com/2017/multiple-file-upload-in-vibe-d/") Multiple file upload
 						span.date Aug 20, 2016
 
 		section.tutorial
