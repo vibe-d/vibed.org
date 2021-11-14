@@ -117,8 +117,9 @@ block vibed.body
 
 			p Contrary to most other frameworks supporting asynchronous I/O, vibe.d fully integrates with the UI event loop, so that it can be used to power applications with a graphical user interface.
 
-			p For Windows, there is a native event driver implementation (enable with <a href="docs#compile-time-configuration"><code>VibeWin32Driver</code></a>) that makes use of the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684245(v=vs.85).aspx"><code>MsgWaitForMultipleObjectsEx</code></a> function to process window messages together with I/O or concurrency events. For systems running X11, it's possible to use <a href="api/vibe.core.core/createFileDescriptorEvent"><code>createFileDescriptorEvent</code></a> to listen on the display connection instead of using <code>XNextEvent</code>.
+			p For Windows, there is a native event driver implementation that makes use of the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684245(v=vs.85).aspx"><code>MsgWaitForMultipleObjectsEx</code></a> function to process window messages together with I/O or concurrency events. For systems running X11, it's possible to use <a href="api/vibe.core.core/createFileDescriptorEvent"><code>createFileDescriptorEvent</code></a> to listen on the display connection instead of using <code>XNextEvent</code>. Finally, macOS has an event loop based on `CFRunLoop`, which processes CoreFramework events, as well as basic kqueue events.
 
+			p An advanced example of this is #[a(href="https://aspect.bildhuus.com/") Aspect], our photo management application that uses vibe.d for all of its I/O and concurrency needs. Tasks are a great fit for the asynchronous nature of the GUI system APIs, allowing to turn most event/callback based code into clear procedural code with a linear execution path. This results in both, more readable and more robust code. For Aspect, we are using direct Win32 API access on Windows and SDL2 on Linux and macOS.
 
 
 	section
