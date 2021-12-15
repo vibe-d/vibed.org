@@ -1,5 +1,9 @@
 extends layout
 
+block title
+	block vibelog.title
+	block vibelog.layout.head
+
 block vibed.navigation
 	block vibelog-recent-list
 
