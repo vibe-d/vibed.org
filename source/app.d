@@ -189,6 +189,7 @@ void main()
 		blogsettings.siteURL = URL("https://vibed.org/blog/");
 		blogsettings.textFilters ~= toDelegate(&prettifyFilter);
 		blogsettings.showFullPostsInPostList = false;
+		blogsettings.postsPerPage = 10;
 		blogsettings.maxRecentPosts = 100;
 		s_vibelog = new VibeLogController(blogsettings);
 		s_router.registerVibeLogWeb(s_vibelog);
