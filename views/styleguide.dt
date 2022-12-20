@@ -41,6 +41,8 @@ block vibed.body
 
 	p In general, this guide tries to follow the recommended <a class="extern" target="_blank" href="https://dlang.org/dstyle.html">D style</a> and Phobos conventions. However, there are a number of differences, such as comment style and brace placement inside of functions.
 
+	p If you want to use a formatting utility, vibe.d's #[a(href="https://github.com/vibe-d/vibe-core/blob/master/.editorconfig") .editorconfig] file contains #[a(href="https://github.com/dlang-community/dfmt") dfmt] (included with the compiler) directives that result in a file formatted pretty closely to these guidelines with regards to brace placement and spacing. It doesn't cover all rules and doesn't produce optimal formatting, but provides a decent starting point.
+
 	section#naming-conventions
 		h2 Naming conventions
 
