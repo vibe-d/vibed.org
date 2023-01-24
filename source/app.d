@@ -139,6 +139,9 @@ void redirectDlangDocs(HTTPServerRequest req, HTTPServerResponse res)
 	res.redirect("https://dlang.org/library/"~path, HTTPStatus.movedPermanently);
 }
 
+version (unittest) {
+	void main() {}
+} else:
 void main()
 {
 	//setLogLevel(LogLevel.none);
