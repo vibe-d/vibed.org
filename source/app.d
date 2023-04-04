@@ -30,14 +30,14 @@ void download(HTTPServerRequest req, HTTPServerResponse res)
 	if (auto pf = "file" in req.query) {
 		auto path = InetPath(*pf).bySegment;
 
-		if (path.front.name == "zipball") {
+		if (path.front.name.toString == "zipball") {
 			path.popFront();
 			auto fname = path.front.name;
 			path.popFront();
 			if (!path.empty) return; // only accept paths of length 2
-			res.redirect("https://github.com/vibe-d/vibe.d/zipball/" ~ fname);
+			res.redirect("https://github.com/vibe-d/vibe.d/zipball/" ~ fname.toString);
 		} else {
-			auto fname = path.front.name;
+			auto fname = path.front.name.toString;
 			path.popFront();
 			if (!path.empty) return; // only accept paths of length 1
 			res.redirect("https://vibed.org/files/" ~ fname);
@@ -63,39 +63,41 @@ version(Have_ddox)
 	string s_docsVersions;
 
 	void updateDocs()
-	{
+	nothrow {
 		import std.file;
 
 		s_docsVersions = null;
 		string[] versions;
-		foreach (de; dirEntries(".", "docs*.json", SpanMode.shallow)) {
-			auto name = de.name;
-			if (name.startsWith("./") || name.startsWith(".\\")) name = name[2 .. $];
-			logInfo("DE %s", name);
-			assert(name.startsWith("docs") && name.endsWith(".json"));
-			auto ver = name[4 .. $-5];
-			if (ver.startsWith("-")) ver = ver[1 .. $];
-			try {
-				static import vibe.core.core;
-				vibe.core.core.yield(); // let the server run in parallel
-				string text = readFileUTF8(de.name);
-				auto json = parseJson(text);
-				auto pack = parseJsonDocs(json);
-				auto settings = new DdoxSettings;
-				processDocs(pack, settings);
-				s_rootPackage[ver] = pack;
-				if (ver.length) versions ~= ver;
+		try {
+			foreach (de; dirEntries(".", "docs*.json", SpanMode.shallow)) {
+				auto name = de.name;
+				if (name.startsWith("./") || name.startsWith(".\\")) name = name[2 .. $];
+				logInfo("DE %s", name);
+				assert(name.startsWith("docs") && name.endsWith(".json"));
+				auto ver = name[4 .. $-5];
+				if (ver.startsWith("-")) ver = ver[1 .. $];
+				try {
+					static import vibe.core.core;
+					vibe.core.core.yield(); // let the server run in parallel
+					string text = readFileUTF8(de.name);
+					auto json = parseJson(text);
+					auto pack = parseJsonDocs(json);
+					auto settings = new DdoxSettings;
+					processDocs(pack, settings);
+					s_rootPackage[ver] = pack;
+					if (ver.length) versions ~= ver;
 
-				auto docsettings = new GeneratorSettings;
-				docsettings.navigationType = NavigationType.ModuleTree;
-				if (!ver.length) docsettings.siteUrl = URL("https://vibed.org/api");
-				else docsettings.siteUrl = URL("https://vibed.org/api-"~ver);
-				registerApiDocs(s_router, pack, docsettings);
-			} catch( Exception e ){
-				logError("Error loading docs: %s", e.toString());
-				throw e;
+					auto docsettings = new GeneratorSettings;
+					docsettings.navigationType = NavigationType.ModuleTree;
+					if (!ver.length) docsettings.siteUrl = URL("https://vibed.org/api");
+					else docsettings.siteUrl = URL("https://vibed.org/api-"~ver);
+					registerApiDocs(s_router, pack, docsettings);
+				} catch( Exception e ){
+					logError("Error loading docs: %s", e.toString());
+					throw e;
+				}
 			}
-		}
+		} catch (Exception e) logException(e, "Failed to enumerate documentation files");
 		foreach_reverse (v; versions.sort!("a.length == 0 || a < b"))
 			s_docsVersions ~= ";" ~ v;
 	}
