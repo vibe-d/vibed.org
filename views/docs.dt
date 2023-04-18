@@ -751,16 +751,16 @@ block vibed.body
 			h3#mongo MongoDB
 
 			p A native
-				a.extern(href="https://www.mongodb.org/", target="_blank") MongoDB
+				#[a.extern(href="https://www.mongodb.org/", target="_blank") MongoDB]
 				| driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the
 				a(href="api/vibe.data.bson/Bson")
 					code.prettyprint.lang-d Bson
 				| struct.
 
 			p For an comprehensive documentation of MongoDB's operations see the
-				a.extern(href="https://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
+				#[a.extern(href="https://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual]
 				|. The
-				a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference
+				#[a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference]
 				| contains the documentation for the driver.
 
 			pre.code.prettyprint.lang-d.
@@ -781,7 +781,7 @@ block vibed.body
 			h3#redis Redis
 
 			p A client for the structured storage server
-				a.extern(href="https://redis.io", target="_blank") Redis
+				#[a.extern(href="https://redis.io", target="_blank") Redis]
 				| is included in vibe.d. Commands and operations on Redis data types are implemented as instance methods of the <a href="api/vibe.db.redis.redis/RedisClient">client</a> and of the <a href="api/vibe.db.redis.redis/RedisDatabase"><code>RedisDatabase</code></a> class. The methods are named after their corresponding Redis command documented in the
 				a.extern(href="https://redis.io/commands", target="_blank") command reference
 				|.
