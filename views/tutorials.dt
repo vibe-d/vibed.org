@@ -36,7 +36,7 @@ block vibed.body
 			.contents
 				p Rey Valeza has written the second edition of his web application tutorial, this time expanding more on the database side of things and MySQL in particular. The tutorial, step by step, develops a simple, but complete employee and time managemant application. All layers of development are covered, from database and program logic to HTML templates and bootstrap based CSS styling.
 
-				p: a(href="https://github.com/reyvaleza/vibed/blob/main/Build%20Web%20Apps%20in%20Vibed%20second%20edition.pdf") Read PDF
+				p: a(href="https://reyvaleza.gitbook.io/vibe.d-tutorial") Read more
 
 	section#general
 		h2 General
