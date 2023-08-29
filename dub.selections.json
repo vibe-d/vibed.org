@@ -12,14 +12,14 @@
 		"libdparse": "0.15.4",
 		"memutils": "1.0.9",
 		"mir-linux-kernel": "1.0.1",
-		"openssl": "3.3.0",
+		"openssl": "3.3.2",
 		"openssl-static": "1.0.2+3.0.8",
 		"rs-bootstrap": "1.0.5",
 		"stdx-allocator": "2.77.5",
 		"stringex": "0.1.1",
 		"taggedalgebraic": "0.11.22",
 		"vibe-core": "2.2.0",
-		"vibe-d": "0.9.6",
+		"vibe-d": "0.9.7",
 		"vibelog": "0.6.11"
 	}
 }
