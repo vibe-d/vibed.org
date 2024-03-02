@@ -193,8 +193,7 @@ block vibed.body
 	section
 		h2#examples Example projects
 
-		p A library of example projects is maintained in the Git repository. Most things not covered in this document can be found there in the form of code:
-			a.extern(href="https://github.com/vibe-d/vibe.d/tree/master/examples", target="_blank") Example projects
+		p A library of example projects is maintained in the Git repository. Most things not covered in this document can be found there in the form of code: #[a.extern(href="https://github.com/vibe-d/vibe.d/tree/master/examples", target="_blank") Example projects]
 
 		p To run the examples locally, you can either download the <a href="https://github.com/vibe-d/vibe.d/archive/master.zip">repository as a zip file</a>, or use GIT to get the examples:
 
@@ -297,10 +296,7 @@ block vibed.body
 			h3#http-routing Routing
 
 			p The #[a(href="api/vibe.http.router/URLRouter") #[code.prettyprint URLRouter]] class provides a convenient way to let different functions handle different URLs. It supports static path matching, variable placeholders and wild-cards. Any matched variable will be available as an entry in the <a href="api/vibe.http.server/HTTPServerRequest.params"><code class="prettyprint">params</code></a> dictionary.
-			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the
-				a(href="api/vibe.http.router/URLRouter")
-					code.prettyprint URLRouter
-				| class (e.g. <a href="api/vibe.http.router/URLRouter.get"><code class="prettyprint">get</code></a> or <a href="api/vibe.http.router/URLRouter.post"><code class="prettyprint">post</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder, see <a href="api/vibe.http.fileserver/serveStaticFiles"><code class="prettyprint.lang-d">serveStaticFiles</code></a>.
+			p In addition to the path, the HTTP method is also used for matching requests. Each HTTP method has a corresponding method in the #[a(href="api/vibe.http.router/URLRouter") code.prettyprint URLRouter] class (e.g. <a href="api/vibe.http.router/URLRouter.get"><code class="prettyprint">get</code></a> or <a href="api/vibe.http.router/URLRouter.post"><code class="prettyprint">post</code></a>). The following example will route all GET requests matching the path scheme <code class="prettyprint">"/users/*"</code> to the <code class="prettyprint">userInfo</code> handler and serve all other GET requests using the files in the public folder, see <a href="api/vibe.http.fileserver/serveStaticFiles"><code class="prettyprint.lang-d">serveStaticFiles</code></a>.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
@@ -378,17 +374,11 @@ block vibed.body
 			p There are three ways in which an error page is sent back to the client:
 
 			ul
-				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a
-					a(href="api/vibe.http.common/HTTPStatusException")
-						code.prettyprint.lang-d HTTPStatusException
-					|, the status code can be customized.
+				li An exception is thrown from the request handler or while parsing the request. By default, a 500 "Internal Server Error" is returned. By throwing a #[a(href="api/vibe.http.common/HTTPStatusException")< #[code.prettyprint.lang-d HTTPStatusException]], the status code can be customized.
 				li The request handler does not write a response. In this case the server automatically returns a 404 "Not Found" error.
 				li The request handler manually sets an error status to <a href="api/vibe.http.common/HTTPResponse.statusCode">HTTPServerResponse.statusCode</a> and writes a body. In this case, the error page will be written exactly as specified.
 
-			p The
-				a(href="api/vibe.http.server/HTTPServerSettings")
-					code.prettyprint.lang-d HTTPServerSettings
-				| can be used to provide a custom error page handler. If one is provided, it is called for any of the first two conditions and must render an error page to the response object. If no handler is given, a simple plain-text error page is generated. See the <a href="#http-server-config">HTTP server configuration section</a> for an example.
+			p The #[a(href="api/vibe.http.server/HTTPServerSettings")< #[code.prettyprint.lang-d HTTPServerSettings]] can be used to provide a custom error page handler. If one is provided, it is called for any of the first two conditions and must render an error page to the response object. If no handler is given, a simple plain-text error page is generated. See the <a href="#http-server-config">HTTP server configuration section</a> for an example.
 
 
 		section
@@ -396,13 +386,7 @@ block vibed.body
 
 			p Currently, HTTP-Basic-Auth and HTTP-Digest-Auth authentication methods are implemented. Higher level mechanisms such as OAuth will be provided using extension libraries.
 
-			p A simple way to plug authentication into a web application is to use the fall-through feature of the <a hreF="api/vibe.http.router/URLRouter"><code class="prettyprint">URLRouter</code></a>. If the user is properly authenticated, the
-				a(href="api/vibe.http.auth.basic_auth/performBasicAuth")
-					code.prettyprint.lang-d performBasicAuth
-				| function will not do anything and the URLRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a
-				a(href="api/vibe.http.common/HTTPStatusException")
-					code.prettyprint.lang-d HTTPStatusException
-				| exception which generates a 403 error page so that the user is prompted with a password dialog on the browser side. The routing stops in this case.
+			p A simple way to plug authentication into a web application is to use the fall-through feature of the <a hreF="api/vibe.http.router/URLRouter"><code class="prettyprint">URLRouter</code></a>. If the user is properly authenticated, the #[a(href="api/vibe.http.auth.basic_auth/performBasicAuth")< #[code.prettyprint.lang-d performBasicAuth]] function will not do anything and the URLRouter will continue to match the request to all following routes. If, however, there is no authentication or if the username/password pair is not valid, it will throw a #[a(href="api/vibe.http.common/HTTPStatusException")< #[code.prettyprint.lang-d HTTPStatusException]] exception which generates a 403 error page so that the user is prompted with a password dialog on the browser side. The routing stops in this case.
 
 			p Note that it is generally recommended to make use of the <a href="#web">high level web framework</a> when developing web application front ends. See the <a href="https://github.com/vibe-d/vibe.d/tree/master/examples/web">"web" example project</a> for a way to implement session based authentication in such a setting.
 
@@ -436,22 +420,7 @@ block vibed.body
 		section
 			h3#http-sessions Sessions
 
-			p Cookie based HTTP sessions are supported directly by the HTTP server. To be able to use them, you first have to set a
-				a(href="api/vibe.http.session/SessionStore")
-					code.prettyprint.lang-d SessionStore
-				| in the
-				a(href="api/vibe.http.server/HTTPServerSettings")
-					code.prettyprint.lang-d HTTPServerSettings
-				|. Sessions are then established by calling
-				a(href="api/vibe.http.server/HTTPServerResponse.startSession")
-					code.prettyprint.lang-d HTTPServerResponse.startSession
-				| and stopped using
-				a(href="api/vibe.http.server/HTTPServerResponse.terminateSession")
-					code.prettyprint.lang-d HTTPServerResponse.terminateSession
-				|. The returned
-				a(href="api/vibe.http.session/Session")
-					code.prettyprint.lang-d Session
-				| object behaves as a key value store taking strings as keys and values.
+			p Cookie based HTTP sessions are supported directly by the HTTP server. To be able to use them, you first have to set a #[a(href="api/vibe.http.session/SessionStore")< #[code.prettyprint.lang-d SessionStore]] in the #[a(href="api/vibe.http.server/HTTPServerSettings")< #[code.prettyprint.lang-d HTTPServerSettings]]. Sessions are then established by calling #[a(href="api/vibe.http.server/HTTPServerResponse.startSession") code.prettyprint.lang-d HTTPServerResponse.startSession] and stopped using #[a(href="api/vibe.http.server/HTTPServerResponse.terminateSession") code.prettyprint.lang-d HTTPServerResponse.terminateSession]. The returned #[a(href="api/vibe.http.session/Session")< #[code.prettyprint.lang-d Session]] object behaves as a key value store taking strings as keys and values.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
@@ -750,18 +719,9 @@ block vibed.body
 		section
 			h3#mongo MongoDB
 
-			p A native
-				a.extern(href="https://www.mongodb.org/", target="_blank") MongoDB
-				| driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the
-				a(href="api/vibe.data.bson/Bson")
-					code.prettyprint.lang-d Bson
-				| struct.
+			p A native #[a.extern(href="https://www.mongodb.org/", target="_blank") MongoDB] driver is part of the distribution supporting the standard set of database operations. Data is exchanged using the #[a(href="api/vibe.data.bson/Bson")< #[code.prettyprint.lang-d Bson]] struct.
 
-			p For an comprehensive documentation of MongoDB's operations see the
-				a.extern(href="https://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual
-				|. The
-				a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference
-				| contains the documentation for the driver.
+			p For an comprehensive documentation of MongoDB's operations see the #[a.extern(href="https://www.mongodb.org/display/DOCS/Manual", target="_blank") MongoDB manual]. The #[a(href="api/vibe.db.mongo.mongo/connectMongoDB") API reference] contains the documentation for the driver.
 
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
@@ -780,32 +740,19 @@ block vibed.body
 		section
 			h3#redis Redis
 
-			p A client for the structured storage server
-				a.extern(href="https://redis.io", target="_blank") Redis
-				| is included in vibe.d. Commands and operations on Redis data types are implemented as instance methods of the <a href="api/vibe.db.redis.redis/RedisClient">client</a> and of the <a href="api/vibe.db.redis.redis/RedisDatabase"><code>RedisDatabase</code></a> class. The methods are named after their corresponding Redis command documented in the
-				a.extern(href="https://redis.io/commands", target="_blank") command reference
-				|.
+			p A client for the structured storage server #[a.extern(href="https://redis.io", target="_blank") Redis] is included in vibe.d. Commands and operations on Redis data types are implemented as instance methods of the <a href="api/vibe.db.redis.redis/RedisClient">client</a> and of the <a href="api/vibe.db.redis.redis/RedisDatabase"><code>RedisDatabase</code></a> class. The methods are named after their corresponding Redis command documented in the #[a.extern(href="https://redis.io/commands", target="_blank") command reference].
 
 			p On top of the low level interface, two high level modules, <a href="api/vibe.db.redis.types/"><code>types</code></a> and <a href="api/vibe.db.redis.idioms/"><code>idioms</code></a> are available to solve common tasks in a more convenient and type safe way. In addition to that, a <a href="api/vibe.db.redis.sessionstore/RedisSessionStore">Redis based HTTP session store</a> is also included.
 
 	section
 		h2#raw-tcp Raw TCP
 
-		p Low level TCP connections are handled using the
-			a(href="api/vibe.core.net/TCPConnection")
-				code.prettyprint.lang-d TCPConnection
-			| class, which implements the
-			a(href="api/vibe.core.stream/ConnectionStream")
-				code.prettyprint.lang-d ConnectionStream
-			| interface. Connections can be established by either listening on a specific port for incoming connections or by actively connecting to a remote server.
+		p Low level TCP connections are handled using the #[a(href="api/vibe.core.net/TCPConnection")< #[code.prettyprint.lang-d TCPConnection]] class, which implements the #[a(href="api/vibe.core.stream/ConnectionStream")< #[code.prettyprint.lang-d ConnectionStream]] interface. Connections can be established by either listening on a specific port for incoming connections or by actively connecting to a remote server.
 
 		section
 			h3#tcp-server Server
 
-			p Listening for TCP connections is done using the
-				a(href="api/vibe.core.net/listenTCP")
-					code.prettyprint.lang-d listenTCP
-				| function. An implementation of a very simple echo server could look like this:
+			p Listening for TCP connections is done using the #[a(href="api/vibe.core.net/listenTCP")< #[code.prettyprint.lang-d listenTCP]] function. An implementation of a very simple echo server could look like this:
 
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
@@ -816,10 +763,7 @@ block vibed.body
 					runApplication();
 				}
 
-			p Calling
-				a(href="api/vibe.core.net/listenTCP")
-					code.prettyprint.lang-d listenTCP
-				| like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
+			p Calling #[a(href="api/vibe.core.net/listenTCP")< #[code.prettyprint.lang-d listenTCP]] like this will listen on all local network devices. To listen only on a specific device, the bind address can be given as an additional parameter:
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
 
@@ -834,12 +778,7 @@ block vibed.body
 		section
 			h3#tcp-client Client
 
-			p Connecting to a TCP server is done with the
-				a(href="api/vibe.core.net/connectTCP")
-					code.prettyprint.lang-d connectTCP
-				| function. The following example gets the current time using the
-				a.extern(href="https://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol
-				|.
+			p Connecting to a TCP server is done with the #[a(href="api/vibe.core.net/connectTCP")< #[code.prettyprint.lang-d connectTCP]] function. The following example gets the current time using the #[a.extern(href="https://en.wikipedia.org/wiki/Daytime_Protocol", target="_blank") Daytime Protocol].
 			pre.code.prettyprint.lang-d.
 				import vibe.vibe;
 
@@ -853,13 +792,7 @@ block vibed.body
 	section
 		h2#raw-udp Raw UDP
 
-		p In addition to stream based TCP connections, packet based UDP communication is also supported. To open a UDP socket, use the
-			a(href="api/vibe.core.net/listenUDP")
-				code.prettyprint.lang-d listenUDP
-			| function with the appropriate port. It will return a
-			a(href="api/vibe.core.net/UDPConnection")
-				code.prettyprint.lang-d UDPConnection
-			| instance, which can then be used to send and receive individual packets.
+		p In addition to stream based TCP connections, packet based UDP communication is also supported. To open a UDP socket, use the #[a(href="api/vibe.core.net/listenUDP")< #[code.prettyprint.lang-d listenUDP]] function with the appropriate port. It will return a #[a(href="api/vibe.core.net/UDPConnection")< #[code.prettyprint.lang-d UDPConnection]] instance, which can then be used to send and receive individual packets.
 
 		pre.code.prettyprint.lang-d.
 			import vibe.appmain;
