@@ -57,7 +57,7 @@ block vibed.body
 
 		p First, install the <a href="https://github.com/dlang/dub">DUB package manager</a> to let it handle downloading and building of vibe.d and derived applications. On non-Windows systems, a number of additional dependencies needs to be installed. See the <a href="https://github.com/vibe-d/vibe.d#installation">project description on GitHub</a> for details.
 
-		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as OpenSSL). Take a look at <a href="https://github.com/vibe-d/vibe.d/blob/master/dub.sdl">vibe.d's dub.sdl</a> to determine how to build on a certain platform, or, alterntaively, run DUB with the <code>-v</code> switch to see the actual compiler command line.
+		p Manual building (e.g. using RDMD) is a possible alternative, but you have to make sure that external libraries are linked in (such as OpenSSL) and that the import directories for all sub projects of vibe.d (such as vibe-core and vibe-http) are properly set. You can run DUB with the <code>-v</code> switch to see the actual compiler command line if in doubt.
 
 		p The easiest way to get started is to run the following command from your projects directory:
 
@@ -71,32 +71,31 @@ block vibed.body
 		pre.code.
 			cd path/to/project
 			dub
-			<span class="com">Performing "debug" build using dmd for x86_64.
-			Performing "debug" build using ldc2 for x86_64.
-			taggedalgebraic 0.11.8: target for configuration "library" is up to date.
-			eventcore 0.8.48: target for configuration "winapi" is up to date.
-			stdx-allocator 2.77.5: target for configuration "library" is up to date.
-			vibe-core 1.8.0: target for configuration "winapi" is up to date.
-			vibe-d:utils 0.8.6: target for configuration "library" is up to date.
-			vibe-d:data 0.8.6: target for configuration "library" is up to date.
-			mir-linux-kernel 1.0.1: target for configuration "library" is up to date.
-			vibe-d:crypto 0.8.6: target for configuration "library" is up to date.
-			diet-ng 1.6.0+commit.10.g6032ae1: target for configuration "library" is up to date.
-			vibe-d:stream 0.8.6: target for configuration "library" is up to date.
-			vibe-d:textfilter 0.8.6: target for configuration "library" is up to date.
-			vibe-d:inet 0.8.6: target for configuration "library" is up to date.
-			vibe-d:tls 0.8.6: target for configuration "openssl-mscoff" is up to date.
-			vibe-d:http 0.8.6: target for configuration "library" is up to date.
-			vibe-d:mail 0.8.6: target for configuration "library" is up to date.
-			vibe-d:mongodb 0.8.6: target for configuration "library" is up to date.
-			vibe-d:redis 0.8.6: target for configuration "library" is up to date.
-			vibe-d:web 0.8.6: target for configuration "library" is up to date.
-			vibe-d 0.8.6: target for configuration "vibe-core" is up to date.
-			vibe-test ~master: building configuration "application"...
-			Linking...
-			To force a rebuild of up-to-date targets, run again with --force.
-			Copying files for vibe-d:tls...
-			Running .\vibe-test.exe
+			<span class="com">    Starting Performing "debug" build using ldc2 for x86_64.
+			  Up-to-date diet-ng 1.8.1: building configuration [library]
+			  Up-to-date taggedalgebraic 0.11.22: building configuration [library]
+			  Up-to-date eventcore 0.9.28: building configuration [winapi]
+			  Up-to-date vibe-container 1.3.0: building configuration [library]
+			  Up-to-date vibe-core 2.8.2: building configuration [winapi]
+			  Up-to-date vibe-inet:textfilter 1.0.0: building configuration [library]
+			  Up-to-date vibe-serialization 1.0.1: building configuration [library]
+			  Up-to-date vibe-stream 1.1.0: building configuration [library]
+			  Up-to-date vibe-inet 1.0.0: building configuration [library]
+			  Up-to-date mir-linux-kernel 1.0.1: building configuration [library]
+			  Up-to-date vibe-inet:crypto 1.0.0: building configuration [library]
+			  Up-to-date vibe-stream:tls 1.1.0: target for configuration [openssl-3.0] is up to date.
+			  Up-to-date vibe-http 1.0.0: building configuration [library]
+			  Up-to-date vibe-d:mail 0.10.0: building configuration [library]
+			  Up-to-date vibe-d:mongodb 0.10.0: building configuration [library]
+			  Up-to-date vibe-d:redis 0.10.0: building configuration [library]
+			  Up-to-date vibe-d:utils 0.10.0: building configuration [library]
+			  Up-to-date vibe-d:web 0.10.0: building configuration [library]
+			  Up-to-date vibe-d 0.10.0: building configuration [library]
+			    Building vibe-test ~master: building configuration [application]
+			     Linking vibe-test
+			    Finished To force a rebuild of up-to-date targets, run again with --force
+			             Copying files for vibe-stream:tls...
+			     Running vibe-test.exe
 			[main(----) INF] Listening for requests on http://[::1]:8080/
 			[main(----) INF] Listening for requests on http://127.0.0.1:8080/
 			[main(----) INF] Please open http://127.0.0.1:8080/ in your browser.</span>
@@ -115,7 +114,7 @@ block vibed.body
 				views/
 					layout.dt
 					index.dt
-				dub.json
+				dub.sdl
 		.caption Example structure of a web application project
 
 		p For a simple web application, the 'app.d' file could look similar to this one:
@@ -172,7 +171,7 @@ block vibed.body
 			license "AGPL-3.0"
 			homepage "http://appname.org"
 			authors "Hans Wurst"
-			dependency "vibe-d" version="~&gt;0.8.6"
+			dependency "vibe-d" version="~&gt;0.10.0"
 		.caption Example dub.sdl
 
 		p DUB also provides support for the original JSON based syntax. The filename to use is "dub.json" in this case:
@@ -185,7 +184,7 @@ block vibed.body
 				"homepage": "http://appname.org",
 				"authors": ["Hans Wurst"],
 				"dependencies": {
-					"vibe-d": "~&gt;0.8.6"
+					"vibe-d": "~&gt;0.10.0"
 				}
 			}
 		.caption Example dub.json
@@ -260,10 +259,10 @@ block vibed.body
 
 			h4 Selecting the TLS provider
 
-			p Two TLS providers are currently supported, OpenSSL and the D port of Botan. By default, OpenSSL 1.0.x is used to provide TLS/HTTPS functionality. To select a different provider, or to avoid compiling with TLS support enabled, the appropriate build configuration of the vibe-d:tls sub package needs to be selected:
+			p Two TLS providers are currently supported, OpenSSL and the D port of Botan. By default, OpenSSL 3.x is used to provide TLS/HTTPS functionality. To select a different provider, or to avoid compiling with TLS support enabled, the appropriate build configuration of the vibe-d:tls sub package needs to be selected:
 			pre.code.prettyprint.lang-sdl.
-				dependency "vibe-d:tls" version="*"
-				subConfiguration "vibe-d:tls" "botan"
+				dependency "vibe-stream:tls" version="~>1.0"
+				subConfiguration "vibe-stream:tls" "botan"
 
 			p When using a JSON based package recipe, the two lines have to be inserted as follows (the "&hellip;" are just placeholders for other possible directives):
 			pre.code.prettyprint.lang-json.
@@ -271,11 +270,11 @@ block vibed.body
 					&hellip;
 					"dependencies": {
 						&hellip;
-						"vibe-d:tls": "*"
+						"vibe-stream:tls": "~>1.0"
 					},
 					"subConfigurations": {
 						&hellip;
-						"vibe-d:tls": "botan"
+						"vibe-stream:tls": "botan"
 					}
 				}
 
@@ -284,11 +283,15 @@ block vibed.body
 					dt: code "notls"
 					dd Don't compile with TLS support
 					dt: code "openssl"
-					dd OpenSSL 1.0.x (default)
+					dd OpenSSL, auto-detect version (default)
+					dt: code "openssl-3.0"
+					dd OpenSSL 3.0.x (default in Windows)
 					dt: code "openssl-1.1"
 					dd OpenSSL 1.1.x
-					dt: code "openssl-0.9"
-					dd OpenSSL 0.9.8
+					dt: code "openssl-1.0"
+					dd OpenSSL 1.0.x
+					dt: code "openssl-static"
+					dd Uses the openssl-static package to provide static OpenSSL 3.x binaries on various platforms
 					dt: code "botan"
 					dd D port of Botan
 
@@ -852,7 +855,7 @@ block vibed.body
 						"Sönke Ludwig"
 					],
 					"dependencies": {
-						"vibe-d": "~&gt;0.7.23"
+						"vibe-d": "~&gt;0.10.0"
 					}
 				}
 			.caption Example: A dub.json file suitable for registration as a DUB package.
