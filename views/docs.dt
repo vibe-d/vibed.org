@@ -46,6 +46,7 @@ block vibed.navigation
 				li: a(href="#dub-publishing") Publishing on the DUB registry
 				li: a(href="#custom-main") The main function
 				li: a(href="#privilege-lowering") Privilege lowering
+				li: a(href="#event-loop-driver") Selecting the event loop driver
 				li: a(href="#compile-time-configuration") Compile time configuration
 				li: a(href="#handling-segmentation-faults") Handling segmentation faults on Linux
 		li.bs-separator: a(href="templates/diet") Diet Reference
@@ -918,6 +919,49 @@ block vibed.body
 			.caption Example vibe.conf file
 
 		section
+			h3#event-loop-driver Selecting the event loop driver
+
+			p By default, the native API for each platform are selected as the default for providing the asynchronous I/O and concurrency primitive support. However, you may select a particular implementation if there are more than one available for the target platform. In order to override the default, add a sub configuration directive to your dub.sdl (choosing the "select" driver in this case):
+
+			pre.code.prettyprint.lang-sdl.
+				dependency "eventcore" version="*"
+				subConfiguration "eventcore" "select"
+
+			p When using a JSON based package recipe, the two lines have to be inserted as follows (the "&hellip;" are just placeholders for other possible directives):
+			pre.code.prettyprint.lang-json.
+				{
+					&hellip;
+					"dependencies": {
+						&hellip;
+						"eventcore": "*"
+					},
+					"subConfigurations": {
+						&hellip;
+						"eventcore": "select"
+					}
+				}
+
+			p The following implementations are available:
+
+			dl
+				dt: code "epoll"
+				dd Uses the Linux <code>epoll</code> interface, default when building for Linux, including Android
+				dt: code "epoll-gaia"
+				dd Uses the Linux <code>epoll</code> interface and <code>getaddrinfo_a</code> for asynchronous DNS lookups
+				dt: code "cfrunloop"
+				dd On Darwin based systems (macOS/iOS), uses <code>CFRunLoop</code> in order to be compatible with GUI applications, default on macOS and iOS
+				dt: code "kqueue"
+				dd Uses the BSD <code>kqueue</code> interface, default on FreeBSD, also available on Darwin based systems
+				dt: code "winapi"
+				dd Windows API based implementation using <code>MsgWaitForMultipleObjectsEx</code> in order to be compatible with GUI applications, default on Windows
+				dt: code "select"
+				dd Available for all Posix compliant systems, as well as Windows, uses <code>select()</code> for non-blocking I/O, only recommended for otherwise unsupported platforms
+				dt: code "libasync"
+				dd Uses the libasync library to choose and wrap the operating system specific API
+				dt: code "generic"
+				dd Does not provide a driver, but instead requires calling <code>setupEventDriver</code> to set a custom driver implementation
+
+		section
 			h3#compile-time-configuration Compile time configuration
 
 			p There is a number of features that can be controlled via "versions". To defined a certain version, add the corresponding entry to the <code>"versions"</code> in your dub.json:
@@ -993,22 +1037,6 @@ block vibed.body
 				tr
 					td: code: del VibeUseOldOpenSSL
 					td #[del Disables the use of features introduced in OpenSSL 1.0.1 or later, most notably ECDH curve selection. Use this to link against old versions of the OpenSSL library.] Deprecated for 0.8.0 and up, see the #[a(href="#http-https") HTTPS section] instead
-
-				tr
-					td: code: del VibeLibevDriver
-					td #[del Enables the libev based event driver (not fully functional).] This driver has been removed.
-
-				tr
-					td: code: del VibeLibeventDriver
-					td #[del Enables the libevent based event driver (currently the default).] Do not use this version directly, but select the "libevent" configuration in your dub.json instead.
-
-				tr
-					td: code: del VibeWin32Driver
-					td #[del Enables the Win32 based event driver (provides GUI message support on Windows).] Do not use this version directly, but select the "win32" configuration in your dub.json instead.
-
-				tr
-					td: code: del VibeWinrtDriver
-					td #[del Enables the WinRT based event driver (not yet implemented).] This driver has been removed
 
 
 		section
