@@ -921,7 +921,7 @@ block vibed.body
 		section
 			h3#event-loop-driver Selecting the event loop driver
 
-			p By default, the native API for each platform are selected as the default for providing the asynchronous I/O and concurrency primitive support. However, you may select a particular implementation if there are more than one available for the target platform. In order to override the default, add a sub configuration directive to your dub.sdl (choosing the "select" driver in this case):
+			p By default, the native API for each platform is selected as the default for providing the asynchronous I/O and concurrency primitive support. However, you may select a particular implementation if there are more than one available for the target platform. In order to override the default, add a sub configuration directive to your dub.sdl (choosing the "select" driver in this case):
 
 			pre.code.prettyprint.lang-sdl.
 				dependency "eventcore" version="*"
