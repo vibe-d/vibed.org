@@ -540,6 +540,7 @@ block vibed.body
 				import vibe.http.router;
 				import vibe.http.server;
 				import vibe.web.web;
+				import vibe.vibe;
 
 				void main()
 				{
@@ -550,6 +551,7 @@ block vibed.body
 					settings.port = 8080;
 					settings.sessionStore = new MemorySessionStore;
 					listenHTTP(settings, router);
+					runApplication();
 				}
 
 				class WebInterface {
